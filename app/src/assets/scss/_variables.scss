@@ -1,0 +1,121 @@
+$color: (
+  colors-white: #fff,
+  colors-black: #000,
+  colors-gray: #8E8E8E,
+  colors-primary: #246BEB,
+  colors-secondary: #003675,
+  colors-point: #E71825,
+  colors-danger: #EB003B,
+  colors-warning: #FFB724,
+  colors-success: #008A1E,
+  colors-information: #2768FF,
+)!default;
+
+$primary-colors: (
+  primaryColors-5: #EFF5FF,
+  primaryColors-10: #D3E1FB,
+  primaryColors-20: #A7C4F7,
+  primaryColors-30: #7CA6F3,
+  primaryColors-40: #5089EF,
+  primaryColors-60: #1D56BC,
+  primaryColors-70: #16408D,
+  primaryColors-80: #0E2B5E,
+  primaryColors-90: #07152F,
+)!default;
+
+$secondary-colors: (
+  secondaryColors-5: #EDF1F5,
+  secondaryColors-10: #CDD7E4,
+  secondaryColors-20: #B4C4D6,
+  secondaryColors-30: #99B0CB,
+  secondaryColors-40: #2A5C96,
+  secondaryColors-60: #002B5E,
+  secondaryColors-70: #002046,
+  secondaryColors-80: #00162F,
+  secondaryColors-90: #000B17,
+)!default;
+
+$point-colors: (
+  pointColors-5: #FDF2F3,
+  pointColors-10: #FAD1D3,
+  pointColors-20: #F5A3A8,
+  pointColors-30: #F1747C,
+  pointColors-40: #EC4651,
+  pointColors-60: #B9131E,
+  pointColors-70: #8B0E16,
+  pointColors-80: #5C0A0F,
+  pointColors-90: #2E0507,
+)!default;
+
+$gray-colors: (
+  grayColors-5: #F8F8F8,
+  grayColors-10: #F0F0F0,
+  grayColors-20: #E4E4E4,
+  grayColors-30: #D8D8D8,
+  grayColors-40: #C6C6C6,
+  grayColors-50: #8E8E8E,
+  grayColors-60: #717171,
+  grayColors-70: #555555,
+  grayColors-80: #2D2D2D,
+  grayColors-90: #1D1D1D,
+)!default;
+
+$breakpoints: (
+  breakpoints-sm: 600px,
+  breakpoints-md: 1024px,
+  breakpoints-lg: 1920px,
+)!default;
+
+$spacers: (
+  spacers-0: 0,
+  spacers-default: .1rem,
+  spacers-default2: .2rem,
+  spacers-full: 100%,
+)!default;
+
+$font-size: (
+  display-sm: 4rem,
+  display-md: 5rem,
+  display-lg: 6.6rem,
+  heading-sm: 3.2rem,
+  heading-md: 4rem,
+  heading-lg: 5rem,
+  title-xsm: 1.5rem,
+  title-sm: 1.7rem,
+  title-md: 1.9rem,
+  title-lg: 2.1rem,
+  title-xlg: 2.5rem,
+  title-xxlg: 3.2rem,
+  body-sm: 1.5rem,
+  body-md: 1.7rem,
+  body-lg: 1.9rem,
+  link-sm: 1.5rem,
+  link-md: 1.7rem,
+  link-lg: 1.9rem,
+  detail-sm: 1.3rem,
+  detail-md: 1.5rem,
+  detail-lg: 1.7rem,
+  label-xsm: 1.3rem,
+  label-sm: 1.5rem,
+  label-md: 1.7rem,
+  label-lg: 1.9rem,
+)!default;
+
+$fws: (
+  fws-light: 300,
+  fws-normal: 400,
+  fws-medium: 500,
+  fws-bold: 700,
+  fws-bolder: 800,
+)!default;
+
+$border-radius: (
+  border-radius-1: .1rem,
+  border-radius-2: .2rem,
+  border-radius-4: .4rem,
+  border-radius-6: .6rem,
+  border-radius-8: .8rem,
+  border-radius-10: 1rem,
+  border-radius-12: 1.2rem,
+  border-radius-full: 100%,
+)!default;

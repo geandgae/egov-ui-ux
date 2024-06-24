@@ -88,12 +88,12 @@ StyleDictionary.registerFormat({
 
 // export
 module.exports = {
-  source: ["tokens/token.json"],
+  source: ["./app/src/assets/tokens/token.json"],
   platforms: {
     scss: {
       // transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem'],
       transformGroup: "scss",
-      buildPath: "build/scss/",
+      buildPath: "./app/src/assets/scss/",
       files: [
         {
           destination: "_variables.scss",
