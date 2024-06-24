@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* **** Layout  **** */
+#wrap {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+#wrap[class^=scroll] #header {
+	position: relative;
+	border-bottom: 0.1rem solid var(--krds-gray-30);
+}
+#wrap[class^=scroll] #header .header-in {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	border-bottom: 0.1rem solid var(--krds-gray-30);
+	background-color: var(--krds-white);
+	transition: transform ease 0.4s 0.01s;
+}
+#wrap.scroll-down #header .header-in {
+	transform: translateY(-100%);
+}
+#wrap.scroll-up #header .header-in {
+	transform: translateY(0);
+}
+
+.inner {
+	width: 100%;
+	max-width: 130rem;
+}
+
+#skip-nav a {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+#skip-nav a:hover, #skip-nav a:active, #skip-nav a:focus {
+	font-family: var(--krds--fz-body-md);
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+	text-decoration: none;
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: normal;
+	word-break: normal;
+	white-space: normal;
+	word-spacing: normal;
+	line-break: auto;
+}
+
+
+/* container */
+#container {
+	flex: 1;
+}
+#container > .inner {
+	min-height: 60rem;
+}
+
+
+@media (min-width: 1300px) {
+	.inner {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		margin: 0 auto;
+	}
+	.inner.narrow {
+		padding-left: var(--krds-spacer-30);
+		padding-right: var(--krds-spacer-30);
+	}
+	#header .head-body > .inner {
+		gap: var(--krds-spacer-2);
+		padding: var(--krds-spacer-1) 1rem var(--krds-spacer-4);
+	}
+	#header .head-body .btn-navi.all {
+		display: none;
+	}
+	#header .m-gnb-wrap {
+		display: none;
+	}
+	#container > .inner {
+		padding-top: var(--krds-spacer-20);
+		padding-bottom: var(--krds-spacer-20);
+	}
+
+}
+
+@media screen and (max-width: 1299px) {
+	.is-m-gnb {
+		overflow: hidden;
+	}
+	.inner {
+		padding-left: var(--krds-spacer-4);
+		padding-right: var(--krds-spacer-4);
+	}
+
+	/* container */
+	#container > .inner {
+		padding-top: var(--krds-spacer-16);
+		padding-bottom: var(--krds-spacer-16);
+	}
+
+}
+@media screen and (max-width: 1099px) {
+
+	/* container */
+	#container > .inner {
+		min-height: 50rem;
+	}
+
+}
+
+/*# sourceMappingURL=p_layout.css.map */

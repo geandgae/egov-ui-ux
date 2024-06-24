@@ -1,0 +1,197 @@
+@charset "UTF-8";
+/* ***** CONTENT ***** */
+.conts-area {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-spacer-10);
+  width: 100%;
+}
+
+.btn-wrap {
+  width: 100%;
+}
+
+/* 도움말 박스 */
+.helper-box {
+  width: 100%;
+  padding: var(--krds-spacer-6);
+  background-color: var(--krds-secondary-5);
+  border: 1px solid var(--krds-gray-20);
+  border-radius: 0.6rem;
+}
+.helper-box .helper-tit {
+  display: flex;
+  position: relative;
+  color: var(--krds-secondary);
+  font-weight: 700;
+}
+.helper-box .helper-tit::before {
+  margin-right: var(--krds-spacer-1);
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  margin-top: var(--krds-spacer-default2);
+  background-size: contain;
+}
+.helper-box .info-list > li + li {
+  margin-top: var(--krds-spacer-2);
+}
+.helper-box .helper-desc-wrap {
+  margin-top: var(--krds-spacer-5);
+  margin-left: var(--krds-spacer-6);
+}
+.helper-box .helper-desc-wrap .info-list:first-child {
+  margin-top: 0;
+}
+.helper-box.refer {
+  padding: var(--krds-spacer-4);
+  background-color: var(--krds-gray-5);
+}
+.helper-box.refer .helper-tit {
+  color: var(--krds-gray-90);
+}
+.helper-box.refer .helper-tit::before {
+  background-image: url(../img/pattern/content/ico_helper_info_trans.svg);
+}
+.helper-box.refer .helper-desc-wrap {
+  margin-top: var(--krds-spacer-4);
+}
+.helper-box.refer.pure {
+  padding: var(--krds-spacer-10);
+}
+.helper-box.refer.pure .helper-tit {
+  font-size: var(--krds-fz-title-md);
+}
+.helper-box.refer.pure .helper-tit::before {
+  display: none;
+}
+.helper-box.pure .helper-desc-wrap {
+  margin-top: var(--krds-spacer-10);
+  margin-left: 0;
+}
+
+.info-list .helper-box {
+  width: initial;
+  margin-left: calc(var(--krds-spacer-4) * -1);
+}
+.info-list > li > .helper-box {
+  margin-top: var(--krds-spacer-6);
+}
+.info-list > li .info-list > li > .helper-box {
+  margin-top: var(--krds-spacer-4);
+}
+
+.conts-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-spacer-18);
+  width: 100%;
+  color: var(--krds-gray-70);
+}
+.conts-wrap.scroll-check {
+  gap: 0;
+}
+.conts-wrap.scroll-check .section-link + .section-link {
+  padding-top: var(--krds-spacer-18);
+}
+.conts-wrap > * {
+  width: 100%;
+}
+.conts-wrap .conts-wrap {
+  gap: var(--krds-spacer-10);
+}
+.conts-wrap .conts-wrap .conts-wrap {
+  gap: var(--krds-spacer-8);
+}
+.conts-wrap .conts-wrap .conts-wrap .sec-tit {
+  font-size: var(--krds-fz-title-md);
+}
+.conts-wrap .conts-wrap .conts-wrap .conts-wrap {
+  gap: var(--krds-spacer-6);
+}
+.conts-wrap .conts-wrap .conts-wrap .conts-wrap .sec-tit {
+  font-size: var(--krds-fz-title-sm);
+}
+.conts-wrap .sec-tit {
+  color: var(--krds-gray-90);
+}
+
+.bn-img img {
+  max-width: 100%;
+}
+.no-data {
+  padding: var(--krds-spacer-10) 0;
+  border-bottom: 1px solid var(--krds-gray-30);
+  font-weight: 500;
+  text-align: center;
+}
+.nurizip-bn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--krds-spacer-10);
+  position: relative;
+  width: 100%;
+}
+.nurizip-bn {
+  flex: 1 1 0px;
+  min-width: 0;
+}
+.nurizip-bn .info-list {
+  margin-top: var(--krds-spacer-6);
+}
+
+@media (max-width: 1099px) {
+  /* ** 로그인 방식 선택 ** */
+  .conts-area {
+    gap: var(--krds-spacer-8);
+  }
+
+  /* 도움말 박스 */
+  .helper-box {
+    padding: var(--krds-spacer-6) var(--krds-spacer-4);
+  }
+  .helper-box .helper-desc-wrap {
+    margin-top: var(--krds-spacer-4);
+  }
+  .helper-box .info-list > li + li {
+    margin-top: var(--krds-spacer-1);
+  }
+  .helper-box.refer.pure {
+    padding: var(--krds-spacer-6);
+  }
+  .helper-box.pure .helper-desc-wrap {
+    margin-top: var(--krds-spacer-6);
+  }
+  .conts-wrap {
+    gap: var(--krds-spacer-10);
+  }
+  .conts-wrap.scroll-check {
+    gap: 0;
+  }
+  .conts-wrap.scroll-check .section-link + .section-link {
+    padding-top: var(--krds-spacer-10);
+  }
+  .conts-wrap .conts-wrap {
+    gap: var(--krds-spacer-8);
+  }
+  .bn-img img {
+    height: auto;
+  }
+  .no-data {
+    padding: var(--krds-spacer-8) 0;
+  }
+  .nurizip-bn-wrap {
+    flex-direction: column;
+    gap: var(--krds-spacer-8);
+  }
+  .nurizip-bn {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=p_content1.css.map */
