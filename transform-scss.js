@@ -13,20 +13,6 @@ function transformName(prop, removeFirstPathSegment) {
   }
 }
 
-// nestedTransformer
-// function nestedTransformer(prop) {
-//   const { value } = prop.original;
-//   const nestedKeys = Object.keys(value);
-//   const nestedVars = nestedKeys.map((key) => {
-//     const items = value[key];
-//     const nestedItems = Object.entries(items).map(([subKey, subValue]) => {
-//       return `"${key}-${subKey}": "${subValue}",`;
-//     });
-//     return nestedItems.join("\n");
-//   });
-//   return nestedVars.join("\n");
-// }
-
 // custom
 StyleDictionary.registerFormat({
   name: "custom/scss-format",
@@ -47,44 +33,10 @@ StyleDictionary.registerFormat({
       })
       .join("\n\n");
 
-    return scssContent;
+    // return scssContent;
+    return `@charset "utf-8";\n\n${scssContent}`;
   }
 });
-
-// StyleDictionary.registerFormat({
-//   name: "custom/scss-format",
-//   formatter: function (dictionary) {
-//     const typeGroups = dictionary.allProperties.reduce((acc, prop) => {
-//       const type = prop.type;
-//       if (!acc[type]) {
-//         acc[type] = [];
-//       }
-//       const name = transformName(prop, "");
-//       let value = prop.value;
-//       if (typeof value === "object") {
-//         value = `(
-//           ${nestedTransformer(prop)}
-//         )`;
-//       }
-//       if (typeof value === "string") {
-//         acc[type].push(`  ${name}: ${value},`);
-//       } else if (typeof value === "number") {
-//         acc[type].push(`  ${name}: ${value};`);
-//       } else {
-//         // Handle other types if necessary
-//         acc[type].push(`  // ${name}: ${value};`);
-//       }
-//       return acc;
-//     }, {});
-
-//     const scssContent = Object.entries(typeGroups)
-//       .map(([type, tokens]) => {
-//         return `$${type}: (\n${tokens.join("\n")}\n)!default;`;
-//       })
-//       .join("\n\n");
-//     return scssContent;
-//   },
-// });
 
 // export
 module.exports = {
@@ -93,7 +45,7 @@ module.exports = {
     scss: {
       // transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem'],
       transformGroup: "scss",
-      buildPath: "./app/src/assets/scss/",
+      buildPath: "./app/src/assets/scss/abstracts/",
       files: [
         {
           destination: "_variables.scss",

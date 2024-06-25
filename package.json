@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "clean": "rm -rf build",
-    "build-token": "style-dictionary build --config ./transform-scss.js"
+    "build-token": "style-dictionary build --config ./transform-scss.js",
+    "start": "gulp"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
