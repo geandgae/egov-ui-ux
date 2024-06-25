@@ -1,0 +1,293 @@
+:root {
+  --krds-btn-h-xsm: 3.2rem;
+  --krds-btn-h-sm: 4rem;
+  --krds-btn-h-md: 4.8rem;
+  --krds-btn-h-lg: 5.6rem;
+  --krds-btn-h-xlg: 6.4rem;
+  --krds-btn-px-xsm: 1rem;
+  --krds-btn-px-sm: 1.2rem;
+  --krds-btn-px-md: 1.6rem;
+  --krds-btn-px-lg: 2rem;
+  --krds-btn-px-xlg: 2.4rem;
+  --krds-btn-rd-xsm: .6rem;
+  --krds-btn-rd-sm: .6rem;
+  --krds-btn-rd-md: .8rem;
+  --krds-btn-rd-lg: .8rem;
+  --krds-btn-rd-xlg: .8rem;
+  --krds-btn-fz-xsm: 1.5rem;
+  --krds-btn-fz-sm: 1.7rem;
+  --krds-btn-fz-md: 1.7rem;
+  --krds-btn-fz-lg: 1.9rem;
+  --krds-btn-fz-xlg: 1.9rem;
+  --krds-btnChipFill-h-md: 3.2rem;
+  --krds-btnChipFill-h-lg: 3.6rem;
+  --krds-btnChipFill-pd-md: 0rem 1.2rem;
+  --krds-btnChipFill-pd-lg: 0rem 1.2rem;
+  --krds-btnChipFill-rd-md: .6rem;
+  --krds-btnChipFill-rd-lg: .6rem;
+  --krds-btnChipFill-fz-md: 1.5rem;
+  --krds-btnChipFill-fz-lg: 1.7rem;
+  --krds-btnChipOutline-h-md: 3.2rem;
+  --krds-btnChipOutline-h-lg: 3.6rem;
+  --krds-btnChipOutline-pd-md: 0rem 1.2rem;
+  --krds-btnChipOutline-pd-lg: 0rem 1.2rem;
+  --krds-btnChipOutline-rd-md: 10rem;
+  --krds-btnChipOutline-rd-lg: 10rem;
+  --krds-btnChipOutline-fz-md: 1.5rem;
+  --krds-btnChipOutline-fz-lg: 1.7rem;
+  --krds-btnChipOutline-gap-md: .2rem;
+  --krds-btnChipOutline-gap-lg: .2rem;
+  --krds-btnChipOutline-size-md: 1.2rem;
+  --krds-btnChipOutline-size-lg: 1.6rem;
+}
+.btn.xsm {
+  height: 3.2rem;
+  padding: 0 var(--krds-btn-px-xsm);
+  border-radius: var(--krds-btn-rd-xsm);
+  font-size: var(--krds-btn-fz-xsm);
+}
+
+.btn.sm {
+  height: 4rem;
+  padding: 0 var(--krds-btn-px-sm);
+  border-radius: var(--krds-btn-rd-sm);
+  font-size: var(--krds-btn-fz-sm);
+}
+
+.btn.md {
+  height: 4.8rem;
+  padding: 0 var(--krds-btn-px-md);
+  border-radius: var(--krds-btn-rd-md);
+  font-size: var(--krds-btn-fz-md);
+}
+
+.btn.lg {
+  height: 5.6rem;
+  padding: 0 var(--krds-btn-px-lg);
+  border-radius: var(--krds-btn-rd-lg);
+  font-size: var(--krds-btn-fz-lg);
+}
+
+.btn.xlg {
+  height: 6.4rem;
+  padding: 0 var(--krds-btn-px-xlg);
+  border-radius: var(--krds-btn-rd-xlg);
+  font-size: var(--krds-btn-fz-xlg);
+}
+
+.btn-chip-fill.md {
+  height: var(--krds-btnChipFill-h-md);
+  padding: var(--krds-btnChipFill-pd-md);
+  border-radius: var(--krds-btnChipFill-rd-md);
+  font-size: var(--krds-btnChipFill-fz-md);
+}
+
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill.lg {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-fill {
+  height: var(--krds-btnChipFill-h-lg);
+  padding: var(--krds-btnChipFill-pd-lg);
+  border-radius: var(--krds-btnChipFill-rd-lg);
+  font-size: var(--krds-btnChipFill-fz-lg);
+}
+.btn-chip-outline.md {
+  height: var(--krds-btnChipOutline-h-md);
+  padding: var(--krds-btnChipOutline-pd-md);
+  border-radius: var(--krds-btnChipOutline-rd-md);
+  font-size: var(--krds-btnChipOutline-fz-md);
+}
+.btn-chip-outline.md .btn-del {
+  width: var(--krds-btnChipOutline-size-md);
+  height: var(--krds-btnChipOutline-size-md);
+}
+
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline.lg {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline.lg .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+}
+
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}
+.btn-chip-outline {
+  height: var(--krds-btnChipOutline-h-lg);
+  padding: var(--krds-btnChipOutline-pd-lg);
+  border-radius: var(--krds-btnChipOutline-rd-lg);
+  font-size: var(--krds-btnChipOutline-fz-lg);
+}
+.btn-chip-outline .btn-del {
+  width: var(--krds-btnChipOutline-size-lg);
+  height: var(--krds-btnChipOutline-size-lg);
+  background-size: contain;
+}

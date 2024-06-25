@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 // abstracts
-// @import './abstracts/variables.scss';
+@import './abstracts/variables.scss';
 @import './abstracts/function.scss';
 @import './abstracts/mixin.scss';
 
-// layout
+// components
+@import './components/buttons.scss';

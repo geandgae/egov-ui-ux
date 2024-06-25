@@ -10,7 +10,7 @@
 
 :root {
 	/*color*/
-	@include generate-variables($color, $prefix);
+	@include generate-variables($colors, $prefix);
 	/*primary*/
 	@include generate-variables($primary-colors, $prefix, "test-");
 	/*secondary*/

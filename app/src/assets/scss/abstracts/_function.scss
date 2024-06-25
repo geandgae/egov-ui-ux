@@ -1,5 +1,25 @@
 @charset "utf-8";
 
+// px-to-rem
+@function px-to-rem($px, $base: 16px) {
+  @return calc(($px / $base) * 1rem);
+}
+
+// remove-str
+@function remove-str($string, $start: 2) {
+  @return str-slice($string, $start);
+}
+
+// tint-color
+@function tint-color($color, $weight) {
+	@return mix(white, $color, $weight);
+}
+
+// shade-color
+@function shade-color($color, $weight) {
+	@return mix(black, $color, $weight);
+}
+
 // svg base64
 @function icon($iconName, $color:555555) {
   $iconList: ( 
@@ -9,7 +29,11 @@
   @return url("data:image/svg+xml;charset=utf8,#{$icon}");
 }
 
-// px-to-rem
-@function px-to-rem($px, $base: 16px) {
-  @return $px / $base * 1rem;
-}
+// get-path
+// @function get-path($path) {
+//   @if $environment == 'development' {
+//     @return 'dev/' + $path;
+//   } @else {
+//     @return 'prod/' + $path;
+//   }
+// }

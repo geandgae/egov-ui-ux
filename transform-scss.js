@@ -9,6 +9,7 @@ function transformName(prop, removeFirstPathSegment) {
     return path.join("-");
   } else {
     // return prop.path.slice(1).join("-"); // 첫 번째 요소 제외
+    // return prop.path.slice(-1).join("-"); // 마지막
     return prop.path.slice(-2).join("-"); // 끝에서 두 번째 
   }
 }

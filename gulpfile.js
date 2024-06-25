@@ -19,7 +19,7 @@ gulp.task("clean", function () {
   });
 });
 
-// SCSS 컴파일
+// sass
 gulp.task("sass", function() {
   return gulp.src(pathSrc.scss + "/*.scss")
     .pipe(sass().on("error", sass.logError))
@@ -42,8 +42,9 @@ gulp.task("server", function () {
   });
   // watch
   gulp.watch(pathSrc.scss + "/**/*", gulp.series("sass"));
-  gulp.watch(pathSrc.root + "/**/*", gulp.series("rootWatch")).on('change', browserSync.reload);
+  gulp.watch(pathSrc.root + "/**/*", gulp.series("rootWatch")).on("change", browserSync.reload);
 });
 
 // gulp start
 gulp.task("default", gulp.series("clean", "sass", "server"));
+// gulp.task("default", gulp.series("clean", gulp.parallel("sass:root", "sass:contents"), "server"));
