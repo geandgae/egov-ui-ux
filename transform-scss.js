@@ -29,12 +29,12 @@ StyleDictionary.registerFormat({
 
     const scssContent = Object.entries(typeGroups)
       .map(([type, tokens]) => {
-        return `$${type}: (\n${tokens.join("\n")}\n)!default;`;
+        return `//${type}\n$${type}: (\n${tokens.join("\n")}\n)!default;`;
       })
       .join("\n\n");
 
     // return scssContent;
-    return `@charset "utf-8";\n\n${scssContent}`;
+    return `@charset "utf-8";\n\n//prefix\n$prefix: krds- !default;\n\n${scssContent}`;
   }
 });
 

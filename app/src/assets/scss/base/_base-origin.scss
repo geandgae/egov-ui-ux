@@ -1,7 +1,5 @@
 @charset "utf-8";
 
-//prefix
-$prefix: krds- !default;
 
 // generate-variables
 @mixin generate-variables($map, $prefix: '', $suffix: '') {

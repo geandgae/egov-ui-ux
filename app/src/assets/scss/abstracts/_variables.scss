@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+//prefix
+$prefix: krds- !default;
+
+//color
 $color: (
   colors-white: #fff,
   colors-black: #000,
@@ -13,6 +17,7 @@ $color: (
   colors-information: #2768FF,
 )!default;
 
+//primary-colors
 $primary-colors: (
   primaryColors-5: #EFF5FF,
   primaryColors-10: #D3E1FB,
@@ -25,6 +30,7 @@ $primary-colors: (
   primaryColors-90: #07152F,
 )!default;
 
+//secondary-colors
 $secondary-colors: (
   secondaryColors-5: #EDF1F5,
   secondaryColors-10: #CDD7E4,
@@ -37,6 +43,7 @@ $secondary-colors: (
   secondaryColors-90: #000B17,
 )!default;
 
+//point-colors
 $point-colors: (
   pointColors-5: #FDF2F3,
   pointColors-10: #FAD1D3,
@@ -49,6 +56,7 @@ $point-colors: (
   pointColors-90: #2E0507,
 )!default;
 
+//gray-colors
 $gray-colors: (
   grayColors-5: #F8F8F8,
   grayColors-10: #F0F0F0,
@@ -62,12 +70,14 @@ $gray-colors: (
   grayColors-90: #1D1D1D,
 )!default;
 
+//breakpoints
 $breakpoints: (
   breakpoints-sm: 600px,
   breakpoints-md: 1024px,
   breakpoints-lg: 1920px,
 )!default;
 
+//spacers
 $spacers: (
   spacers-0: 0,
   spacers-default: .1rem,
@@ -75,6 +85,7 @@ $spacers: (
   spacers-full: 100%,
 )!default;
 
+//font-size
 $font-size: (
   display-sm: 4rem,
   display-md: 5rem,
@@ -103,6 +114,7 @@ $font-size: (
   label-lg: 1.9rem,
 )!default;
 
+//fws
 $fws: (
   fws-light: 300,
   fws-normal: 400,
@@ -111,6 +123,7 @@ $fws: (
   fws-bolder: 800,
 )!default;
 
+//border-radius
 $border-radius: (
   border-radius-1: .1rem,
   border-radius-2: .2rem,
