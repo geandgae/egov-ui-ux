@@ -1,7 +1,7 @@
 # egov-ui-ux
 
+* 스타일 폴더
 ```
-
 scss/
 |-- abstracts/
 |   |-- _functions.scss       // 함수 정의
@@ -30,5 +30,4 @@ scss/
 |-- components.scss           // 컴포넌트
 |-- contents.scss             // 페이지
 |-- default.scss              // css 배포 경로
-
 ```
