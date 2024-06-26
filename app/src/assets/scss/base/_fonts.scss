@@ -18,6 +18,6 @@ $path-font: '../fonts/';
 }
 
 // font-face
-@include font-face('Pretendard GOV', 400, 'Pretendard GOV-Regular.subset');
-@include font-face('Pretendard GOV', 500, 'Pretendard GOV-Medium.subset');
-@include font-face('Pretendard GOV', 700, 'Pretendard GOV-Bold.subset');
+@include font-face('Pretendard GOV', 400, 'PretendardGOV-Regular.subset');
+@include font-face('Pretendard GOV', 500, 'PretendardGOV-Medium.subset');
+@include font-face('Pretendard GOV', 700, 'PretendardGOV-Bold.subset');
