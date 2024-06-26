@@ -64,63 +64,63 @@ StyleDictionary.registerFormat({
   }
 });
 
-StyleDictionary.registerFormat({
-  name: "custom/scss-format2",
-  formatter: function(dictionary) {
-    const typeGroups = dictionary.allProperties.reduce((acc, prop) => {
-      // const type = prop.type;
-      // const type = prop.path[0];
-      const type = prop.description;
-      if (type !== undefined) { 
-        if (!acc[type]) {
-          acc[type] = [];
-        }
-        const name = transformName(prop);
-        acc[type].push(`  ${name}: ${prop.value},`);
-      }
-      return acc;
-    }, {});
+// StyleDictionary.registerFormat({
+//   name: "custom/scss-format2",
+//   formatter: function(dictionary) {
+//     const typeGroups = dictionary.allProperties.reduce((acc, prop) => {
+//       // const type = prop.type;
+//       // const type = prop.path[0];
+//       const type = prop.description;
+//       if (type !== undefined) { 
+//         if (!acc[type]) {
+//           acc[type] = [];
+//         }
+//         const name = transformName(prop);
+//         acc[type].push(`  ${name}: ${prop.value},`);
+//       }
+//       return acc;
+//     }, {});
 
-    const scssContent = Object.entries(typeGroups)
-      .map(([type, tokens]) => {
-        return `//${type}\n$${type}: (\n${tokens.join("\n")}\n)!default;`;
-      })
-      .join("\n\n");
+//     const scssContent = Object.entries(typeGroups)
+//       .map(([type, tokens]) => {
+//         return `//${type}\n$${type}: (\n${tokens.join("\n")}\n)!default;`;
+//       })
+//       .join("\n\n");
 
-    // return scssContent;
-    return preset + scssContent;
-  }
-});
+//     // return scssContent;
+//     return preset + scssContent;
+//   }
+// });
 
 // export
 module.exports = {
   source: [
-    "./app/src/assets/tokens/**/*",
+    // "./app/src/assets/tokens/**/*",
     // "./app/src/assets/tokens/token.json",
     // "./app/src/assets/tokens/design-token.json"
+    "./app/src/assets/tokens/local-variables.tokens.json",
+    "./app/src/assets/tokens/style-typography.tokens.json"
   ],
   platforms: {
     scss1: {
-      // transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem'],
       transformGroup: "scss",
       buildPath: "./app/src/assets/scss/abstracts/",
       files: [
         {
           destination: "_variables.scss",
           format: "custom/scss-format",
-          
         },
       ],
     },
-    scss2: {
-      transformGroup: "scss",
-      buildPath: "./app/src/assets/scss/abstracts/",
-      files: [
-        {
-          destination: "_variables-test.scss",
-          format: "custom/scss-format2",
-        },
-      ],
-    },
+    // scss2: {
+    //   transformGroup: "scss",
+    //   buildPath: "./app/src/assets/scss/abstracts/",
+    //   files: [
+    //     {
+    //       destination: "_variables-test.scss",
+    //       format: "custom/scss-format2",
+    //     },
+    //   ],
+    // },
   },
 };

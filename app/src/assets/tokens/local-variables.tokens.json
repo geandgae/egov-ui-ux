@@ -1111,7 +1111,7 @@
       }
     }
   },
-  "fonttest": {
+  "font-test": {
     "helvetica-neue": {
       "small": {
         "type": "dimension",
