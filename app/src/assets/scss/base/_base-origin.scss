@@ -12,13 +12,13 @@
 	/*color*/
 	@include generate-variables($colors, $prefix);
 	/*primary*/
-	@include generate-variables($primary-colors, $prefix, "test-");
+	@include generate-variables($primaryColors, $prefix, "test-");
 	/*secondary*/
-	@include generate-variables($secondary-colors, $prefix);
+	@include generate-variables($secondaryColors, $prefix);
 	/*point*/
-	@include generate-variables($point-colors, $prefix);
+	@include generate-variables($pointColors, $prefix);
 	/*gray*/
-	@include generate-variables($gray-colors, $prefix);
+	@include generate-variables($grayColors, $prefix);
 	/*breakpoints*/
 	@include generate-variables($breakpoints, $prefix);
 	/*spacers*/

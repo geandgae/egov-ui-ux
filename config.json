@@ -1,0 +1,13 @@
+{
+  "source": ["./app/src/assets/tokens/design-token.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "./app/src/assets/scss/abstracts/",
+      "files": [{
+        "destination": "_variables.scss",
+        "format": "scss/variables"
+      }]
+    }
+  }
+}

@@ -27,12 +27,6 @@ gulp.task("sass", function() {
     .pipe(browserSync.stream());
 });
 
-// watch 경로
-gulp.task("rootWatch", function() {
-  return gulp.src(pathSrc.root + "/**/*")
-    .pipe(browserSync.stream());
-});
-
 // server
 gulp.task("server", function () {
   browserSync.init({
@@ -41,8 +35,8 @@ gulp.task("server", function () {
     }
   });
   // watch
-  gulp.watch(pathSrc.scss + "/**/*", gulp.series("sass"));
-  gulp.watch(pathSrc.root + "/**/*", gulp.series("rootWatch")).on("change", browserSync.reload);
+  gulp.watch(pathSrc.scss + "/**/*", gulp.series("sass"))
+  gulp.watch(pathSrc.root + "/**/*",).on("change", browserSync.reload);
 });
 
 // gulp start

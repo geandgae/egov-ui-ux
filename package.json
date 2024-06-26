@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "clean": "rm -rf build",
+    "build-default": "style-dictionary build --config ./config.json",
     "build-token": "style-dictionary build --config ./transform-scss.js",
     "start": "gulp"
   },

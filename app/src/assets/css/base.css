@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Pretendard GOV";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/Pretendard GOV-Regular.subset.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard GOV";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/Pretendard GOV-Medium.subset.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard GOV";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/Pretendard GOV-Bold.subset.woff") format("woff");
+}
 :root {
   /*color*/
   --krds-colors-white: #fff;
@@ -61,31 +79,31 @@
   --krds-spacers-default2: 0.2rem;
   --krds-spacers-full: 100%;
   /*font-size*/
-  --krds-display-sm: 4rem;
-  --krds-display-md: 5rem;
-  --krds-display-lg: 6.6rem;
-  --krds-heading-sm: 3.2rem;
-  --krds-heading-md: 4rem;
-  --krds-heading-lg: 5rem;
-  --krds-title-xsm: 1.5rem;
-  --krds-title-sm: 1.7rem;
-  --krds-title-md: 1.9rem;
-  --krds-title-lg: 2.1rem;
-  --krds-title-xlg: 2.5rem;
-  --krds-title-xxlg: 3.2rem;
-  --krds-body-sm: 1.5rem;
-  --krds-body-md: 1.7rem;
-  --krds-body-lg: 1.9rem;
-  --krds-link-sm: 1.5rem;
-  --krds-link-md: 1.7rem;
-  --krds-link-lg: 1.9rem;
-  --krds-detail-sm: 1.3rem;
-  --krds-detail-md: 1.5rem;
-  --krds-detail-lg: 1.7rem;
-  --krds-label-xsm: 1.3rem;
-  --krds-label-sm: 1.5rem;
-  --krds-label-md: 1.7rem;
-  --krds-label-lg: 1.9rem;
+  --krds-font-size-sizes-display-sm: 4rem;
+  --krds-font-size-sizes-display-md: 5rem;
+  --krds-font-size-sizes-display-lg: 6.6rem;
+  --krds-font-size-sizes-heading-sm: 3.2rem;
+  --krds-font-size-sizes-heading-md: 4rem;
+  --krds-font-size-sizes-heading-lg: 5rem;
+  --krds-font-size-sizes-title-xsm: 1.5rem;
+  --krds-font-size-sizes-title-sm: 1.7rem;
+  --krds-font-size-sizes-title-md: 1.9rem;
+  --krds-font-size-sizes-title-lg: 2.1rem;
+  --krds-font-size-sizes-title-xlg: 2.5rem;
+  --krds-font-size-sizes-title-xxlg: 3.2rem;
+  --krds-font-size-sizes-body-sm: 1.5rem;
+  --krds-font-size-sizes-body-md: 1.7rem;
+  --krds-font-size-sizes-body-lg: 1.9rem;
+  --krds-font-size-sizes-link-sm: 1.5rem;
+  --krds-font-size-sizes-link-md: 1.7rem;
+  --krds-font-size-sizes-link-lg: 1.9rem;
+  --krds-font-size-sizes-detail-sm: 1.3rem;
+  --krds-font-size-sizes-detail-md: 1.5rem;
+  --krds-font-size-sizes-detail-lg: 1.7rem;
+  --krds-font-size-sizes-label-xsm: 1.3rem;
+  --krds-font-size-sizes-label-sm: 1.5rem;
+  --krds-font-size-sizes-label-md: 1.7rem;
+  --krds-font-size-sizes-label-lg: 1.9rem;
   /*fws*/
   --krds-fws-light: 300;
   --krds-fws-normal: 400;
@@ -101,23 +119,4 @@
   --krds-border-radius-10: 1rem;
   --krds-border-radius-12: 1.2rem;
   --krds-border-radius-full: 100%;
-}
-
-@font-face {
-  font-family: "Pretendard GOV";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../fonts/Pretendard GOV-Regular.subset.woff") format("woff");
-}
-@font-face {
-  font-family: "Pretendard GOV";
-  font-weight: 500;
-  font-style: normal;
-  src: url("../fonts/Pretendard GOV-Medium.subset.woff") format("woff");
-}
-@font-face {
-  font-family: "Pretendard GOV";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../fonts/Pretendard GOV-Bold.subset.woff") format("woff");
 }
