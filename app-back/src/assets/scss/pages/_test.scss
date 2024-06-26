@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+// init
+$icons: ();
+$shades: ();
+$tints: ();
+
+// 색상 키 color만
+$color-keys: map-keys($colors);
+
+@each $key in $color-keys {
+  $color-value: map-get($colors, $key);
+  $icon-color: remove-str("#{$color-value}");
+  $icons: append($icons, icon(check, $icon-color));
+  $shades: append($shades, shade-color($color-value, 20%));
+  $tints: append($tints, tint-color($color-value, 20%));
+}
+
+// 모든 색상 맵의 키 리스트 자동 생성 및 병합
+// $color-keys: append(map-keys($color), append(map-keys($primary-colors), map-keys($secondary-colors)));
+// $color-keys: map-keys($color);
+// $color-keys: append($color-keys, map-keys($primary-colors));
+// $color-keys: append($color-keys, map-keys($secondary-colors));
+
+// @each $key in $color-keys {
+//   $color-value: null; // 초기값 설정
+//   @if map-has-key($color, $key) {
+//     $color-value: map-get($color, $key);
+//   }
+//   @else if map-has-key($primary-colors, $key) {
+//     $color-value: map-get($primary-colors, $key);
+//   }
+//   @else if map-has-key($secondary-colors, $key) {
+//     $color-value: map-get($secondary-colors, $key);
+//   }
+//   // 가져온 값으로 아이콘 리스트 및 음영/색조 리스트 구성
+//   @if $color-value {
+//     $icon-color: remove-str("#{$color-value}");
+//     $icons: append($icons, icon(check, $icon-color));
+//     $shades: append($shades, shade-color($color-value, 20%));
+//     $tints: append($tints, tint-color($color-value, 20%));
+//   }
+// }
+
+.test-wrap {
+  & > div {
+    margin-top: px-to-rem(20px);
+  }
+}
+
+// 아이콘 클래스 적용
+.test-icon {
+  display: flex;
+  align-items: center;
+  @include ir;
+  & .icon {
+    $size: px-to-rem(40px);
+    @include size($size);
+    @for $i from 1 through length($icons) {
+      &.check-#{$i} {
+        background-image: nth($icons, $i);
+      }
+    }
+  }
+}
+
+// 색상 혼합 및 음영/색조 클래스 적용
+.test-mix {
+  display: flex;
+  align-items: center;
+  & > div {
+    width: px-to-rem(100px);
+    height: px-to-rem(100px);
+  }
+  @for $i from 1 through length($shades) {
+    .mix-shade-#{$i} {
+      background-color: nth($shades, $i);
+    }
+    .mix-tint-#{$i} {
+      background-color: nth($tints, $i);
+    }
+  }
+}
+
+.test-text {
+  max-width: 80%;
+  @include ellipsis;
+}
+
+.test-img {
+  $size: px-to-rem(40px);
+  @include size($size);
+  @include back-img("logo.png");
+}

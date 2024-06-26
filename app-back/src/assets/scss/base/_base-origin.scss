@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+// generate-variables
+@mixin generate-variables($map, $prefix: '', $suffix: '') {
+	@each $key, $value in $map {
+		--#{$prefix}#{$suffix}#{$key}: #{$value};
+	}
+}
+
+:root {
+	/*color*/
+	@include generate-variables($colors, $prefix);
+	/*primary*/
+	@include generate-variables($primaryColors, $prefix);
+	/*secondary*/
+	@include generate-variables($secondaryColors, $prefix);
+	/*point*/
+	@include generate-variables($pointColors, $prefix);
+	/*gray*/
+	@include generate-variables($grayColors, $prefix);
+	/*breakpoints*/
+	@include generate-variables($breakpoints, $prefix);
+	/*spacers*/
+	@include generate-variables($spacers, $prefix);
+	/*font-size*/
+	@include generate-variables($font-size, $prefix);
+	/*fws*/
+	@include generate-variables($fws, $prefix);
+	/*border-radius*/
+	@include generate-variables($border-radius, $prefix);
+}

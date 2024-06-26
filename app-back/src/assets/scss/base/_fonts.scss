@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+// path-font
+$path-font: '../fonts/';
+
+// font-face mixin
+@mixin font-face($family, $weight, $filename, $type: woff, $style: normal,) {
+  @font-face {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: $style;
+    @if $type == woff {
+        src: url('#{$path-font}#{$filename}.woff') format('woff');
+    } @else {
+        src: url('#{$path-font}#{$filename}.ttf') format('truetype');
+    }
+  }
+}
+
+// font-face
+@include font-face('Pretendard GOV', 400, 'PretendardGOV-Regular.subset');
+@include font-face('Pretendard GOV', 500, 'PretendardGOV-Medium.subset');
+@include font-face('Pretendard GOV', 700, 'PretendardGOV-Bold.subset');
