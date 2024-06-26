@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @font-face {
   font-family: "Pretendard GOV";
   font-weight: 400;
@@ -29,15 +31,15 @@
   --krds-colors-success: #008A1E;
   --krds-colors-information: #2768FF;
   /*primary*/
-  --krds-test-primaryColors-5: #EFF5FF;
-  --krds-test-primaryColors-10: #D3E1FB;
-  --krds-test-primaryColors-20: #A7C4F7;
-  --krds-test-primaryColors-30: #7CA6F3;
-  --krds-test-primaryColors-40: #5089EF;
-  --krds-test-primaryColors-60: #1D56BC;
-  --krds-test-primaryColors-70: #16408D;
-  --krds-test-primaryColors-80: #0E2B5E;
-  --krds-test-primaryColors-90: #07152F;
+  --krds-primaryColors-5: #EFF5FF;
+  --krds-primaryColors-10: #D3E1FB;
+  --krds-primaryColors-20: #A7C4F7;
+  --krds-primaryColors-30: #7CA6F3;
+  --krds-primaryColors-40: #5089EF;
+  --krds-primaryColors-60: #1D56BC;
+  --krds-primaryColors-70: #16408D;
+  --krds-primaryColors-80: #0E2B5E;
+  --krds-primaryColors-90: #07152F;
   /*secondary*/
   --krds-secondaryColors-5: #EDF1F5;
   --krds-secondaryColors-10: #CDD7E4;

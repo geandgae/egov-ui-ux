@@ -4,8 +4,10 @@
 const gulp = require("gulp");
 const sass = require("gulp-dart-sass");
 const browserSync = require("browser-sync").create();
+const header = require('gulp-header');
 
 // path
+const charset = '@charset "utf-8";\n\n';
 const pathSrc = {
   root: "./app/src",
   scss: "./app/src/assets/scss",
@@ -23,6 +25,7 @@ gulp.task("clean", function () {
 gulp.task("sass", function() {
   return gulp.src(pathSrc.scss + "/*.scss")
     .pipe(sass().on("error", sass.logError))
+    .pipe(header(charset))
     .pipe(gulp.dest(pathSrc.css))
     .pipe(browserSync.stream());
 });

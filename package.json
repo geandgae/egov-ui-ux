@@ -13,6 +13,7 @@
     "del": "^7.1.0",
     "gulp": "^5.0.0",
     "gulp-dart-sass": "^1.1.0",
+    "gulp-header": "^2.0.9",
     "style-dictionary": "^3.9.2"
   }
 }

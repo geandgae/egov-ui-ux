@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .test-wrap > div {
   margin-top: 1.25rem;
 }

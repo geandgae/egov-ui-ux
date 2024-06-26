@@ -12,7 +12,7 @@
 	/*color*/
 	@include generate-variables($colors, $prefix);
 	/*primary*/
-	@include generate-variables($primaryColors, $prefix, "test-");
+	@include generate-variables($primaryColors, $prefix);
 	/*secondary*/
 	@include generate-variables($secondaryColors, $prefix);
 	/*point*/
