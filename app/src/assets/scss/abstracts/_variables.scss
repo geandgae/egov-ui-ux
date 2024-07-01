@@ -14,6 +14,13 @@ $transition-collapse-width: width .4s ease !default;
 //box shadow
 $box-shadow-base: 2px 2px 2px 0px rgba(0, 0, 0, 0.15) !default;
 
+// rounded
+$rounded: (
+  small: 4px,
+  medium: 8px,
+  large: 12px
+);
+
 
 //base
 $base: (

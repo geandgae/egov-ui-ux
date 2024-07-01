@@ -1,5 +1,78 @@
 @charset "utf-8";
 
+.d-none {
+  display: none;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-table {
+  display: table;
+}
+
+.d-table-row {
+  display: table-row;
+}
+
+.d-table-cell {
+  display: table-cell;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.float-none {
+  float: none;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+/* test */
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
+  gap: 20px;
+}
+.test > span {
+  width: 100px;
+  height: 40px;
+  background-color: gray;
+  border-radius: 4px;
+}
+.test > span.opt-true {
+  border-radius: 4px !important;
+}
+.test > span.opt-custom {
+  border-radius: 10px;
+}
+.test > span.opt-custom-true {
+  border-radius: 10px !important;
+}
+
 /* colors */
 .colors {
   display: flex;

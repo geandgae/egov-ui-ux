@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+@function map-deep-merge($parent-map, $child-map) {
+  $result: $parent-map;
+
+  @each $key, $child in $child-map {
+    $parent-has-key: map-has-key($result, $key);
+    $parent-value: map-get($result, $key);
+    $parent-type: type-of($parent-value);
+    $child-type: type-of($child);
+    $parent-is-map: $parent-type == map;
+    $child-is-map: $child-type == map;
+
+    @if (not $parent-has-key) or ($parent-type != $child-type) or (not ($parent-is-map and $child-is-map)) {
+      $result: map-merge($result, ( $key: $child ));
+    } @else {
+      $result: map-merge($result, ( $key: map-deep-merge($parent-value, $child) ));
+    }
+  }
+
+  @return $result;
+}
+
+
+$utilities: () !default;
+$utilities: (
+  display: (
+    responsive: true,
+    print: true,
+    property: display,
+    class-prefix: d,
+    values: (
+      none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex
+    )
+  ),
+  float: (
+    responsive: true,
+    print: true,
+    property: float,
+    class-prefix: float,
+    values: none left right
+  ),
+);
+
+@each $utility-name, $utility-info in $utilities {
+  $class-prefix: map-get($utility-info, "class-prefix");
+  $property: map-get($utility-info, "property");
+  $values: map-get($utility-info, "values");
+
+  @each $value in $values {
+    .#{$class-prefix}-#{$value} {
+      #{$property}: $value;
+    }
+  }
+}
+
+
+
+
+
+
+/* test */
+.test {
+  display: flex;
+	align-items: center;
+  justify-content: center;
+	flex-wrap: wrap;
+  margin: 50px 0;
+  gap: 20px;
+  & > span {
+    width: 100px;
+    height: 40px;
+    background-color: gray;
+    @include radius(small);
+    &.opt-true {
+      @include radius(small, true);
+    }
+    &.opt-custom {
+      @include radius(10px);
+    }
+    &.opt-custom-true {
+      @include radius(10px, true);
+    }
+  }
+}

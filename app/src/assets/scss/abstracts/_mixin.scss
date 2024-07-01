@@ -40,25 +40,65 @@ $path-images : "../images/";
 
 // ellipsis
 @mixin ellipsis($line: 1) {
-  overflow: hidden;
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $line;
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
 }
 // @mixin ellipsis($line: 1) {
-//   @if ($line == 1) {
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//   } @else {
-//     overflow: hidden;
-//     display: -webkit-box;
-//     text-overflow: ellipsis;
-//     -webkit-box-orient: vertical;
-//     -webkit-line-clamp: $line;
-//   }
+//   display: -webkit-box;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: $line;
 // }
+
+// radius
+@mixin radius($r, $important: false) {
+  @if (map-has-key($rounded, $r)) {
+    border-radius: map-get($rounded, $r) #{if($important, "!important", "")};
+  } @else {
+    border-radius: $r #{if($important, "!important", "")};
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // position
 @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
@@ -87,14 +127,6 @@ $path-images : "../images/";
     display: none;
   }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -288,6 +320,23 @@ $devices: (
   @media screen and (min-width: 1024px) {
     @content;
   }
+}
+
+
+$desktop-lg : 1920px;
+$desktop-md : 1600px;
+
+@mixin mq($point) {
+    @if $point == pc-lg {
+        @media screen and (min-width: #{$desktop-lg}) {
+            @content;
+        }
+    }
+    @else if $point == pc-md {
+        @media screen and (min-width: #{$desktop-md}) {
+            @content;
+        }
+    }
 }
 
 
