@@ -8,6 +8,11 @@ $tints: ();
 // 색상 키 color만
 $color-keys: map-keys($colors);
 
+// function
+@function remove-str($string, $start: 2) {
+  @return str-slice($string, $start);
+}
+
 @each $key in $color-keys {
   $color-value: map-get($colors, $key);
   $icon-color: remove-str("#{$color-value}");
@@ -92,3 +97,49 @@ $color-keys: map-keys($colors);
   @include size($size);
   @include back-img("logo.png");
 }
+
+
+// each 빙식
+// @each $key in $color-keys {
+//   $color-value: map-get($semantic, $key);
+//   $icon-color: remove-str("#{$color-value}");
+//   $icons: map-merge($icons, ($key: icon(check, $icon-color)));
+//   $shades: map-merge($shades, ($key: shade-color($color-value, 20%)));
+//   $tints: map-merge($tints, ($key: tint-color($color-value, 20%)));
+// }
+
+// // 아이콘 클래스 적용
+// .test-icon {
+//   display: flex;
+//   align-items: center;
+//   @include ir;
+//   & .icon {
+//     $size: px-to-rem(40px);
+//     @include size($size);
+//     @each $key, $icon in $icons {
+//       &.check-#{$key} {
+//         background-image: $icon;
+//       }
+//     }
+//   }
+// }
+
+// // 색상 혼합 및 음영/색조 클래스 적용
+// .test-mix {
+//   display: flex;
+//   align-items: center;
+//   & > div {
+//     width: px-to-rem(100px);
+//     height: px-to-rem(100px);
+//   }
+//   @each $key, $shade in $shades {
+//     .mix-shade-#{$key} {
+//       background-color: $shade;
+//     }
+//   }
+//   @each $key, $tint in $tints {
+//     .mix-tint-#{$key} {
+//       background-color: $tint;
+//     }
+//   }
+// }

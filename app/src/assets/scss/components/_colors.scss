@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+// init
+$shades: ();
+$tints: ();
+
+// 색상 키 color만
+$colors: map-keys($semantic);
+
+@each $key in $colors {
+  $color-value: map-get($semantic, $key);
+  $shades: map-merge($shades, ($key: shade-color($color-value, 50%)));
+  $tints: map-merge($tints, ($key: tint-color($color-value, 50%)));
+}
+
+/* colors */
+.colors {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.color {
+	padding: 10px;
+	height: 30px;
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  &.mix-shade {
+    @each $key, $shade in $shades {
+      &.#{$key} {
+        // background-color: var(--#{$prefix}#{$key});
+        background-color: $shade;
+      }
+    }
+  }
+  &.mix-tint {
+    @each $key, $tint in $tints {
+      &.#{$key} {
+        // background-color: var(--#{$prefix}#{$key});
+        background-color: $tint;
+      }
+    }
+  }
+}

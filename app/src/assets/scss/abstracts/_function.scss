@@ -5,7 +5,12 @@
   @return calc(($px / $base) * 1rem);
 }
 
-// remove-str
+// remove-prefix 삭제할 문자열(prefix)
+@function remove-prefix($str, $prefix) {
+  @return str-slice($str, str-index($str, $prefix) + str-length($prefix));
+}
+
+// remove-str 이건... str-slice 동일한디...
 @function remove-str($string, $start: 2) {
   @return str-slice($string, $start);
 }

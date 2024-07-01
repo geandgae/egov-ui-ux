@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+// init
+$icons: ();
+
+// 색상 키 color만
+$colors: map-keys($icon-back);
+
+@each $key in $colors {
+  $color-value: map-get($icon-back, $key);
+  $icon-color: remove-str("#{$color-value}");
+  $icons: map-merge($icons, ($key: icon(check, $icon-color)));
+}
+
+/* icons */
+.icons {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 20px;
+}
+.icon {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  $size: px-to-rem(40px);
+  @include ir;
+  @include size($size);
+  @each $key, $icon in $icons {
+    &.#{$key} {
+      background-image: $icon;
+    }
+  }
+}

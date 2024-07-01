@@ -31,3 +31,7 @@ scss/
 |-- contents.scss             // 페이지
 |-- default.scss              // css 배포 경로
 ```
+
+
+* old 
+- mixin @include group : .comp-btn-wrap(완료버튼정렬 반응형 모바일일때) / .form-conts.group.form-control(사용안함)

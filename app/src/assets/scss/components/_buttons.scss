@@ -1,202 +1,38 @@
 @charset "utf-8";
 
+// 색상 키 color만
+$colors: map-keys($btns);
 
-//btn setting
-$btns: (
-	setting: (
-		//height
-		h: (
-			"xsm": "3.2rem",
-			"sm": "4rem",
-			"md": "4.8rem",
-			"lg": "5.6rem",
-			"xlg": "6.4rem",
-		),
-		//padding-x
-		px: (
-			"xsm": "1rem",
-			"sm": "1.2rem",
-			"md": "1.6rem",
-			"lg": "2rem",
-			"xlg": "2.4rem",
-		),
-		//border radius
-		rd: (
-			"xsm": ".6rem",
-			"sm": ".6rem",
-			"md": ".8rem",
-			"lg": ".8rem",
-			"xlg": ".8rem",
-		),
-		//font size
-		fz: (
-			"xsm": "1.5rem",
-			"sm": "1.7rem",
-			"md": "1.7rem",
-			"lg": "1.9rem",
-			"xlg": "1.9rem",
-		),
-	),
-) !default;
-
-
-//btn chips
-$btnChipOutline: (
-	setting: (
-		h: (			
-			"md": "3.2rem",
-			"lg": "3.6rem",
-		),
-		pd: (
-			"md": "0rem 1.2rem",
-			"lg": "0rem 1.2rem",
-		),
-		rd: (			
-			"md": "10rem",
-			"lg": "10rem",
-		),
-		fz: (
-			"md": "1.5rem",
-			"lg": "1.7rem",
-		),
-		gap:(			
-			"md": ".2rem",
-			"lg": ".2rem",
-		),
-		size:(
-			"md": "1.2rem",
-			"lg": "1.6rem",
-		),
-	), 
-) !default;
-
-$btnChipFill: (
-	setting: (
-		h: (			
-			"md": "3.2rem",
-			"lg": "3.6rem",
-		),
-		pd: (
-			"md": "0rem 1.2rem",
-			"lg": "0rem 1.2rem",
-		),
-		rd: (			
-			"md": ".6rem",
-			"lg": ".6rem",
-		),
-		fz: (
-			"md": "1.5rem",
-			"lg": "1.7rem",
-		),
-	), 
-) !default;
-
-// generate-btn
-// @mixin generate-btn() {
-//   @each $key, $value in map-get($btns, 'setting') {
-//     .btn.#{$key} {
-//       height: map-get($value, 'h');
-//       padding: 0 var(--#{$prefix}btn-px-#{$key});
-//       border-radius: var(--#{$prefix}btn-rd-#{$key});
-//       font-size: var(--#{$prefix}btn-fz-#{$key});
-//     }
-//   }
-// }
-@mixin generate-btn() {
-  @each $type, $size in map-get($btns, 'setting') {
-		@each $key, $value in $size {
-			--#{$prefix}btn-#{$type}-#{$key}: #{$value};
-
-			@if ($type == 'h') { //높이별 class값 추가
-				@at-root .btn.#{$key} {
-					height: #{$value};
-					padding: 0 var(--#{$prefix}btn-px-#{$key});
-					border-radius: var(--#{$prefix}btn-rd-#{$key});
-					font-size: var(--#{$prefix}btn-fz-#{$key});
-				}
-			}
-		}
-	}
+/* btns */
+.btns {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 20px;
 }
+.btn {
+	padding: 12px;
+	height: 40px;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-//generate-btn-chip
-@mixin generate-btn-chip($name, $default) {
-	@if ($name == 'outline') {
-		@each $type, $size in map-get($btnChipOutline, 'setting') {
-			@each $key, $value in $size {
-				--#{$prefix}btnChipOutline-#{$type}-#{$key}: #{$value};
+	// 값으로
+	// @each $key, $value in $colors {
+  //   $className: str-slice($key, 13); 
+  //   &.#{$className} {
+  //     background-color: $value;
+	// 		background-color: #{map-get($semantic, $key)};
+  //   }
+  // }
 
-				@if ($type == 'h') {
-					@at-root .btn-chip-outline.#{$key} {
-						height: var(--#{$prefix}btnChipOutline-h-#{$key});
-						padding: var(--#{$prefix}btnChipOutline-pd-#{$key});
-						border-radius: var(--#{$prefix}btnChipOutline-rd-#{$key});
-						font-size: var(--#{$prefix}btnChipOutline-fz-#{$key});
-						.btn-del {
-							width: var(--#{$prefix}btnChipOutline-size-#{$key});
-							height: var(--#{$prefix}btnChipOutline-size-#{$key});
-							// background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
-							// background-size:contain;
-						}
-					}
-				}
-
-				@if ($default) {
-					@at-root .btn-chip-outline {
-						height: var(--#{$prefix}btnChipOutline-h-#{$default});
-						padding: var(--#{$prefix}btnChipOutline-pd-#{$default});
-						border-radius: var(--#{$prefix}btnChipOutline-rd-#{$default});
-						font-size: var(--#{$prefix}btnChipOutline-fz-#{$default});
-						.btn-del {
-							width: var(--#{$prefix}btnChipOutline-size-#{$default});
-							height: var(--#{$prefix}btnChipOutline-size-#{$default});
-							// background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
-							background-size:contain;
-							&:focus {
-								@include focus($offset: .4rem);
-							}
-						}
-					}
-				}
-			}
+	@each $key in $colors {
+		$className: remove-prefix($key, "color-button-");
+		&.#{$className} {
+			color: #fff;
+			background-color: var(--#{$prefix}#{$key}); 
 		}
 	}
-	@else if ($name == 'fill') {
-		@each $type, $size in map-get($btnChipFill, 'setting') {
-			@each $key, $value in $size {
-				--#{$prefix}btnChipFill-#{$type}-#{$key}: #{$value};
-
-				@if ($type == 'h') {
-					@at-root .btn-chip-fill.#{$key} {
-						height: var(--#{$prefix}btnChipFill-h-#{$key});
-						padding: var(--#{$prefix}btnChipFill-pd-#{$key});
-						border-radius: var(--#{$prefix}btnChipFill-rd-#{$key});
-						font-size: var(--#{$prefix}btnChipFill-fz-#{$key});
-					}
-				}
-
-				@if ($default) {
-					@at-root .btn-chip-fill {
-						height: var(--#{$prefix}btnChipFill-h-#{$default});
-						padding: var(--#{$prefix}btnChipFill-pd-#{$default});
-						border-radius: var(--#{$prefix}btnChipFill-rd-#{$default});
-						font-size: var(--#{$prefix}btnChipFill-fz-#{$default});
-						&:focus {
-							@include focus($offset: .4rem);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-
-
-
-:root {
-  @include generate-btn;
-  // @include generate-btn-chip;
-  @include generate-btn-chip(fill, lg);
-	@include generate-btn-chip(outline, lg);
 }

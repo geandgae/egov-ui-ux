@@ -9,7 +9,7 @@ const preset = `
 
 
 //prefix
-$prefix: krds- !default;
+$prefix: pre- !default;
 
 //transition
 $transition-base: .4s ease-in-out !default;
@@ -47,7 +47,7 @@ StyleDictionary.registerFormat({
       // const type = prop.type;
       const type = prop.path[0];
       // const type = prop.description;
-      const name = transformName(prop, 1, type);
+      const name = transformName(prop, 1);
 
       if (!acc[type]) {
         acc[type] = [];
@@ -63,7 +63,7 @@ StyleDictionary.registerFormat({
       .join("\n\n");
 
     // return scssContent;
-    return scssContent;
+    return preset + scssContent;
   }
 });
 
@@ -212,9 +212,10 @@ module.exports = {
     // "./app/src/assets/tokens/**/*",
     // "./app/src/assets/tokens/token.json",
     // "./app/src/assets/tokens/design-token.json"
-    // "./app/src/assets/tokens/local-variables.tokens.json",
-    // "./app/src/assets/tokens/style-typography.tokens.json"
-    "./app/src/assets/tokens/test.tokens.json"
+    // "./app/src/assets/tokens/test.tokens.json"
+    "./app/src/assets/tokens/local-variables.tokens.json",
+    "./app/src/assets/tokens/style-typography.tokens.json",
+    "./app/src/assets/tokens/style-user.tokens.json"
   ],
   platforms: {
     scss: {
@@ -223,7 +224,7 @@ module.exports = {
       files: [
         {
           destination: "_variables.scss",
-          format: "custom/scss-format4",
+          format: "custom/scss-format",
         },
       ],
     },

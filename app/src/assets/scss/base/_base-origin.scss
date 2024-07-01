@@ -14,9 +14,13 @@
 	/*semantic*/
 	@include generate-variables($semantic, $prefix);
 	/*font-test*/
-	@include generate-variables($spacing, $prefix);
+	@include generate-variables($font-test, $prefix);
 	/*spacing*/
 	@include generate-variables($spacing, $prefix);
 	/*typography*/
 	@include generate-variables($typography, $prefix);
+	/*btns*/
+	@include generate-variables($btns, $prefix);
+	/*icon-back*/
+	@include generate-variables($icon-back, $prefix);
 }

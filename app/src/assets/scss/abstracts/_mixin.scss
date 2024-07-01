@@ -17,6 +17,12 @@ $path-images : "../images/";
   background-image: url("#{$path-images}#{$file}");
   background-size: $size;
 }
+// alt
+// @mixin background($url, $x, $y, $width, $height) {
+//   background-image: url($url);
+//   background-position: ($x) ($y);
+//   background-size: $width $height;
+// }
 
 // size
 @mixin size($w, $h: $w) {
@@ -63,6 +69,25 @@ $path-images : "../images/";
   left: $left;
 }
 
+// vs-b
+@mixin vs-b {
+  display: block;
+  content: "";
+}
+
+// vs-ib
+@mixin vs-ib {
+  display: inline-block;
+  content: "";
+}
+
+// 스크롤바 삭제
+@mixin scroll-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 
 
 
@@ -83,11 +108,51 @@ $path-images : "../images/";
 	// outline: 2px solid $focus-color;
 }
 
+// /* One value, unitless number: flex-grow */
+// flex: 2;
+
+// /* One value, length or percentage: flex-basis */
+// flex: 10em;
+// flex: 30%;
+
+// /* Two values: flex-grow | flex-basis */
+// flex: 1 30px;
+
+// /* Two values: flex-grow | flex-shrink */
+// flex: 2 2;
+
+// /* Three values: flex-grow | flex-shrink | flex-basis */
+// flex: 2 2 10%;
+
+//flex layout
+@mixin flex-layout($d: flex, $ai: flex-start, $jc: flex-start, $fd: row) {
+	display: $d;
+	align-items: $ai;
+	justify-content: $jc;
+	flex-direction: $fd;
+}
+
+//group contents
+@mixin group-wrap() {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	position: relative;
+	width: 100%;
+}
+@mixin group() {
+	flex: 1 1 auto;
+	position: relative;
+	width: 1%;
+	min-width: 0;
+}
+
 // flex-center
 @mixin flex-center {
   display: flex;
   align-items: center;
 }
+
 //가로 가운데 정렬
 @mixin posX {
   position: absolute !important;
@@ -110,22 +175,28 @@ $path-images : "../images/";
   transform: translate(-50%, -50%) !important;
   margin: 0 !important;
 }
-// vs-b
-@mixin vs-b {
-  display: block;
-  content: "";
+//position 중앙 정렬
+@mixin position-center($type) {
+	@each $type in $position-type {
+		//좌우중앙
+		@if ($type == 'x') {
+			left: 50%;
+			transform: translateX(-50%)
+		}
+			//상하중앙
+		@else if ($type == 'y') {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+			//상하좌우중앙
+		@else if ($type == 'both') {
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
 }
-// vs-ib
-@mixin vs-ib {
-  display: inline-block;
-  content: "";
-}
-// 스크롤바 삭제
-@mixin scroll-hide {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
+
 
 // make-arrow
 @mixin make-arrow($w: 0.12rem, $pl: 0, $pt: $pl, $line: 1px, $color: #959595, $deg: -45) {
@@ -219,12 +290,7 @@ $devices: (
   }
 }
 
-// backgroun 리팩토링
-@mixin background($url, $x, $y, $width, $height) {
-  background-image: url($url);
-  background-position: ($x) ($y);
-  background-size: $width $height;
-}
+
 
 
 
