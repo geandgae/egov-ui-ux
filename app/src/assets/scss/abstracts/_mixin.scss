@@ -69,57 +69,116 @@ $path-images : "../images/";
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// transition
+@mixin transition(
+  $duration: 250ms,
+  $property: all,
+  $easing: cubic-bezier(0.4, 0, 0.2, 1), 
+  $delay: 0,
+  $transform: false
+) {
+  transition-property: $property;
+  transition-duration: $duration ;
+  transition-timing-function: $easing;
+  transition-delay: $delay;
+  @if $transform {
+    transform: $transform;
+  }
+}
+// keyframes
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+}
+// animation
+@mixin animation(
+  $name, 
+  $duration, 
+  $timing-function: ease, 
+  $delay: 0s, 
+  $iteration-count: 1, 
+  $direction: normal, 
+  $fill-mode: both, 
+  $play-state: running
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration-count;
+  animation-direction: $direction;
+  animation-fill-mode: $fill-mode;
+  animation-play-state: $play-state;
+}
 
 // position
-@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
-  position: $position;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null, $important: false) {
+  position: $position #{if($important, "!important", "")};
+  @if ($top) { 
+    top: $top #{if($important, "!important", "")};
+  }
+  @if ($right) { 
+    right: $right #{if($important, "!important", "")};
+  }
+  @if ($bottom) { 
+    bottom: $bottom #{if($important, "!important", "")};
+  }
+  @if ($left) { 
+    left: $left #{if($important, "!important", "")};
+  }
+}
+//position-center
+@mixin position-center($type: xy, $important: null, $position: absolute,) {
+  position: $position $important;
+  @if ($type == "x") {
+    left: 50% $important;
+    transform: translateX(-50%) $important;
+  }
+  @else if ($type == "y") {
+    top: 50% $important;
+    transform: translateY(-50%) $important;
+  }
+  @else if ($type == "xy") {
+    left: 50% $important;
+    top: 50% $important;
+    transform: translateX(-50%) translateY(-50%) $important;
+  }
 }
 
-// vs-b
-@mixin vs-b {
-  display: block;
-  content: "";
+
+@mixin display(
+  $display: flex,
+  $align: stretch,
+  $justify: flex-start,
+  $direction: row,
+  $wrap: nowrap
+) {
+  @if ($display == "flex") {
+    display: $display;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    // align-content:;
+  } @else if($display == "vsb") {
+    display: block;
+    content: "";
+  } @else if($display == "vsib") {
+    display: inline-block;
+    content: "";
+  }
 }
 
-// vs-ib
-@mixin vs-ib {
-  display: inline-block;
-  content: "";
-}
+
+
+
 
 // 스크롤바 삭제
 @mixin scroll-hide {
@@ -131,6 +190,23 @@ $path-images : "../images/";
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //focus color
 @mixin focus($offset: -.4rem, $color: #246BEB, $alpha: .8) {
 	//border-radius: inherit;
@@ -138,6 +214,25 @@ $path-images : "../images/";
 	// $transparent: 1 - $alpha;
 	// $focus-color: transparentize($color, $transparent);
 	// outline: 2px solid $focus-color;
+}
+
+
+
+
+
+//group contents
+@mixin group-wrap() {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	position: relative;
+	width: 100%;
+}
+@mixin group() {
+	flex: 1 1 auto;
+	position: relative;
+	width: 1%;
+	min-width: 0;
 }
 
 // /* One value, unitless number: flex-grow */
@@ -156,78 +251,9 @@ $path-images : "../images/";
 // /* Three values: flex-grow | flex-shrink | flex-basis */
 // flex: 2 2 10%;
 
-//flex layout
-@mixin flex-layout($d: flex, $ai: flex-start, $jc: flex-start, $fd: row) {
-	display: $d;
-	align-items: $ai;
-	justify-content: $jc;
-	flex-direction: $fd;
-}
 
-//group contents
-@mixin group-wrap() {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: stretch;
-	position: relative;
-	width: 100%;
-}
-@mixin group() {
-	flex: 1 1 auto;
-	position: relative;
-	width: 1%;
-	min-width: 0;
-}
 
-// flex-center
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-}
 
-//가로 가운데 정렬
-@mixin posX {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  margin-left: 0 !important;
-}
-//세로 중앙 정렬
-@mixin posY {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  margin-top: 0 !important;
-}
-//가로 세로 가운데로
-@mixin posXY {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  margin: 0 !important;
-}
-//position 중앙 정렬
-@mixin position-center($type) {
-	@each $type in $position-type {
-		//좌우중앙
-		@if ($type == 'x') {
-			left: 50%;
-			transform: translateX(-50%)
-		}
-			//상하중앙
-		@else if ($type == 'y') {
-			top: 50%;
-			transform: translateY(-50%);
-		}
-			//상하좌우중앙
-		@else if ($type == 'both') {
-			left: 50%;
-			top: 50%;
-			transform: translateX(-50%) translateY(-50%);
-		}
-	}
-}
 
 
 // make-arrow
@@ -280,7 +306,7 @@ $path-images : "../images/";
     min-height: unset;
     width: auto !important;
     padding: 0;
-    @include flex-center;
+    @include display($align: center);
   }
   input:checked + label {
     background: none;
@@ -436,9 +462,7 @@ $sizes: 0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95
   // 기본
   #{$property}: $value;
 }
-@mixin transition($prop: all, $duration: 0.5s, $timing: ease, $delay: 0) {
-  transition: $prop $duration $timing $delay;
-}
+
 
 @mixin notoFont($weight: light, $color: #000) {
   @if $weight==bold {
@@ -508,14 +532,6 @@ $sizes: 0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95
     font-family: "Roboto-Thin";
     color: $color;
   }
-}
-
-
-
-// animation
-@mixin rotateAnimate($deg, $time, $delay) {
-  transition: all $time ease $delay;
-  transform: rotate($deg);
 }
 
 

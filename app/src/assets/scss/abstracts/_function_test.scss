@@ -21,7 +21,6 @@
   @return $result;
 }
 
-
 $utilities: () !default;
 $utilities: (
   display: (
@@ -54,12 +53,7 @@ $utilities: (
   }
 }
 
-
-
-
-
-
-/* test */
+/* test1 */
 .test {
   display: flex;
 	align-items: center;
@@ -82,4 +76,289 @@ $utilities: (
       @include radius(10px, true);
     }
   }
+}
+
+
+
+
+/* test2 */
+$test-shades: (
+  "primary": #1976d2,
+  "secondary": #424242,
+  "accent": #82b1ff
+);
+
+$test-colors: (
+  "red": (
+    "base": #f44336,
+    "darken-1": #e53935,
+    "lighten-1": #ef5350
+  ),
+  "blue": (
+    "base": #2196f3,
+    "darken-1": #1e88e5,
+    "lighten-1": #42a5f5
+  )
+);
+
+$color-pack: true;
+
+@mixin background-color($color_value) {
+  background-color: $color_value !important;
+  border-color: $color_value !important;
+}
+
+@mixin text-color($color_value) {
+  color: $color_value !important;
+  caret-color: $color_value !important;
+}
+
+@each $color_name, $color_value in $test-shades {
+  .v-application .#{$color_name} {
+    @include background-color($color_value);
+  }
+
+  .v-application .#{$color_name}--text {
+    @include text-color($color_value);
+  }
+}
+
+@if ($color-pack) {
+  @each $color_name, $color_color in $test-colors {
+    @each $color_type, $color_value in $color_color {
+      @if ($color_type == "base") {
+        .v-application .#{$color_name} {
+          @include background-color($color_value);
+        }
+
+        .v-application .#{$color_name}--text {
+          @include text-color($color_value);
+        }
+      }
+      @else if ($color_type != "shades") {
+        .v-application .#{$color_name}.#{$color_type} {
+          @include background-color($color_value);
+        }
+
+        .v-application .#{$color_name}--text.text--#{$color_type} {
+          @include text-color($color_value);
+        }
+      }
+    }
+  }
+}
+
+
+/* test3 */
+// shadow-key 맵 예제 데이터
+$shadow-key-umbra: (
+  0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
+  1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+  2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+  3: 0px 24px 38px 3px rgba(0, 0, 0, 0.2)
+);
+
+$shadow-key-penumbra: (
+  0: 0px 0px 0px 0px rgba(0, 0, 0, 0.14),
+  1: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+  2: 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+  3: 0px 9px 46px 8px rgba(0, 0, 0, 0.14)
+);
+
+$shadow-key-ambient: (
+  0: 0px 0px 0px 0px rgba(0, 0, 0, 0.12),
+  1: 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+  2: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
+  3: 0px 11px 15px -7px rgba(0, 0, 0, 0.12)
+);
+
+@mixin elevation($z, $important: false) {
+  $umbra: map-get($shadow-key-umbra, $z);
+  $penumbra: map-get($shadow-key-penumbra, $z);
+  $ambient: map-get($shadow-key-ambient, $z);
+  @if $important {
+    box-shadow: $umbra, $penumbra, $ambient !important;
+  } @else {
+    box-shadow: $umbra, $penumbra, $ambient;
+  }
+}
+
+// While 루프를 사용하여 elevation 클래스를 생성
+$z: 3;
+@while $z >= 0 {
+  .elevation-#{$z} {
+    @include elevation($z, $important: true);
+  }
+  $z: $z - 1;
+}
+
+.transition-test {
+  @include transition(1, $transform: rotate(80deg));
+}
+.transition-test2 {
+  @include transition(1, width, $transform: skewY(20deg));
+}
+
+@include keyframes(slide-in) {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+$transition: (
+  "fast-out-slow-in": cubic-bezier(0.4, 0, 0.2, 1),
+  "linear-out-slow-in": cubic-bezier(0, 0, 0.2, 1),
+  "fast-out-linear-in": cubic-bezier(0.4, 0, 1, 1),
+  "ease-in-out": cubic-bezier(0.4, 0, 0.6, 1),
+  "fast-in-fast-out": cubic-bezier(0.25, 0.8, 0.25, 1),
+  "swing": cubic-bezier(0.25, 0.8, 0.5, 1)
+);
+
+$primary-transition: 0.3s map-get($transition, "swing") !default;
+$secondary-transition: 0.2s map-get($transition, "ease-in-out") !default;
+
+.animation-test {
+  @include animation(slide-in, 0.5s, ease-out, 0.2s, infinite, alternate);
+  @include position-center();
+  @include position(fixed, 0, 0, $important: 0);
+  @include display();
+}
+
+.animation-test2 {
+  transition: $primary-transition;
+}
+
+
+// spacer
+$spacer: 4px !default;
+$spacers-steps: 16 !default;
+
+$spacers: () !default;
+@if (type-of($spacers) == list) {
+  @for $i from 0 through $spacers-steps {
+    $spacers: map-merge($spacers, ($i: $spacer * $i))
+  }
+}
+
+$negative-spacers: () !default;
+@if (type-of($negative-spacers) == list) {
+  @for $i from 1 through $spacers-steps {
+    $negative-spacers: map-merge($negative-spacers, ("n" + $i: -$spacer * $i))
+  }
+}
+
+@mixin generate-spacer-classes($spacers, $prefix, $type: margin) {
+  @each $key, $value in $spacers {
+    .#{$prefix}-#{$key} {
+      #{$type}: $value;
+    }
+    .#{$prefix}t-#{$key} {
+      #{$type}-top: $value;
+    }
+    .#{$prefix}r-#{$key} {
+      #{$type}-right: $value;
+    }
+    .#{$prefix}b-#{$key} {
+      #{$type}-bottom: $value;
+    }
+    .#{$prefix}l-#{$key} {
+      #{$type}-left: $value;
+    }
+    .#{$prefix}x-#{$key} {
+      #{$type}-left: $value;
+      #{$type}-right: $value;
+    }
+    .#{$prefix}y-#{$key} {
+      #{$type}-top: $value;
+      #{$type}-bottom: $value;
+    }
+  }
+}
+
+@include generate-spacer-classes($spacers, m);
+@include generate-spacer-classes($negative-spacers, m);
+
+@include generate-spacer-classes($spacers, p, padding);
+@include generate-spacer-classes($negative-spacers, p, padding);
+
+/* test-btn-hover */
+$material: (
+  states: (
+    hover: 0.7,
+    focus: 0.8,
+    activated: 0.9,
+    pressed: 1
+  )
+);
+
+@mixin states($material) {
+  $states: map-get($material, states);
+
+  &:hover::before {
+    opacity: map-get($states, hover);
+  }
+
+  &:focus::before {
+    opacity: map-get($states, focus);
+  }
+
+  &--active {
+    @include active-states($material);
+  }
+
+  // &:hover::before {
+  //   opacity: map-get(map-get($material, states), hover);
+  // }
+
+  // &:focus::before {
+  //   opacity: map-get(map-get($material, states), focus);
+  // }
+
+  // &--active {
+  //   @include active-states($material);
+  // }
+}
+
+@mixin active-states($material) {
+  $states: map-get($material, states);
+
+  &:hover::before,
+  &::before {
+    opacity: map-get($states, activated);
+  }
+
+  &:focus::before {
+    opacity: map-get($states, pressed);
+  }
+
+  // &:hover::before,
+  // &::before {
+  //   opacity: map-get(map-get($material, states), activated);
+  // }
+
+  // &:focus::before {
+  //   opacity: map-get(map-get($material, states), pressed);
+  // }
+}
+
+.test-btn-hover {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0; // Default opacity
+    transition: opacity 0.3s;
+  }
+
+  @include states($material);
 }
