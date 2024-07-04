@@ -362,3 +362,95 @@ $material: (
 
   @include states($material);
 }
+
+// 토큰 변환 예 $exclude-hardcoded-values true 일대 값을 삭제(null) 테마 전환용
+@function values($exclude-hardcoded-values: false) {
+  @return (
+    'black': if($exclude-hardcoded-values, null, #000),
+    'primary0': if($exclude-hardcoded-values, null, #000),
+    'primary10': if($exclude-hardcoded-values, null, #21005d),
+    'primary20': if($exclude-hardcoded-values, null, #381e72),
+    'primary30': if($exclude-hardcoded-values, null, #4f378b),
+    'primary40': if($exclude-hardcoded-values, null, #6750a4),
+    'primary50': if($exclude-hardcoded-values, null, #7f67be),
+    'white': if($exclude-hardcoded-values, null, #fff)
+  );
+}
+@function values($exclude-hardcoded-values: false) {
+  @return (
+    'brand': if($exclude-hardcoded-values, null, (Roboto)),
+    'plain': if($exclude-hardcoded-values, null, (Roboto)),
+    'weight-bold': if($exclude-hardcoded-values, null, 700),
+    'weight-medium': if($exclude-hardcoded-values, null, 500),
+    'weight-regular': if($exclude-hardcoded-values, null, 400)
+  );
+}
+
+@function values($values, $tokens...) {
+  $tokens: meta.keywords($tokens);
+
+  $renamed-tokens: map.get($tokens, 'renamed-tokens');
+  @if $renamed-tokens {
+    @if meta.type-of($renamed-tokens) != 'map' {
+      @error 'validate.values($renamed-tokens) must be a map.';
+    }
+
+    @each $old-token, $new-token in $renamed-tokens {
+      @if not map.has-key($values, $old-token) {
+        @error 'validate.values($renamed-tokens: (\'#{$old-token}\': \'#{$new-token}\')) old-token in not the provided values.';
+      }
+
+      $values: map.set($values, $new-token, map.get($values, $old-token));
+      $values: map.remove($values, $old-token);
+    }
+  }
+
+  $unsupported-tokens: map.get($tokens, 'unsupported-tokens');
+  @if $unsupported-tokens {
+    @if meta.type-of($unsupported-tokens) != 'list' {
+      @error 'validate.values($unsupported-tokens) must be a list.';
+    }
+
+    @each $unsupported-token in $unsupported-tokens {
+      @if not map.has-key($values, $unsupported-token) {
+        @error 'validate.values($unsupported-tokens: (\'#{$unsupported-token}\')) token is not in the provided values.';
+      }
+
+      $values: map.remove($values, $unsupported-token);
+    }
+  }
+
+  $new-tokens: map.get($tokens, 'new-tokens');
+  @if $new-tokens {
+    @if meta.type-of($new-tokens) != 'map' {
+      @error 'validate.values($new-tokens) must be a map.';
+    }
+
+    @each $new-token, $new-value in $new-tokens {
+      @if map.has-key($values, $new-token) {
+        @warn 'validate.values($new-tokens: (\'#{$new-token}\': \'#{$new-value}\')) already exists. Has it been added to tokens? If so, remove this new token.';
+      }
+
+      $values: map.set($values, $new-token, $new-value);
+    }
+  }
+
+  $supported-tokens: map.get($tokens, 'supported-tokens');
+  @if not $supported-tokens or meta.type-of($supported-tokens) != 'list' {
+    @error 'validate.values() must include a $supported-tokens list.';
+  }
+
+  @each $token in map.keys($values) {
+    @if list.index($supported-tokens, $token) == null {
+      @error 'validate.values($supported-tokens) is missing the \'#{$token}\' token. Does it need adding to $unsupported-tokens?';
+    }
+  }
+
+  @each $supported-token in $supported-tokens {
+    @if not map.has-key($values, $supported-token) {
+      @error 'The provided values are missing the supported \'#{$supported-token}\' token.';
+    }
+  }
+
+  @return $values;
+}
