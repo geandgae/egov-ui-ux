@@ -39,7 +39,7 @@ gulp.task("server", function () {
   });
   // watch
   gulp.watch(pathSrc.scss + "/**/*", gulp.series("sass"))
-  gulp.watch(pathSrc.root + "/**/*",).on("change", browserSync.reload);
+  gulp.watch(pathSrc.root + "/**/*").on("change", browserSync.reload);
 });
 
 // gulp start
