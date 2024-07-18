@@ -35,3 +35,18 @@ scss/
 
 * old 
 - mixin @include group : .comp-btn-wrap(완료버튼정렬 반응형 모바일일때) / .form-conts.group.form-control(사용안함)
+
+
+* scss / func / mixin / var(token)
+- 시맨틱 : Category - type - state 
+- 컴포넌트토큰 : component - property - element - state - size - mod
+- uswds : node-modules / uswds-core 참조 / core > styles > settings
+- uk : govuk-colours-organisations 
+- @atlaskit/css-reset @atlaskit/tokens
+- atlassian : js-tokens / token-names.d.ts
+- https://polaris.shopify.com/ 
+- https://atlassian.design/tokens
+- mui 토큰
+- https://github.com/material-foundation/material-tokens/blob/main/css/
+- https://github.com/material-components/material-web
+colors.css 

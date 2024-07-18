@@ -23,7 +23,7 @@ gulp.task("clean", function () {
 
 // sass
 gulp.task("sass", function() {
-  return gulp.src(pathSrc.scss + "/*.scss")
+  return gulp.src(pathSrc.scss + "/**/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(header(charset))
     .pipe(gulp.dest(pathSrc.css))

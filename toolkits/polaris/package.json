@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@shopify/polaris": "^13.7.0"
+  }
+}

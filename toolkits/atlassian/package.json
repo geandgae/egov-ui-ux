@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@atlaskit/css-reset": "^6.9.2",
+    "@atlaskit/tokens": "^1.55.0"
+  }
+}
