@@ -1,5 +1,85 @@
 @charset "utf-8";
 
-div {
-  border: 1rem solid red;
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --point: #ff5722;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --success: #28a745;
+  --information: #17a2b8;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.text-black {
+  color: var(--black);
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.text-point {
+  color: var(--point);
+}
+
+.bg-point {
+  background-color: var(--point);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+.bg-danger {
+  background-color: var(--danger);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.bg-warning {
+  background-color: var(--warning);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.bg-success {
+  background-color: var(--success);
+}
+
+.text-information {
+  color: var(--information);
+}
+
+.bg-information {
+  background-color: var(--information);
 }

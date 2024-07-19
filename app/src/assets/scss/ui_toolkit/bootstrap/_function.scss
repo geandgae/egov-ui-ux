@@ -1,33 +1,30 @@
-@use "sass:math";
-@use "sass:meta";
+$colors: (
+  "white": #ffffff,
+  "black": #000000,
+  "primary": #007bff,
+  "secondary": #6c757d,
+  "point": #ff5722,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "success": #28a745,
+  "information": #17a2b8,
+);
 
-@function units($value) {
-  $base-size: 16px; // 기본 폰트 사이즈
-  @if meta.type-of($value) == 'number' {
-    @if unitless($value) {
-      // 단위가 없는 숫자, rem 단위를 추가
-      @return $value * 1rem;
-    } @else if unit($value) == 'px' {
-      // px 단위를 rem으로 변환
-      @return math.div($value, $base-size) * 1rem;
-    } @else {
-      // 다른 단위는 지원하지 않음
-      @error "Unsupported unit: #{unit($value)}. Only unitless, px, and em are supported.";
-    }
-  } @else {
-    @error "Expected a number but got #{meta.type-of($value)}.";
+@function to-css-var($name) {
+  @return "--#{$name}";
+}
+
+:root {
+  @each $color, $value in $colors {
+    #{to-css-var($color)}: #{$value};
   }
 }
 
-@function color($color-value) {
-  @return $color-value;
-}
-
-$theme-accordion-border-width :1;
-$theme-accordion-border-color : red;
-
-$accordion-border: units($theme-accordion-border-width) solid color($theme-accordion-border-color);
-
-div {
-  border: $accordion-border;
+@each $color, $value in $colors {
+  .text-#{$color} {
+    color: var(#{to-css-var($color)});
+  }
+  .bg-#{$color} {
+    background-color: var(#{to-css-var($color)});
+  }
 }
