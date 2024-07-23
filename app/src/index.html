@@ -1,34 +1,103 @@
 <!DOCTYPE html>
 <html lang="kor">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>index</title>
-  <link href="./assets/css/default.css" type="text/css" media="all" rel="stylesheet">
-  <link href="./assets/css/ui_toolkit/mui/default.css" type="text/css" media="all" rel="stylesheet">
-  <script defer src="./assets/js/test.js"></script>
-</head>
-<body>
-  <div id="wrap">
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link href="./assets/css/default.css" type="text/css" media="all" rel="stylesheet" />
+    <link href="./assets/css/ui_toolkit/mui/default.css" type="text/css" media="all" rel="stylesheet" />
+    <link href="./assets/css/ui_toolkit/mui/split.css" type="text/css" media="all" rel="stylesheet" />
+    <script defer src="./assets/js/test.js"></script>
+  </head>
+  <body>
+    <div id="wrap"></div>
 
-  <div class="test">
-    <span></span>
-    <span class="opt-true"></span>
-    <span class="opt-custom"></span>
-    <span class="opt-custom-true"></span>
-  </div>
+    <div class="test">
+      <span></span>
+      <span class="opt-true"></span>
+      <span class="opt-custom"></span>
+      <span class="opt-custom-true"></span>
+    </div>
 
-  <button class="test-btn-hover foo">test</button>
+    <button class="test-btn-hover foo">test</button>
 
-  <input type="text" placeholder="shadow dom" class="shadow-dom"/>
-  <progress value="0.4"></progress>
+    <input type="text" placeholder="shadow dom" class="shadow-dom" />
+    <progress value="0.4"></progress>
 
-  <style>
-    .shadow-dom::-webkit-input-placeholder {
-      color: red;
-    }
-  </style>
-</body>
+    <div class="test-var" style="width: 100px; height: 100px"></div>
+
+    <button class="toggle-button">Toggle Dark Mode</button>
+
+    <style>
+      .shadow-dom::-webkit-input-placeholder {
+        color: red;
+      }
+      body {
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      body.dark-mode {
+        background-color: black;
+        color: white;
+      }
+      .toggle-button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        background-color: #ccc;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      // 브라우저의 다크 모드 감지
+      const detectDarkMode = () => {
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+        console.log(document.body);
+      };
+
+      // 페이지 로드 시 다크 모드 감지
+      detectDarkMode();
+
+      // 다크 모드 설정 변경 시 다크 모드 감지
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (e.matches) {
+          document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+      });
+    </script>
+
+    <script>
+      const toggleButton = document.querySelector(".toggle-button");
+
+      // 로컬 스토리지에서 다크 모드 상태를 가져옴
+      const currentMode = localStorage.getItem("dark-mode");
+      if (currentMode === "enabled") {
+        document.body.classList.add("dark-mode");
+      }
+
+      // 다크 모드 토글 함수
+      const toggleDarkMode = () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("dark-mode", "enabled");
+        } else {
+          localStorage.setItem("dark-mode", "disabled");
+        }
+      };
+
+      // 버튼 클릭 이벤트 리스너
+      toggleButton.addEventListener("click", toggleDarkMode);
+    </script>
+  </body>
 </html>

@@ -227,6 +227,28 @@ $test: (
 }
 
 
+// var(--foo, var(--bar, 8px))을 파싱
+$parsed: _parse("var(--foo, var(--bar, 8px))");
+@debug $parsed; // (name: --foo, fallback: var(--bar, 8px))
+
+// var(--foo)의 이름과 폴백 값을 가져오기
+$name: name("var(--foo, var(--bar, 8px))");
+$fallback: fallback("var(--foo, var(--bar, 8px))");
+@debug $name; // --foo
+@debug $fallback; // var(--bar, 8px)
+
+// deep-fallback을 사용하여 최종 폴백 값 찾기
+$final-fallback: deep-fallback("var(--foo, var(--bar, 8px))");
+@debug $final-fallback; // 8px
+
+// set-fallback을 사용하여 새로운 폴백 값 설정
+$new-var: set-fallback("var(--foo, var(--bar, 8px))", "16px");
+@debug $new-var; // var(--foo, 16px)
+
+// deep-set-fallback을 사용하여 재귀적으로 폴백 값 설정
+$new-deep-var: deep-set-fallback("var(--foo, var(--bar, 8px))", "16px");
+@debug $new-deep-var; // var(--foo, var(--bar, 16px))
+
 
 
 

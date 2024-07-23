@@ -1,0 +1,389 @@
+// split
+@function split($str) {
+  $list: ();
+  $item: "";
+  $separator: " ";
+  @if str-index($str, ",") {
+    $separator: ",";
+  } @else if str-index($str, "/") {
+    $separator: "/";
+  }
+  @for $i from 1 through str-length($str) {
+    $chr: str-slice($str, $i, $i);
+    @if $chr == $separator {
+      @if $item != "" {
+        $item: unquote(trim($item, " "));
+        $list: append($list, $item);
+      }
+      $item: "";
+    } @else {
+      $item: $item + $chr;
+    }
+  }
+  @if $item != "" {
+    $item: unquote(trim($item, " "));
+    $list: append($list, $item);
+  }
+  @return $list;
+}
+
+@debug split("1px 2px 3px 4px"); // (1px 2px 3px 4px)
+@debug split("1px, 2px, 3px, 4px"); // (1px 2px 3px 4px)
+@debug split("1px/2px/3px/4px"); // (1px 2px 3px 4px)
+
+// trim
+@function trim($string, $prefix, $suffix: $prefix) {
+  @return trim-prefix(trim-suffix($string, $suffix), $prefix);
+}
+// trim-repeating
+@function trim-repeating($string, $prefix, $suffix: $prefix) {
+  @return trim-repeating-prefix(trim-repeating-suffix($string, $suffix), $prefix);
+}
+// trim-repeating-suffix
+@function trim-repeating-suffix($string, $suffix) {
+  @while has-suffix($string, $suffix) {
+    $string: trim-suffix($string, $suffix);
+  }
+  @return $string;
+}
+// trim-repeating-prefix
+@function trim-repeating-prefix($string, $prefix) {
+  @while has-prefix($string, $prefix) {
+    $string: trim-prefix($string, $prefix);
+  }
+  @return $string;
+}
+// trim-suffix
+@function trim-suffix($string, $suffix) {
+  @if has-suffix($string, $suffix) {
+    $string: str-slice($string, 1, -1 * str-length($suffix) - 1);
+  }
+  @return $string;
+}
+// trim-prefix
+@function trim-prefix($string, $prefix) {
+  @if has-prefix($string, $prefix) {
+    $string: str-slice($string, str-length($prefix) + 1);
+  }
+  @return $string;
+}
+// has-suffix 접미사
+@function has-suffix($string, $suffix) {
+  @return str-slice($string, -1 * str-length($suffix)) == $suffix;
+}
+@function has-prefix($string, $prefix) {
+  @return str-slice($string, 1, str-length($prefix)) == $prefix;
+}
+
+// ex)
+$values2: split("10px 20px 30px 40px"); // (10px, 20px, 30px, 40px)
+$top: nth($values2, 1);
+$right: nth($values2, 2);
+$bottom: nth($values2, 3);
+$left: nth($values2, 4);
+
+$spacing-values: "10px 15px 20px 25px";
+$spacing-list: split($spacing-values);
+
+.header {
+  margin: nth($spacing-list, 1);
+}
+
+.footer {
+  margin: nth($spacing-list, 4);
+}
+
+@mixin apply-margins($margin-values) {
+  $values: split($margin-values);
+  margin-top: nth($values, 1);
+  margin-right: nth($values, 2);
+  margin-bottom: nth($values, 3);
+  margin-left: nth($values, 4);
+
+  padding: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+.element {
+  @include apply-margins("10px 20px 30px 40px");
+}
+
+
+@mixin responsive-padding($padding-values) {
+  $values: split($padding-values);
+  padding: nth($values, 1) nth($values, 2) nth($values, 3) nth($values, 4);
+}
+
+.element {
+  @include responsive-padding("10px 15px 20px 25px");
+}
+
+@media (max-width: 600px) {
+  .element {
+    @include responsive-padding("5px 10px 15px 20px");
+  }
+}
+
+
+// _parse
+@function _parse($var) {
+  @if type-of($var) == "map" and map.has-key($var, name) and map.has-key($var, fallback) {
+    @return $var;
+  }
+  @if not _is-var-string($var) {
+    @return null;
+  }
+  $var: trim($var, "var(", ")");
+  $name: trim-repeating($var, " ");
+  $fallback: null;
+  $comma: str-index($var, ",");
+  @if $comma != null {
+    $name: trim-repeating(str-slice($var, 1, $comma - 1), " ");
+    $fallback: trim-repeating(str-slice($var, $comma + 1), " ");
+    @if _is-var-string($fallback) {
+      $fallback: _parse($fallback);
+      @if $fallback == null {
+        @return null;
+      }
+    }
+  }
+  @if $name == "" or $fallback == "" {
+    @return null;
+  }
+  @return (name: $name, fallback: $fallback);
+}
+
+@function is-var($var) {
+  @return _parse($var) != null;
+}
+@function _is-var-string($var) {
+  @return type-of($var) == "string" and has-prefix($var, "var(");
+}
+
+@function flatten-map($map, $prefix: "") {
+  $flat: ();
+  @each $key, $value in $map {
+    $new-key: if($prefix == "", $key, "#{$prefix}-#{$key}");
+    @if type-of($value) == "map" {
+      $flat: map-merge($flat, flatten-map($value, $new-key));
+    } @else {
+      $flat: map-merge($flat, ($new-key: $value));
+    }
+  }
+  @return $flat;
+}
+
+// 예시 1: 단순한 CSS 변수
+$var1: _parse("var(--foo, 10px)");
+@debug $var1; // (name: --foo, fallback: 10px)
+// 예시 2: 중첩된 CSS 변수
+$var2: _parse("var(--foo, var(--bar, 8px))");
+@debug $var2; // (name: --foo, fallback: (name: --bar, fallback: 8px))
+// 예시 3: 잘못된 CSS 변수
+$var3: _parse("invalid-var-string");
+@debug $var3; // null
+
+// 평탄화된 맵 생성
+$flat-var1: flatten-map($var1);
+$flat-var2: flatten-map($var2);
+$flat-var3: flatten-map($var3);
+
+
+ 
+
+
+// CSS로 컴파일된 결과
+:root {
+  --var1-name: #{map-get($var1, name)};
+  --var1-fallback: #{map-get($var1, fallback)};
+
+  // --var2-name: #{map-get($var2, name)};
+  // --var2-fallback: #{map-get($var2, fallback)};
+
+  --var3-name: #{if($var3 != null, map-get($var3, name), "initial")};
+  --var3-fallback: #{if($var3 != null, map-get($var3, fallback), "initial")};
+
+  /* alt */
+
+  @each $key, $value in $flat-var1 {
+    --#{$key}: #{$value};
+  }
+
+  @each $key, $value in $flat-var2 {
+    --#{$key}: #{$value};
+  }
+
+  // Handling invalid var string
+  @if $flat-var3 != null {
+    @each $key, $value in $flat-var3 {
+      --#{$key}: #{$value};
+    }
+  } @else {
+    --var3-name: initial;
+    --var3-fallback: initial;
+  }
+}
+
+// 중첩변수
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #ffd093;
+  --button-bg: var(--primary-color, var(--secondary-color, #ccc));
+}
+
+.test-var {
+  background-color: var(--button-bg);
+}
+
+:root {
+  --background-color: var(--primary-bg, #ffffff);
+}
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --primary-bg: #007bff;
+//   }
+// }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-bg: #333;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+
+
+// SCSS 변수 정의
+$primary-color-light: #007bff;
+$secondary-color-light: #6c757d;
+$background-color-light: #ffffff;
+$text-color-light: #000000;
+
+$primary-color-dark: #375a7f;
+$secondary-color-dark: #444444;
+$background-color-dark: #222222;
+$text-color-dark: #ffffff;
+
+$prefix: ge-;
+
+// 테마 맵 정의
+$light-theme: (
+  primary-color: $primary-color-light,
+  secondary-color: $secondary-color-light,
+  background-color: $background-color-light,
+  text-color: $text-color-light
+);
+
+$dark-theme: (
+  primary-color: $primary-color-dark,
+  secondary-color: $secondary-color-dark,
+  background-color: $background-color-dark,
+  text-color: $text-color-dark
+);
+
+// mui 토큰 변환
+@mixin theme($tokens) {
+  @each $token, $value in $tokens {
+    @if index(tokens.$md-sys-color-supported-tokens, $token) == null {
+      @error 'md-sys-color `#{$token}` is not a supported token.';
+    }
+    @if $value {
+      --md-sys-color-#{$token}: #{$value};
+    }
+  }
+}
+@mixin light-theme($md-ref-palette: tokens.md-ref-palette-values()) {
+  @each $token, $value in $md-ref-palette {
+    @if list.index(tokens.$md-ref-palette-supported-tokens, $token) == null {
+      @error 'md-ref-palette `#{$token}` is not a supported token.';
+    }
+  }
+  @include theme(
+    tokens.md-sys-color-values-light(
+      (
+        'md-ref-palette': $md-ref-palette,
+      ),
+      $exclude-custom-properties: true
+    )
+  );
+}
+@mixin dark-theme($md-ref-palette: tokens.md-ref-palette-values()) {
+  @each $token, $value in $md-ref-palette {
+    @if list.index(tokens.$md-ref-palette-supported-tokens, $token) == null {
+      @error 'md-ref-palette `#{$token}` is not a supported token.';
+    }
+  }
+  @include theme(
+    tokens.md-sys-color-values-dark(
+      (
+        'md-ref-palette': $md-ref-palette,
+      ),
+      $exclude-custom-properties: true
+    )
+  );
+}
+
+
+// ge
+@mixin generate-variables($map, $prefix: '', $suffix: '') {
+	@each $key, $value in $map {
+    @if $value {
+		  --#{$prefix}#{$suffix}#{$key}: #{$value};
+    }
+	}
+}
+@mixin apply-theme($theme-map) {
+  @each $key, $value in $theme-map {
+    --#{$key}: #{$value};
+  }
+}
+
+
+:root {
+  /*light*/
+  @include apply-theme($light-theme);
+  /*dark*/
+  @include apply-theme($dark-theme);
+  /*genvar*/
+  @include generate-variables($light-theme, $prefix);
+  @include generate-variables($dark-theme, $prefix);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include apply-theme($dark-theme);
+  }
+}
+
+
+// 변수 생성 함수
+@function generate-variables-func($map, $prefix: '', $suffix: '') {
+  $result: ();
+
+  @each $key, $value in $map {
+    $var-name: unquote('--#{$prefix}#{$suffix}#{$key}');
+    $result: map-merge($result, ($var-name: $value));
+  }
+
+  @return $result;
+}
+
+// 사용 예시
+$colors: (
+  primary: #ff5733,
+  secondary: #33ff57,
+);
+
+$variables: generate-variables-func($colors, 'ge-color-', '');
+
+:root {
+  @each $key, $value in $variables {
+    #{$key}: #{$value};
+  }
+}
