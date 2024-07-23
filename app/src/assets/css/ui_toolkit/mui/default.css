@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.foo {
+  color: var(--md-foo-color);
+  color: var(--md-foo);
+  background: var(--bar);
+  background: var(--md-color-icons-primary);
+  background: var(--ge-color-icons-primary);
+  background: var(-color-trim-prefix);
+  background: var(-color-trim-repeating-prefix);
+  background: var(--ge-color-icon);
+}

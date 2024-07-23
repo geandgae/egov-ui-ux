@@ -1,0 +1,242 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+
+//변수명 체크
+$prefix: --ge;
+$test: (
+  color-icons-primary,
+  color-icons-stock-blue,
+  color-icons-stock-red,
+  color-icons-stock-cancel,
+  color-icons-stock-correction,
+  color-icons-disable,
+  color-icons-gray,
+  color-icons-stock,
+  color-icons-interaction,
+  color-icons-chart
+) !default;
+
+// @debug split("1px 2px 3px 4px"); // (1px 2px 3px 4px)
+// @debug split("1px, 2px, 3px, 4px"); // (1px 2px 3px 4px)
+// @debug split("1px/2px/3px/4px"); // (1px 2px 3px 4px)
+@function split($str) {
+  $list: ();
+  $item: "";
+  $separator: " ";
+  @if string.index($str, ",") {
+    $separator: ",";
+  } @else if string.index($str, "/") {
+    $separator: "/";
+  }
+  @for $i from 1 through string.length($str) {
+    $chr: string.slice($str, $i, $i);
+    @if $chr == $separator {
+      @if $item != "" {
+        $item: string.unquote(trim($item, " "));
+        $list: list.append($list, $item);
+      }
+      $item: "";
+    } @else {
+      $item: $item + $chr;
+    }
+  }
+  @if $item != "" {
+    $item: string.unquote(trim($item, " "));
+    $list: list.append($list, $item);
+  }
+  @return $list;
+}
+
+// replace
+// @debug trim('foo bar baz', 'bar', 'quux'); // "foo quux baz"
+@function replace($string, $pattern, $replacement) {
+  $pattern-index: string.index($string, $pattern);
+  @if not $pattern-index {
+    @return $string;
+  }
+  $before: string.slice($string, 1, $pattern-index - 1);
+  $after: string.slice($string, string.length($pattern) + $pattern-index);
+  @return $before + $replacement + $after;
+}
+
+// trim
+@function trim($string, $prefix, $suffix: $prefix) {
+  @return trim-prefix(trim-suffix($string, $suffix), $prefix);
+}
+// trim-repeating
+@function trim-repeating($string, $prefix, $suffix: $prefix) {
+  @return trim-repeating-prefix(trim-repeating-suffix($string, $suffix), $prefix);
+}
+
+// trim-suffix
+@function trim-suffix($string, $suffix) {
+  @if has-suffix($string, $suffix) {
+    $string: string.slice($string, 1, -1 * string.length($suffix) - 1);
+  }
+  @return $string;
+}
+// trim-repeating-suffix
+@function trim-repeating-suffix($string, $suffix) {
+  @while has-suffix($string, $suffix) {
+    $string: trim-suffix($string, $suffix);
+  }
+  @return $string;
+}
+
+// trim-prefix
+// @debug trim-prefix('var(--foo)', 'var('); // "--foo)"
+@function trim-prefix($string, $prefix) {
+  @if has-prefix($string, $prefix) {
+    $string: string.slice($string, string.length($prefix) + 1);
+  }
+  @return $string;
+}
+// trim-repeating-prefix
+// @debug trim-repeating-prefix('  foo bar  ', ' '); // "foo bar  "
+@function trim-repeating-prefix($string, $prefix) {
+  @while has-prefix($string, $prefix) {
+    $string: trim-prefix($string, $prefix);
+  }
+  @return $string;
+}
+
+// has-suffix 접미사
+// @debug has-suffix('var(--foo)', ')'); // true
+@function has-suffix($string, $suffix) {
+  @return string.slice($string, -1 * string.length($suffix)) == $suffix;
+}
+// has-prefix 접두사
+@function has-prefix($string, $prefix) {
+  @return string.slice($string, 1, string.length($prefix)) == $prefix;
+}
+
+
+
+
+// _parse-and-validate
+@function _parse-and-validate($var) {
+  $var-map: _parse($var);
+  @if $var-map == null {
+    @error '"#{$var}" is not a valid var() string';
+  }
+  @return $var-map;
+}
+// _parse
+@function _parse($var) {
+  @if meta.type-of($var) == "map" and map.has-key($var, name) and map.has-key($var, fallback) {
+    @return $var;
+  }
+  @if not _is-var-string($var) {
+    @return null;
+  }
+  $var: trim($var, "var(", ")");
+  $name: trim-repeating($var, " ");
+  $fallback: null;
+  $comma: string.index($var, ",");
+  @if $comma != null {
+    $name: trim-repeating(string.slice($var, 1, $comma - 1), " ");
+    $fallback: trim-repeating(string.slice($var, $comma + 1), " ");
+    @if _is-var-string($fallback) {
+      $fallback: _parse($fallback);
+      @if $fallback == null {
+        @return null;
+      }
+    }
+  }
+  @if $name == "" or $fallback == "" {
+    @return null;
+  }
+  @return (name: $name, fallback: $fallback);
+}
+
+// $is-var: var.is-var('var(--foo)'); // true
+@function is-var($var) {
+  @return _parse($var) != null;
+}
+@function _is-var-string($var) {
+  @return meta.type-of($var) == "string" and has-prefix($var, "var(");
+}
+
+// create
+@function create($name, $fallback: null) {
+  $name: create-name($name);
+  @if $fallback == null {
+    @return var(#{$name});
+  }
+  @if is-var($fallback) {
+    $fallback-name: name($fallback);
+    $fallback-fallback: fallback($fallback);
+    @return var(#{$name}, create($fallback-name, $fallback-fallback));
+  }
+  @return var(#{$name}, $fallback);
+}
+
+// create-name
+@function create-name($name) {
+  @if has-prefix($name, "--") {
+    @return $name;
+  }
+  @return unquote("--md-#{$name}");
+}
+
+// name
+@function name($var) {
+  $var: _parse-and-validate($var);
+  @return map.get($var, name);
+}
+
+// fallback
+@function fallback($var) {
+  $var: _parse-and-validate($var);
+  $fallback: map.get($var, fallback);
+  @if is-var($fallback) {
+    @return create(name($fallback), fallback($fallback));
+  }
+  @return $fallback;
+}
+
+// deep-fallback
+// $fallback: var.deep-fallback(var(--foo, var(--bar, 8px));
+@function deep-fallback($var) {
+  $fallback: fallback($var);
+  @if is-var($fallback) {
+    @return deep-fallback($fallback);
+  }
+  @return $fallback;
+}
+
+// set-fallback
+// $new-var: set-fallback(var(--foo, var(--bar, 8px)), 16px);
+// "var(--foo, 16px)"
+@function set-fallback($var, $new-fallback) {
+  $name: name($var);
+  @return create($name, $new-fallback);
+}
+
+// deep-set-fallback
+// $new-var: deep-set-fallback(var(--foo, var(--bar, 8px)), 16px);
+// "var(--foo, var(--bar, 16px))"
+@function deep-set-fallback($var, $new-fallback) {
+  $old-fallback: fallback($var);
+  @if is-var($old-fallback) {
+    $new-fallback: deep-set-fallback($old-fallback, $new-fallback);
+  }
+  @return set-fallback($var, $new-fallback);
+}
+
+
+
+
+
+.foo {
+  color: create(foo-color);
+  color: var(#{create-name(foo)});
+  background: var(#{create-name(--bar)});
+  background: var(#{create-name(color-icons-primary)});
+  background: var(#{create-name(--ge-color-icons-primary)});
+  background: var(#{trim-prefix(--ge-color-trim-prefix, --ge)});
+  background: var(#{trim-repeating-prefix(--ge-color-trim-repeating-prefix, --ge)});
+  background: var(#{replace(--ge-color-trim-repeating-prefix, trim-repeating-prefix, icon)});
+}

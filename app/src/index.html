@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>index</title>
   <link href="./assets/css/default.css" type="text/css" media="all" rel="stylesheet">
+  <link href="./assets/css/ui_toolkit/mui/default.css" type="text/css" media="all" rel="stylesheet">
   <script defer src="./assets/js/test.js"></script>
 </head>
 <body>
@@ -19,6 +20,15 @@
     <span class="opt-custom-true"></span>
   </div>
 
-  <button class="test-btn-hover">test</button>
+  <button class="test-btn-hover foo">test</button>
+
+  <input type="text" placeholder="shadow dom" class="shadow-dom"/>
+  <progress value="0.4"></progress>
+
+  <style>
+    .shadow-dom::-webkit-input-placeholder {
+      color: red;
+    }
+  </style>
 </body>
 </html>
