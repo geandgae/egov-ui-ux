@@ -2790,51 +2790,51 @@
 }
 .btn.primary {
   color: #fff;
-  background-color: var(--pre-color-button-primary);
+  background-color: var(--krds-color-button-primary);
 }
 .btn.secondary {
   color: #fff;
-  background-color: var(--pre-color-button-secondary);
+  background-color: var(--krds-color-button-secondary);
 }
 .btn.tertiary {
   color: #fff;
-  background-color: var(--pre-color-button-tertiary);
+  background-color: var(--krds-color-button-tertiary);
 }
 .btn.stock-blue {
   color: #fff;
-  background-color: var(--pre-color-button-stock-blue);
+  background-color: var(--krds-color-button-stock-blue);
 }
 .btn.stock-red {
   color: #fff;
-  background-color: var(--pre-color-button-stock-red);
+  background-color: var(--krds-color-button-stock-red);
 }
 .btn.stock-cancel {
   color: #fff;
-  background-color: var(--pre-color-button-stock-cancel);
+  background-color: var(--krds-color-button-stock-cancel);
 }
 .btn.stock-correction {
   color: #fff;
-  background-color: var(--pre-color-button-stock-correction);
+  background-color: var(--krds-color-button-stock-correction);
 }
 .btn.disable {
   color: #fff;
-  background-color: var(--pre-color-button-disable);
+  background-color: var(--krds-color-button-disable);
 }
 .btn.gray {
   color: #fff;
-  background-color: var(--pre-color-button-gray);
+  background-color: var(--krds-color-button-gray);
 }
 .btn.stock {
   color: #fff;
-  background-color: var(--pre-color-button-stock);
+  background-color: var(--krds-color-button-stock);
 }
 .btn.interaction {
   color: #fff;
-  background-color: var(--pre-color-button-interaction);
+  background-color: var(--krds-color-button-interaction);
 }
 .btn.chart {
   color: #fff;
-  background-color: var(--pre-color-button-chart);
+  background-color: var(--krds-color-button-chart);
 }
 
 /* icons */

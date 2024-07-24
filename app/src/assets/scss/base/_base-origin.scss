@@ -1,59 +1,72 @@
 @charset "utf-8";
 
 
-// generate-variables
-// @mixin generate-variables($map, $prefix: '', $suffix: '') {
+// 변수초기화
+// $변수명: () !default;
+
+// // generate-variables
+// @mixin generate-variables($map, $prefix: "", $suffix: "") {
 // 	@each $key, $value in $map {
 // 		--#{$prefix}#{$suffix}#{$key}: #{$value};
 // 	}
 // }
 
 // 재귀함수 버전
-@mixin generate-variables($map, $prefix: '', $suffix: '') {
-	@each $key, $value in $map {
-    @if type-of($value) == 'map' {
-      @include generate-variables($value, $prefix + $key + '-', $suffix);
+@mixin generate-variables($map, $prefix: "", $suffix: "") {
+  @each $key, $value in $map {
+    @if type-of($value) == "map" {
+      @include generate-variables($value, $prefix, $suffix + $key + "-");
     } @else {
-      -#{$prefix}#{$suffix}#{$key}: #{$value};
+      --#{$prefix}#{$suffix}#{$key}: #{$value};
     }
   }
 }
 
-@mixin generate-btn() {
-  @each $type, $size in map-get($btns, 'setting') {
-		@each $key, $value in $size {
-			--#{$prefix}btn-#{$type}-#{$key}: #{$value};
-
-			@if ($type == 'h') { //높이별 class값 추가
-				@at-root .btn.#{$key} {
-					height: #{$value};
-					padding: 0 var(--#{$prefix}btn-px-#{$key});
-					border-radius: var(--#{$prefix}btn-rd-#{$key});
-					font-size: var(--#{$prefix}btn-fz-#{$key});
-				}
-			}
-		}
-	}
+// generate-series
+@function update-map($map, $key, $value) {
+  @return map-merge(
+    $map,
+    (
+      $key: $value,
+    )
+  );
+}
+@mixin generate-series($type, $num) {
+  @for $i from 1 through $num {
+    @if $type == "spacer" {
+      $key: $i;
+      $value: ($i * 4 * 0.1) + rem;
+      $spacers: update-map($spacers, $key, $value) !global;
+    } @else if $type == "radius" {
+      $key: $i;
+      $value: ($i * 0.1) + rem;
+      $border-radius: update-map($border-radius, $key, $value) !global;
+    }
+  }
 }
 
+//spacers
+$spacers: (
+  "0": "0",
+  "default": ".1rem",
+  "default2": ".2rem",
+  "full": "100%",
+) !default;
+
+//border radius
+$border-radius: (
+  "1": ".1rem",
+  "2": ".2rem",
+  "4": ".4rem",
+  "6": ".6rem",
+  "8": ".8rem",
+  "10": "1rem",
+  "12": "1.2rem",
+  "full": "100%",
+) !default;
+
 $tests: (
-  setting: (
-    // height
-    h: (
-      "xsm": "3.2rem",
-      "sm": "4rem",
-      "md": "4.8rem",
-      "lg": "5.6rem",
-      "xlg": "6.4rem",
-			sub: (
-				"xsm": "3.2rem",
-				"sm": "4rem",
-				"md": "4.8rem",
-				"lg": "5.6rem",
-				"xlg": "6.4rem",
-			),
-    ),
-    // padding-x
+  basic: (
     px: (
       "xsm": "1rem",
       "sm": "1.2rem",
@@ -61,42 +74,378 @@ $tests: (
       "lg": "2rem",
       "xlg": "2.4rem",
     ),
+  ),
+  setting: (
+    // height
+    h:
+      (
+        "xsm": "3.2rem",
+        "sm": "4rem",
+        "md": "4.8rem",
+        "lg": "5.6rem",
+        "xlg": "6.4rem",
+        sub: (
+          "xsm": "3.2rem",
+          "sm": "4rem",
+          "md": "4.8rem",
+          "lg": "5.6rem",
+          "xlg": "6.4rem",
+        ),
+      ),
+    // padding-x
+    px:
+      (
+        "xsm": "1rem",
+        "sm": "1.2rem",
+        "md": "1.6rem",
+        "lg": "2rem",
+        "xlg": "2.4rem",
+      ),
     // border radius
-    rd: (
-      "xsm": ".6rem",
-      "sm": ".6rem",
-      "md": ".8rem",
-      "lg": ".8rem",
-      "xlg": ".8rem",
-    ),
+    rd:
+      (
+        "xsm": ".6rem",
+        "sm": ".6rem",
+        "md": ".8rem",
+        "lg": ".8rem",
+        "xlg": ".8rem",
+      ),
     // font size
-    fz: (
+    fz:
+      (
+        "xsm": "1.5rem",
+        "sm": "1.7rem",
+        "md": "1.7rem",
+        "lg": "1.9rem",
+        "xlg": "1.9rem",
+      ),
+  ),
+) !default;
+
+$font-size: (
+  sizes: (
+    display: (
+      "sm": "4rem",
+      "md": "5rem",
+      "lg": "6.6rem",
+    ),
+    heading: (
+      "sm": "3.2rem",
+      "md": "4rem",
+      "lg": "5rem",
+    ),
+    title: (
       "xsm": "1.5rem",
       "sm": "1.7rem",
+      "md": "1.9rem",
+      "lg": "2.1rem",
+      "xlg": "2.5rem",
+      "xxlg": "3.2rem",
+    ),
+    body: (
+      "sm": "1.5rem",
       "md": "1.7rem",
       "lg": "1.9rem",
-      "xlg": "1.9rem",
+    ),
+    link: (
+      "sm": "1.5rem",
+      "md": "1.7rem",
+      "lg": "1.9rem",
+    ),
+    detail: (
+      "sm": "1.3rem",
+      "md": "1.5rem",
+      "lg": "1.7rem",
+    ),
+    label: (
+      "xsm": "1.3rem",
+      "sm": "1.5rem",
+      "md": "1.7rem",
+      "lg": "1.9rem",
     ),
   ),
 ) !default;
 
+$btns2: (
+  setting: (
+    // height
+    h:
+      (
+        "xsm": "3.2rem",
+        "sm": "4rem",
+        "md": "4.8rem",
+        "lg": "5.6rem",
+        "xlg": "6.4rem",
+      ),
+    // padding-x
+    px:
+      (
+        "xsm": "1rem",
+        "sm": "1.2rem",
+        "md": "1.6rem",
+        "lg": "2rem",
+        "xlg": "2.4rem",
+      ),
+    // border radius
+    rd:
+      (
+        "xsm": ".6rem",
+        "sm": ".6rem",
+        "md": ".8rem",
+        "lg": ".8rem",
+        "xlg": ".8rem",
+      ),
+    // font size
+    fz:
+      (
+        "xsm": "1.5rem",
+        "sm": "1.7rem",
+        "md": "1.7rem",
+        "lg": "1.9rem",
+        "xlg": "1.9rem",
+      ),
+  ),
+);
+
+//btn chips
+$btnChipOutline: (
+  setting: (
+    h: (
+      "md": "3.2rem",
+      "lg": "3.6rem",
+    ),
+    pd: (
+      "md": "0rem 1.2rem",
+      "lg": "0rem 1.2rem",
+    ),
+    rd: (
+      "md": "10rem",
+      "lg": "10rem",
+    ),
+    fz: (
+      "md": "1.5rem",
+      "lg": "1.7rem",
+    ),
+    gap: (
+      "md": ".2rem",
+      "lg": ".2rem",
+    ),
+    size: (
+      "md": "1.2rem",
+      "lg": "1.6rem",
+    ),
+  ),
+) !default;
+
+$btnChipFill: (
+  setting: (
+    h: (
+      "md": "3.2rem",
+      "lg": "3.6rem",
+    ),
+    pd: (
+      "md": "0rem 1.2rem",
+      "lg": "0rem 1.2rem",
+    ),
+    rd: (
+      "md": ".6rem",
+      "lg": ".6rem",
+    ),
+    fz: (
+      "md": "1.5rem",
+      "lg": "1.7rem",
+    ),
+  ),
+) !default;
+
+$url: "./root/";
+@mixin focus($offset: -0.4rem, $color: #246beb, $alpha: 0.8) {
+  border-radius: inherit;
+  outline-offset: $offset;
+  $transparent: 1 - $alpha;
+  $focus-color: transparentize($color, $transparent);
+  outline: 2px solid $focus-color;
+}
+
+// btn setting
+@mixin btn($map, $layer2: "setting", $layer3: "h") {
+  // @each $key, $value in map-get(map-get($map, 'setting'), 'h') {
+  // @if $layer3 != null {
+  // 	$map : map-get($map, $layer2, $layer3);
+  // } @else {
+  // 	$map : map-get($map, $layer2);
+  // }
+  $map: map-get($map, $layer2, $layer3);
+  @each $key, $value in $map {
+    .btn.#{$key} {
+      height: #{$value};
+      padding: 0 var(--#{$prefix}btn-px-#{$key});
+      border-radius: var(--#{$prefix}btn-rd-#{$key});
+      font-size: var(--#{$prefix}btn-fz-#{$key});
+    }
+  }
+}
+
+// btn-chip
+// @mixin btn-chip($name, $size,) {
+//   $map: if($name == "outline", $btnChipOutline, $btnChipFill);
+//   @each $key, $value in map-get($map, "setting", "h") {
+//     .btn-chip-#{$name}.#{$key} {
+//       height: var(--#{$prefix}btnChip#{$name}-h-#{$key});
+//       padding: var(--#{$prefix}btnChip#{$name}-pd-#{$key});
+//       border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$key});
+//       font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$key});
+//       @if $name == "outline" {
+//         .btn-del {
+//           width: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+//           height: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+//           background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
+//           background-size: contain;
+//         }
+//       }
+//     }
+//   }
+//   @if $size {
+//     .btn-chip-#{$name} {
+//       height: var(--#{$prefix}btnChip#{$name}-h-#{$size});
+//       padding: var(--#{$prefix}btnChip#{$name}-pd-#{$size});
+//       border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$size});
+//       font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$size});
+//       @if $name == "outline" {
+//         .btn-del {
+//           width: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+//           height: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+//           background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
+//           background-size: contain;
+//           &:focus {
+//             @include focus($offset: .4rem);
+//           }
+//         }
+//       }
+//       &:focus {
+//         @include focus($offset: .4rem);
+//       }
+//     }
+//   }
+// }
+
+// @mixin btn-chip($name, $size: "lg") {
+//   $map: if($name == "outline", $btnChipOutline, $btnChipFill);
+//   .btn-chip-#{$name} {
+//     height: var(--#{$prefix}btnChip#{$name}-h-#{$size});
+//     padding: var(--#{$prefix}btnChip#{$name}-pd-#{$size});
+//     border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$size});
+//     font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$size});
+//     @if $name == "outline" {
+//       .btn-del {
+//         width: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+//         height: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+//         background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
+//         background-size: contain;
+//         &:focus {
+//           @include focus($offset: 0.4rem);
+//         }
+//       }
+//     }
+//     &:focus {
+//       @include focus($offset: 0.4rem);
+//     }
+//     @each $key, $value in map-get($map, "setting", "h") {
+//       &.#{$key} {
+//         height: var(--#{$prefix}btnChip#{$name}-h-#{$key});
+//         padding: var(--#{$prefix}btnChip#{$name}-pd-#{$key});
+//         border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$key});
+//         font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$key});
+//         @if $name == "outline" {
+//           .btn-del {
+//             width: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+//             height: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+//             &:focus {
+//               @include focus($offset: 0.4rem);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@mixin btn-chip($name, $size: "lg") {
+  $map: if($name == "outline", $btnChipOutline, $btnChipFill);
+  .btn-chip-#{$name} {
+    height: var(--#{$prefix}btnChip#{$name}-h-#{$size});
+    padding: var(--#{$prefix}btnChip#{$name}-pd-#{$size});
+    border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$size});
+    font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$size});
+    @if $name == "outline" {
+      .btn-del {
+        width: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+        height: var(--#{$prefix}btnChip#{$name}-size-#{$size});
+        background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
+        background-size: contain;
+      }
+    }
+    @each $key, $value in map-get($map, "setting", "h") {
+      &.#{$key} {
+        height: var(--#{$prefix}btnChip#{$name}-h-#{$key});
+        padding: var(--#{$prefix}btnChip#{$name}-pd-#{$key});
+        border-radius: var(--#{$prefix}btnChip#{$name}-rd-#{$key});
+        font-size: var(--#{$prefix}btnChip#{$name}-fz-#{$key});
+        @if $name == "outline" {
+          .btn-del {
+            width: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+            height: var(--#{$prefix}btnChip#{$name}-size-#{$key});
+          }
+        }
+      }
+    }
+    &:focus {
+      @include focus($offset: 0.4rem);
+    }
+    @if $name == "outline" {
+      .btn-del:focus {
+        @include focus($offset: 0.4rem);
+      }
+    }
+  }
+}
 
 :root {
-	/*test*/
-	@include generate-variables(map-get($tests, setting));
-	@include generate-variables($tests, $prefix, suff-);
-	/*base*/
-	@include generate-variables($base, $prefix);
-	/*semantic*/
-	@include generate-variables($semantic, $prefix);
-	/*font-test*/
-	@include generate-variables($font-test, $prefix);
-	/*spacing*/
-	@include generate-variables($spacing, $prefix);
-	/*typography*/
-	@include generate-variables($typography, $prefix);
-	/*btns*/
-	@include generate-variables($btns, $prefix);
-	/*icon-back*/
-	@include generate-variables($icon-back, $prefix);
+  /*test-start*/
+  // @include generate-variables(map-get($tests, setting));
+  @include generate-variables($tests, $prefix, btn-);
+  @include generate-variables(map-get($tests, setting), $prefix, btn-);
+  /*spacers*/
+  @include generate-series(spacer, 10);
+  @include generate-variables($spacers, $prefix, spacers-);
+  /*border-radius*/
+  @include generate-series(radius, 10);
+  @include generate-variables($border-radius, $prefix, brad-);
+  /*font-size*/
+  @include generate-variables($font-size, $prefix, fz-);
+  @include generate-variables(map-get($font-size, sizes), $prefix, fz-);
+	/*btn-chip*/
+	@include generate-variables($btnChipFill, $prefix, btnChipFill-);
+  @include generate-variables(map-get($btnChipFill, setting), $prefix, btnChipFill-);
+	@include generate-variables($btnChipOutline, $prefix, btnChipOutline-);
+  @include generate-variables(map-get($btnChipOutline, setting), $prefix, btnChipOutline-);
+  /*test-end*/
+
+  /*base*/
+  @include generate-variables($base, $prefix);
+  /*semantic*/
+  @include generate-variables($semantic, $prefix);
+  /*font-test*/
+  @include generate-variables($font-test, $prefix);
+  /*spacing*/
+  @include generate-variables($spacing, $prefix);
+  /*typography*/
+  @include generate-variables($typography, $prefix);
+  /*btns*/
+  @include generate-variables($btns, $prefix);
+  /*icon-back*/
+  @include generate-variables($icon-back, $prefix);
 }
+@include btn($btns2);
+@include btn-chip(fill);
+@include btn-chip(outline);

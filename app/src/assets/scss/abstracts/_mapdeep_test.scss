@@ -1,0 +1,97 @@
+$url: "./root/";
+$btns: (
+  setting: (
+    // height
+    h: (
+      "xsm": "3.2rem",
+      "sm": "4rem",
+      "md": "4.8rem",
+      "lg": "5.6rem",
+      "xlg": "6.4rem",
+    ),
+    // padding-x
+    px: (
+      "xsm": "1rem",
+      "sm": "1.2rem",
+      "md": "1.6rem",
+      "lg": "2rem",
+      "xlg": "2.4rem",
+    ),
+    // border radius
+    rd: (
+      "xsm": ".6rem",
+      "sm": ".6rem",
+      "md": ".8rem",
+      "lg": ".8rem",
+      "xlg": ".8rem",
+    ),
+    // font size
+    fz: (
+      "xsm": "1.5rem",
+      "sm": "1.7rem",
+      "md": "1.7rem",
+      "lg": "1.9rem",
+      "xlg": "1.9rem",
+    ),
+  ),
+);
+
+// Custom map-deep-merge function
+@function map-deep-merge($map1, $map2) {
+  $merged-map: $map1;
+
+  @each $key, $value in $map2 {
+    @if map-has-key($map1, $key) and type-of(map-get($map1, $key)) == 'map' and type-of($value) == 'map' {
+      $merged-map: map-merge($merged-map, ($key: map-deep-merge(map-get($map1, $key), $value)));
+    } @else {
+      $merged-map: map-merge($merged-map, ($key: $value));
+    }
+  }
+
+  @return $merged-map;
+}
+
+$btnChipOutline: map-deep-merge($btns, (
+  // size for .btn-del
+  setting: (
+    size: (
+      "xsm": "1.2rem",
+      "sm": "1.4rem",
+      "md": "1.6rem",
+      "lg": "1.8rem",
+      "xlg": "2rem",
+    ),
+  ),
+));
+
+$btnChipFill: map-deep-merge($btnChipOutline, ()); // Assuming $btnChipFill has the same structure as $btnChipOutline
+
+@mixin generate-styles($map, $type, $name) {
+  @each $key, $value in map-get($map, "setting", "h") {
+    .#{$type}.#{$name}.#{$key} {
+      height: var(--#{$prefix}#{$type}#{$name}-h-#{$key});
+      padding: var(--#{$prefix}#{$type}#{$name}-pd-#{$key});
+      border-radius: var(--#{$prefix}#{$type}#{$name}-rd-#{$key});
+      font-size: var(--#{$prefix}#{$type}#{$name}-fz-#{$key});
+      @if $name == "outline" {
+        .btn-del {
+          width: var(--#{$prefix}#{$type}#{$name}-size-#{$key});
+          height: var(--#{$prefix}#{$type}#{$name}-size-#{$key});
+          background: url(#{$url}/component/common/ico_chip_del.svg) no-repeat 0 0;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
+
+@mixin btn-styles($prefix: '') {
+  @include generate-styles($btns, 'btn', ''); // General btn styles
+  @include generate-styles($btnChipOutline, 'btn-chip', '-outline'); // Outline chip styles
+  @include generate-styles($btnChipFill, 'btn-chip', '-fill'); // Fill chip styles
+}
+
+:root {
+  $prefix: 'krds-';
+  @include btn-styles($prefix);
+}

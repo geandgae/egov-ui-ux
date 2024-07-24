@@ -50,3 +50,42 @@ scss/
 - https://github.com/material-foundation/material-tokens/blob/main/css/
 - https://github.com/material-components/material-web
 colors.css 
+
+
+
+// @forward @use 예
+// index.scss
+@forward 'variables';
+@forward 'mixins';
+@forward 'base';
+
+// main.scss
+@use 'index';
+
+body {
+  // index 모듈을 통해 로드된 변수와 믹스인 사용
+  color: index.variables.$primary-color;
+  @include index.mixins.center;
+}
+
+// _variables.scss
+$primary-color: #333;
+
+// _mixins.scss
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// _base.scss
+@use 'variables';
+@use 'mixins';
+
+body {
+  color: variables.$primary-color;
+  @include mixins.center;
+}
+
+// main.scss
+@use 'base';

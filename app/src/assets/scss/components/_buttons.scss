@@ -36,3 +36,21 @@ $colors: map-keys($btns);
 		}
 	}
 }
+
+// 기존 함수
+@mixin generate-btn() {
+  @each $type, $size in map-get($btns, 'setting') {
+		@each $key, $value in $size {
+			--#{$prefix}btn-#{$type}-#{$key}: #{$value};
+
+			@if ($type == 'h') { //높이별 class값 추가
+				@at-root .btn.#{$key} {
+					height: #{$value};
+					padding: 0 var(--#{$prefix}btn-px-#{$key});
+					border-radius: var(--#{$prefix}btn-rd-#{$key});
+					font-size: var(--#{$prefix}btn-fz-#{$key});
+				}
+			}
+		}
+	}
+}
