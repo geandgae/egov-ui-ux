@@ -2,13 +2,89 @@
 
 
 // generate-variables
+// @mixin generate-variables($map, $prefix: '', $suffix: '') {
+// 	@each $key, $value in $map {
+// 		--#{$prefix}#{$suffix}#{$key}: #{$value};
+// 	}
+// }
+
+// 재귀함수 버전
 @mixin generate-variables($map, $prefix: '', $suffix: '') {
 	@each $key, $value in $map {
-		--#{$prefix}#{$suffix}#{$key}: #{$value};
+    @if type-of($value) == 'map' {
+      @include generate-variables($value, $prefix + $key + '-', $suffix);
+    } @else {
+      -#{$prefix}#{$suffix}#{$key}: #{$value};
+    }
+  }
+}
+
+@mixin generate-btn() {
+  @each $type, $size in map-get($btns, 'setting') {
+		@each $key, $value in $size {
+			--#{$prefix}btn-#{$type}-#{$key}: #{$value};
+
+			@if ($type == 'h') { //높이별 class값 추가
+				@at-root .btn.#{$key} {
+					height: #{$value};
+					padding: 0 var(--#{$prefix}btn-px-#{$key});
+					border-radius: var(--#{$prefix}btn-rd-#{$key});
+					font-size: var(--#{$prefix}btn-fz-#{$key});
+				}
+			}
+		}
 	}
 }
 
+$tests: (
+  setting: (
+    // height
+    h: (
+      "xsm": "3.2rem",
+      "sm": "4rem",
+      "md": "4.8rem",
+      "lg": "5.6rem",
+      "xlg": "6.4rem",
+			sub: (
+				"xsm": "3.2rem",
+				"sm": "4rem",
+				"md": "4.8rem",
+				"lg": "5.6rem",
+				"xlg": "6.4rem",
+			),
+    ),
+    // padding-x
+    px: (
+      "xsm": "1rem",
+      "sm": "1.2rem",
+      "md": "1.6rem",
+      "lg": "2rem",
+      "xlg": "2.4rem",
+    ),
+    // border radius
+    rd: (
+      "xsm": ".6rem",
+      "sm": ".6rem",
+      "md": ".8rem",
+      "lg": ".8rem",
+      "xlg": ".8rem",
+    ),
+    // font size
+    fz: (
+      "xsm": "1.5rem",
+      "sm": "1.7rem",
+      "md": "1.7rem",
+      "lg": "1.9rem",
+      "xlg": "1.9rem",
+    ),
+  ),
+) !default;
+
+
 :root {
+	/*test*/
+	@include generate-variables(map-get($tests, setting));
+	@include generate-variables($tests, $prefix, suff-);
 	/*base*/
 	@include generate-variables($base, $prefix);
 	/*semantic*/
