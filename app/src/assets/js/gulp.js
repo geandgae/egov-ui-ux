@@ -36,7 +36,7 @@ const pathDist = {
 // clean
 gulp.task("clean", function () {
   return import("del").then((del) => {
-    return del.deleteAsync([pathDist.cssResources, "./dist"]);
+    return del.deleteAsync([pathDist.cssResources, pathDist.root]);
   });
 });
 
@@ -51,7 +51,7 @@ gulp.task("sass", function () {
     .pipe(rename({ suffix: ".min" }))
     .pipe(cleanCSS())
     .pipe(gulp.dest(pathDist.css)) // 배포경로
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream({ match: "**/*.css" }));
 });
 
 // JavaScript
@@ -61,25 +61,14 @@ gulp.task("scripts", function () {
     .pipe(rename({ suffix: ".min" }))
     .pipe(uglify())
     .pipe(gulp.dest(pathDist.js))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream({ match: "**/*.js" }));
 });
 
 // css copy
 gulp.task("css", function () {
   return gulp.src("./resources/css/**/*.css")
     .pipe(gulp.dest("./dist/resources/css/"))
-    .pipe(browserSync.stream());
-    // .pipe(browserSync.stream({ match: "**/*.css" }));
-});
-
-// fonts
-gulp.task("fonts", function () {
-  return fs.copy(pathSrc.fonts, pathDist.fonts);
-});
-
-// images
-gulp.task("images", function () {
-  return fs.copy(pathSrc.images, pathDist.images)
+    .pipe(browserSync.stream({ match: "**/*.css" }));
 });
 
 // html copy
@@ -93,8 +82,19 @@ gulp.task("html", function () {
       }
     }))
     .pipe(gulp.dest(pathDist.html))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream({ match: "**/*.html" }));
 });
+
+// fonts
+gulp.task("fonts", function () {
+  return fs.copy(pathSrc.fonts, pathDist.fonts);
+});
+
+// images
+gulp.task("images", function () {
+  return fs.copy(pathSrc.images, pathDist.images)
+});
+
 
 // server
 gulp.task("server", function () {
@@ -102,12 +102,12 @@ gulp.task("server", function () {
     server: {
       baseDir: pathDist.root
     },
-    // logLevel: "debug",
+    startPath: "/html/guide/index.html",
     logFileChanges: false,
-    startPath: "/html/guide/index.html"
+    // logLevel: "debug",
   });
   // watch
-  gulp.watch(pathSrc.scss, gulp.series("sass"));
+  gulp.watch(pathSrc.scss, gulp.series("sass", "css"));
   gulp.watch(pathSrc.js, gulp.series("scripts"));
   gulp.watch(pathSrc.html, gulp.series("html"));
   // gulp.watch(pathSrc.root + "/**/*").on("change", browserSync.reload);
