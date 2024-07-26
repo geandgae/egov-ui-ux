@@ -69,6 +69,7 @@ gulp.task("css", function () {
   return gulp.src("./resources/css/**/*.css")
     .pipe(gulp.dest("./dist/resources/css/"))
     .pipe(browserSync.stream());
+    // .pipe(browserSync.stream({ match: "**/*.css" }));
 });
 
 // fonts
