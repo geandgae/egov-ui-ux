@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../resources/img/guide/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png" />
+    <title>패턴 목록</title>
+    <!-- css -->
+    <link href="../../resources/css/swiper-bundle.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../resources/css/pattern_css.css" type="text/css" rel="stylesheet" />
+    <!-- script -->
+    <!-- <script src="../../resources/js/pattern/swiper-bundle.min.js"></script> -->
+    <script defer src="../../resources/js/component/ui-script.js"></script>
+    <script defer src="../../resources/js/pattern/ui-pattern-script.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- visual banner -->
+        <div class="main-vban-wrap">
+          <div class="inner">
+            <div class="main-top-sch">
+              <div class="sch-tit">패턴 목록</div>
+              <div class="sch-form-wrap vert">
+                <div class="sch-input">
+                  <input type="text" id="search-input" class="form-control xlg" placeholder="검색어를 입력하세요" value="" />
+                  <button type="button" class="btn btn-ico ico-sch" id="search-button">
+                    <span class="sr-only">검색</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //visual banner -->
+        <!-- 컨텐츠 영역 -->
+        <div class="inner">
+          <!-- table list -->
+          <div class="tbl-wrap">
+            <table class="tbl col data">
+              <caption>
+                패턴 목록 링크
+              </caption>
+              <colgroup>
+                <col style="width: 30%" />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">페이지명</th>
+                  <th scope="col">링크</th>
+                </tr>
+              </thead>
+              <tbody id="pattern-list"></tbody>
+            </table>
+          </div>
+          <!-- //table list -->
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      <script>
+        const dataPatterns = [
+          { name: "방문유형1 - 타입1", link: "sample_main_01.html" },
+          { name: "방문유형1 - 타입2", link: "sample_main_0101.html" },
+          { name: "방문유형2 - 타입1", link: "sample_main_02.html" },
+          { name: "방문유형2 - 타입2", link: "sample_main_0201.html" },
+          { name: "방문유형3 - 타입1", link: "sample_main_03.html" },
+          { name: "방문유형3 - 타입2", link: "sample_main_0301.html" },
+          { name: "긴급공지", link: "sample_main_0102.html" },
+          { name: "sample_appl_01", link: "sample_appl_01.html" },
+          { name: "sample_appl_0101", link: "sample_appl_0101.html" },
+          { name: "sample_appl_0102", link: "sample_appl_0102.html" },
+          { name: "sample_appl_0103", link: "sample_appl_0103.html" },
+          { name: "sample_appl_02", link: "sample_appl_02.html" },
+          { name: "sample_appl_0201", link: "sample_appl_0201.html" },
+          { name: "sample_appl_03", link: "sample_appl_03.html" },
+          { name: "sample_appl_0301", link: "sample_appl_0301.html" },
+          { name: "sample_appl_0302", link: "sample_appl_0302.html" },
+          { name: "sample_appl_0303", link: "sample_appl_0303.html" },
+          { name: "sample_appl_0304", link: "sample_appl_0304.html" },
+          { name: "sample_appl_0305", link: "sample_appl_0305.html" },
+          { name: "sample_appl_04", link: "sample_appl_04.html" },
+          { name: "sample_assess_01", link: "sample_assess_01.html" },
+          { name: "sample_cart_01", link: "sample_cart_01.html" },
+          { name: "sample_coach_01", link: "sample_coach_01.html" },
+          { name: "sample_coach_0101", link: "sample_coach_0101.html" },
+          { name: "sample_coach_0102", link: "sample_coach_0102.html" },
+          { name: "sample_coach_0103", link: "sample_coach_0103.html" },
+          { name: "sample_coach_0104", link: "sample_coach_0104.html" },
+          { name: "sample_coach_0105", link: "sample_coach_0105.html" },
+          { name: "sample_footer_link", link: "sample_footer_link.html" },
+          { name: "sample_helper_type2", link: "sample_helper_type2.html" },
+          { name: "sample_login_01", link: "sample_login_01.html" },
+          { name: "sample_login_0101", link: "sample_login_0101.html" },
+          { name: "sample_login_02", link: "sample_login_02.html" },
+          { name: "sample_login_03", link: "sample_login_03.html" },
+          { name: "sample_login_04", link: "sample_login_04.html" },
+          { name: "sample_move_process_01", link: "sample_move_process_01.html" },
+          { name: "sample_move_process_02", link: "sample_move_process_02.html" },
+          { name: "sample_move_process_03", link: "sample_move_process_03.html" },
+          { name: "sample_move_process_04", link: "sample_move_process_04.html" },
+          { name: "sample_move_process_05", link: "sample_move_process_05.html" },
+          { name: "sample_move_process_06", link: "sample_move_process_06.html" },
+          { name: "sample_move_process_07", link: "sample_move_process_07.html" },
+          { name: "sample_quest_01", link: "sample_quest_01.html" },
+          { name: "sample_quest_0101", link: "sample_quest_0101.html" },
+          { name: "sample_quest_0102", link: "sample_quest_0102.html" },
+          { name: "sample_quest_02", link: "sample_quest_02.html" },
+          { name: "sample_search_01", link: "sample_search_01.html" },
+          { name: "sample_search_0101", link: "sample_search_0101.html" },
+          { name: "sample_search_02", link: "sample_search_02.html" },
+          { name: "sample_search_0201", link: "sample_search_0201.html" },
+          { name: "sample_search_0202", link: "sample_search_0202.html" },
+          { name: "sample_sub_01", link: "sample_sub_01.html" },
+          { name: "sample_sub_02", link: "sample_sub_02.html" },
+        ];
+        
+        const patternList = document.getElementById('pattern-list');
+        // renderPattern
+        const renderPatterns = (patterns) => {
+          patternList.innerHTML = "";
+          patterns.forEach((pattern) => {
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            nameCell.textContent = pattern.name;
+            row.appendChild(nameCell);
+            const linkCell = document.createElement("td");
+            const link = document.createElement("a");
+            link.href = pattern.link;
+            link.target = "_blank";
+            link.className = "btn sm btn-txt link text-primary";
+            link.textContent = pattern.link;
+            linkCell.appendChild(link);
+            row.appendChild(linkCell);
+            patternList.appendChild(row);
+          });
+        };
+        // filterPatterns
+        const filterPatterns = () => {
+          const query = document.getElementById("search-input").value.toLowerCase();
+          const filteredPatterns = dataPatterns.filter((pattern) => pattern.name.toLowerCase().includes(query) || pattern.link.toLowerCase().includes(query));
+          renderPatterns(filteredPatterns);
+        };
+        document.getElementById("search-button").addEventListener("click", filterPatterns);
+        document.getElementById("search-input").addEventListener("keyup", filterPatterns);
+        renderPatterns(dataPatterns);
+      </script>
+    </div>
+  </body>
+</html>
