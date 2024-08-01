@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../resources/img/guide/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png" />
+    <title>패턴 목록</title>
+    <!-- css -->
+    <link href="../../resources/css/swiper-bundle.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../resources/css/pattern_css.css" type="text/css" rel="stylesheet" />
+    <!-- script -->
+    <!-- <script src="../../resources/js/pattern/swiper-bundle.min.js"></script> -->
+    <script defer src="../../resources/js/component/ui-script.js"></script>
+    <script defer src="../../resources/js/pattern/ui-pattern-script.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- visual banner -->
+        <div class="main-vban-wrap">
+          <div class="inner">
+            <div class="main-top-sch">
+              <div class="sch-tit">패턴 목록</div>
+              <div class="sch-form-wrap vert">
+                <div class="sch-input">
+                  <input type="text" id="search-input" class="form-control xlg" placeholder="검색어를 입력하세요" value="" />
+                  <button type="button" class="btn btn-ico ico-sch" id="search-button">
+                    <span class="sr-only">검색</span>
+                  </button>
+                </div>
+                <dl class="sch-tag">
+                  <dt>추천 검색어</dt>
+                  <dd>
+                    <span class="krds-badge bg2" style="cursor: pointer">acco-list filter-list</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">acco-list lnb-list</span>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //visual banner -->
+        <!-- 컨텐츠 영역 -->
+        <div class="inner">
+          <span class="count"></span>
+          <!-- table list -->
+          <div class="tbl-wrap">
+            <table class="tbl col data">
+              <caption>
+                패턴 목록 링크
+              </caption>
+              <colgroup>
+                <col />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">페이지명</th>
+                  <th scope="col">링크</th>
+                </tr>
+              </thead>
+              <tbody id="pattern-list"></tbody>
+            </table>
+          </div>
+          <!-- //table list -->
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      <script>
+        const dataPatterns = [
+          { name: "방문유형1 - 타입1", link: "sample_main_01.html" },
+          { name: "방문유형1 - 타입2", link: "sample_main_0101.html" },
+          { name: "긴급공지", link: "sample_main_0102.html" },
+          { name: "방문유형2 - 타입1", link: "sample_main_02.html" },
+          { name: "방문유형2 - 타입2", link: "sample_main_0201.html" },
+          { name: "방문유형3 - 타입1", link: "sample_main_03.html" },
+          { name: "방문유형3 - 타입2", link: "sample_main_0301.html" },
+          { name: "서비스신청 - 리스트 - 카드형 - 기본 / 목록 | 신청", link: "sample_appl_01.html", ex: "acco-list filter-list" },
+          { name: "서비스신청 - 리스트 - 카드형 - 선택", link: "sample_appl_0101.html", ex: "acco-list filter-list" },
+          { name: "서비스신청 - 리스트 - 목록형 - 기본", link: "sample_appl_0102.html", ex: "acco-list filter-list" },
+          { name: "서비스신청 - 리스트 - 목록형 - 선택", link: "sample_appl_0103.html", ex: "acco-list filter-list" },
+          { name: "서비스신청 - 상세 - 일반형 / 상세 | 신청", link: "sample_appl_02.html" },
+          { name: "서비스신청 - 상세 - 일반형 - 탭", link: "sample_appl_0201.html" },
+          { name: "신청하기 - 전입신고 - 유의사항 확인 / 신청안내 | 신청하기 | 신청", link: "sample_appl_03.html" },
+          { name: "신청하기 - 건축물대장 등·초본 발급 - 도움패널 유형1", link: "sample_appl_0301.html" },
+          { name: "전입신고 - 신청안내(주민등록등본발급)", link: "sample_appl_0302.html" },
+          { name: "전입신고 - 신청안내(자료신청)", link: "sample_appl_0303.html" },
+          { name: "전입신고 - 신청안내(전입신고) step2:조회 전", link: "sample_appl_0304.html" },
+          { name: "전입신고 - 신청안내(전입신고) step2:조회 후", link: "sample_appl_0305.html" },
+          { name: "서비스 신청 - 신청완료 / 신청완료 | 신청하기 | 신청", link: "sample_appl_04.html" },
+          { name: "평가", link: "sample_assess_01.html" },
+          { name: "서비스 신청 - 바구니", link: "sample_cart_01.html" },
+          { name: "코치마크 - 단계적 실습패널-선택 단계", link: "sample_coach_01.html" },
+          { name: "코치마크 - 단계적 실습패널-1단계", link: "sample_coach_0101.html" },
+          { name: "코치마크 - 단계적 실습패널-2단계", link: "sample_coach_0102.html" },
+          { name: "코치마크 - 단계적 실습패널-3단계", link: "sample_coach_0103.html" },
+          { name: "코치마크 - 단계적 실습패널-4단계", link: "sample_coach_0104.html" },
+          { name: "코치마크 | 전입신고 | 신청", link: "sample_coach_0105.html" },
+          { name: "관련기관링크", link: "sample_footer_link.html" },
+          { name: "도움패널 유형2", link: "sample_helper_type2.html" },
+          { name: "로그인 - 유형선택 - 링크형", link: "sample_login_01.html" },
+          { name: "로그인 - 정보입력", link: "sample_login_0101.html" },
+          { name: "로그인 - 유형선택 - 탭형", link: "sample_login_02.html" },
+          { name: "로그인", link: "sample_login_03.html" },
+          { name: "약관동의 | 로그인", link: "sample_login_04.html" },
+          { name: "전입신고 | 신청", link: "sample_move_process_01.html" },
+          { name: "전입신고 | 신청", link: "sample_move_process_02.html" },
+          { name: "신청하기 - 전입신고 - 신청인 정보 입력", link: "sample_move_process_03.html" },
+          { name: "신청하기 - 전입신고 - 이사 전 살던 곳", link: "sample_move_process_04.html" },
+          { name: "신청하기 - 전입신고 - 이사 온 곳", link: "sample_move_process_05.html" },
+          { name: "전입신고 | 신청", link: "sample_move_process_06.html" },
+          { name: "전입신고 | 신청", link: "sample_move_process_07.html" },
+          { name: "서비스신청 - 타입1", link: "sample_quest_01.html", ex: "acco-list filter-list" },
+          { name: "정책정보", link: "sample_quest_0101.html", ex: "acco-list filter-list" },
+          { name: "검색 - 통합검색 - 타입1", link: "sample_quest_0102.html", ex: "acco-list filter-list" },
+          { name: "서비스신청 - 타입2", link: "sample_quest_02.html", ex: "acco-list filter-list" },
+          { name: "통합검색", link: "sample_search_01.html" },
+          { name: "통합검색", link: "sample_search_0101.html" },
+          { name: "검색 - 통합검색 - 타입2", link: "sample_search_02.html", ex: "acco-list filter-list" },
+          { name: "검색결과 | 통합검색", link: "sample_search_0201.html", ex: "acco-list filter-list" },
+          { name: "검색결과 | 통합검색", link: "sample_search_0202.html", ex: "acco-list filter-list" },
+          { name: "레이아웃 - 타입1", link: "sample_sub_01.html" },
+          { name: "레이아웃 - 타입2", link: "sample_sub_02.html", ex: "acco-list lnb-list" },
+        ];
+
+        // renderPattern
+        const patternList = document.getElementById("pattern-list");
+        const renderPatterns = (patterns) => {
+          patternList.innerHTML = "";
+          patterns.forEach((pattern) => {
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            nameCell.textContent = pattern.name;
+            row.appendChild(nameCell);
+            const linkCell = document.createElement("td");
+            const link = document.createElement("a");
+            link.href = pattern.link;
+            link.target = "_blank";
+            link.className = "btn sm btn-txt link text-primary";
+            link.textContent = pattern.link;
+            linkCell.appendChild(link);
+            row.appendChild(linkCell);
+            patternList.appendChild(row);
+          });
+        };
+        // filterPatterns
+        const filterPatterns = () => {
+          const query = document.getElementById("search-input").value.toLowerCase();
+          const filteredPatterns = dataPatterns.filter((pattern) => pattern.name.toLowerCase().includes(query) || pattern.link.toLowerCase().includes(query));
+          renderPatterns(filteredPatterns);
+          count();
+        };
+        // filterPatternsByEx
+        const filterPatternsByEx = (badgeText) => {
+          const filteredPatterns = dataPatterns.filter((pattern) => pattern.ex === badgeText);
+          renderPatterns(filteredPatterns);
+          count();
+        };
+        // 배지 클릭 이벤트 리스너 추가
+        document.querySelectorAll(".krds-badge").forEach((badge) => {
+          badge.addEventListener("click", () => {
+            const badgeText = badge.textContent;
+            filterPatternsByEx(badgeText);
+          });
+        });
+        document.getElementById("search-button").addEventListener("click", filterPatterns);
+        document.getElementById("search-input").addEventListener("keyup", filterPatterns);
+        renderPatterns(dataPatterns);
+        // count
+        const count = () => {
+          const countView = document.querySelector(".count");
+          const num = patternList.querySelectorAll("tbody > tr").length;
+          countView.innerHTML = num;
+        }
+        count();
+      </script>
+    </div>
+  </body>
+</html>
