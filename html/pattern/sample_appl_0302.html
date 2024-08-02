@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 신청안내 | 신청하기 | 신청 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+				<ol class="breadcrumb">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><span class="txt">민원</span></li>
+				</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner narrow">
+				<!-- 페이지 타이틀 영역 -->
+				<div class="page-title-wrap">
+					<h2 class="h-tit">
+						주민등록표등본(초본)교부 신청
+						<p class="krds-badge-wrap">
+							<span class="krds-badge">전자증명</span>
+							<span class="krds-badge">전자문서지갑</span>
+							<button class="btn btn-ico ico-help sm-m btn-help-exec">
+								<span class="sr-only">도움말</span>
+							</button>
+						</p>
+					</h2>
+
+				</div>
+				<!-- //페이지 타이틀 영역 -->
+
+				<!-- 컨텐츠 영역 -->
+				<div class="conts-area">
+					<div class="conts-wrap">
+						<div class="conts-wrap">
+							<!-- 상단 가이드 박스 -->
+							<div class="txt-box outline">
+								<h4 class="outline-tit">시작하기 전에</h4>
+								<p class="outline-txt">
+									인터넷 신청은 본인과 등록된 거주인만 가능하며 무료로 발급받을 수 있습니다.
+									본인 인증되지 않은 경우는 거주지 읍면동에 방문하거나 우편으로 신청, 발급받을 수 있으며 발급 비용이 발생합니다.
+								</p>
+								<div class="conts-desc-wrap">
+									<ul class="check-list">
+										<li>본인확인 필요</li>
+										<li>인증서 필요</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //상단 가이드 박스 -->
+
+							<!-- 정보입력 -->
+							<div>
+								<!-- 기본 신청 정보 입력 -->
+								<div class="txt-box bg-white">
+									<h4 class="box-tit1">기본 신청 정보 입력</h4>
+									<div class="box-cnt">
+										<!-- 발급 유형 -->
+										<div class="box-sec">
+											<h5 class="box-tit2">
+												발급 유형<button class="btn btn-ico ico-help sm-m btn-help-exec">
+													<span class="sr-only">도움말</span>
+												</button>
+											</h5>
+											<div class="form-group">
+												<div class="form-conts">
+													<div class="row chk-area chk-column">
+														<div class="form-check ">
+															<input type="radio" name="rdo_1" id="rdo_1-1" checked>
+															<label for="rdo_1-1">온라인 발급 - 본인 출력</label>
+														</div>
+														<div class="form-check">
+															<input type="radio" name="rdo_1" id="rdo_1-2">
+															<label for="rdo_1-2">온라인 발금 - 전자지갑</label>
+														</div>
+														<div class="form-check">
+															<input type="radio" name="rdo_1" id="rdo_1-3">
+															<label for="rdo_1-3">온라인 발금 - 제3자 제출</label>
+														</div>
+														<div class="form-check">
+															<input type="radio" name="rdo_1" id="rdo_1-4">
+															<label for="rdo_1-4">등기우편</label>
+														</div>
+														<div class="form-check">
+															<input type="radio" name="rdo_1" id="rdo_1-5">
+															<label for="rdo_1-5">일반우편</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- //발급 유형 -->
+
+										<!-- 주민등록 주소지 -->
+										<div class="box-sec">
+											<h5 class="box-tit2">
+												주민등록 주소지<button class="btn btn-ico ico-help sm-m btn-help-exec">
+													<span class="sr-only">도움말</span>
+												</button>
+											</h5>
+											<div class="form-group">
+												<div class="form-conts">
+													<div class="input-group">
+														<input type="text" id="building_type-inpu2" class="form-control"
+															value="학동로11길 20-7 (플립타워)" placeholder="검색 버튼을 눌러주세요"
+															disabled>
+														<button type=" button" class="btn secondary">검색</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- //주민등록 주소지 -->
+									</div>
+								</div>
+								<!-- //기본 신청 정보 입력 -->
+
+								<!-- 상세 정보 입력 -->
+								<div class="txt-box bg-white">
+									<h4 class="box-tit1">상세 정보 입력</h4>
+									<div class="box-cnt">
+										<!-- 표시할 정보 -->
+										<div class="box-sec">
+											<h5 class="box-tit2">표시할 정보</h5>
+											<div class="form-group full">
+												<div class="form-conts">
+													<div class="row chk-area chk-column">
+														<div class="form-check lg">
+															<input type="radio" name="rdo_2" id="rdo_2-1">
+															<label for="rdo_2-1">기본 정보</label>
+															<div class="form-check-cnt">
+																<p class="form-check-p">
+																	과거의 주소 변동 사항을 제외한 모든 세대 구성 정보, 세대 구성원 정보, 주민등록번호
+																	뒷자리를 포함하여 발급합니다.
+																</p>
+															</div>
+														</div>
+														<div class="form-check lg">
+															<input type="radio" name="rdo_2" id="rdo_2-2" checked>
+															<label for="rdo_2-2">선택 정보</label>
+															<div class="form-check-cnt">
+																<p class="form-check-p">과거의 주소 변동 사항을 제외한 모든 세대 구성 정보,
+																	세대 구성원 정보, 주민등록번호 뒷자리를 포함하여 발급합니다.</p>
+																<div class="chk-area chk-column">
+																	<div class="form-check md">
+																		<input type="checkbox" name="chk_1" id="chk_1">
+																		<label for="chk_1">과거 주소 변동사항</label>
+																	</div>
+																	<div class="form-check md">
+																		<input type="checkbox" name="chk_1" id="chk_2">
+																		<label for=" chk_2">세대 구성 정보</label>
+																	</div>
+																	<div class="form-check md">
+																		<input type="checkbox" name="chk_1" id="chk_3">
+																		<label for="chk_3">세대 구성원 정보</label>
+																	</div>
+																	<div class="form-check md">
+																		<input type="checkbox" name="chk_1" id="chk_4">
+																		<label for="chk_4">주민등록번호 뒷자리</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- //표시할 정보 -->
+									</div>
+								</div>
+								<!-- //상세 정보 입력 -->
+							</div>
+							<!-- //정보입력 -->
+						</div>
+					</div>
+				</div>
+				<!-- //컨텐츠 영역 -->
+
+				<!-- 도움말 영역 -->
+				<!-- 도움말 열기 버튼 -->
+				<button type="button" class="btn btn-helper btn-help-exec expand">도움말</button>
+				<!-- //도움말 열기 버튼 -->
+				<div class="helper-area">
+					<!-- 도움말 내용 -->
+					<div class="helper-wrap" aria-expanded="true">
+						<h4 class="helper-tit sr-only">도움말</h4>
+						<div class="helper-conts-area">
+							<!-- 도움말 내용 -->
+							<div class="helper-in">
+								<!-- 탭  -->
+								<div class="tab-area layer">
+									<!-- tab list -->
+									<div class="tab line">
+										<ul role="tablist">
+											<li id="helperTab01" aria-selected="true" aria-controls="helperTabpanel01"
+												class="active">
+												<button type="button" class="btn-tab">도움</button>
+											</li>
+											<li id="helperTab02" aria-selected="false" aria-controls="helperTabpanel02">
+												<button type="button" class="btn-tab">따라하기 <i class="sr-only created">
+														선택됨</i></button>
+											</li>
+										</ul>
+									</div>
+									<!-- //tab list -->
+
+									<!-- tab contents -->
+									<div class="tab-conts-wrap">
+										<section id="helperTabpanel01" role="tabpanel" aria-labelledby="helperTab01"
+											class="tab-conts active">
+											<h3 class="sr-only">도움</h3>
+											<div class="helper-conts-area">
+												<!-- 도움말 -->
+												<div class="conts-area helper-conts">
+													<div class="conts-wrap">
+														<h5 class="tit">
+															전자문서지갑
+															<i class="btn btn-ico ico-help sm-m">
+																<span class="sr-only">도움말</span>
+															</i>
+														</h5>
+														<div class="conts-desc">
+															<p>전자문서지갑은 각종 증명문서를 송수신하고 열람, 증명 할 수 있는 서비스로 모바일에서 애플리케이션 설치
+																후
+																이용할 수 있습니다.</p>
+															<p>전자문서지갑에서는 전자증명서 출력기능을 제공하지 않으며, 스마트폰 화면을 캡쳐하여 사용할 수 없습니다.
+																다만,
+																발급받은 전자증명서를
+																열람용으로 다운로드할 수는 있습니다.</p>
+														</div>
+														<ul class="link-list">
+															<li><a href="#" class="btn sm btn-txt ico-go"
+																	target="_blank" title="새 창 열림">안드로이드 애플리케이션 다운로드</a>
+															</li>
+															<li><a href="#" class="btn sm btn-txt ico-go"
+																	target="_blank" title="새 창 열림">iOS
+																	애플리케이션 다운로드</a></li>
+														</ul>
+													</div>
+												</div>
+												<!-- //도움말 -->
+												<!-- 관련 서비스 -->
+												<div class="conts-area related-service">
+													<div class="conts-wrap">
+														<h5 class="tit">관련서비스/민원</h5>
+														<ul class="link-list">
+															<li><a href="#" class="btn sm btn-txt">영문 주민등록표등본</a></li>
+															<li><a href="#" class="btn sm btn-txt">영문 주민등록표초본</a></li>
+															<li><a href="#" class="btn sm btn-txt">주민등록표등본</a></li>
+														</ul>
+													</div>
+													<div class="conts-wrap">
+														<h5 class="tit">기타 문의/도움말</h5>
+														<ul class="link-list">
+															<li><a href="#"
+																	class="btn sm btn-txt ico-call ico-before">민원신청
+																	관련 문의 전화 번호
+																	찾기</a></li>
+															<li><a href="#" class="btn sm btn-txt ico-faq ico-before">자주
+																	묻는
+																	질문 확인하기</a></li>
+														</ul>
+													</div>
+												</div>
+												<!-- //관련 서비스 -->
+											</div>
+										</section>
+										<section id="helperTabpanel02" role="tabpanel" aria-labelledby="helperTab02"
+											class="tab-conts">
+											<h3 class="sr-only">따라하기</h3>
+											<div>
+												따라하기 내용
+											</div>
+										</section>
+									</div>
+									<!-- //tab contents -->
+								</div>
+								<!-- //탭 -->
+							</div>
+							<!-- //도움말 내용 -->
+							<!-- 도움말 닫기 -->
+							<button type="button" class="btn btn-helper fold"><span
+									class="sr-only">도움말</span>접어두기</button>
+							<!-- //도움말 닫기 -->
+						</div>
+					</div>
+					<!-- //도움말 내용 -->
+				</div>
+				<!-- //도움말 영역 -->
+
+
+				<!-- 페이지 버튼 영역 -->
+				<div class="page-btn-wrap both">
+					<button type="button" class="btn xlg tertiary">취소하기</button>
+
+					<button type="button" class="btn xlg">신청하기</button>
+				</div>
+				<!-- //페이지 버튼 영역 -->
+			</div>
+			<!-- //컨텐츠 영역 -->
+
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type1",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	
+</body>
+
+</html>

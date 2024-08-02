@@ -1,19 +1,29 @@
 {
-  "name": "egov-ui-ux",
+  "name": "2024-uiux",
   "version": "1.0.0",
-  "description": "",
+  "description": "2024범정부 UIUX 고도화",
+  "main": "index.js",
   "scripts": {
-    "clean": "rm -rf build",
-    "build-default": "style-dictionary build --config ./config.json",
-    "build-token": "style-dictionary build --config ./transform-scss.js",
-    "start": "gulp"
+    "clean": "rm -rf dist",
+    "start": "gulp",
+    "token": "style-dictionary build --config ./transform/config.json",
+    "token-custom": "style-dictionary build --config ./transform/transform-scss.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "del": "^7.1.0",
+    "fs-extra": "^11.2.0",
     "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-dart-sass": "^1.1.0",
-    "gulp-header": "^2.0.9",
+    "gulp-file-include": "^2.3.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
     "style-dictionary": "^3.9.2"
   }
 }

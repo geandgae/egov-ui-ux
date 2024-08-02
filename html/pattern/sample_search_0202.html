@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko" class="scroll-no">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 검색결과 | 통합검색 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+				<ol class="breadcrumb">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><span class="txt">통합검색</span></li>
+				</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner">
+				<!-- 페이지 타이틀 영역 -->
+				<div class="page-title-wrap">
+					<h2 class="h-tit">통합검색</h2>
+				</div>
+				<!-- //페이지 타이틀 영역 -->
+
+				<!-- //컨텐츠 영역 -->
+			</div>
+			<!-- //컨테이너 영역 -->
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type1",})
+			@@include("./inc/footer.html", {"footerType": "type2",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	<!-- 레이어 : 검색필터 -->
+	@@include("./inc/popup-filter.html", {
+		"type": "type2",
+	})
+	<!-- //레이어 : 검색필터 -->
+
+	
+	<script>
+		// 팝업오픈
+		document.addEventListener('DOMContentLoaded', () => {
+			common.popupEvent('#popFilterId');
+		});
+
+		/* layer : 검색필터 : 태그 */
+		const $tag = document.querySelector(".pop-filter-top .tag-in");
+		const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
+		if ($tagBtn) {
+			$tagBtn.addEventListener("click", (e) => {
+				if (!e.target.classList.contains("active")) {
+					$tag.classList.add("is-open");
+					e.target.classList.add("active");
+				} else {
+					$tag.classList.remove("is-open");
+					e.target.classList.remove("active");
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>

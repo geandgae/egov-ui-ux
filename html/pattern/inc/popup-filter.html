@@ -1,0 +1,758 @@
+
+<div class="popup-wrap" data-type="bottom" id="popFilterId">
+  @@if (type === "type1") {
+  <div class="popup-in">
+    <div class="popup">
+      <div class="popup-head">
+        <h1 class="pop-tit">검색필터</h1>
+        <button type="button" class="popup-close">
+          <span class="sr-only">레이어 닫기</span>
+        </button>
+      </div>
+      <div class="popup-body">
+        <div class="pop-filter-top">
+          @@if (filtered === "false") {
+          <!-- 적용된 필터가 없을 경우 노출 -->
+          <dl class="filter-dl">
+            <dt>적용된 필터 (0)</dt>
+            <dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
+          </dl>
+          <!-- //적용된 필터가 없을 경우 노출 -->
+          } @@if (filtered === "true") {
+          <!-- 적용된 필터가 있을 경우 노출 -->
+          <div class="filter-tag-wrap">
+            <button type="button" class="btn btn-ico ico-refresh sm-l">
+              <span class="sr-only">새로고침</span>
+            </button>
+            <div class="tag-in">
+              <span class="btn-chip-outline md">
+                유아
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                임신출산
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+            </div>
+            <div class="tag-btn">
+              <button type="button" class="btn btn-ico ico-toggle-r sm-l" id="btn-toggle">
+                <span class="sr-only">열기</span>
+              </button>
+            </div>
+          </div>
+          <!-- //적용된 필터가 있을 경우 노출 -->
+          } @@if (filtered === "quest") {
+          <div class="filter-tag-wrap">
+            <button type="button" class="btn btn-ico ico-refresh sm-l">
+              <span class="sr-only">새로고침</span>
+            </button>
+            <div class="tag-in">
+              <span class="btn-chip-outline md">
+                뉴스
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자주 묻는 질문
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자료
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                정책
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                뉴스
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자주 묻는 질문
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자료
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                정책
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+            </div>
+            <div class="tag-btn">
+              <button type="button" class="btn btn-ico ico-toggle-r sm-l" id="btn-toggle">
+                <span class="sr-only">열기</span>
+              </button>
+            </div>
+          </div>
+          }
+        </div>
+        <ul class="acco-list filter-list is-open accordion" data-acc-option="multiOpen">
+          @@if (filtered !== "quest") {
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">생애 주기</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">가구 상황</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">관심 주제</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          } @@if (filtered === "quest") {
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">정책분야</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">대상자</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          } @@if (filtered === "quest_0102") {
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">검색대상<span class="num">4</span></h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_1" />
+                    <label for="filter-target_chk_1">메뉴 (2)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_2" />
+                    <label for="filter-target_chk_2">뉴스 (2,301)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_3" />
+                    <label for="filter-target_chk_3">자주 묻는 질문 (39)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_4" />
+                    <label for="filter-target_chk_4">자료 (18,201)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_5" />
+                    <label for="filter-target_chk_5">정책 (32)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_6" />
+                    <label for="filter-target_chk_6">법령 (392)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">검색 기간</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <!-- 날짜 기간 선택 -->
+                <div class="form-group">
+                  <div class="chip-wrap">
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1a" />
+                      <label class="form-chip-outline" for="rdo_chip_date1a">1개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1b" />
+                      <label class="form-chip-outline" for="rdo_chip_date1b">3개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1c" />
+                      <label class="form-chip-outline" for="rdo_chip_date1c">6개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1d" />
+                      <label class="form-chip-outline" for="rdo_chip_date1d">1년</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-conts datepicker-conts">
+                    <ul class="input-group range">
+                      <li>
+                        <label for="datepicker1" class="form-tit">시작날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker1" placeholder="" />
+                      </li>
+                      <li class="mark sm">-</li>
+                      <li>
+                        <label for="datepicker2" class="form-tit">종료날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker2" placeholder="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //날짜 기간 선택 -->
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">자료 유형</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_1" />
+                    <label for="filter-data_chk_1">PDF (234)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_2" />
+                    <label for="filter-data_chk_2">HWP (220)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">자료 이용 장소</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_1" />
+                    <label for="filter-place_chk_1">장소1</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_2" />
+                    <label for="filter-place_chk_2">장소2</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">자료 언어</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_1" />
+                    <label for="filter-lang_chk_1a">영어</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_2" />
+                    <label for="filter-lang_chk_2">일본어</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="popup-btm">
+        <button type="button" class="btn xlg tertiary">모든 조건 삭제</button>
+        <button type="button" class="btn xlg">적용하기</button>
+        @@if (filtered === "quest_0102") {
+        <button type="button" class="btn xlg">적용하기</button>
+        }
+      </div>
+    </div>
+  </div>
+  } @@if (type === "type2") {
+  <div class="popup-in">
+    <div class="popup">
+      <div class="popup-head">
+        <h1 class="pop-tit">검색필터</h1>
+        <button type="button" class="popup-close">
+          <span class="sr-only">레이어 닫기</span>
+        </button>
+      </div>
+      <div class="popup-body">
+        <div class="pop-filter-top">
+          <dl class="filter-dl">
+            <dt>적용된 필터 (0)</dt>
+            <dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
+          </dl>
+        </div>
+        <ul class="acco-list filter-list is-open">
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">검색대상<span class="num">4</span></h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">접기</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_1" />
+                    <label for="filter-target_chk_1">메뉴 (2)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_2" />
+                    <label for="filter-target_chk_2">뉴스 (2,301)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_3" />
+                    <label for="filter-target_chk_3">자주 묻는 질문 (39)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_4" />
+                    <label for="filter-target_chk_4">자료 (18,201)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_5" />
+                    <label for="filter-target_chk_5">정책 (32)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_6" />
+                    <label for="filter-target_chk_6">법령 (392)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">검색 기간</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">접기</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <!-- 날짜 기간 선택 -->
+                <div class="form-group">
+                  <div class="chip-wrap">
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1a" />
+                      <label class="form-chip-outline" for="rdo_chip_date1a">1개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1b" />
+                      <label class="form-chip-outline" for="rdo_chip_date1b">3개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1c" />
+                      <label class="form-chip-outline" for="rdo_chip_date1c">6개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1d" />
+                      <label class="form-chip-outline" for="rdo_chip_date1d">1년</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-conts datepicker-conts">
+                    <ul class="input-group range">
+                      <li>
+                        <label for="datepicker1" class="form-tit">시작날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker1" placeholder="" />
+                      </li>
+                      <li class="mark sm">-</li>
+                      <li>
+                        <label for="datepicker2" class="form-tit">종료날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker2" placeholder="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //날짜 기간 선택 -->
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">자료 유형</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">접기</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_1" />
+                    <label for="filter-data_chk_1">PDF (234)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_2" />
+                    <label for="filter-data_chk_2">HWP (220)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">자료 이용 장소</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">접기</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_1" />
+                    <label for="filter-place_chk_1">장소1</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_2" />
+                    <label for="filter-place_chk_2">장소2</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">자료 언어</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">접기</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_1" />
+                    <label for="filter-lang_chk_1a">영어</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_2" />
+                    <label for="filter-lang_chk_2">일본어</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="popup-btm">
+        <button type="button" class="btn xlg">적용하기</button>
+      </div>
+    </div>
+  </div>
+  } @@if (type === "type3") {
+  <div class="popup-in">
+    <div class="popup">
+      <div class="popup-head">
+        <h1 class="pop-tit">검색필터</h1>
+        <button type="button" class="popup-close">
+          <span class="sr-only">레이어 닫기</span>
+        </button>
+      </div>
+      <div class="popup-body">
+        <div class="pop-filter-top">
+          <dl class="filter-dl">
+            <dt>적용된 필터 (0)</dt>
+            <dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
+          </dl>
+        </div>
+        <ul class="acco-list filter-list is-open">
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">검색대상<span class="num">4</span></h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_1" />
+                    <label for="filter-target_chk_1">메뉴 (2)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_2" />
+                    <label for="filter-target_chk_2">뉴스 (2,301)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_3" />
+                    <label for="filter-target_chk_3">자주 묻는 질문 (39)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_4" />
+                    <label for="filter-target_chk_4">자료 (18,201)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_5" />
+                    <label for="filter-target_chk_5">정책 (32)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_6" />
+                    <label for="filter-target_chk_6">법령 (392)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">검색 기간</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <!-- 날짜 기간 선택 -->
+                <div class="form-group">
+                  <div class="chip-wrap">
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1a" />
+                      <label class="form-chip-outline" for="rdo_chip_date1a">1개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1b" />
+                      <label class="form-chip-outline" for="rdo_chip_date1b">3개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1c" />
+                      <label class="form-chip-outline" for="rdo_chip_date1c">6개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1d" />
+                      <label class="form-chip-outline" for="rdo_chip_date1d">1년</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-conts datepicker-conts">
+                    <ul class="input-group range">
+                      <li>
+                        <label for="datepicker1" class="form-tit">시작날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker1" placeholder="" />
+                      </li>
+                      <li class="mark sm">-</li>
+                      <li>
+                        <label for="datepicker2" class="form-tit">종료날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker2" placeholder="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //날짜 기간 선택 -->
+              </div>
+            </div>
+          </li>
+          <li class="li">
+            <div class="acco-head">
+              <h4 class="tit">자료 유형</h4>
+              <button type="button" class="btn btn-ico acco-btn">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body">
+              <div class="acco-in">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_1" />
+                    <label for="filter-data_chk_1">PDF (234)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_2" />
+                    <label for="filter-data_chk_2">HWP (220)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="popup-btm">
+        <button type="button" class="btn xlg">적용하기</button>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
+
+
+<!-- <div class="popup-wrap" data-type="bottom" id="popFilterId">
+  <div class="popup-in">
+    <div class="popup">
+      <div class="popup-head">
+        <h1 class="pop-tit">검색필터</h1>
+        <button type="button" class="popup-close">
+          <span class="sr-only">레이어 닫기</span>
+        </button>
+      </div>
+      <div class="popup-body">
+        <div class="pop-filter-top">
+          <dl class="filter-dl">
+            <dt>적용된 필터 (0)</dt>
+            <dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
+          </dl>
+        </div>
+        <ul class="acco-list filter-list is-open accordion" data-acc-option="multiOpen">
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">생애 주기</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">가구 상황</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <div class="acco-head accordion-header">
+              <h4 class="tit">관심 주제</h4>
+              <button type="button" class="btn btn-ico acco-btn btn-accordion">
+                <span class="sr-only">펼침</span>
+              </button>
+            </div>
+            <div class="acco-body accordion-collapse">
+              <div class="acco-in">
+                <select class="form-select md">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="popup-btm">
+        <button type="button" class="btn xlg tertiary">모든 조건 삭제</button>
+        <button type="button" class="btn xlg">적용하기</button>
+      </div>
+    </div>
+  </div>
+</div> -->

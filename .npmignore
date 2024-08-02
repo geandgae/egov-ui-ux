@@ -1,0 +1,12 @@
+# /resourcess
+gulpfile.js
+package-lock.json
+/tokens
+/transform
+/html
+/resources/*
+!/resources/scss
+!/resources/js
+!/resources/css
+!/resources/img
+!/resources/fonts

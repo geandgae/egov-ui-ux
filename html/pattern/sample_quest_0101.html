@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ko">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 목록 | 신청 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header-type1.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+				<ol class="breadcrumb">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><a href="#" class="txt">정책정보</a></li>
+				</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner">
+				<!-- 페이지 타이틀 영역 -->
+				<div class="page-title-wrap">
+					<h2 class="h-tit">정책목록</h2>
+				</div>
+				<!-- //페이지 타이틀 영역 -->
+
+				<!-- 검색 입력폼 -->
+				<div class="search-top-box">
+					<div class="sch-form-wrap">
+						<div class="input-group">
+							<select class="form-select">
+								<option value="">전체</option>
+							</select>
+							<div class="sch-input">
+								<input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+								<button type="button" class="btn btn-ico ico-sch">
+									<span class="sr-only">검색</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="sch-filter-box">
+						<div class="filter-form">
+							<div>
+								<label class="label" for="appl-sch-sel1">정책분야</label>
+								<select id="appl-sch-sel1" class="form-select md">
+									<option value="">전체</option>
+									<option value="">항목</option>
+									<option value="">항목</option>
+								</select>
+							</div>
+							<div>
+								<label class="label" for="appl-sch-sel2">대상자</label>
+								<select id="appl-sch-sel2" class="form-select md">
+									<option value="">전체</option>
+									<option value="">항목</option>
+									<option value="">항목</option>
+								</select>
+							</div>
+						</div>
+						<dl class="filter-chip">
+							<dt>적용된 검색조건 (<span class="num">3</span>)</dt>
+							<dd>
+								<button type="button" class="btn btn-ico ico-refresh sm-l">
+									<span class="sr-only">새로고침</span>
+								</button>
+								<div class="chip-wrap">
+									<span class="btn-chip-outline md">
+										취업 및 채용지원
+										<button type="button" class="btn-del">
+											<span class="sr-only">삭제</span>
+										</button>
+									</span>
+									<span class="btn-chip-outline md">
+										사업주지원
+										<button type="button" class="btn-del">
+											<span class="sr-only">삭제</span>
+										</button>
+									</span>
+									<span class="btn-chip-outline md">
+										퇴직
+										<button type="button" class="btn-del">
+											<span class="sr-only">삭제</span>
+										</button>
+									</span>
+								</div>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!-- //검색 입력폼 -->
+
+				<!-- 검색 결과 : 리스트 상단 -->
+				<div class="search-list-top type1">
+					<div class="sch-info">
+						총 게시글 <span class="keyword">841</span>건
+					</div>
+					<ul class="sch-sort">
+						<li class="li2">
+							<strong class="sort-label">정렬기준</strong>
+							<div class="w-sort-btn">
+								<button type="button" class="active">가나다순</button>
+								<button type="button">인기순</button>
+							</div>
+							<div class="m-sort-btn">
+								<select class="sort-select">
+									<option>가나다순</option>
+									<option>인기순</option>
+								</select>
+								<button type="button" class="btn btn-txt ico-filter"
+									onclick="common.popupEvent('#popFilterId')">
+									<span class="span">필터</span>
+									<span class="num">2</span>
+								</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- //검색 결과 : 리스트 상단 -->
+
+				<!-- 검색 결과 : 리스트 -->
+				<ul class="search-list">
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">사업주지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">장애인 신규고용 장려금</span></p>
+								<p class="c-txt">
+									[ 개요 ] 장애인의 신규고용을 유도하기 위하여 5인 이상 50인 미만의 상시근로자를 고용하는 사업주가 장애인을 신규고용하여 6개월 이상 고용을 유지한
+									경우 장애인 신규고용장려금을 지원
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+					<li class="li">
+						<div class="card-top">
+							<span class="krds-badge">취업 및 채용지원</span>
+							<div class="btn-area">
+								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="#" class="c-text">
+								<p class="c-tit"><span class="span">청년친화형 기업 ESG 지원사업</span></p>
+								<p class="c-txt">
+									[ 개요 ] 기업이 ESG 경영 차원에서 수행하는 청년고용 지원 프로그램에 대한 비용, 컨설팅 지원을 통해 청년 직무역량 향상 및 일경험 기회 확대 →
+									청년고용 활성화 기반 구축
+								</p>
+							</a>
+						</div>
+						<div class="card-btm">
+							<span class="tag">장애인</span>
+							<span class="tag">직무경홈</span>
+						</div>
+					</li>
+				</ul>
+				<!-- //검색 결과 : 리스트 -->
+
+				<!-- paging : 웹 -->
+				<div class="pagination w-page">
+					<a class="page-navi prev" href="#">이전</a>
+					<div class="page-links">
+						<a class="page-link" href="#">1</a>
+						<span class="page-link link-dot"></span>
+						<a class="page-link" href="#">6</a>
+						<a class="page-link" href="#">7</a>
+						<a class="page-link active" href="#">8</a>
+						<a class="page-link" href="#">9</a>
+						<a class="page-link" href="#">10</a>
+						<a class="page-link" href="#">11</a>
+						<span class="page-link link-dot"></span>
+						<a class="page-link" href="#">120</a>
+					</div>
+					<a class="page-navi next" href="#">다음</a>
+				</div>
+				<!-- //paging : 웹 -->
+
+				<!-- paging : 모바일 -->
+				<div class="pagination m-page">
+					<div class="page-navis">
+						<a class="page-navi prev" href="#">이전</a>
+						<a class="page-navi next" href="#">다음</a>
+					</div>
+					<div class="page-links">
+						<a class="page-link" href="#">1</a>
+						<span class="page-link link-dot"></span>
+						<a class="page-link" href="#">7</a>
+						<a class="page-link active" href="#">8</a>
+						<a class="page-link" href="#">9</a>
+						<span class="page-link link-dot"></span>
+						<a class="page-link" href="#">120</a>
+					</div>
+				</div>
+				<!-- //paging : 모바일 -->
+			</div>
+			<!-- //컨텐츠 영역 -->
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type2",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	<!-- 레이어 : 검색필터 -->
+	@@include("./inc/popup-filter.html", {
+		"type": "type1",
+		"filtered": "quest",
+	})
+	<!-- //레이어 : 검색필터 -->
+
+	
+	<script>
+		/* layer : 검색필터 : 태그 */
+		const $tag = document.querySelector(".pop-filter-top .tag-in");
+		const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
+		if ($tagBtn) {
+			$tagBtn.addEventListener("click", (e) => {
+				if (!e.target.classList.contains("active")) {
+					$tag.classList.add("is-open");
+					e.target.classList.add("active");
+				} else {
+					$tag.classList.remove("is-open");
+					e.target.classList.remove("active");
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>

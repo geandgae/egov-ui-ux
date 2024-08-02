@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 코치마크 | 전입신고 | 신청 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+			<ol class="breadcrumb">
+				<li class="home"><a href="#" class="txt">홈</a></li>
+				<li><a href="#" class="txt">민원서비스</a></li>
+			</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner narrow page-step">
+			<!-- 페이지 타이틀 영역 -->
+			<div class="page-title-wrap">
+				<h2 class="h-tit">전입신고</h2>
+			</div>
+			<!-- //페이지 타이틀 영역 -->
+
+			<!-- 스텝 영역 -->
+			<ol class="step-wrap">
+				<li class="done">
+				<span>
+					<i class="step">1단계</i>
+					<p class="step-tit">유의사항 확인</p>
+				</span>
+				</li>
+				<li class="done">
+				<span>
+					<i class="step">2단계</i>
+					<p class="step-tit">신청인 정보</p>
+				</span>
+				</li>
+				<li class="active">
+				<span>
+					<em class="sr-only">현재단계</em>
+					<i class="step">3단계</i>
+					<p class="step-tit">이사 전 살던 곳</p>
+				</span>
+				</li>
+				<li>
+				<span>
+					<i class="step">4단계</i>
+					<p class="step-tit">이사 온 곳</p>
+				</span>
+				</li>
+				<li>
+				<span>
+					<i class="step">5단계</i>
+					<p class="step-tit">추가 신청(선택)</p>
+				</span>
+				</li>
+			</ol>
+			<!-- //스텝 영역 -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="conts-area step-type">
+				<div class="conts-wrap">
+				<div class="conts-wrap">
+					<h3 class="sec-tit">
+					<span class="step-now"><strong class="active">3단계</strong> / 5단계</span>
+					이사 전 살던 곳
+					</h3>
+
+					<div>
+					<!-- 이사 전 살던 곳 -->
+					<div class="txt-box bg-white">
+						<h4 class="box-tit1">이사 전 살던 곳</h4>
+						<div class="box-cnt">
+						<!-- 이사 전에 살던 곳 주소(전출지) -->
+						<div class="box-sec">
+							<h5 class="box-tit2">이사 전에 살던 곳 주소(전출지)</h5>
+							<div class="form-group">
+							<div class="form-conts">
+								<div class="input-group m-column">
+								<select class="form-select" title="시 선택">
+									<option value="">시 선택</option>
+									<option value="">서울특별시</option>
+								</select>
+								<select class="form-select" title="구 선택">
+									<option value="">구 선택</option>
+									<option value="">성동구</option>
+								</select>
+								<button type=" button" class="btn secondary" onclick="addrSch()">주소 조회</button>
+								</div>
+							</div>
+							</div>
+							<div class="form-addr-result" id="sch-result-addr">
+							<ul class="info-ul">
+								<li>
+								<span class="key">기본주소</span>
+								<span class="value">서울특별시 성동구 아차산로17길 49, 성수 생각공장 데시앙플렉스</span>
+								</li>
+								<li>
+								<span class="key">상세주소</span>
+								<span class="value">1609, 1610호</span>
+								</li>
+							</ul>
+							<ul class="info-ul">
+								<li>
+								<span class="key">관할 읍·면사무소/동 주민센터</span>
+								<span class="value">화양제1동</span>
+								</li>
+							</ul>
+							</div>
+						</div>
+						<!-- //이사 전에 살던 곳 주소(전출지) -->
+						</div>
+					</div>
+					<!-- //이사 전 살던 곳 -->
+
+					<!-- 신고 대상자 -->
+					<div class="txt-box bg-white">
+						<h4 class="box-tit1">신고 대상자</h4>
+						<div class="tbl-no-data" id="sch-tbl-no">이사 전에 살던 곳 주소를 <br class="w-hide" />조회해 주세요.</div>
+						<div class="box-cnt" id="sch-result-tbl">
+						<div class="box-sec">
+							<h5 class="box-tit2">이사 가는 사람</h5>
+							<p>3명 중 <span class="text-primary-60">3</span>명 선택됨</p>
+							<!-- table list -->
+							<div class="tbl-wrap">
+							<table class="tbl col data">
+								<caption>
+								서비스 대상자를 선택하는 표이며, 세대주와의 관계, 성명, 생년월일, 성별로 구성되어있으며 민원 신청인인 전출지 전 세대주,새로운 세대주,전입지 세대주로 구성되어
+								있음
+								</caption>
+								<colgroup>
+								<col style="width: 10%" />
+								<col style="width: 22%" />
+								<col style="width: 20%" />
+								<col style="width: 30%" />
+								<col />
+								</colgroup>
+								<thead>
+								<tr>
+									<th scope="col" class="text-center">
+									<div class="form-check ico-only">
+										<input type="checkbox" name="save_id" id="chk_all" />
+										<label for="chk_all">
+										<span class="sr-only">선택</span>
+										</label>
+									</div>
+									</th>
+									<th scope="col">세대주와의 관계</th>
+									<th scope="col">성명</th>
+									<th scope="col">생년월일</th>
+									<th scope="col" class="text-center">성별</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td class="text-center">
+									<div class="form-check ico-only">
+										<input type="checkbox" name="save_id" id="chk_1-1" />
+										<label for="chk_1-1">
+										<span class="sr-only">선택</span>
+										</label>
+									</div>
+									</td>
+									<td>본인 (신청인)</td>
+									<td>김플립</td>
+									<td>1990년 11월 23일</td>
+									<td class="text-center">여</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+									<div class="form-check ico-only">
+										<input type="checkbox" name="save_id" id="chk_1-2" />
+										<label for="chk_1-2">
+										<span class="sr-only">선택</span>
+										</label>
+									</div>
+									</td>
+									<td>배우자</td>
+									<td>홍길동</td>
+									<td>1986년 05월 02일</td>
+									<td class="text-center">남</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+									<div class="form-check ico-only">
+										<input type="checkbox" name="save_id" id="chk_1-3" />
+										<label for="chk_1-3">
+										<span class="sr-only">선택</span>
+										</label>
+									</div>
+									</td>
+									<td>자녀</td>
+									<td>홍미영</td>
+									<td>2009년 06월 21일</td>
+									<td class="text-center">여</td>
+								</tr>
+								</tbody>
+							</table>
+							</div>
+							<!-- //table list -->
+						</div>
+						</div>
+					</div>
+					<!-- //신고 대상자 -->
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- //컨텐츠 영역 -->
+
+			<!-- 도움말 영역 -->
+			<!-- 도움말 열기 버튼 -->
+			<button type="button" class="btn btn-helper btn-help-exec expand">도움말</button>
+			<!-- //도움말 열기 버튼 -->
+			<div class="helper-area">
+				<!-- 도움말 내용 -->
+				<div class="helper-wrap" aria-expanded="true">
+				<h4 class="helper-tit">
+					<div class="sr-only">도움말</div>
+				</h4>
+				<div class="helper-conts-area">
+					<!-- 도움말 내용 -->
+					<div class="helper-in">
+					<!-- 탭	-->
+					<div class="tab-area layer">
+						<!-- tab list -->
+						<div class="tab line">
+						<ul role="tablist">
+							<li id="helperTab01" aria-selected="false" aria-controls="helperTabpanel01">
+							<button type="button" class="btn-tab">도움</button>
+							</li>
+							<li id="helperTab02" aria-selected="true" aria-controls="helperTabpanel02" class="active">
+							<button type="button" class="btn-tab">따라하기 <i class="sr-only created"> 선택됨</i></button>
+							</li>
+						</ul>
+						</div>
+						<!-- //tab list -->
+
+						<!-- tab contents -->
+						<div class="tab-conts-wrap">
+						<section id="helperTabpanel01" role="tabpanel" aria-labelledby="helperTab01" class="tab-conts">
+							<h3 class="sr-only">도움</h3>
+						</section>
+						<section id="helperTabpanel02" role="tabpanel" aria-labelledby="helperTab02"
+							class="tab-conts active">
+							<h3 class="sr-only">따라하기</h3>
+							<div class="page-btn">
+							<button type="button" class="btn sm btn-txt ico-prev ico-before"
+								onclick="location.href='sample_coach_01.html'" title="이전으로 돌아가기">
+								<span>이사 전 살던 곳 정보 입력하기</span>
+							</button>
+							</div>
+							<ul class="coach-help-process">
+							<li>
+								<h4 class="tit current">Task 1: 이사 전에 살던 곳 주소 확인</h4>
+								<!-- disclosure -->
+								<div class="krds-disclosure conts-expand-area">
+								<button type="button" class="btn-conts-expand">전체 2단계</button>
+								<div class="expand-wrap">
+									<div class="expand-in">
+									<ul class="list-bullet">
+										<li>단계1 : 주소조회</li>
+										<li>단계2 : 조회 결과 확인</li>
+									</ul>
+									</div>
+								</div>
+								</div>
+								<!-- //disclosure -->
+							</li>
+							<li>
+								<h4 class="tit">Task 2: 이사 갈 가족 구성원 선택하기</h4>
+								<!-- disclosure -->
+								<div class="krds-disclosure conts-expand-area">
+								<button type="button" class="btn-conts-expand">전체 1단계</button>
+								<div class="expand-wrap">
+									<div class="expand-in">
+									<ul class="list-bullet">
+										<li>단계1 : 주소조회</li>
+									</ul>
+									</div>
+								</div>
+								</div>
+								<!-- //disclosure -->
+							</li>
+							</ul>
+						</section>
+						</div>
+						<!-- //tab contents -->
+
+						<button type="button" class="btn secondary coach-btn-stop"
+						onclick="location.href='sample_coach_01.html'"><span>그만 따라하기</span></button>
+					</div>
+					<!-- //탭 -->
+					</div>
+					<!-- //도움말 내용 -->
+					<!-- 도움말 닫기 -->
+					<button type="button" class="btn btn-helper fold"><span class="sr-only">도움말</span>접어두기</button>
+					<!-- //도움말 닫기 -->
+				</div>
+				</div>
+				<!-- //도움말 내용 -->
+			</div>
+			<!-- //도움말 영역 -->
+
+			<!-- 페이지 버튼 영역 -->
+			<div class="page-btn-wrap both coach-highligt">
+				<button type="button" class="btn xlg tertiary">이전으로</button>
+
+				<div class="btn-wrap">
+				<button type="button" class="btn xlg tertiary">임시저장</button>
+				<button type="button" class="btn xlg coach-btn">다음으로</button>
+				</div>
+				<!-- 따라하기 말풍선 -->
+				<div class="coach-balloon">
+				<h5 class="sr-only">따라하기 가이드</h5>
+				<h6 class="coach-tit">4단계 : 이사 전 살던 곳</h6>
+				<p class="desc">‘다음으로'버튼을 누르면 다음 단계로 넘어갑니다.</p>
+				<div class="coach-controls">
+					<div class="num">
+					<span class="sr-only">현재 단계</span>
+					<strong>4</strong>
+					<span class="sr-only">총 단계</span>
+					<span>4</span>
+					</div>
+					<div class="btn-wrap">
+					<button type="button" class="btn sm btn-txt"
+						onclick="location.href='sample_coach_01.html'"><span>그만보기</span></button>
+					<button type="button" class="btn sm btn-txt"
+						onclick="location.href='sample_coach_0103.html'"><span>이전으로</span></button>
+					<button type="button" class="btn sm tertiary" onclick="location.href='sample_coach_0105.html'"
+						disabled><span>다음으로</span></button>
+					</div>
+				</div>
+				</div>
+				<!--// 따라하기 말풍선 -->
+			</div>
+			<!-- //페이지 버튼 영역 -->
+			</div>
+			<!-- //컨텐츠 영역 -->
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type1",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	
+	<script>
+	function addrSch() {
+		const $addr = document.querySelector('#sch-result-addr');
+		const $tblNo = document.querySelector('#sch-tbl-no');
+		const $tbl = document.querySelector('#sch-result-tbl');
+		$addr.style.display = 'block';
+		$tblNo.style.display = 'none';
+		$tbl.style.display = 'block';
+	}
+	</script>
+</body>
+
+</html>

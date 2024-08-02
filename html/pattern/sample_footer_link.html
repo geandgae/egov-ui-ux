@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko" class="scroll-no">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 관련기관링크 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+				<ol class="breadcrumb">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><span class="txt">통합검색</span></li>
+				</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner">
+				컨텐츠 영역
+			</div>
+			<!-- //컨텐츠 영역 -->
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type1",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	<!-- 레이어 : 검색어 입력 -->
+	<div class="popup-wrap" data-type="full" id="popFootLink">
+		<div class="popup-in">
+			<div class="popup">
+				<div class="popup-head">
+					<h1 class="pop-tit">소속기관(지청 및 위원회)</h1>
+				</div>
+				<div class="popup-body">
+					<!-- 관련기관 링크 -->
+					<ul class="pop-foot-links">
+						<li><a href="#" target="_blank">서울지방고용노동청</a></li>
+						<li><a href="#" target="_blank">서울강남지청</a></li>
+						<li><a href="#" target="_blank">서울동부지청</a></li>
+						<li><a href="#" target="_blank">서울서부지청</a></li>
+						<li><a href="#" target="_blank">서울남부지청</a></li>
+						<li><a href="#" target="_blank">서울북부지청</a></li>
+						<li><a href="#" target="_blank">서울관악지청</a></li>
+						<li><a href="#" target="_blank">중부지방고용노동청</a></li>
+						<li><a href="#" target="_blank">인천북부지청</a></li>
+						<li><a href="#" target="_blank">부천지청</a></li>
+						<li><a href="#" target="_blank">의정부지청</a></li>
+						<li><a href="#" target="_blank">고양지청</a></li>
+						<li><a href="#" target="_blank">경기지청</a></li>
+						<li><a href="#" target="_blank">성남지청</a></li>
+						<li><a href="#" target="_blank">안양지청</a></li>
+						<li><a href="#" target="_blank">안산지청</a></li>
+						<li><a href="#" target="_blank">평택지청</a></li>
+						<li><a href="#" target="_blank">강원지청･강릉지청</a></li>
+						<li><a href="#" target="_blank">원주지청</a></li>
+						<li><a href="#" target="_blank">태백지청</a></li>
+						<li><a href="#" target="_blank">영월출장소</a></li>
+						<li><a href="#" target="_blank">부산지방고용노동청 </a></li>
+						<li><a href="#" target="_blank">부산동부지청</a></li>
+						<li><a href="#" target="_blank">부산북부지청</a></li>
+						<li><a href="#" target="_blank">창원지청</a></li>
+						<li><a href="#" target="_blank">울산지청</a></li>
+						<li><a href="#" target="_blank">양산지청</a></li>
+						<li><a href="#" target="_blank">진주지청</a></li>
+						<li><a href="#" target="_blank">통영지청</a></li>
+						<li><a href="#" target="_blank">대구지방고용노동청</a></li>
+						<li><a href="#" target="_blank">대구서부지청</a></li>
+						<li><a href="#" target="_blank">포항지청</a></li>
+						<li><a href="#" target="_blank">구미지청</a></li>
+						<li><a href="#" target="_blank">영주지청</a></li>
+						<li><a href="#" target="_blank">안동지청</a></li>
+						<li><a href="#" target="_blank">광주지방고용노동청</a></li>
+						<li><a href="#" target="_blank">전주지청</a></li>
+						<li><a href="#" target="_blank">전주지청익산지청</a></li>
+						<li><a href="#" target="_blank">군산지청</a></li>
+						<li><a href="#" target="_blank">목포지청</a></li>
+						<li><a href="#" target="_blank">여수지청</a></li>
+						<li><a href="#" target="_blank">대전지방고용노동청</a></li>
+						<li><a href="#" target="_blank">청주지청</a></li>
+						<li><a href="#" target="_blank">천안지청</a></li>
+						<li><a href="#" target="_blank">충주지청</a></li>
+						<li><a href="#" target="_blank">보령지청</a></li>
+						<li><a href="#" target="_blank">서산출장소</a></li>
+						<li><a href="#" target="_blank">중앙노동위원회</a></li>
+						<li><a href="#" target="_blank">최저임금위원회</a></li>
+						<li><a href="#" target="_blank">산업재해보상보험재심사위원회</a></li>
+						<li><a href="#" target="_blank">고용보험심사위원회</a></li>
+					</ul>
+					<!-- //관련기관 링크 -->
+				</div>
+				<button type="button" class="popup-close"><span class="sr-only">레이어 닫기</span></button>
+			</div>
+		</div>
+	</div>
+	<!-- //레이어 : 검색어 입력 -->
+
+	<script>
+		// 팝업오픈
+		document.addEventListener('DOMContentLoaded', () => {
+			common.popupEvent('#popFootLink');
+		});
+	</script>
+
+</body>
+
+</html>

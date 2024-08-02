@@ -5,9 +5,6 @@ node_modules/
 dist/
 build/
 
-.DS_Store
-
-
 # local env files
 .env.local
 .env.*.local
@@ -27,4 +24,6 @@ Thumbs.db
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
+*.bak
+*.tmp

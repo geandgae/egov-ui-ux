@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko" class="scroll-no">
+
+@@include("./inc/head.html", {
+	"title": "서브 - 통합검색 - KRDS",
+})
+</head>
+
+<body>
+	<div id="wrap">
+		@@include("./inc/skip.html", {"class": "",})
+
+		@@include("./inc/header-top.html")
+
+		<!-- 헤더 영역 -->
+		<header id="header">
+			@@include("./inc/header.html")
+		</header>
+		<!-- //헤더 영역 -->
+
+		<!-- 컨테이너 영역 -->
+		<div id="container">
+			<!-- breadcrumb -->
+			<div class="breadcrumb-wrap">
+				<ol class="breadcrumb">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><span class="txt">통합검색</span></li>
+				</ol>
+			</div>
+			<!-- breadcrumb -->
+
+			<!-- 컨텐츠 영역 -->
+			<div class="inner">
+				컨텐츠 영역
+			</div>
+			<!-- //컨텐츠 영역 -->
+		</div>
+		<!-- //컨테이너 영역 -->
+
+		<!-- 푸터 영역 -->
+		<footer id="footer">
+			@@include("./inc/footer.html", {"footerType": "type1",})
+		</footer>
+		<!-- //푸터 영역 -->
+	</div>
+
+	<!-- 레이어 : 검색어 입력 -->
+	<div class="popup-wrap" data-type="full" id="popTotalSch">
+		<div class="popup-in">
+			<div class="popup">
+				<div class="popup-head sr-only">
+					<h1 class="pop-tit">통합검색</h1>
+				</div>
+				<div class="popup-body">
+					<!-- 통합검색 -->
+					<div class="pop-total-serch-wrap">
+						<!-- 통합검색 정보입력 영역 -->
+						<div class="search-total-top">
+							<!-- 검색어 타이틀 -->
+							<div class="search-tit">
+								<label for="search-total-input-id">검색어를 입력해주세요</label>
+								<a href="#" class="btn btn-txt ico-arr sm">검색에 어려움이 있으신가요?</a>
+							</div>
+							<!-- //검색어 타이틀 -->
+
+							<!-- 검색어 입력 폼 -->
+							<div class="search-total-input-wrap">
+								<div class="sch-input">
+									<input type="text" class="form-control" id="search-total-input-id"
+										placeholder="검색어 입력" value="퇴직">
+									<button type="button" class="btn btn-ico ico-sch">
+										<span class="sr-only">검색</span>
+									</button>
+								</div>
+								<div class="search-etc">
+									<button type="button" class="btn btn-txt ico-sch sm ico-before">고급검색</button>
+								</div>
+							</div>
+							<!-- //검색어 입력 폼 -->
+						</div>
+						<!-- //통합검색 정보입력 영역 -->
+
+						<!-- 키워드 리스트 -->
+						<div class="search-text">
+							<ul class="sch-keyword-list">
+								<li class="li">
+									<div class="text">
+										<p class="txt"><span class="text-bold">나의 퇴직</span>금 계산해 보기</p>
+										<p class="url">https://labor.moel.go.kr/cmmt/calRtrmnt.do</p>
+									</div>
+									<a href="#" class="btn btn-txt ico-go sm"><span>바로가기</span></a>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt"><span class="text-bold">퇴직</span>금 계산기</p>
+									</div>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt"><span class="text-bold">퇴직</span>금 중간정산</p>
+									</div>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt"><span class="text-bold">퇴직</span>금 미지급</p>
+									</div>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt">일용직<span class="text-bold">퇴직</span>금</p>
+									</div>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt">육아휴직<span class="text-bold">퇴직</span>금</p>
+									</div>
+								</li>
+								<li class="li">
+									<div class="text">
+										<p class="txt">연차수당<span class="text-bold">퇴직</span>금</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- //키워드 리스트 -->
+					</div>
+					<!-- //통합검색 -->
+				</div>
+				<button type="button" class="popup-close"><span class="sr-only">레이어 닫기</span></button>
+			</div>
+		</div>
+	</div>
+	<!-- //레이어 : 검색어 입력 -->
+
+	<script>
+		// 팝업오픈
+		document.addEventListener('DOMContentLoaded', () => {
+			common.popupEvent('#popTotalSch');
+		});
+	</script>
+	
+</body>
+
+</html>

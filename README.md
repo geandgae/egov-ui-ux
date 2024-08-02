@@ -1,91 +1,113 @@
-# egov-ui-ux
+# 2024범정부 UIUX 고도화
 
-* 스타일 폴더
-```
-scss/
-|-- abstracts/
-|   |-- _functions.scss       // 함수 정의
-|   |-- _mixins.scss          // 믹스인 정의
-|   |-- _variables.scss       // 변수 정의
-|-- base/
-|   |-- _reset-origin.scss    // CSS 리셋
-|   |-- _fonts.scss           // 타이포그래피 설정
-|   |-- _base-origin.scss     // 기본 스타일
-|-- components/
-|   |-- _[...].scss           // 컴포넌트 스타일
-|-- layout/
-|   |-- _header.scss          // 헤더 레이아웃
-|   |-- _footer.scss          // 푸터 레이아웃
-|   |-- _grid.scss            // 그리드 시스템
-|-- pages/
-|   |-- _[...].scss           // 페이지 스타일
-|-- themes/
-|   |-- _light.scss           // 기본 테마
-|   |-- _dark.scss            // 다크 테마
-|-- vendors/
-|   |-- _[...].scss           // 서드파티 라이브러리 오버라이드(bootstrap...) 거의 안 씀
-|-- reset.scss                // _reset-origin.scss
-|-- base.scss                 // _variables.scss, _base-origin.scss
-|-- layout.scss               // _header.scss, _footer.scss, _grid.scss
-|-- components.scss           // 컴포넌트
-|-- contents.scss             // 페이지
-|-- default.scss              // css 배포 경로
+2024범정부 UIUX 고도화
+
+퍼블 작업 환경
+```bash
+
+  * gulp 실행
+
+  npm start
+  yarn start
+  gulp
+
+
+  * 스타일 딕셔너리 토큰 변환
+
+  npm run token(기본변환)
+  yarn run token
+
+  npm run token-custom(사용자설정)
+  yarn run token-custom
+  
 ```
 
 
-* old 
-- mixin @include group : .comp-btn-wrap(완료버튼정렬 반응형 모바일일때) / .form-conts.group.form-control(사용안함)
+## Getting started
 
+To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
-* scss / func / mixin / var(token)
-- 시맨틱 : Category - type - state 
-- 컴포넌트토큰 : component - property - element - state - size - mod
-- uswds : node-modules / uswds-core 참조 / core > styles > settings
-- uk : govuk-colours-organisations 
-- @atlaskit/css-reset @atlaskit/tokens
-- atlassian : js-tokens / token-names.d.ts
-- https://polaris.shopify.com/ 
-- https://atlassian.design/tokens
-- mui 토큰
-- https://github.com/material-foundation/material-tokens/blob/main/css/
-- https://github.com/material-components/material-web
-colors.css 
+Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
+## Add your files
 
+- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
+- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
 
-// @forward @use 예
-// index.scss
-@forward 'variables';
-@forward 'mixins';
-@forward 'base';
+```
+cd existing_repo
+git remote add origin https://git.devtree.co.kr/pub_2024/2024-uiux.git
+git branch -M main
+git push -uf origin main
+```
 
-// main.scss
-@use 'index';
+## Integrate with your tools
 
-body {
-  // index 모듈을 통해 로드된 변수와 믹스인 사용
-  color: index.variables.$primary-color;
-  @include index.mixins.center;
-}
+- [ ] [Set up project integrations](https://git.devtree.co.kr/pub_2024/2024-uiux/-/settings/integrations)
 
-// _variables.scss
-$primary-color: #333;
+## Collaborate with your team
 
-// _mixins.scss
-@mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
+- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
+- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
+- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
+- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-// _base.scss
-@use 'variables';
-@use 'mixins';
+## Test and Deploy
 
-body {
-  color: variables.$primary-color;
-  @include mixins.center;
-}
+Use the built-in continuous integration in GitLab.
 
-// main.scss
-@use 'base';
+- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
+- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
+- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
+- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
+- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+
+***
+
+# Editing this README
+
+When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+
+## Suggestions for a good README
+Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+
+## Name
+Choose a self-explaining name for your project.
+
+## Description
+Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+
+## Badges
+On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+
+## Visuals
+Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+
+## Installation
+Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+## Usage
+Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+
+## Support
+Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+
+## Roadmap
+If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+## Contributing
+State if you are open to contributions and what your requirements are for accepting them.
+
+For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+
+You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+
+## Authors and acknowledgment
+Show your appreciation to those who have contributed to the project.
+
+## License
+For open source projects, say how it is licensed.
+
+## Project status
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
