@@ -40,56 +40,26 @@ StyleDictionary.registerFormat({
   name: "custom/scss-format",
   formatter: function(dictionary) {
     const typeGroups = dictionary.allProperties.reduce((acc, prop) => {
-      const type = prop.path[0];
-      // const type = prop.type;
-      // const type = prop.description;
-      const name = transformName(prop, 1);
+      const namespace = prop.filePath.split('/')[1].split('.')[0];
+      const type = namespace;
+      const name = transformName(prop);
 
       if (!acc[type]) {
         acc[type] = [];
       }
-      acc[type].push(`  ${name}: ${prop.value},`);
+      acc[type].push(`$${type}-${name}: ${prop.value};`);
       return acc;
     }, {});
 
     const scssContent = Object.entries(typeGroups)
       .map(([type, tokens]) => {
-        return `//${type}\n$${type}: (\n${tokens.join("\n")}\n)!default;`;
+        return `//${type}\n${tokens.join("\n")}`;
       })
       .join("\n\n");
-
     // return scssContent;
     return preset + scssContent;
   }
 });
-
-// custom namespace
-// StyleDictionary.registerFormat({
-//   name: "custom/scss-format",
-//   formatter: function(dictionary) {
-//     const typeGroups = dictionary.allProperties.reduce((acc, prop) => {
-//       const type = prop.path[0];
-//       // const type = prop.type;
-//       // const type = prop.description;
-//       const name = transformName(prop, 1);
-
-//       if (!acc[type]) {
-//         acc[type] = [];
-//       }
-//       acc[type].push(`  ${name}: ${prop.value},`);
-//       return acc;
-//     }, {});
-
-//     const scssContent = Object.entries(typeGroups)
-//       .map(([type, tokens]) => {
-//         return `//${type}\n$${type}: (\n${tokens.join("\n")}\n)!default;`;
-//       })
-//       .join("\n\n");
-
-//     // return scssContent;
-//     return preset + scssContent;
-//   }
-// });
 
 // export
 module.exports = {
@@ -99,10 +69,10 @@ module.exports = {
   platforms: {
     scss: {
       transformGroup: "scss",
-      buildPath: "./resources/scss/component/token/",
+      buildPath: "./test/resources/scss/component/token/",
       files: [
         {
-          destination: "_krds_tokens_custom.scss",
+          destination: "_krds_tokens_custom_test.scss",
           format: "custom/scss-format",
         },
       ],
