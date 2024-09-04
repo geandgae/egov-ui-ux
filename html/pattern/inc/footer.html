@@ -1,7 +1,7 @@
 <!-- foot-quick -->
 			<div class="foot-quick">
 				<div class="inner">
-					<button type="button" class="link" title="소속기관(지청 및 위원회) 레이어" onclick="common.popupEvent('#popFootLink');">소속기관(지청 및 위원회)</button>
+					<button type="button" class="link open-modal" title="소속기관(지청 및 위원회) 레이어" data-target="popFootLink">소속기관(지청 및 위원회)</button>
 					<button type="button" class="link" title="업무별 누리집 레이어">업무별 누리집</button>
 					<button type="button" class="link" title="산하기관 및 관련단체 레이어">산하기관 및 관련단체</button>
 					<button type="button" class="link" title="정부기관 레이어">정부기관</button>
@@ -42,9 +42,9 @@
 
 					<div class="f-link">
 						<div class="link-go">
-							<a href="#" class="btn btn-txt sm ico-arr">찾아오시는 길</a>
-							<a href="#" class="btn btn-txt sm ico-arr">이용안내</a>
-							<a href="#" class="btn btn-txt sm ico-arr">직원검색</a>
+							<a href="#" class="krds-btn medium text">찾아오시는 길 <i class="svg-icon ico-page-next"></i></a>
+							<a href="#" class="krds-btn medium text">이용안내 <i class="svg-icon ico-page-next"></i></a>
+							<a href="#" class="krds-btn medium text">직원검색 <i class="svg-icon ico-page-next"></i></a>
 						</div>
 						<div class="link-sns">
 							<a href="#" class="instagram" target="_blank"><span class="sr-only">인스타그램</span></a>
@@ -72,3 +72,6 @@
 			</div>
 			<!-- //inner -->
 	
+			<!-- 레이어 : 소속기관 링크 -->
+			@@include("./pop-footer-link.html")
+			<!-- //레이어 : 소속기관 링크 -->

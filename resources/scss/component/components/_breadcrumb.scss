@@ -1,0 +1,237 @@
+$breadcrumb-variables: (
+	padding: (
+		wrap-top: map-get($spacings-padding, 24),
+		text: map-get($spacings-padding, 4),
+	),
+	gap: (
+		default: map-get($spacings-gap, 4),
+	),
+	font-size: (
+		default-pc: map-get(map-get($typo-sizes-pc, link), small),
+		default-mobile: map-get(map-get($typo-sizes-mobile, link), small),
+	),
+	color: (
+		font: map-get($colors-gray, 90),
+	),
+	
+) !default;
+
+.#{$prefix}breadcrumb-wrap {
+	@each $target, $types in $breadcrumb-variables {
+		@each $type, $value in $types {
+			//css variable 생성
+			--#{$prefix}breadcrumb-#{$target}-#{$type}: #{$value};
+		}
+	}
+
+	@include flex-layout($jc: center,);
+	padding-top: var(--#{$prefix}breadcrumb-padding-wrap-top);
+	.breadcrumb {
+		@include flex-layout($ai: center);
+		gap: var(--#{$prefix}breadcrumb-gap-default);
+		width: 100%;
+		max-width: var(--#{$prefix}contents-size);
+		padding: 0 var(--#{$prefix}contents-padding-x);
+		li {
+			@include flex-layout($d: inline-flex, $ai: center);
+			font-size: var(--#{$prefix}breadcrumb-font-size-default-pc);
+			.txt {
+				@include flex-layout($d: inline-flex, $ai: center);
+				gap: var(--#{$prefix}breadcrumb-gap-default);
+				padding: 0 var(--#{$prefix}breadcrumb-padding-text);
+				&:hover {
+					background-color: var(--#{$prefix}bg-secondary-subtler-hover);
+				}
+				&:active,
+				&:focus {
+					background-color: var(--#{$prefix}bg-secondary-subtler-pressed);
+				}
+				&:focus {
+					@include focus($offset: 0.4rem);
+				}
+				@include underline();
+			}
+
+			//span {
+			//	&.txt {
+			//		color: var(--krds-gray-90);
+			//		border-color: var(--krds-gray-90);
+			//	}
+			//}
+			&:not(:last-child) {
+				//마지막 뎁스가 아니면 화살표 아이콘 표시
+				&::after {
+					@include flex-layout($d: inline-flex, $ai: center);
+					@include pseudo();
+					@include foursquare(var(--#{$prefix}height-16));
+					margin-left: var(--#{$prefix}breadcrumb-gap-default);
+					@include svg-icon(var(--#{$prefix}height-16));
+					@include icon-set(ico_angle);
+					transform: rotate(-90deg);
+				}
+			}
+		}
+		.home {
+			gap: 0;
+			.txt {
+				&::before {
+					@include flex-layout($d: inline-flex, $ai: center);
+					content:'';
+					@include foursquare(var(--#{$prefix}height-24));
+					@include svg-icon();
+					@include icon-set(ico_bread_home);
+				}
+			}
+		}
+	}
+}
+
+//추후삭제
+.breadcrumb-wrap {
+	display: flex;
+	justify-content: center;
+	@include flex-layout($jc: center,);
+	padding-top: var(--#{$prefix}spacer-6);
+	.breadcrumb {
+		@include flex-layout($ai: center);
+		gap: var(--#{$prefix}spacer-1);
+		width: 100%;
+		max-width: 132.8rem;
+		padding-left: var(--#{$prefix}spacer-6);
+		padding-right: var(--#{$prefix}spacer-6);
+		li {
+			@include flex-layout($d: inline-flex, $ai: center);
+			font-size: 1.5rem; //새로운 타입 추가예정
+			.txt {
+				@include flex-layout($d: inline-flex, $ai: center);
+				line-height: 1.2;
+				border-bottom: .1rem solid var(--krds-gray-50);
+			}
+
+			span {
+				&.txt {
+					color: var(--krds-gray-90);
+					border-color: var(--krds-gray-90);
+				}
+			}
+			&:not(:last-child) {
+				&::after {
+					@include flex-layout($d: inline-flex, $ai: center);
+					content:'';
+					width: 1.6rem;
+					height: 1.6rem;
+					margin-left: var(--#{$prefix}spacer-1);
+					background: url(#{$url}/pattern/common/ico_bread_arr.svg) no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+		.home { 
+			gap: 0;
+			&::before {
+				@include flex-layout($d: inline-flex, $ai: center);
+				content:'';
+				width: 2.4rem;
+				height: 2.4rem;
+				background: url(#{$url}/pattern/common/ico_bread_home.svg) no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+}
+
+//태블릿 & 모바일 전용 속성
+@include tabletLess {
+	//추후삭제
+	.breadcrumb-wrap {
+		.breadcrumb {
+			padding-left: var(--#{$prefix}spacer-4);
+			padding-right: var(--#{$prefix}spacer-4);
+		}
+	}
+}
+
+//모바일 전용 속성
+@include mobile {
+	.krds-breadcrumb-wrap {
+		.breadcrumb {
+			li {
+				//모바일에서는 홈, 마지막 뎁스만 화면에 표시
+				&:not(.home) {
+					&:not(:last-child) {
+						@include sr-only;
+					}
+				}
+				&:not(:nth-child(2)) {
+					&:last-child {
+						gap: var(--#{$prefix}breadcrumb-gap-default);
+						&::before,
+						&::after {
+							@include flex-layout($d: inline-flex, $ai: center);
+							@include pseudo();
+							@include foursquare(var(--#{$prefix}height-16));
+							@include svg-icon(var(--#{$prefix}height-16));
+						}
+						&::before {
+							@include icon-set(ico_bread_dot);
+						}
+						&::after {
+							margin-left: var(--#{$prefix}breadcrumb-gap-default);
+							@include icon-set(ico_angle);
+							transform: rotate(-90deg);
+						}
+						.txt {
+							order: 3;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	//추후삭제
+	.breadcrumb-wrap {
+		.breadcrumb {
+			li {
+				display: none;
+				&.home,
+				&:last-child {
+					display: inline-flex;
+				}
+				&:not(:nth-child(2)) {
+					&:last-child {
+						gap: var(--#{$prefix}spacer-1);
+						&::before {
+							order: 1;
+							display: inline-flex;
+							align-items: center;
+							justify-content: flex-start;
+							flex-direction: row;
+							content: "";
+							width: 1.6rem;
+							height: 1.6rem;
+							background: url(#{$url}/component/common/ico_bread_dot.svg) no-repeat;
+							background-size: contain;
+						}
+						&::after {
+							order: 2;
+							display: inline-flex;
+							align-items: center;
+							justify-content: flex-start;
+							flex-direction: row;
+							content: "";
+							width: 1.6rem;
+							height: 1.6rem;
+							background: url(#{$url}/pattern/common/ico_bread_arr.svg) no-repeat;
+							background-size: contain;
+						}
+						.txt {
+							order: 3;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../resources/img/guide/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png" />
+    <title>패턴 목록</title>
+    <!-- css -->
+    <link href="../../resources/css/swiper-bundle.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../resources/css/pattern_css.css" type="text/css" rel="stylesheet" />
+    <!-- script -->
+    <script defer src="../../resources/js/component/ui-script.js"></script>
+  </head>
+
+  <style>
+    .sch-tag {
+      dd {
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        & > div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+        }
+      }
+    }
+  </style>
+
+  <body>
+    <div id="wrap">
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- visual banner -->
+        <div class="main-vban-wrap">
+          <div class="inner">
+            <div class="main-top-sch">
+              <div class="sch-tit">패턴 목록</div>
+              <div class="sch-form-wrap vert">
+                <div class="sch-input">
+                  <input type="text" id="search-input" class="form-control xlg" placeholder="검색어를 입력하세요" value="" title="검색어 입력">
+                  <button type="button" class="krds-btn medium icon ico-search" id="search-button">
+                    <span class="sr-only">검색</span>
+                    <i class="svg-icon ico-sch"></i>
+                  </button>
+                </div>
+                <dl class="sch-tag">
+                  <dt>추천 검색어</dt>
+                  <dd>
+                    <div>
+                      <span class="krds-badge bg" style="cursor: pointer">component</span>
+                      <span class="krds-badge bg" style="cursor: pointer">global</span>
+                      <span class="krds-badge bg" style="cursor: pointer">sample</span>
+                      <span class="krds-badge bg1" style="cursor: pointer">admin</span>
+                    </div>
+                    <span class="krds-badge bg2" style="cursor: pointer">accordion</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">filter-list</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">lnb-list</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">modal-content</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">#popFilterId</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">#popTotalSch</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">#popFootLink</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">header-in gnb</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">tag-in</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">datepicker-conts</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">helper-area</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">krds-drop-wrap</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">krds-tooltip-wrap</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">krds-disclosure conts-expand-area</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">header-type1</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">마크업 예시 링크</span>
+                    <span class="krds-badge bg2" style="cursor: pointer">클래스네이밍</span>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //visual banner -->
+        <!-- 컨텐츠 영역 -->
+        <div class="inner">
+          <span class="count"></span>
+          <!-- table list -->
+          <div class="tbl-wrap">
+            <table class="tbl col data">
+              <caption>
+                패턴 목록 링크
+              </caption>
+              <colgroup>
+                <col style="width: 30%" />
+                <col />
+                <col style="width: auto" />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">페이지명</th>
+                  <th scope="col">링크</th>
+                  <th scope="col">태그</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody id="pattern-list"></tbody>
+            </table>
+          </div>
+          <!-- //table list -->
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      <script>
+        const dataAdmin = [
+          {
+            name: "관리자",
+            link: "index.html",
+            folder: "./admin/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+        ]
+
+        const dataComponents = [
+          {
+            name: "공식 배너",
+            link: "component_02_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "헤더",
+            link: "component_02_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "header-in gnb krds-drop-wrap",
+            ex: `
+              component_03_02_01 동일 <br> 
+              krds-drop-wrap 컴포넌트 분리?
+            `,
+            class: "",
+          },
+          {
+            name: "푸터",
+            link: "component_02_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "운영기관 식별자",
+            link: "component_02_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "스킵",
+            link: "component_03_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "메인메뉴(헤더)",
+            link: "component_03_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "header-in gnb krds-drop-wrap",
+            ex: "component_02_02_01 동일 / 현재 사용안함",
+            class: "",
+          },
+          {
+            name: "브레드크럼",
+            link: "component_03_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "사이드 메뉴",
+            link: "component_03_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "lnb-list krds-drop-wrap",
+            ex: "",
+            class: "target",
+          },
+          {
+            name: "콘텐츠 내 탐색",
+            link: "component_03_05_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "페이지네이션",
+            link: "component_03_06_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "구조화 목록",
+            link: "component_04_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "긴급 공지",
+            link: "component_04_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "달력",
+            link: "component_04_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "datepicker-conts",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "달력2",
+            link: "component_04_03_02.html",
+            folder: "./guide/component/code/",
+            tag: "datepicker-conts",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "디스클로저",
+            link: "component_04_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "모달 기본",
+            link: "component_04_05_01.html",
+            folder: "./guide/component/code/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "모달 얼럿형",
+            link: "component_04_05_02.html",
+            folder: "./guide/component/code/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "모달 버튼 호출",
+            link: "component_04_05_03.html",
+            folder: "./guide/component/code/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "배지",
+            link: "component_04_06_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "아코디언",
+            link: "component_04_07_01.html",
+            folder: "./guide/component/code/",
+            tag: "accordion",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "캐러셀",
+            link: "component_04_09_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "캐러셀2",
+            link: "component_04_09_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "-",
+            link: "component_04_09_03.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "탭",
+            link: "component_04_10_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "표",
+            link: "component_04_11_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "링크",
+            link: "component_05_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "버튼",
+            link: "component_05_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "버튼2",
+            link: "component_05_02_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "버튼3",
+            link: "component_05_02_03.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "버튼4",
+            link: "component_05_02_04.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "버튼5",
+            link: "component_05_02_05.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "라디오버튼",
+            link: "component_06_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "라디오버튼2",
+            link: "component_06_01_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "라디오버튼3",
+            link: "component_06_01_03.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "라디오버튼4",
+            link: "component_06_01_04.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "라디오버튼5",
+            link: "component_06_01_05.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스",
+            link: "component_06_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스2",
+            link: "component_06_02_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스3",
+            link: "component_06_02_03.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스4",
+            link: "component_06_02_04.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스5",
+            link: "component_06_02_05.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스6",
+            link: "component_06_02_06.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "체크박스7",
+            link: "component_06_02_07.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "셀렉트1",
+            link: "component_06_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "셀렉트2",
+            link: "component_06_03_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "태그1",
+            link: "component_06_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "단계표시기",
+            link: "component_07_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "스피너",
+            link: "component_07_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "도움 패널",
+            link: "component_08_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "마크업 예시 링크",
+            class: "",
+          },
+          {
+            name: "맥락적 도움말",
+            link: "component_08_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "krds-tooltip-wrap",
+            ex: "마크업 예시 링크",
+            class: "",
+          },
+          {
+            name: "따라하기 패널",
+            link: "component_08_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "마크업 예시 링크",
+            class: "",
+          },
+          {
+            name: "코치마크1",
+            link: "component_08_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크2",
+            link: "component_08_04_02.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "날짜 입력 필드",
+            link: "component_09_01_01.html",
+            folder: "./guide/component/code/",
+            tag: "datepicker-conts",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "텍스트 영역",
+            link: "component_09_02_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "텍스트 입력 필드",
+            link: "component_09_03_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "파일 업로드",
+            link: "component_09_04_01.html",
+            folder: "./guide/component/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+        ];
+
+        const dataPatterns = [
+          {
+            name: "기본패턴 - 개인 식별 정보 입력",
+            link: "global_01_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 도움",
+            link: "global_02_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "krds-drop-wrap krds-tooltip-wrap",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 동의",
+            link: "global_03_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 목록 탐색",
+            link: "global_04_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 사용자 피드백",
+            link: "global_05_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 상세 정보 확인",
+            link: "global_06_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 오류(인풋)",
+            link: "global_07_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 오류(모달)",
+            link: "global_07_01_02.html",
+            folder: "./guide/global/code/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 입력폼",
+            link: "global_08_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 첨부파일",
+            link: "global_09_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 필터링",
+            link: "global_10_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "filter-list #popFilterId accordion",
+            ex: "filter-list 포함 안 됨",
+            class: "",
+          },
+          {
+            name: "기본패턴 - 확인(모달 약관)",
+            link: "global_11_01_01.html",
+            folder: "./guide/global/code/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+        ];
+
+        const dataSamples = [
+          {
+            name: "방문유형1 - 타입1",
+            link: "sample_main_01.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "방문유형1 - 타입2",
+            link: "sample_main_0101.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "긴급공지",
+            link: "sample_main_0102.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "방문유형2 - 타입1",
+            link: "sample_main_02.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "방문유형2 - 타입2",
+            link: "sample_main_0201.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "방문유형3 - 타입1",
+            link: "sample_main_03.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "방문유형3 - 타입2",
+            link: "sample_main_0301.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "서비스신청 - 리스트 - 카드형 - 기본 / 목록 | 신청",
+            link: "sample_appl_01.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion header-type1",
+            ex: `
+            acco-list(삭제) > accordion으로 변경, 접근성 추가<br>
+            클래스네이밍 : span, li, li1, li2
+            `,
+            class: "fin",
+          },
+          {
+            name: "서비스신청 - 리스트 - 카드형 - 선택",
+            link: "sample_appl_0101.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "서비스신청 - 리스트 - 목록형 - 기본",
+            link: "sample_appl_0102.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "서비스신청 - 리스트 - 목록형 - 선택",
+            link: "sample_appl_0103.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "서비스신청 - 상세 - 일반형 / 상세 | 신청",
+            link: "sample_appl_02.html",
+            folder: "./pattern/",
+            tag: "krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "서비스신청 - 상세 - 일반형 - 탭",
+            link: "sample_appl_0201.html",
+            folder: "./pattern/",
+            tag: "krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "신청하기 - 전입신고 - 유의사항 확인 / 신청안내 | 신청하기 | 신청",
+            link: "sample_appl_03.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "신청하기 - 건축물대장 등·초본 발급 - 도움패널 유형1",
+            link: "sample_appl_0301.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "krds-disclosure conts-expand-area",
+            class: "",
+          },
+          {
+            name: "전입신고 - 신청안내(주민등록등본발급)",
+            link: "sample_appl_0302.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 - 신청안내(자료신청)",
+            link: "sample_appl_0303.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 - 신청안내(전입신고) step2:조회 전",
+            link: "sample_appl_0304.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 - 신청안내(전입신고) step2:조회 후",
+            link: "sample_appl_0305.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "서비스 신청 - 신청완료 / 신청완료 | 신청하기 | 신청",
+            link: "sample_appl_04.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "평가",
+            link: "sample_assess_01.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "서비스 신청 - 바구니",
+            link: "sample_cart_01.html",
+            folder: "./pattern/",
+            tag: "krds-disclosure conts-expand-area header-type1",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 - 단계적 실습패널-선택 단계",
+            link: "sample_coach_01.html",
+            folder: "./pattern/",
+            tag: "accordion helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 - 단계적 실습패널-1단계",
+            link: "sample_coach_0101.html",
+            folder: "./pattern/",
+            tag: "helper-area krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 - 단계적 실습패널-2단계",
+            link: "sample_coach_0102.html",
+            folder: "./pattern/",
+            tag: "helper-area krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 - 단계적 실습패널-3단계",
+            link: "sample_coach_0103.html",
+            folder: "./pattern/",
+            tag: "helper-area krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 - 단계적 실습패널-4단계",
+            link: "sample_coach_0104.html",
+            folder: "./pattern/",
+            tag: "helper-area krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "코치마크 | 전입신고 | 신청",
+            link: "sample_coach_0105.html",
+            folder: "./pattern/",
+            tag: "helper-area krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "관련기관링크",
+            link: "sample_footer_link.html",
+            folder: "./pattern/",
+            tag: "#popFootLink",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "도움패널 유형2",
+            link: "sample_helper_type2.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "로그인 - 유형선택 - 링크형",
+            link: "sample_login_01.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "로그인 - 정보입력",
+            link: "sample_login_0101.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "로그인 - 유형선택 - 탭형",
+            link: "sample_login_02.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "로그인",
+            link: "sample_login_03.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "약관동의 | 로그인",
+            link: "sample_login_04.html",
+            folder: "./pattern/",
+            tag: "modal-content",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 | 신청",
+            link: "sample_move_process_01.html",
+            folder: "./pattern/",
+            tag: "krds-disclosure conts-expand-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 | 신청",
+            link: "sample_move_process_02.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "신청하기 - 전입신고 - 신청인 정보 입력",
+            link: "sample_move_process_03.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "신청하기 - 전입신고 - 이사 전 살던 곳",
+            link: "sample_move_process_04.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "신청하기 - 전입신고 - 이사 온 곳",
+            link: "sample_move_process_05.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 | 신청",
+            link: "sample_move_process_06.html",
+            folder: "./pattern/",
+            tag: "helper-area",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "전입신고 | 신청",
+            link: "sample_move_process_07.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "서비스신청 - 타입1",
+            link: "sample_quest_01.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId tag-in accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "정책정보",
+            link: "sample_quest_0101.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId tag-in accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "검색 - 통합검색 - 타입1",
+            link: "sample_quest_0102.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion datepicker-conts",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "서비스신청 - 타입2",
+            link: "sample_quest_02.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId tag-in accordion header-type1",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "통합검색",
+            link: "sample_search_01.html",
+            folder: "./pattern/",
+            tag: "#popTotalSch",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "통합검색",
+            link: "sample_search_0101.html",
+            folder: "./pattern/",
+            tag: "#popTotalSch",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "검색 - 통합검색 - 타입2",
+            link: "sample_search_02.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "검색결과 | 통합검색",
+            link: "sample_search_0201.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "검색결과 | 통합검색",
+            link: "sample_search_0202.html",
+            folder: "./pattern/",
+            tag: "filter-list #popFilterId accordion",
+            ex: "acco-list(삭제) > accordion으로 변경, 접근성 추가",
+            class: "fin",
+          },
+          {
+            name: "레이아웃 - 타입1",
+            link: "sample_sub_01.html",
+            folder: "./pattern/",
+            tag: "",
+            ex: "",
+            class: "",
+          },
+          {
+            name: "레이아웃 - 타입2",
+            link: "sample_sub_02.html",
+            folder: "./pattern/",
+            tag: "lnb-list krds-drop-wrap",
+            ex: "acco-list(삭제) > lnb-list으로 변경, 접근성 추가 header-type1",
+            class: "fin",
+          },
+        ];
+
+
+        const dataSet = [...dataAdmin, ...dataComponents, ...dataPatterns, ...dataSamples];
+
+        // renderPattern
+        const patternList = document.getElementById("pattern-list");
+        const renderPatterns = (patterns) => {
+          let row = [];
+          patterns.forEach((pattern) => {
+            row.push(`
+              <tr class="${pattern.class}">
+                <td>${pattern.name}</td>
+                <td>
+                  <a href="${pattern.folder}${pattern.link}" target="_blank" class="krds-btn text">
+                    ${pattern.link}
+                    <i class="svg-icon ico-link"></i>
+                  </a>
+                </td>
+                <td>${pattern.tag}</td>
+                <td>${pattern.ex}</td>
+              </tr>
+            `);
+          });
+          patternList.innerHTML = row.join("");
+        };
+
+        // filterPatterns
+        const filterPatterns = () => {
+          const query = document.getElementById("search-input").value.toLowerCase();
+          const filteredPatterns = dataSet.filter(
+            (pattern) =>
+              (pattern.name && pattern.name.toLowerCase().includes(query)) ||
+              (pattern.link && pattern.link.toLowerCase().includes(query)) ||
+              (pattern.tag && pattern.tag.toLowerCase().includes(query)) ||
+              (pattern.folder && pattern.folder.toLowerCase().includes(query)) ||
+              (pattern.ex && pattern.ex.toLowerCase().includes(query)) 
+          );
+          renderPatterns(filteredPatterns);
+          count();
+        };
+
+        // filterPatternsByEx
+        const filterPatternsByEx = () => {
+          document.querySelectorAll(".krds-badge").forEach((badge) => {
+            const query = document.getElementById("search-input");
+            badge.addEventListener("click", () => {
+              const badgeText = badge.textContent;
+              query.value = badgeText;
+              filterPatterns();
+            });
+          });
+        };
+
+        document.getElementById("search-button").addEventListener("click", filterPatterns);
+        document.getElementById("search-input").addEventListener("keyup", filterPatterns);
+        renderPatterns(dataSet);
+        filterPatternsByEx();
+
+        // count
+        const count = () => {
+          const countView = document.querySelector(".count");
+          const num = patternList.querySelectorAll("tbody > tr").length;
+          countView.innerHTML = num;
+        };
+        count();
+
+        // 검색어 메모 guideExample
+      </script>
+    </div>
+  </body>
+</html>

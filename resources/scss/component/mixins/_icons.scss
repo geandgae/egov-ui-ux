@@ -1,0 +1,18 @@
+//svg img
+@mixin svg-icon($size: var(--#{$prefix}height-24)) {
+	display: inline-flex;
+	@include square($size);
+	background-color: var(--#{$prefix}text-default);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center center;
+	-webkit-mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center center;
+	mask-size: contain;
+}
+
+//svg icon setting
+@mixin icon-set ($name) {
+	-webkit-mask-image: url(#{$url}/component/icon/#{$name}.svg);
+	mask-image: url(#{$url}/component/icon/#{$name}.svg);
+}

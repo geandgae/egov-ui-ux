@@ -1,3 +1,111 @@
+/*** BUTTON COMPONENT ***/
+//** component variables **
+//* 버튼 사이즈 정의 *
+$button-size: (
+	xsmall: (
+		height: map-get($spacings-size-height, 32),
+		padding-x: map-get($spacings-padding, 10),
+		gap: map-get($spacings-gap, 2),
+		radius: map-get($radius, small-3),
+		font-size-pc: map-get(map-get($typo-sizes-pc, label), small),
+		font-size-mobile: map-get(map-get($typo-sizes-mobile, label), small),
+		font-weight: map-get($typo-weights, regular),
+	),
+	small: (
+		height: map-get($spacings-size-height, 40),
+		padding-x: map-get($spacings-padding, 12),
+		gap: map-get($spacings-gap, 2),
+		radius: map-get($radius, medium-1),
+		font-size-pc: map-get(map-get($typo-sizes-pc, label), small),
+		font-size-mobile: map-get(map-get($typo-sizes-mobile, label), small),
+		font-weight: map-get($typo-weights, regular),
+	),
+	medium: (
+		height: map-get($spacings-size-height, 48),
+		padding-x: map-get($spacings-padding, 16),
+		gap: map-get($spacings-gap, 4),
+		radius: map-get($radius, medium-2),
+		font-size-pc: map-get(map-get($typo-sizes-pc, label), medium),
+		font-size-mobile: map-get(map-get($typo-sizes-mobile, label), medium),
+		font-weight: map-get($typo-weights, regular),
+	),
+	large: (
+		height: map-get($spacings-size-height, 56),
+		padding-x: map-get($spacings-padding, 20),
+		gap: map-get($spacings-gap, 4),
+		radius: map-get($radius, medium-3),
+		font-size-pc: map-get(map-get($typo-sizes-pc, label), large),
+		font-size-mobile: map-get(map-get($typo-sizes-mobile, label), large),
+		font-weight: map-get($typo-weights, regular),
+	),
+	xlarge: (
+		height: map-get($spacings-size-height, 64),
+		padding-x: map-get($spacings-padding, 24),
+		gap: map-get($spacings-gap, 4),
+		radius: map-get($radius, medium-4),
+		font-size-pc: map-get(map-get($typo-sizes-pc, label), large),
+		font-size-mobile: map-get(map-get($typo-sizes-mobile, label), large),
+		font-weight: map-get($typo-weights, regular),
+	),
+) !default;
+
+//* 버튼 컬러 정의 *
+$button-color: (
+	primary: (
+		background: map-get(map-get(map-get($colors-button, primary), background), default),
+		background-hover: map-get(map-get(map-get($colors-button, primary), background), hover),
+		background-pressed: map-get(map-get(map-get($colors-button, primary), background), pressed),
+		background-disabled: map-get(map-get(map-get($colors-button, disabled), background), default),
+		border: map-get(map-get($colors-button, primary), border),
+		border-disabled: map-get(map-get($colors-button, disabled), border),
+		text: map-get(map-get($colors-button, primary), text),
+		text-disabled: map-get(map-get($colors-text, disabled), text),
+	),
+	secondary: (
+		background: map-get(map-get(map-get($colors-button, secondary), background), default),
+		background-hover: map-get(map-get(map-get($colors-button, secondary), background), hover),
+		background-pressed: map-get(map-get(map-get($colors-button, secondary), background), pressed),
+		background-disabled: map-get(map-get(map-get($colors-button, disabled), background), default),
+		border: map-get(map-get($colors-button, secondary), border),
+		border-disabled: map-get(map-get($colors-button, disabled), border),
+		text: map-get(map-get($colors-button, secondary), text),
+		text-disabled: map-get(map-get($colors-text, disabled), text),
+	),
+	tertiary: (
+		background: map-get(map-get(map-get($colors-button, tertiary), background), default),
+		background-hover: map-get(map-get(map-get($colors-button, tertiary), background), hover),
+		background-pressed: map-get(map-get(map-get($colors-button, tertiary), background), pressed),
+		background-disabled: map-get(map-get(map-get($colors-button, disabled), background), default),
+		border: map-get(map-get($colors-button, tertiary), border),
+		border-disabled: map-get(map-get($colors-button, disabled), border),
+		text: map-get(map-get($colors-button, tertiary), text),
+		text-disabled: map-get(map-get($colors-text, disabled), text),
+	),
+	text: (
+		background: map-get(map-get(map-get($colors-button, text), background), default),
+		background-hover: map-get(map-get(map-get($colors-button, text), background), hover),
+		background-pressed: map-get(map-get(map-get($colors-button, text), background), pressed),
+		background-disabled: map-get(map-get(map-get($colors-button, disabled), background), default),
+		border: map-get(map-get($colors-button, text), border),
+		border-disabled: map-get(map-get($colors-button, disabled), border),
+		text: map-get(map-get($colors-button, text), text),
+		text-disabled: map-get(map-get($colors-text, disabled), text),
+	),
+) !default;
+
+//btn reset
+@mixin btn-reset {
+	color: inherit;
+	border: 0;
+	background-color: inherit;
+	&:hover,
+	&:active {
+		background-color: inherit;
+	}
+}
+
+
+//추후삭제
 .btn {
 	//default : primary color height lg
 	$size: lg;
@@ -167,8 +275,309 @@
 		}
 	} 
 }
+//추후삭제
 
 
+//사이즈별 variable
+@mixin btn-size($unit) {
+	//unit value: xsmall small medium larger xlarge
+	gap: var(--#{$prefix}btn-gap-#{$unit});
+	height: var(--#{$prefix}btn-height-#{$unit});
+	padding: 0 var(--#{$prefix}btn-padding-x-#{$unit});
+	border-radius: var(--#{$prefix}btn-radius-#{$unit});
+	font-size: var(--#{$prefix}btn-font-size-pc-#{$unit});
+	font-weight: var(--#{$prefix}btn-font-weight-#{$unit});
+}
+
+//컬러별 variable
+@mixin btn-color($variant) {
+	background-color: var(--#{$prefix}btn-#{$variant}-background);
+	border: 1px solid var(--#{$prefix}btn-#{$variant}-border);
+	color: var(--#{$prefix}btn-#{$variant}-text);
+}
+@mixin btn-color-hover($variant) {
+	background-color: var(--#{$prefix}btn-#{$variant}-background-hover);
+}
+@mixin btn-color-pressed($variant) {
+	background-color: var(--#{$prefix}btn-#{$variant}-background-pressed);
+}
+@mixin btn-color-disabled($variant) {
+	background-color: var(--#{$prefix}btn-#{$variant}-background-disabled);
+	border-color: var(--#{$prefix}btn-#{$variant}-border-disabled);
+	color: var(--#{$prefix}btn-#{$variant}-text-disabled);
+}
+@mixin btn-color-icon($variant) {
+	background-color: var(--#{$prefix}btn-#{$variant}-text);
+}
+
+
+
+.#{$prefix}btn {
+	@each $size, $types in $button-size {
+		@each $type, $value in $types {
+			//css variable 생성
+			--#{$prefix}btn-#{$type}-#{$size}: #{$value};
+		}
+
+		//사이즈 별 class
+		&.#{$size} {
+			@include btn-size(#{$size});
+			//icon size
+			.svg-icon {
+				@include foursquare(var(--#{$prefix}icon-size-#{$size}));
+			}
+		}
+	}
+	@each $color, $status in $button-color {
+		@each $type, $value in $status {
+			//css variable 생성
+			--#{$prefix}btn-#{$color}-#{$type}: #{$value};
+		}
+		//컬러 별 class
+		&.#{$color} {
+			@include btn-color(#{$color});
+			&:not(.icon) {
+				.svg-icon {
+					@include btn-color-icon(#{$color});
+				}
+			}
+
+			@if ($color == 'text') {
+				@include btn-reset;
+			}
+
+			&:hover {
+				@include btn-color-hover(#{$color});
+			}
+			&:active,
+			&:focus {
+				@include btn-color-pressed(#{$color});
+			}
+
+			//focus color
+			@if ($color == 'primary') {
+				&:focus {
+					@include focus($color: $white, $alpha: 0.9);
+				}
+			}
+			@else {
+				&:focus {
+					@include focus($color: $primary);
+				}
+			}
+
+			&[disabled],
+			.disabled {
+				@include btn-color-disabled(#{$color});
+			}
+		}
+	}
+
+	//기본버튼: primary large
+	@include flex-layout($d: inline-flex, $ai: center, $jc: center);
+	width: auto;
+	@include btn-size(large);
+	@include btn-color(primary);
+	cursor: pointer;
+	white-space: nowrap;
+	transition: $transition-base;
+	.svg-icon {
+		@include btn-color-icon(primary);
+	}
+	&:hover {
+		@include btn-color-hover(primary);
+	}
+	&:active,
+	&:focus {
+		@include btn-color-pressed(primary);
+	}
+	&:focus {
+		@include focus($color: $white, $alpha: 0.9);
+		transition: none;
+	}
+	&[disabled],
+	&.disabled {
+		@include btn-color-disabled(primary);
+		cursor: default;
+	}
+
+	//color
+	&.secondary {
+		//추후삭제
+		//&.ico-arr-down {
+		//	&::after {
+		//		background-image: url(#{$url}/component/common/ico_arr_20_down_blue.svg);
+		//		background-size: contain;
+		//		background-position: center;
+		//	}
+		//}
+		&.active {
+			&.ico-arr-down {
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	//txt + ico
+	&[class *= ico-] {
+		//추후삭제
+		//&::after {
+		//	display: inline-flex;
+		//	content:'';
+		//	width: 2.4rem;
+		//	height: 2.4rem;
+		//	background-repeat: no-repeat;
+		//	background-size: contain;
+		//}
+		//&.ico-before {
+		//	&::before {
+		//		display: inline-flex;
+		//		content:'';
+		//		width: 2.4rem;
+		//		height: 2.4rem;
+		//		background-repeat: no-repeat;
+		//		background-size: contain;
+		//		background-position: center;
+		//	}
+		//	&::after {
+		//		display: none;
+		//	}
+		//}
+	}
+
+
+	&.text {
+		//text버튼은 높이와 좌우 padding값이 달라 재정의 함
+		--krds-btn-height-xsmall: 2rem;
+		--krds-btn-padding-x-xsmall: 0.2rem;
+		--krds-btn-height-small: 2.4rem;
+		--krds-btn-padding-x-small: 0.2rem;
+		--krds-btn-height-medium: 3.2rem;
+		--krds-btn-padding-x-medium: 0.2rem;
+		--krds-btn-height-large: 4rem;
+		--krds-btn-padding-x-large: 0.2rem;
+		--krds-btn-height-xlarge: 4.8rem;
+		--krds-btn-padding-x-xlarge: 0.2rem;
+
+		&[class *= ico-] {
+			&::after {
+				background-position: center;
+			}
+		}
+		&:hover {
+			background-color: transparent;
+
+		}
+		&.link { //링크이면서 텍스트사이에 있는경우 높이값 초기화
+			height: auto;
+			color: var(--#{$prefix}link-color-default);
+			.svg-icon {
+				background-color: var(--#{$prefix}link-color-default);
+			}
+			&:hover {
+				color: var(--#{$prefix}link-color-hover);
+				.svg-icon {
+					background-color: var(--#{$prefix}link-color-hover);
+				}
+			}
+			&:active,
+			&:focus {
+				color: var(--#{$prefix}link-color-pressed);
+				.svg-icon {
+					background-color: var(--#{$prefix}link-color-pressed);
+				}
+			}
+			&:visited {
+				color: var(--#{$prefix}link-color-visited);
+				.svg-icon {
+					background-color: var(--#{$prefix}link-color-visited);
+				}
+			}
+
+		}
+
+		//class명 검토
+		&.ico-filter {
+			position: relative;
+			.num {
+				display: inline-flex;
+				position: absolute;
+				right: 0.1rem;
+				z-index: 1;
+				height: 2rem;
+				font-size: var(--#{$prefix}fz-label-sm);
+				color: var(--#{$prefix}white);
+				padding: 0 var(--#{$prefix}spacer-2);
+				margin-top: -3rem;
+				border-radius: 2rem;
+				background-color: var(--#{$prefix}primary);
+			}
+		}
+		&.h-auto {
+			height: auto;
+			padding: var(--#{$prefix}spacer-default2) !important;
+		}
+	}
+
+	// * icon 버튼 변수처리 *
+	$icon-btns-size: (
+		xsmall: map-get($spacings-size-height, 16), //xsm
+		small: map-get($spacings-size-height, 20), //sm
+		medium: map-get($spacings-size-height, 24), //sm-m, md
+		large: map-get($spacings-size-height, 32), //sm-l
+		xlarge: map-get($spacings-size-height, 40), //no class default size
+	) !default;
+
+	/* icon 버튼 (텍스트 없음) */
+	&.icon {
+		@each $size, $value in $icon-btns-size {
+			--#{$prefix}btn-icon-#{$size}: #{$value};
+			&.#{$size} {
+				@include foursquare(var(--#{$prefix}btn-icon-#{$size}));
+				//icon size
+				.svg-icon {
+					@include foursquare(100%);
+				}
+			}
+		}
+		//기본 세팅
+		@include foursquare(var(--#{$prefix}btn-icon-medium));
+		padding: 0 !important;
+		@include btn-reset;
+		&:focus {
+			@include focus($offset: .4rem);
+		}
+		.svg-icon {
+			background-color: var(--#{$prefix}text-default);
+		}
+		//새로고침, 토글 등 보더 아이콘 버튼 형태
+		&.border {
+			background-color: var(--#{$prefix}gray-0);
+			border: 0.1rem solid var(--#{$prefix}gray-40);
+			border-radius: var(--#{$prefix}radius-max);
+
+			//icon size 1.6rem
+			&.large {
+				.svg-icon {
+					@include foursquare(var(--#{$prefix}icon-size-xsmall));
+				}
+			}
+			&.xlarge {
+				.svg-icon {
+					@include foursquare(var(--#{$prefix}icon-size-xlarge));
+				}
+			}
+			&[disabled],
+			&.disabled {
+				background-color: var(--#{$prefix}secondary-5);
+			}
+		}
+	}
+}
+
+//추후삭제
 /* **** button : only icon **** */
 .btn-ico {
 	padding: 0 !important;
@@ -258,6 +667,7 @@
 	}
 }
 
+//추후삭제
 /* **** button : text button **** */
 .btn-txt {
 	padding: 0 var(--#{$prefix}spacer-default2) !important;

@@ -464,7 +464,7 @@ input[type=checkbox] {
 			border: 1px solid var(--#{$prefix}gray-40);
 			border-radius: var(--#{$prefix}rd-12);
 			transition: $transition-base;
-			.btn {
+			.krds-btn {
 				color: var(--#{$prefix}gray-90);
 			}
 			&.checked {
@@ -473,15 +473,11 @@ input[type=checkbox] {
 			&.disabled {
 				background-color: var(--#{$prefix}gray-5);
 				border-color: var(--#{$prefix}gray-30);
-				.btn {
+				.krds-btn {
 					color: var(--#{$prefix}gray-50);
-					&.btn-txt {
-						&.ico-arr {
-							&::after {
-								background-image: url(#{$url}/component/common/ico_arr_20_right_disabled.svg);
-								background-position: center;
-								background-size: 1.6rem;
-							}
+					&.text {
+						.ico-angle{
+							background-color: var(--krds-gray-50);
 						}
 					}
 

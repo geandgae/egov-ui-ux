@@ -1,3 +1,5 @@
+"use strict";
+
 /* ** 윈도우 사이즈 체크 (반응형) ** */
 let winSize;
 function winSizeSet() {
@@ -64,15 +66,52 @@ function layerTab() {
   });
 }
 
+// 누리집 토글 이벤트 현재는 사용 안 함
+/* ** nuriToggleEvent ** */
+function nuriToggleEvent() {
+  const _toggleBtns = document.querySelectorAll("#header-top .toggle-btn");
+  _toggleBtns.forEach(($toggleBtn) => {
+    $toggleBtn.addEventListener("click", ($btnAct) => {
+      const $target = $btnAct.target.closest(".toggle-head");
+      const $targetBody = $target.nextElementSibling;
+      const _targetBodyH = $targetBody.querySelector(".inner").scrollHeight;
+      const $srEl = $btnAct.target.querySelector(".sr-only");
+
+      if (!$target.classList.contains("active")) {
+        $srEl.innerText = "닫힘";
+        $target.classList.add("active");
+        $targetBody.classList.add("active");
+        $targetBody.style.height = `${_targetBodyH}px`;
+        window.addEventListener("resize", () => {
+          if ($targetBody.classList.contains("active")) {
+            const _targetBodyH = $targetBody.querySelector(".inner").scrollHeight;
+            $targetBody.style.height = `${_targetBodyH}px`;
+          }
+        });
+      } else {
+        $srEl.innerText = "열림";
+        $target.classList.remove("active");
+        $targetBody.classList.remove("active");
+        $targetBody.style.height = "";
+      }
+    });
+  });
+}
+
 /*** * DATEPICKER * ***/
 /* ** datepicker ** */
-const dateInput = document.querySelectorAll(".form-btn-datepicker");
-const kds_datepicker = {
+const krds_datepicker = {
   init: () => {
-    kds_datepicker.open();
-    kds_datepicker.selValue();
-    kds_datepicker.closeDatepicker();
-    kds_datepicker.closeSingle();
+    const dateInput = document.querySelectorAll(".form-btn-datepicker");
+    krds_datepicker.open(dateInput);
+    krds_datepicker.selValue();
+    krds_datepicker.closeDatepicker();
+    krds_datepicker.closeSingle();
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".datepicker-conts")) {
+        krds_datepicker.close();
+      }
+    });
   },
   tblHeightSet: () => {
     //datepicker table th, td height 세팅
@@ -110,13 +149,13 @@ const kds_datepicker = {
       });
     });
   },
-  open: () => {
+  open: (dateInput) => {
     //datepicker 열기
     dateInput.forEach((e) => {
       const cal = e.closest(".datepicker-conts").querySelector(".datepicker-area");
       const colConts = cal.querySelector(".datepicker-wrap");
       e.addEventListener("focus", () => {
-        kds_datepicker.close();
+        krds_datepicker.close();
 
         cal.classList.add("active");
         colConts.setAttribute("tabindex", "0");
@@ -127,8 +166,8 @@ const kds_datepicker = {
         activeLayer.setAttribute("tabindex", "0");
         activeLayer.setAttribute("aria-hidden", "false");
 
-        kds_datepicker.tblHeightSet();
-        kds_datepicker.contsHeightSet();
+        krds_datepicker.tblHeightSet();
+        krds_datepicker.contsHeightSet();
 
         setTimeout(() => {
           colConts.focus();
@@ -169,7 +208,7 @@ const kds_datepicker = {
       let activeLayer;
       yearBtn.addEventListener("click", () => {
         //년도 레이어 활성화
-        kds_datepicker.contentsInitialize();
+        krds_datepicker.contentsInitialize();
         activeLayer = e.querySelector(".datepicker-year-wrap");
         activeLayer.classList.add("active");
         activeLayer.setAttribute("tabindex", "0");
@@ -177,11 +216,11 @@ const kds_datepicker = {
         setTimeout(() => {
           activeLayer.focus();
         }, 50);
-        kds_datepicker.contsHeightSet();
+        krds_datepicker.contsHeightSet();
       });
       monBtn.addEventListener("click", () => {
         //월 레이어 활성화
-        kds_datepicker.contentsInitialize();
+        krds_datepicker.contentsInitialize();
         activeLayer = e.querySelector(".datepicker-mon-wrap");
         activeLayer.classList.add("active");
         activeLayer.setAttribute("tabindex", "0");
@@ -189,18 +228,18 @@ const kds_datepicker = {
         setTimeout(() => {
           activeLayer.focus();
         }, 50);
-        kds_datepicker.contsHeightSet();
+        krds_datepicker.contsHeightSet();
       });
       setBtn.forEach((ele) => {
         //확인 취소버튼 클릭하면 datepicker 닫힘
         ele.addEventListener("click", () => {
-          kds_datepicker.close();
+          krds_datepicker.close();
         });
       });
       changeCalBtn.forEach((ele) => {
         //년도 또는 월 선택하면 캘린더 레이어 활성화
         ele.addEventListener("click", () => {
-          kds_datepicker.contentsInitialize();
+          krds_datepicker.contentsInitialize();
           activeLayer = e.querySelector(".datepicker-tbl-wrap");
           activeLayer.classList.add("active");
           activeLayer.setAttribute("tabindex", "0");
@@ -208,7 +247,7 @@ const kds_datepicker = {
           setTimeout(() => {
             activeLayer.focus();
           }, 50);
-          kds_datepicker.contsHeightSet();
+          krds_datepicker.contsHeightSet();
         });
       });
     });
@@ -229,7 +268,7 @@ const kds_datepicker = {
           lastElement = ele.querySelector(".sel > li:last-child > .btn");
         }
         lastElement.addEventListener("blur", () => {
-          kds_datepicker.close();
+          krds_datepicker.close();
         });
       });
     });
@@ -243,190 +282,774 @@ const kds_datepicker = {
         const calBtn = colConts.querySelectorAll(".datepicker-tbl .btn-set-date");
         calBtn.forEach((ele) => {
           ele.addEventListener("click", () => {
-            kds_datepicker.close();
+            krds_datepicker.close();
           });
         });
       }
     });
   },
 };
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".datepicker-conts")) {
-    kds_datepicker.close();
-  }
-});
 
-/*** * accordion * ***/
-const kds_accordion = {
-  init: () => {
-    kds_accordion.expand();
+/*** * 웹 : 전체메뉴 수정중  * ***/
+const krds_pcGnb = {
+  init() {
+    const gnbMenu = document.querySelector(".krds-gnb .gnb-menu");
+    if (!gnbMenu) return;
+
+    // gnb 속성설정
+    gnbMenu.setAttribute("aria-label", "메인 메뉴");
+    gnbMenu.setAttribute("role", "menubar");
+
+    // li 요소 role 초기화
+    gnbMenu.querySelectorAll("li").forEach((li) => li.setAttribute("role", "none"));
+
+    // backdrop 설정
+    this.backdrop = document.querySelector(".gnb-backdrop") || this.createBackdrop();
+
+    // trigger 설정 및 이벤트 등록
+    const mainTriggers = gnbMenu.querySelectorAll(".gnb-main-trigger");
+    const subTriggers = gnbMenu.querySelectorAll(".gnb-sub-trigger");
+    mainTriggers.forEach((mainTrigger) => this.setupMainTrigger(mainTrigger));
+
+    this.addEvent(mainTriggers, subTriggers);
+    this.addKeyboardNavigation(mainTriggers);
   },
-  setAria: (trigger, header, idx) => {
-    if (header.id) {
-      const id = header.id;
-      header.removeAttribute("id");
-      trigger.setAttribute("id", id);
-    } else {
-      // 접근성 속성이 없는 경우 값 설정
-      const keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      const randomA = keys[Math.floor(Math.random() * keys.length)];
-      const randomB = Math.floor(Math.random() * 1000) + 1;
-      const uniqueIdx = `${idx}-${randomA}${randomB}`;
-      trigger.setAttribute("id", `accordionHeader-0${uniqueIdx}`);
-      trigger.setAttribute("aria-controls", `accordionCollapse-0${uniqueIdx}`);
-      const labelledby = trigger.closest(".accordion-item").querySelector(".accordion-collapse");
-      labelledby.setAttribute("id", `accordionCollapse-0${uniqueIdx}`);
-      labelledby.setAttribute("aria-labelledby", `accordionHeader-0${uniqueIdx}`);
+  setupMainTrigger(mainTrigger) {
+    const toggleWrap = mainTrigger.nextElementSibling;
+    if (toggleWrap) {
+      const uniqueIdx = `gnb-main-menu-${Math.random().toString(36).substring(2, 9)}`;
+      mainTrigger.setAttribute("role", "menuitem");
+      mainTrigger.setAttribute("aria-controls", uniqueIdx);
+      mainTrigger.setAttribute("aria-expanded", "false");
+      mainTrigger.setAttribute("aria-haspopup", "true");
+      toggleWrap.setAttribute("id", uniqueIdx);
+      toggleWrap.setAttribute("role", "menu");
+
+      const mainList = toggleWrap.querySelector(".gnb-main-list");
+      if (mainList?.getAttribute("data-has-submenu") === "true") {
+        const subTriggers = mainList.querySelectorAll(".gnb-sub-trigger");
+        if (subTriggers.length > 0) {
+          subTriggers[0].classList.add("active");
+          subTriggers[0].nextElementSibling?.classList.add("active");
+        }
+        subTriggers.forEach((subTrigger) => this.setupSubTrigger(subTrigger));
+      }
     }
   },
-  expand: () => {
-    const $accordionBtn = document.querySelectorAll(".btn-accordion");
-    $accordionBtn.forEach((e, idx) => {
-      const $wrapper = e.closest(".accordion");
-      const $wrapAll = $wrapper.querySelectorAll(".accordion-item");
-      const $wrap = e.closest(".accordion-item");
+  setupSubTrigger(subTrigger) {
+    const hasMenu = subTrigger.nextElementSibling;
+    if (hasMenu) {
+      const uniqueIdx = `gnb-sub-menu-${Math.random().toString(36).substring(2, 9)}`;
+      subTrigger.setAttribute("role", "menuitem");
+      subTrigger.setAttribute("aria-controls", uniqueIdx);
+      subTrigger.setAttribute("aria-expanded", "false");
+      subTrigger.setAttribute("aria-haspopup", "true");
+      hasMenu.setAttribute("role", "menu");
+      hasMenu.setAttribute("id", uniqueIdx);
+    }
+  },
+  toggleMainMenu(mainTrigger) {
+    this.menuReset();
+    const isActive = mainTrigger.classList.contains("active");
+    if (!isActive && mainTrigger.nextElementSibling) {
+      mainTrigger.setAttribute("aria-expanded", "true");
+      mainTrigger.classList.add("active");
+      mainTrigger.nextElementSibling.classList.add("is-open");
+      this.toggleBackdrop(true);
+      this.scrollbar(true);
+      this.adjustSubMenuHeight(mainTrigger.nextElementSibling.querySelector(".gnb-main-list"));
+    } else {
+      this.close();
+    }
+  },
+  toggleSubMenu(subTrigger) {
+    const otherSubTriggers = subTrigger.closest("ul").querySelectorAll(".gnb-sub-trigger");
+    otherSubTriggers.forEach((trigger) => {
+      trigger.classList.remove("active");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.nextElementSibling?.classList.remove("active");
+    });
+    subTrigger.classList.add("active");
+    subTrigger.setAttribute("aria-expanded", "true");
+    subTrigger.nextElementSibling?.classList.add("active");
+    this.adjustSubMenuHeight(subTrigger.closest(".gnb-main-list"));
+  },
+  createBackdrop() {
+    const backdrop = document.createElement("div");
+    backdrop.classList.add("gnb-backdrop");
+    backdrop.style.display = "none";
+    document.body.appendChild(backdrop);
+    return backdrop;
+  },
+  toggleBackdrop(isOpen) {
+    this.backdrop.style.display = isOpen ? "block" : "none";
+    document.body.classList.toggle("is-gnb-web", isOpen);
+  },
+  adjustSubMenuHeight(target) {
+    const activeSubList = target.querySelector(".gnb-sub-list.active");
+    const height = activeSubList?.scrollHeight || 0;
+    target.style.minHeight = `${height}px`;
+  },
+  scrollbar(hasScroll) {
+    const condition = hasScroll === "open" ? document.body.scrollHeight > window.innerHeight : hasScroll;
+    document.body.classList.toggle("hasScrollY", condition);
+  },
+  menuReset() {
+    document.querySelectorAll(".krds-gnb .gnb-main-trigger:not(.is-link)").forEach((mainTrigger) => {
+      mainTrigger.classList.remove("active");
+      mainTrigger.setAttribute("aria-expanded", "false");
+    });
+    document.querySelectorAll(".krds-gnb .gnb-toggle-wrap").forEach((toggleWrap) => {
+      toggleWrap.classList.remove("is-open");
+    });
+  },
+  close() {
+    this.toggleBackdrop(false);
+    this.menuReset();
+    this.scrollbar(false);
+  },
+  addEvent(mainTriggers, subTriggers) {
+    this.backdrop.addEventListener("click", () => this.close());
+    window.addEventListener("keyup", (event) => {
+      if (event.code === "Escape" || !event.target.closest(".krds-gnb")) {
+        this.close();
+      }
+    });
+    mainTriggers.forEach((mainTrigger) => {
+      mainTrigger.addEventListener("click", () => this.toggleMainMenu(mainTrigger));
+    });
+    subTriggers.forEach((subTrigger) => {
+      subTrigger.addEventListener("click", () => this.toggleSubMenu(subTrigger));
+    });
+  },
+  addKeyboardNavigation(mainTriggers) {
+    const focusMenuItem = (element) => {
+      if (element) {
+        element.focus();
+      }
+    };
+    const findFocusableElement = (element, direction) => {
+      const sibling = direction === "next" ? "nextElementSibling" : "previousElementSibling";
+      const parent = element.closest("li")?.[sibling];
+      return parent ? parent.querySelector("[data-trigger]") : null;
+    };
+    document.addEventListener("keydown", (event) => {
+      const target = event.target;
+      if (target.getAttribute("data-trigger")) {
+        switch (event.key) {
+          case "Home":
+            event.preventDefault();
+            focusMenuItem(mainTriggers[0]);
+            break;
+          case "End":
+            event.preventDefault();
+            focusMenuItem(mainTriggers[mainTriggers.length - 1]);
+            break;
+          case "ArrowRight":
+          case "ArrowDown":
+            event.preventDefault();
+            const nextElement = findFocusableElement(target, "next");
+            focusMenuItem(nextElement);
+            break;
+          case "ArrowLeft":
+          case "ArrowUp":
+            event.preventDefault();
+            const previousElement = findFocusableElement(target, "prev");
+            focusMenuItem(previousElement);
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+};
 
-      // 접근성 재설정
-      const $option = $wrapper.dataset.accOption || "singleOpen";
-      const $accColl = $wrap.querySelector(".accordion-collapse");
-      const $accHeader = $wrap.querySelector(".accordion-header");
-      const $isOpen = $wrapper.classList.contains("is-open");
-      const $height = `${$accColl.scrollHeight + 1}px`;
+/*** * 모바일 : 전체메뉴 수정중 * ***/
+const krds_moGnb = {
+  init() {
+    const mobileGnb = document.querySelector(".krds-gnb-mobile");
+    if (!mobileGnb) return;
 
-      e.setAttribute("aria-expanded", "false");
-      $accColl.removeAttribute("aria-expanded");
-      // header 아이디 이동 및 초기값 설정
-      kds_accordion.setAria(e, $accHeader, idx);
+    mobileGnb.setAttribute("aria-hidden", "true");
 
-      console.log(`
-			headerId : ${e.id}
-			collapseId : ${$accColl.id}
-			data-acc-option : ${$option}
-			is-open : ${$isOpen}
-			height : ${$height}
-			`);
+    // 접근성 임시
+    // tab으로 설정 
+    const tabList = document.querySelector(".gnb-menu");
+    tabList.setAttribute("role", "tablist");
+    const tabs = document.querySelectorAll(".menu-wrap .gnb-main-trigger");
+    tabs.forEach((item, idx) => {
+      item.setAttribute("role", "tab");
+      item.setAttribute("aria-selected", "false");
+      item.setAttribute("aria-controls", item.getAttribute("href").substring(1));
+      item.setAttribute("id", `tab-${idx}`);
+    })
+    const tabPanels = document.querySelectorAll(".submenu-wrap .gnb-sub-list");
+    tabPanels.forEach((item, idx) => {
+      item.setAttribute("role", "tabpanel");
+      item.setAttribute("aria-labelledby", `tab-${idx}`);
+    })
 
-      // isOpen 상태 설정
-      if ($isOpen) {
-        e.setAttribute("aria-expanded", "true");
-        $wrap.classList.add("active");
-        $accColl.style.height = $height;
+    this.addEvent(mobileGnb);
+  },
+  addEvent(mobileGnb) {
+    const id = mobileGnb.getAttribute("id");
+    const openGnb = document.querySelector(`[aria-controls=${id}]`);
+    const closeGnb = mobileGnb.querySelector("#close-nav");
+
+    openGnb.addEventListener("click", () => this.open(mobileGnb));
+    closeGnb.addEventListener("click", () => this.close(mobileGnb));
+    this.anchorScroll(mobileGnb);
+    this.anchor(mobileGnb);
+  },
+  open(mobileGnb) {
+    const id = mobileGnb.getAttribute("id");
+    const openGnb = document.querySelector(`[aria-controls=${id}]`);
+    const header = document.querySelector("#header");
+    const navContainer = mobileGnb.querySelector(".gnb-wrap");
+    
+    openGnb.setAttribute("aria-expanded", "true");
+
+    header.style.zIndex = "1000";
+    mobileGnb.setAttribute("aria-hidden", "false");
+    mobileGnb.classList.add("is-backdrop");
+    mobileGnb.classList.add("is-open");
+    navContainer.setAttribute("tabindex", 0);
+    document.body.classList.add("is-gnb-mobile");
+
+    mobileGnb.addEventListener("transitionend", function onTransitionEnd() {
+      navContainer.focus();
+      mobileGnb.removeEventListener("transitionend", onTransitionEnd);
+    });
+    // focusTrap 임시
+    this.focusTrap(mobileGnb);
+  },
+  close(mobileGnb) {
+    const id = mobileGnb.getAttribute("id");
+    const openGnb = document.querySelector(`[aria-controls=${id}]`);
+    const header = document.querySelector("#header");
+    const navContainer = mobileGnb.querySelector(".gnb-wrap");
+
+    openGnb.setAttribute("aria-expanded", "false");
+
+    mobileGnb.classList.remove("is-open");
+    mobileGnb.addEventListener("transitionend", function onTransitionEnd() {
+      header.style.zIndex = "";
+      navContainer.removeAttribute("tabindex");
+      mobileGnb.classList.remove("is-backdrop");
+      mobileGnb.setAttribute("aria-hidden", "ture");
+      document.body.classList.remove("is-gnb-mobile");
+      openGnb.focus();
+      mobileGnb.removeEventListener("transitionend", onTransitionEnd);
+    });
+  },
+  anchorScroll(mobileGnb) {
+    const gnbBody = mobileGnb.querySelector(".gnb-body");
+    const navContainer = mobileGnb.querySelector(".gnb-wrap");
+    const navItems = mobileGnb.querySelectorAll(".submenu-wrap .gnb-sub-list");
+    const headerTabArea = mobileGnb.querySelector(".gnb-tab-nav");
+    const headerTabMenu = headerTabArea?.querySelector(".menu-wrap");
+
+    gnbBody.addEventListener("scroll", () => {
+      const scrollTop = gnbBody.scrollTop;
+      const scrollHeight = gnbBody.scrollHeight;
+      const bodyHeight = gnbBody.clientHeight;
+
+      navItems.forEach((item) => {
+        const id = item.getAttribute("id");
+        const menuLink = mobileGnb.querySelector(`[href="#${id}"]`);
+        const offset = item.offsetTop;
+        if (scrollTop >= offset || bodyHeight + scrollTop >= scrollHeight) {
+          this.anchormenuReset();
+          menuLink.classList.add("active");
+          // 접근성 임시
+          menuLink.setAttribute("aria-selected", "true");
+          if (headerTabArea) {
+            const headerTabMenuUl = headerTabMenu.querySelector("ul");
+            gnbBody.addEventListener('scrollend', () => {
+              headerTabMenuUl.scrollLeft = menuLink.offsetLeft;
+            });
+            
+          }
+        }
+      });
+
+      this.handleTopScroll(headerTabArea, navContainer, gnbBody);
+    });
+  },
+  handleTopScroll(headerTabArea, navContainer, gnbBody) {
+    let lastBodyScrollY = 0;
+
+    if (!headerTabArea) return; // 요소가 없을 경우 함수 종료
+
+    gnbBody.addEventListener("scroll", (e) => {
+      const bodyScrollY = e.target.scrollTop;
+
+      if (bodyScrollY > 0) {
+        headerTabArea.style.height = `${headerTabArea.scrollHeight}px`;
+        headerTabArea.style.transition = "ease-out .4s";
+        navContainer.classList.add("is-active");
+      } else if (bodyScrollY < 50 && bodyScrollY < lastBodyScrollY) {
+        headerTabArea.style.height = "";
+        headerTabArea.style.transition = "ease-out .4s .2s";
+        setTimeout(() => {
+          navContainer.classList.remove("is-active");
+        }, 600);
       }
 
-      e.addEventListener("click", () => {
-        const $isExpanded = e.getAttribute("aria-expanded") === "true";
-        if ($option !== "multiOpen" && !$wrap.classList.contains("active")) {
-          $wrapAll.forEach((item) => {
-            const btn = item.querySelector(".btn-accordion");
-            item.classList.remove("active");
-            btn.classList.remove("active");
-            btn.setAttribute("aria-expanded", "false");
-            // item.querySelector('.accordion-collapse').style.height = 0;
+      lastBodyScrollY = bodyScrollY;
+    });
+  },
+  anchor(mobileGnb) {
+    const menuItems = mobileGnb.querySelectorAll(".menu-wrap .gnb-main-trigger");
+    const navItems = mobileGnb.querySelectorAll(".submenu-wrap .gnb-sub-list");
+
+    menuItems[0].classList.add("active");
+    // 접근성 임시
+    menuItems[0].setAttribute("aria-selected", "true");
+
+    navItems.forEach((item) => {
+      const depth4Items = item.querySelectorAll(".is-depth4");
+      if (depth4Items.length > 0) {
+        depth4Items.forEach((el) => {
+          el.addEventListener("click", (event) => this.handleDepth4Click(event, el));
+        });
+      }
+    });
+  },
+  handleDepth4Click(event) {
+    const target = event.target.nextElementSibling;
+    const prevButton = target.querySelector(".trigger-prev");
+    const closeButton = target.querySelector(".trigger-close");
+
+    target.style.display = "block";
+    setTimeout(() => {
+      target.classList.add("is-open");
+    }, 0);
+    prevButton.focus();
+
+    const depth4Close = () => {
+      target.classList.remove("is-open");
+      event.target.focus();
+      setTimeout(() => {
+        target.style.display = "";
+      }, 400);
+    };
+
+    prevButton.addEventListener("click", depth4Close);
+    closeButton.addEventListener("click", depth4Close);
+  },
+  anchormenuReset() {
+    document.querySelectorAll(".krds-gnb-mobile .menu-wrap .gnb-main-trigger").forEach((menu) => {
+      menu.classList.remove("active");
+      // 접근성 임시
+      menu.setAttribute("aria-selected", "false");
+    });
+  },
+  focusTrap(mobileGnb) {
+    const focusableElements = mobileGnb.querySelectorAll('a, button, [tabindex="0"], input, textarea, select');
+
+    if (focusableElements.length === 0) return;
+
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    // 포커스 순환
+    const handleFocusTrap = (event) => {
+      if (event.key === "Tab") {
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+          event.preventDefault();
+          lastFocusableElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+          event.preventDefault();
+          firstFocusableElement.focus();
+        }
+      }
+    };
+
+    firstFocusableElement.addEventListener("keydown", handleFocusTrap);
+    lastFocusableElement.addEventListener("keydown", handleFocusTrap);
+
+    // 모달 오픈 후 첫 초점 역방향 제어
+    mobileGnb.addEventListener("keydown", (event) => {
+      if (event.key === "Tab" && event.shiftKey && document.activeElement === mobileGnb) {
+        event.preventDefault();
+        lastFocusableElement.focus();
+      }
+    });
+  },
+};
+
+/*** * lnb menu 수정완 * ***/
+const krds_lnbMenu = {
+  init() {
+    const menuBars = document.querySelectorAll(".krds-lnb .lnb-list");
+    menuBars.forEach((menuBar) => {
+      menuBar.setAttribute("role", "menubar");
+      const menuItems = menuBar.querySelectorAll("li");
+      menuItems.forEach((menuItem) => {
+        menuItem.setAttribute("role", "none");
+        const button = menuItem.querySelector(".lnb-btn");
+        if (button) {
+          button.setAttribute("role", "menuitem");
+          if (button.className.includes("lnb-toggle")) {
+            // 버튼에 aria-controls 및 aria-expanded 속성을 설정
+            const uniqueIdx = `lnbmenu-${Math.random().toString(36).substring(2, 9)}`;
+            const subMenu = button.nextElementSibling;
+            button.setAttribute("aria-controls", uniqueIdx);
+            button.setAttribute("aria-expanded", "false");
+            // 버튼의 서브메뉴가 팝업일때 aria-haspopup 설정
+            if (button.classList.contains("lnb-toggle-popup")) {
+              button.setAttribute("aria-haspopup", "true");
+            }
+            // 서브메뉴 id와 role을 설정
+            if (subMenu && subMenu.className.includes("lnb-submenu")) {
+              // 서브메뉴가 팝업일때 분기
+              const subMenuList = subMenu.classList.contains("lnb-submenu-lv2") ? subMenu : subMenu.querySelector(":scope > ul");
+              if (subMenuList) {
+                subMenuList.setAttribute("id", uniqueIdx);
+                subMenuList.setAttribute("role", "menu");
+              }
+            }
+          }
+        }
+      });
+    });
+    this.attachDepthToggleEvent();
+    this.attachDepthPopupEvent();
+    // 활성화된 페이지를 찾는 예
+    this.activePage();
+  },
+  toggleMenu(toggleButton, expand) {
+    const parentLi = toggleButton.closest("li");
+    toggleButton.setAttribute("aria-expanded", expand);
+    toggleButton.classList.toggle("active", expand);
+    parentLi.classList.toggle("active", expand);
+  },
+  closeSiblingMenus(currentButton) {
+    const parentLi = currentButton.closest("li");
+    parentLi.parentNode.querySelectorAll(":scope > li > .lnb-toggle").forEach((otherButton) => {
+      if (otherButton !== currentButton) {
+        this.toggleMenu(otherButton, false);
+      }
+    });
+  },
+  attachDepthToggleEvent() {
+    document.querySelectorAll(".krds-lnb .lnb-list .lnb-toggle").forEach((toggleButton) => {
+      toggleButton.addEventListener("click", () => {
+        const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
+        this.toggleMenu(toggleButton, !isExpanded);
+        this.closeSiblingMenus(toggleButton);
+      });
+    });
+  },
+  attachDepthPopupEvent() {
+    let lastClickedButton = null;
+
+    document.querySelectorAll(".lnb-toggle-popup").forEach((toggleButton) => {
+      toggleButton.addEventListener("click", () => {
+        const subMenuLv2 = toggleButton.nextElementSibling;
+        if (subMenuLv2 && subMenuLv2.classList.contains("lnb-submenu-lv2")) {
+          subMenuLv2.classList.add("active");
+          toggleButton.setAttribute("aria-expanded", "true");
+          subMenuLv2.addEventListener("transitionend", function onTransitionEnd() {
+            const subMenuTitleButton = subMenuLv2.querySelector(".lnb-btn-tit");
+            if (subMenuTitleButton) {
+              subMenuTitleButton.focus();
+            }
+            subMenuLv2.removeEventListener("transitionend", onTransitionEnd);
+          });
+          lastClickedButton = toggleButton;
+        }
+      });
+    });
+
+    document.querySelectorAll(".lnb-submenu-lv2").forEach((subMenuLv2) => {
+      subMenuLv2.addEventListener("focusout", (event) => {
+        // 포커스가 서브메뉴 밖으로 나갔는지 확인
+        if (!subMenuLv2.contains(event.relatedTarget)) {
+          subMenuLv2.classList.remove("active");
+          if (lastClickedButton) {
+            lastClickedButton.focus();
+            lastClickedButton.setAttribute("aria-expanded", "false");
+            subMenuLv2.addEventListener("transitionend", function onTransitionEnd() {
+              lastClickedButton.focus();
+              subMenuLv2.removeEventListener("transitionend", onTransitionEnd);
+            });
+          }
+        }
+      });
+      // lnb-btn-tit 클릭 시 서브메뉴 닫기
+      const subMenuTitleButton = subMenuLv2.querySelector(".lnb-btn-tit");
+      if (subMenuTitleButton) {
+        subMenuTitleButton.addEventListener("click", () => {
+          if (lastClickedButton) {
+            lastClickedButton.focus();
+          }
+        });
+      }
+    });
+  },
+  activePage() {
+    // 활성화된 페이지를 찾는 예(개발 환경에 맞게 수정)
+    const currentPage = window.location.pathname.split("/").slice(-1)[0].replace(".html", "");
+    const lnbLinks = document.querySelectorAll(".krds-lnb .lnb-link");
+    lnbLinks.forEach((link) => {
+      const linkPage = link.getAttribute("href").split("/").pop().replace(".html", "");
+      if (linkPage === currentPage) {
+        link.closest(".lnb-item").classList.add("active");
+        link.closest(".lnb-item").querySelector(".lnb-toggle").classList.add("active");
+        link.closest(".lnb-item").querySelector(".lnb-toggle").setAttribute("aria-expanded", "true");
+        link.closest("li").classList.add("active");
+        // 접근성 현재 페이지 표시 aria-current
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  },
+};
+
+/*** * accordion 수정완 * ***/
+const krds_accordion = {
+  init() {
+    const accordionButtons = document.querySelectorAll(".btn-accordion");
+    this.attachAccordionEvent(accordionButtons);
+  },
+  setAriaAttributes(accordionButton, accordionContent, idx) {
+    const uniqueIdx = `${idx}${Math.random().toString(36).substring(2, 9)}`;
+    accordionButton.setAttribute("aria-expanded", "false");
+    accordionButton.setAttribute("id", `accordionHeader-id-${uniqueIdx}`);
+    accordionButton.setAttribute("aria-controls", `accordionCollapse-id-${uniqueIdx}`);
+    accordionContent.setAttribute("role", "region");
+    accordionContent.setAttribute("id", `accordionCollapse-id-${uniqueIdx}`);
+    accordionContent.setAttribute("aria-labelledby", `accordionHeader-id-${uniqueIdx}`);
+  },
+  attachAccordionEvent(accordionButtons) {
+    accordionButtons.forEach((accordionButton, idx) => {
+      const accordionContainer = accordionButton.closest(".krds-accordion");
+      const accordionItems = accordionContainer.querySelectorAll(".accordion-item");
+      const currentItem = accordionButton.closest(".accordion-item");
+      const accordionContent = currentItem.querySelector(".accordion-collapse");
+      const accordionType = accordionContainer.dataset.type || "singleOpen";
+      const isOpen = accordionContainer.classList.contains("is-open");
+
+      // 접근성 속성 초기값 설정
+      this.setAriaAttributes(accordionButton, accordionContent, idx);
+
+      // isOpen 상태 설정
+      if (isOpen || currentItem.classList.contains("active")) {
+        accordionButton.setAttribute("aria-expanded", "true");
+        accordionButton.classList.add("active");
+        currentItem.classList.add("active");
+      }
+
+      // accordionButton 이벤트
+      accordionButton.addEventListener("click", () => {
+        const isExpanded = accordionButton.getAttribute("aria-expanded") === "true";
+        if (accordionType !== "multiOpen" && !currentItem.classList.contains("active")) {
+          accordionItems.forEach((otherItem) => {
+            const otherButton = otherItem.querySelector(".btn-accordion");
+            otherButton.setAttribute("aria-expanded", "false");
+            otherButton.classList.remove("active");
+            otherItem.classList.remove("active");
           });
         }
-        e.setAttribute("aria-expanded", !$isExpanded);
-        $wrap.classList.toggle("active", !$isExpanded);
-        e.classList.toggle("active", !$isExpanded);
-        // $accColl.style.height = !$isExpanded ? $height : '0';
+        accordionButton.setAttribute("aria-expanded", !isExpanded);
+        accordionButton.classList.toggle("active", !isExpanded);
+        currentItem.classList.toggle("active", !isExpanded);
       });
     });
   },
 };
 
-/*** * modal * ***/
-const $modalTrigger = document.querySelectorAll(".open-modal");
-const $modalCloseTrigger = document.querySelectorAll(".close-modal");
-const $kds_body = document.querySelector("body");
-const kds_modal = {
-  init: () => {
-    kds_modal.open();
-    kds_modal.close();
+/*** * modal 수정중 * ***/
+const krds_modal = {
+  init() {
+    const modalTriggers = document.querySelectorAll(".open-modal");
+    const modalCloseTriggers = document.querySelectorAll(".close-modal");
+    const bodyElement = document.querySelector("body");
+
+    this.setupTriggers(modalTriggers, modalCloseTriggers, bodyElement);
   },
-  open: () => {
-    $modalTrigger.forEach((e) => {
-      e.addEventListener("click", (ele) => {
-        const id = e.getAttribute("data-target");
+  autoOpenModal(id) {
+    const bodyElement = document.querySelector("body");
+    this.openModal(id, bodyElement);
+  },
+  setupTriggers(modalTriggers, modalCloseTriggers, bodyElement) {
+    // open
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        const modalId = trigger.getAttribute("data-target");
 
-        e.classList.add("modal-opened");
-        e.setAttribute("tabindex", "-1");
+        trigger.setAttribute("data-modal-id", modalId);
+        trigger.classList.add("modal-opened");
+        trigger.setAttribute("tabindex", "-1");
 
-        kds_modal.modalOpen(id);
-        ele.preventDefault();
+        this.openModal(modalId, bodyElement);
+        event.preventDefault();
+      });
+    });
+    // close
+    modalCloseTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const modalId = trigger.closest(".modal").getAttribute("id");
+        this.closeModal(modalId, bodyElement);
       });
     });
   },
-  modalOpen: (id) => {
-    const $idVal = document.getElementById(id);
-    const $dialog = $idVal.querySelector(".modal-content");
-    const $modalBack = $idVal.querySelector(".modal-back");
-    const $modalOpened = document.querySelectorAll(".modal.in:not(.sample)");
-    const $modalOpenedLen = $modalOpened.length + 1;
-    $kds_body.classList.add("scroll-no");
-    $idVal.setAttribute("aria-hidden", "false");
-    $modalBack.classList.add("in");
-    $idVal.classList.add("shown");
-    setTimeout(() => {
-      $idVal.classList.add("in");
-    }, 150);
+  focusTrap(dialogElement) {
+    const focusableElements = dialogElement.querySelectorAll('a, button, [tabindex="0"], input, textarea, select');
 
-    //열린 팝업창 포커스
-    $dialog.setAttribute("tabindex", "0");
+    if (focusableElements.length === 0) return;
 
-    //모달 여러개 열린경우 마지막 열린 모달 z-index높게
-    if ($modalOpenedLen > 1) {
-      const openedLen = $modalOpenedLen;
-      const zIndexNew = 1010 + openedLen;
-      $idVal.setAttribute("style", "z-index: " + zIndexNew);
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    // 포커스 순환
+    const handleFocusTrap = (event) => {
+      if (event.key === "Tab") {
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+          event.preventDefault();
+          lastFocusableElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+          event.preventDefault();
+          firstFocusableElement.focus();
+        }
+      }
+    };
+
+    firstFocusableElement.addEventListener("keydown", handleFocusTrap);
+    lastFocusableElement.addEventListener("keydown", handleFocusTrap);
+
+    // 모달 오픈 후 첫 초점 역방향 제어
+    dialogElement.addEventListener("keydown", (event) => {
+      if (event.key === "Tab" && event.shiftKey && document.activeElement === dialogElement) {
+        event.preventDefault();
+        lastFocusableElement.focus();
+      }
+    });
+  },
+  openModal(id, bodyElement) {
+    const modalElement = document.getElementById(id);
+    const dialogElement = modalElement.querySelector(".modal-content");
+    const modalBack = modalElement.querySelector(".modal-back");
+
+    dialogElement.setAttribute("tabindex", "0");
+    bodyElement.classList.add("scroll-no");
+    modalElement.setAttribute("aria-hidden", "false");
+    modalBack.classList.add("in");
+    modalElement.classList.add("shown");
+
+    // 임시 푸터 zindex 헤더에서 팝업 위치 바꿔서...
+    if (modalElement.dataset.type === "full") {
+      const footerWrap = modalElement.closest("#footer");
+      if (footerWrap) {
+        footerWrap.style.zIndex = 70;
+      }
     }
 
-    //레이어 진입 시 포커스
+    // ????
     setTimeout(() => {
-      $dialog.focus();
+      modalElement.classList.add("in");
+    }, 150);
+    //열린 팝업창 포커스 // ????
+    setTimeout(() => {
+      dialogElement.focus();
     }, 350);
+
+    this.focusTrap(dialogElement);
+    this.updateZIndex(modalElement);
   },
-  close: () => {
-    $modalCloseTrigger.forEach((e) => {
-      e.addEventListener("click", (ele) => {
-        const id = e.closest(".modal").getAttribute("id");
-        kds_modal.modalClose(id);
-      });
-      e.addEventListener("keydown", (ele) => {
-        //닫기버튼에서 탭 키 누르면 모달 내 첫번쨰 포커스로 키보드 이동
-        if (e.classList.contains("btn-close")) {
-          const keyCode = ele.keyCode || ele.which;
-          if (!ele.shiftKey && keyCode == 9) {
-            e.closest(".modal-content").focus(); // 첫번째 링크로 이동
-            ele.preventDefault();
-          }
+  closeModal(id, bodyElement) {
+    const modalElement = document.getElementById(id);
+    const dialogElement = modalElement.querySelector(".modal-content");
+    const openModals = document.querySelectorAll(".modal.in:not(.sample)");
+
+    modalElement.setAttribute("aria-hidden", "true");
+    modalElement.classList.remove("in");
+    dialogElement.removeAttribute("tabindex");
+
+    // 임시 푸터 zindex 헤더에서 팝업 위치 바꿔서...
+    if (modalElement.dataset.type === "full") {
+      const footerWrap = modalElement.closest("#footer");
+      if (footerWrap) {
+        footerWrap.style.zIndex = 50;
+      }
+    }
+
+    // ?????
+    setTimeout(() => {
+      modalElement.classList.remove("shown");
+    }, 350);
+
+    if (openModals.length < 2) {
+      bodyElement.classList.remove("scroll-no");
+    }
+
+    this.returnFocusToTrigger(id);
+  },
+  updateZIndex(modalElement) {
+    const openModals = document.querySelectorAll(".modal.in:not(.sample)");
+    const openModalsLengtn = openModals.length + 1;
+    const newZIndex = 1010 + openModalsLengtn;
+    if (openModalsLengtn > 1) {
+      modalElement.style.zIndex = newZIndex;
+    }
+  },
+  returnFocusToTrigger(id) {
+    const triggerButton = document.querySelector(`.modal-opened[data-modal-id="${id}"]`);
+    if (triggerButton) {
+      triggerButton.focus();
+      triggerButton.setAttribute("tabindex", "0");
+      triggerButton.classList.remove("modal-opened");
+      triggerButton.removeAttribute("data-modal-id");
+    }
+  },
+};
+
+/*** * krds_dropEvent * ***/
+const krds_dropEvent = {
+  init: () => {
+    krds_dropEvent.dropOpen();
+  },
+  dropOpen: () => {
+    const _dropBtns = document.querySelectorAll(`.krds-drop-wrap .drop-btn`);
+
+    _dropBtns.forEach(($dropBtn) => {
+      const _span = document.createElement("span");
+      const _txt = document.createTextNode("열기");
+      _span.classList.add("sr-only");
+      _span.appendChild(_txt);
+
+      $dropBtn.appendChild(_span);
+
+      $dropBtn.addEventListener("click", ($el) => {
+        const $menu = $el.target.nextElementSibling;
+        const $srTxt = $el.target.querySelector(".sr-only");
+        if ($menu.style.display !== "block") {
+          krds_dropEvent.dropClose();
+          $menu.style.display = "block";
+          $el.target.classList.add("active");
+          $srTxt.textContent = "닫기";
+        } else {
+          krds_dropEvent.dropClose();
+          $srTxt.textContent = "열기";
         }
       });
     });
+
+    document.addEventListener("click", ($e) => {
+      if (!$e.target.closest(`.krds-drop-wrap`)) krds_dropEvent.dropClose();
+    });
   },
-  modalClose: (id) => {
-    const $idVal = document.getElementById(id);
-    const $dialog = $idVal.querySelector(".modal-content");
-    const $modalOpened = document.querySelectorAll(".modal.in:not(.sample)");
-    const $modalOpenedLen = $modalOpened.length;
-    if ($modalOpenedLen < 2) {
-      $kds_body.classList.remove("scroll-no");
-    }
-
-    $idVal.setAttribute("aria-hidden", "true");
-    $idVal.classList.remove("in");
-
-    $dialog.removeAttribute("tabindex");
-
-    setTimeout(() => {
-      $idVal.classList.remove("shown");
-    }, 150);
-
-    //모달 창 연 버튼에 class 삭제 및 tabindex 0로 조정 (포커스 영역 수정)
-    const $triggerBtn = document.querySelector(".modal-opened");
-    if ($triggerBtn != null) {
-      $triggerBtn.focus();
-      $triggerBtn.setAttribute("tabindex", "0");
-      $triggerBtn.classList.remove("modal-opened");
-    }
+  dropClose: () => {
+    const _dropBtns = document.querySelectorAll(`.krds-drop-wrap .drop-btn`);
+    const _dropMenus = document.querySelectorAll(`.krds-drop-wrap .drop-menu`);
+    _dropMenus.forEach(($menu) => {
+      $menu.style.display = "";
+    });
+    _dropBtns.forEach(($btn) => {
+      $btn.classList.remove("active");
+    });
   },
 };
 
@@ -501,6 +1124,28 @@ const krds_tooltip = {
     $cnt.style.right = "";
   },
 };
+
+//공색배너(Masthead) 스크롤 시 class 추가
+//도움패널(helperArea) 상단여백 움직임 컨트롤에 필요 추후애 intersectionobserver 변경 후 삭제
+function lineBnScroll() {
+  const $bn = document.querySelector("#header-top");
+  if (!$bn) return;
+  const $bnHeight = $bn.offsetHeight;
+  const $body = document.querySelector("body");
+  function onScroll() {
+    const scrollY = window.scrollY;
+    if (scrollY > $bnHeight) {
+      $body.classList.add("bn-hidden");
+    } else {
+      $body.classList.remove("bn-hidden");
+    }
+  }
+  window.addEventListener("scroll", () => {
+    requestAnimationFrame(onScroll);
+  });
+  onScroll();
+}
+// lineBnScroll();
 
 /* ** 도움말 ** */
 const helperArea = document.querySelectorAll(".helper-area");
@@ -883,10 +1528,15 @@ function goTop() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  // DOMContentLoaded 시 실행되는 초기화 함수들
   layerTab();
-  kds_datepicker.init();
-  kds_accordion.init();
-  kds_modal.init();
+  krds_datepicker.init();
+  krds_pcGnb.init();
+  krds_moGnb.init();
+  krds_lnbMenu.init();
+  krds_accordion.init();
+  krds_modal.init();
+  krds_dropEvent.init();
   krds_tooltip.init();
 
   /* ** 윈도우 사이즈 체크 (반응형) ** */
@@ -904,20 +1554,21 @@ window.addEventListener("DOMContentLoaded", () => {
   /* ** 스킵네비게이션 클릭 시 scroll 맨 위로 ** */
   if (document.querySelector("#skip-nav") !== null) goTop();
 
+  //gnb footer 등 include영역으로 로딩시간이 필요한경우 settimeout에 넣어줌 (배포시 삭제필요)
   setTimeout(() => {
-    //gnb footer 등 include영역으로 로딩시간이 필요한경우 settimeout에 넣어줌 (배포시 삭제필요)
     /* ** 도움말 ** */
     helperBox.init();
     if (winSize == "pc") {
       helperBox.open();
     }
-
     //클릭이벤트는 로드시에만 실행시키기
     helperBox.expand();
     helperBox.collapse();
   }, 200);
 });
 
+// 스크롤 관련 기능
+let _lastScrollY = 0;
 window.addEventListener("scroll", () => {
   /* ** 스크롤 값 체크 ** */
   scrollVal();
@@ -925,8 +1576,27 @@ window.addEventListener("scroll", () => {
   /* ** 스크롤 네비게이션 ** */
   quickNav.navHighlight();
 
+  // #wrap 요소에 스크롤 방향에 따른 클래스 추가
+  const $wrap = document.querySelector("#wrap");
+  if ($wrap) {
+    const _conOffsetTop = document.querySelector("#container").offsetTop;
+    const _scrollY = window.scrollY;
+    const _scrollDown = _scrollY > _lastScrollY;
+    const _scrollUp = _scrollY < _lastScrollY;
+    if (_scrollY > _conOffsetTop + 50 && _scrollDown) {
+      $wrap.classList.add("scroll-down");
+      $wrap.classList.remove("scroll-up");
+    } else if (_scrollY > _conOffsetTop + 50 && _scrollUp) {
+      $wrap.classList.add("scroll-up");
+      $wrap.classList.remove("scroll-down");
+    } else {
+      $wrap.classList.remove("scroll-down", "scroll-up");
+    }
+    _lastScrollY = _scrollY;
+  }
+
+  //gnb footer 등 include영역으로 로딩시간이 필요한경우 settimeout에 넣어줌 (배포시 삭제필요)
   setTimeout(() => {
-    //gnb footer 등 include영역으로 로딩시간이 필요한경우 settimeout에 넣어줌 (배포시 삭제필요)
     /* ** 도움말 ** */
     helperBox.init();
   }, 200);

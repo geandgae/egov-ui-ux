@@ -1,0 +1,640 @@
+@import "../tokens/krds_tokens";
+@import "variables_for_code";
+
+//DO NOT EDIT DIRECTLY!!!
+
+//** PRIMITIVE **
+
+//COLORS
+$white:         $primitive-pc-color-gray-0 !default;
+$black:         $primitive-pc-color-gray-100 !default;
+$primary:       $primitive-pc-color-primary-50 !default;
+$secondary:     $primitive-pc-color-secondary-50 !default;
+$danger:        $primitive-pc-color-danger-50 !default;
+$information:   $primitive-pc-color-information-50 !default;
+$warning:       $primitive-pc-color-warning-50 !default;
+$success:       $primitive-pc-color-success-50 !default;
+$point:         $primitive-pc-color-point-50 !default;
+$gray:          $primitive-pc-color-gray-50 !default;
+$transparent:   transparent !default; //add
+$colors: (
+	white: $white,
+	black: $black,
+	primary: $primary,
+	secondary: $secondary,
+	danger: $danger,
+	information: $information,
+	warning: $warning,
+	success: $success,
+	point: $point,
+	gray: $gray,
+	transparent: $transparent,
+) !default;
+
+$colors-primary: (
+	5: $primitive-pc-color-primary-5,
+	10: $primitive-pc-color-primary-10,
+	20: $primitive-pc-color-primary-20,
+	30: $primitive-pc-color-primary-30,
+	40: $primitive-pc-color-primary-40,
+	50: $primitive-pc-color-primary-50,
+	60: $primitive-pc-color-primary-60,
+	70: $primitive-pc-color-primary-70,
+	80: $primitive-pc-color-primary-80,
+	90: $primitive-pc-color-primary-90
+) !default;
+
+$colors-secondary: (
+	5: $primitive-pc-color-secondary-5,
+	10: $primitive-pc-color-secondary-10,
+	20: $primitive-pc-color-secondary-20,
+	30: $primitive-pc-color-secondary-30,
+	40: $primitive-pc-color-secondary-40,
+	50: $primitive-pc-color-secondary-50,
+	60: $primitive-pc-color-secondary-60,
+	70: $primitive-pc-color-secondary-70,
+	80: $primitive-pc-color-secondary-80,
+	90: $primitive-pc-color-secondary-90
+) !default;
+
+$colors-danger: (
+	5: $primitive-pc-color-danger-5,
+	10: $primitive-pc-color-danger-10,
+	20: $primitive-pc-color-danger-20,
+	30: $primitive-pc-color-danger-30,
+	40: $primitive-pc-color-danger-40,
+	50: $primitive-pc-color-danger-50,
+	60: $primitive-pc-color-danger-60,
+	70: $primitive-pc-color-danger-70,
+	80: $primitive-pc-color-danger-80,
+	90: $primitive-pc-color-danger-90
+) !default;
+
+$colors-information: (
+	5: $primitive-pc-color-information-5,
+	10: $primitive-pc-color-information-10,
+	20: $primitive-pc-color-information-20,
+	30: $primitive-pc-color-information-30,
+	40: $primitive-pc-color-information-40,
+	50: $primitive-pc-color-information-50,
+	60: $primitive-pc-color-information-60,
+	70: $primitive-pc-color-information-70,
+	80: $primitive-pc-color-information-80,
+	90: $primitive-pc-color-information-90
+) !default;
+
+$colors-warning: (
+	5: $primitive-pc-color-warning-5,
+	10: $primitive-pc-color-warning-10,
+	20: $primitive-pc-color-warning-20,
+	30: $primitive-pc-color-warning-30,
+	40: $primitive-pc-color-warning-40,
+	50: $primitive-pc-color-warning-50,
+	60: $primitive-pc-color-warning-60,
+	70: $primitive-pc-color-warning-70,
+	80: $primitive-pc-color-warning-80,
+	90: $primitive-pc-color-warning-90
+) !default;
+
+$colors-success: (
+	5: $primitive-pc-color-success-5,
+	10: $primitive-pc-color-success-10,
+	20: $primitive-pc-color-success-20,
+	30: $primitive-pc-color-success-30,
+	40: $primitive-pc-color-success-40,
+	50: $primitive-pc-color-success-50,
+	60: $primitive-pc-color-success-60,
+	70: $primitive-pc-color-success-70,
+	80: $primitive-pc-color-success-80,
+	90: $primitive-pc-color-success-90
+) !default;
+
+$colors-point: (
+	5: $primitive-pc-color-point-5,
+	10: $primitive-pc-color-point-10,
+	20: $primitive-pc-color-point-20,
+	30: $primitive-pc-color-point-30,
+	40: $primitive-pc-color-point-40,
+	50: $primitive-pc-color-point-50,
+	60: $primitive-pc-color-point-60,
+	70: $primitive-pc-color-point-70,
+	80: $primitive-pc-color-point-80,
+	90: $primitive-pc-color-point-90
+) !default;
+
+$colors-gray: (
+	0: $primitive-pc-color-gray-0,
+	5: $primitive-pc-color-gray-5,
+	10: $primitive-pc-color-gray-10,
+	20: $primitive-pc-color-gray-20,
+	30: $primitive-pc-color-gray-30,
+	40: $primitive-pc-color-gray-40,
+	50: $primitive-pc-color-gray-50,
+	60: $primitive-pc-color-gray-60,
+	70: $primitive-pc-color-gray-70,
+	80: $primitive-pc-color-gray-80,
+	90: $primitive-pc-color-gray-90,
+	100: $primitive-pc-color-gray-100,
+	10010: $primitive-pc-color-gray-100-10,
+	10025: $primitive-pc-color-gray-100-25,
+	10050: $primitive-pc-color-gray-100-50,
+	10075: $primitive-pc-color-gray-100-75
+) !default;
+
+//TYPO
+
+//family, weight, line-height skip
+$typo-sizes: (
+	pc: (
+		display: (
+			small: $typescale-pc-display-small-size,
+			medium: $typescale-pc-display-medium-size,
+			large: $typescale-pc-display-large-size
+		),
+		heading: (
+			xxlarge: $typescale-pc-heading-xxlarge-size,
+			xlarge: $typescale-pc-heading-xlarge-size,
+			large: $typescale-pc-heading-large-size,
+			medium: $typescale-pc-heading-medium-size,
+			small: $typescale-pc-heading-small-size,
+			xsmall: $typescale-pc-heading-xsmall-size,
+			xxsmall: $typescale-pc-heading-xxsmall-size
+		),
+		body: (
+			xsmall: $typescale-pc-body-xsmall-size,
+			small: $typescale-pc-body-small-size,
+			medium: $typescale-pc-body-medium-size,
+			large: $typescale-pc-body-large-size
+		),
+		label: (
+			xsmall: $typescale-pc-label-xsmall-size,
+			small: $typescale-pc-label-small-size,
+			medium: $typescale-pc-label-medium-size,
+			large: $typescale-pc-label-large-size
+		),
+		link: (
+			small: $typescale-pc-link-small-size,
+			medium: $typescale-pc-link-medium-size,
+			large: $typescale-pc-link-large-size
+		),
+		list: (
+			small: $typescale-pc-list-small-size,
+			medium: $typescale-pc-list-medium-size
+		),
+	),
+	mobile: (
+		display: (
+			small: $typescale-mobile-display-small-size,
+			medium: $typescale-mobile-display-medium-size,
+			large: $typescale-mobile-display-large-size
+		),
+		heading: (
+			xxlarge: $typescale-pc-heading-xxlarge-size,
+			xlarge: $typescale-pc-heading-xlarge-size,
+			large: $typescale-pc-heading-large-size,
+			medium: $typescale-pc-heading-medium-size,
+			small: $typescale-pc-heading-small-size,
+			xsmall: $typescale-pc-heading-xsmall-size,
+			xxsmall: $typescale-pc-heading-xxsmall-size
+		),
+		body: (
+			xsmall: $typescale-mobile-body-xsmall-size,
+			small: $typescale-mobile-body-small-size,
+			medium: $typescale-mobile-body-medium-size,
+			large: $typescale-mobile-body-large-size
+		),
+		label: (
+			xsmall: $typescale-mobile-label-xsmall-size,
+			small: $typescale-mobile-label-small-size,
+			medium: $typescale-mobile-label-medium-size,
+			large: $typescale-mobile-label-large-size
+		),
+		link: (
+			small: $typescale-mobile-link-small-size,
+			medium: $typescale-mobile-link-medium-size,
+			large: $typescale-mobile-link-large-size
+		),
+		list: (
+			small: $typescale-mobile-list-small-size,
+			medium: $typescale-mobile-list-medium-size
+		),
+	)
+) !default;
+//참고: 최상위 카테고리 구분없이 값을 모두 뽑으 때 each 3번 사용
+//@each $device, $types in $typo-sizes {
+//	@each $type, $sizes in $types {
+//		@each $size, $value in $sizes {
+//			$value: $value;
+//			.#{$device}-#{$type}-#{$size} {
+//				font-size: #{$value};
+//			}
+//		}
+//	}
+//}
+$typo-sizes-pc: (
+	display: (
+		small: $typescale-pc-display-small-size,
+		medium: $typescale-pc-display-medium-size,
+		large: $typescale-pc-display-large-size
+	),
+	heading: (
+		xxlarge: $typescale-pc-heading-xxlarge-size,
+		xlarge: $typescale-pc-heading-xlarge-size,
+		large: $typescale-pc-heading-large-size,
+		medium: $typescale-pc-heading-medium-size,
+		small: $typescale-pc-heading-small-size,
+		xsmall: $typescale-pc-heading-xsmall-size,
+		xxsmall: $typescale-pc-heading-xxsmall-size
+	),
+	body: (
+		xsmall: $typescale-pc-body-xsmall-size,
+		small: $typescale-pc-body-small-size,
+		medium: $typescale-pc-body-medium-size,
+		large: $typescale-pc-body-large-size
+	),
+	label: (
+		xsmall: $typescale-pc-label-xsmall-size,
+		small: $typescale-pc-label-small-size,
+		medium: $typescale-pc-label-medium-size,
+		large: $typescale-pc-label-large-size
+	),
+	link: (
+		small: $typescale-pc-link-small-size,
+		medium: $typescale-pc-link-medium-size,
+		large: $typescale-pc-link-large-size
+	),
+	list: (
+		small: $typescale-pc-list-small-size,
+		medium: $typescale-pc-list-medium-size
+	),
+) !default;
+
+$typo-sizes-mobile: (
+	display: (
+		small: $typescale-mobile-display-small-size,
+		medium: $typescale-mobile-display-medium-size,
+		large: $typescale-mobile-display-large-size
+	),
+	heading: (
+		xxlarge: $typescale-pc-heading-xxlarge-size,
+		xlarge: $typescale-pc-heading-xlarge-size,
+		large: $typescale-pc-heading-large-size,
+		medium: $typescale-pc-heading-medium-size,
+		small: $typescale-pc-heading-small-size,
+		xsmall: $typescale-pc-heading-xsmall-size,
+		xxsmall: $typescale-pc-heading-xxsmall-size
+	),
+	body: (
+		xsmall: $typescale-mobile-body-xsmall-size,
+		small: $typescale-mobile-body-small-size,
+		medium: $typescale-mobile-body-medium-size,
+		large: $typescale-mobile-body-large-size
+	),
+	label: (
+		xsmall: $typescale-mobile-label-xsmall-size,
+		small: $typescale-mobile-label-small-size,
+		medium: $typescale-mobile-label-medium-size,
+		large: $typescale-mobile-label-large-size
+	),
+	link: (
+		small: $typescale-mobile-link-small-size,
+		medium: $typescale-mobile-link-medium-size,
+		large: $typescale-mobile-link-large-size
+	),
+	list: (
+		small: $typescale-mobile-list-small-size,
+		medium: $typescale-mobile-list-medium-size
+	),
+) !default;
+
+
+
+//SPACERS
+$spacings: (
+	0: $primitive-pc-spacing-0,
+	1: $primitive-pc-spacing-1,
+	2: $primitive-pc-spacing-2,
+	3: $primitive-pc-spacing-3,
+	4: $primitive-pc-spacing-4,
+	5: $primitive-pc-spacing-5,
+	6: $primitive-pc-spacing-6,
+	7: $primitive-pc-spacing-7,
+	8: $primitive-pc-spacing-8,
+	9: $primitive-pc-spacing-9,
+	10: $primitive-pc-spacing-10,
+	11: $primitive-pc-spacing-11,
+	12: $primitive-pc-spacing-12,
+	13: $primitive-pc-spacing-13,
+	14: $primitive-pc-spacing-14,
+	15: $primitive-pc-spacing-15,
+	16: $primitive-pc-spacing-16,
+	17: $primitive-pc-spacing-17,
+	18: $primitive-pc-spacing-18,
+	19: $primitive-pc-spacing-19,
+	20: $primitive-pc-spacing-20,
+	21: $primitive-pc-spacing-21,
+) !default;
+
+//** SEMANTIC **
+//COLOR
+$colors-background: (
+	primary: (
+		neutral: map-get($colors-primary, 50),
+		neutral-light: map-get($colors-primary, 10),
+		neutral-lighter: map-get($colors-primary, 5),
+		active: map-get($colors-primary, 50),
+		hover: map-get($colors-primary, 60),
+		pressed: map-get($colors-primary, 70),
+		subtle: map-get($colors-gray, 0),
+		subtle-hover: map-get($colors-primary, 10),
+		subtle-pressed: map-get($colors-primary, 20),
+	),
+	secondary: (
+		neutral: map-get($colors-secondary, 50),
+		neutral-light: map-get($colors-secondary, 10),
+		neutral-lighter: map-get($colors-secondary, 5),
+		active: map-get($colors-secondary, 50),
+		subtle: map-get($colors-secondary, 5),
+		subtle-hover: map-get($colors-gray, 0),
+		subtle-pressed: map-get($colors-secondary, 10),
+		subtle-selected: map-get($colors-gray, 0),
+		subtler: map-get($colors-gray, 0),
+		subtler-hover: map-get($colors-secondary, 5),
+		subtler-pressed: map-get($colors-secondary, 10),
+		subtler-selected: map-get($colors-secondary, 5),
+	),
+	danger: (
+		neutral: map-get($colors-danger, 50),
+		neutral-lighter: map-get($colors-danger, 5),
+	),
+	information: (
+		neutral: map-get($colors-information, 50),
+		neutral-lighter: map-get($colors-information, 5),
+	),
+	warning: (
+		neutral: map-get($colors-warning, 50),
+		neutral-lighter: map-get($colors-warning, 5),
+	),
+	success: (
+		neutral: map-get($colors-success, 50),
+		neutral-lighter: map-get($colors-success, 5),
+	),
+	point: (
+		neutral: map-get($colors-point, 50),
+		neutral-light: map-get($colors-point, 10),
+		neutral-lighter: map-get($colors-point, 5),
+	),
+	gray: (
+		neutral-light: map-get($colors-gray, 10),
+		neutral-lighter: map-get($colors-gray, 5),
+	),
+	disabled: (
+		neutral: map-get($colors-gray, 30),
+		element-light: map-get($colors-gray, 20),
+		element-dark: map-get($colors-gray, 40),
+	),
+
+) !default;
+
+//BORDER
+$colors-border: (
+	primary: (
+		neutral: map-get($colors-primary, 50),
+		active: map-get($colors-primary, 50),
+	),
+	seconary: (
+		neutral: map-get($colors-secondary, 50),
+		neutral-light: map-get($colors-secondary, 20),
+		active: map-get($colors-secondary, 50),
+	),
+	danger: (
+		neutral: map-get($colors-danger, 50),
+		neutral-light: map-get($colors-danger, 10),
+	),
+	information: (
+		neutral: map-get($colors-information, 60),
+		neutral-light: map-get($colors-information, 10),
+	),
+	warning: (
+		neutral: map-get($colors-warning, 50),
+		neutral-light: map-get($colors-warning, 10),
+	),
+	success: (
+		neutral: map-get($colors-success, 50),
+		neutral-light: map-get($colors-success, 10),
+	),
+	gray: (
+		neutral: map-get($colors-gray, 40),
+		neutral-light: map-get($colors-gray, 30),
+		neutral-lighter: map-get($colors-gray, 20),
+		neutral-dark: map-get($colors-gray, 60),
+		neutral-darker: map-get($colors-gray, 90),
+	),
+	disabled: (
+		neutral: map-get($colors-gray, 40),
+	),
+	error: (
+		newtral: map-get($colors-danger, 50)
+	),
+) !default;
+
+//DIVIDER
+$colors-divider: (
+	primary: (
+		neutral: map-get($colors-primary, 50),
+	),
+	seconary: (
+		neutral: map-get($colors-secondary, 50),
+		neutral-light: map-get($colors-secondary, 10),
+	),
+	gray: (
+		neutral: map-get($colors-gray, 40),
+		neutral-light: map-get($colors-gray, 30),
+		neutral-lighter: map-get($colors-gray, 20),
+		neutral-dark: map-get($colors-gray, 50),
+	),
+) !default;
+
+//TEXT
+$colors-text: (
+	primary: (
+		neutral: map-get($colors-primary, 50),
+		active: map-get($colors-primary, 60),
+	),
+	seconary: (
+		neutral: map-get($colors-secondary, 50),
+		active: map-get($colors-secondary, 50),
+	),
+	danger: (
+		neutral: map-get($colors-danger, 60),
+	),
+	information: (
+		neutral: map-get($colors-information, 60),
+	),
+	warning: (
+		neutral: map-get($colors-warning, 60),
+	),
+	success: (
+		neutral: map-get($colors-success, 60),
+	),
+	point: (
+		neutral: map-get($colors-point, 60),
+	),
+	gray: (
+		neutral: map-get($colors-gray, 90),
+		title: map-get($colors-gray, 90),
+		detail: map-get($colors-gray, 70),
+	),
+	white: (
+		neutral: map-get($colors-gray, 0),
+	),
+	disabled: (
+		neutral: map-get($colors-gray, 50),
+		background: map-get($colors-gray, 60),
+	),
+) !default;
+
+//ICON
+$colors-icon: (
+	primary: map-get($colors-primary, 50),
+	seconary: map-get($colors-secondary, 50),
+	danger: map-get($colors-danger, 50),
+	information: map-get($colors-information, 50),
+	warning: map-get($colors-warning, 50),
+	success: map-get($colors-success, 50),
+	point: map-get($colors-point, 50),
+	gray: (
+		neutral: map-get($colors-gray, 90),
+		fill: map-get($colors-gray, 20),
+		light: map-get($colors-gray, 70),
+	),
+	white: map-get($colors-gray, 0),
+	disabled: (
+		neutral: map-get($colors-gray, 50),
+		background: map-get($colors-gray, 60),
+	),
+) !default;
+
+//default text color
+$colors-text-default : (
+	default: map-get(map-get($colors-text, gray), neutral),
+	title: map-get(map-get($colors-text, gray), title),
+	detail: map-get(map-get($colors-text, gray), detail),
+) !default;
+
+//LINK
+$colors-link: (
+	default: map-get($colors-primary, 50),
+	hover: map-get($colors-primary, 60),
+	pressed: map-get($colors-primary, 70),
+	visited: #5917b8,
+) !default;
+
+//TEXT
+$colors-button: (
+	primary: (
+		background: (
+			default: map-get($colors-primary, 50),
+			hover: map-get($colors-primary, 60),
+			pressed: map-get($colors-primary, 70),
+		),
+		border: map-get($colors-primary, 50),
+		text: map-get($colors-gray, 0),
+	),
+	secondary: (
+		background: (
+			default: map-get($colors-primary, 5),
+			hover: map-get($colors-primary, 10),
+			pressed: map-get($colors-primary, 20),
+		),
+		border: map-get($colors-primary, 50),
+		text: map-get($colors-primary, 50),
+	),
+	tertiary: (
+		background: (
+			default: map-get($colors-gray, 0),
+			hover: map-get($colors-gray, 5),
+			pressed: map-get($colors-gray, 10),
+		),
+		border: map-get($colors-gray, 90),
+		text: map-get($colors-gray, 90),
+	),
+	text: (
+		background: (
+			default: $transparent,
+			hover: map-get($colors-secondary, 5),
+			pressed: map-get($colors-secondary, 10),
+		),
+		border: $transparent,
+		text: map-get($colors-gray, 90),
+	),
+	disabled: (
+		background: (
+			default: map-get($colors-gray, 30),
+		),
+		border: map-get($colors-gray, 30),
+		text: map-get($colors-gray, 60),
+	),
+) !default;
+
+//RADIUS
+$radius: (
+	xsmall-1: map-get($spacings, 2),
+	xsmall-2: map-get($spacings, 2),
+	xsmall-3: map-get($spacings, 2),
+	small-1: map-get($spacings, 3),
+	small-2: map-get($spacings, 3),
+	small-3: map-get($spacings, 3),
+	medium-1: map-get($spacings, 4),
+	medium-2: map-get($spacings, 4),
+	medium-3: map-get($spacings, 5),
+	medium-4: map-get($spacings, 5),
+	large-1: map-get($spacings, 6),
+	large-2: map-get($spacings, 6),
+	xlarge-1: map-get($spacings, 7),
+	xlarge-2: map-get($spacings, 7),
+	max: 99.9rem,
+) !default;
+
+//HEIGHTS
+$spacings-size-height: (
+	8: map-get($spacings, 5),
+	16: map-get($spacings, 8),
+	20: map-get($spacings, 9),
+	24: map-get($spacings, 10),
+	32: map-get($spacings, 12),
+	40: map-get($spacings, 14),
+	48: map-get($spacings, 16),
+	56: map-get($spacings, 17),
+	64: map-get($spacings, 18),
+	80: map-get($spacings, 20),
+) !default;
+
+//GAP
+$spacings-gap: (
+	2: map-get($spacings, 2),
+	4: map-get($spacings, 3),
+	8: map-get($spacings, 5),
+	12: map-get($spacings, 7),
+	16: map-get($spacings, 8),
+	20: map-get($spacings, 9),
+	24: map-get($spacings, 10),
+	32: map-get($spacings, 12),
+	40: map-get($spacings, 14),
+	64: map-get($spacings, 18),
+	80: map-get($spacings, 20),
+) !default;
+
+//PADDING
+$spacings-padding: (
+	2: map-get($spacings, 2),
+	4: map-get($spacings, 3),
+	8: map-get($spacings, 5),
+	10: map-get($spacings, 6),
+	12: map-get($spacings, 7),
+	16: map-get($spacings, 8),
+	20: map-get($spacings, 9),
+	24: map-get($spacings, 10),
+	32: map-get($spacings, 12),
+	40: map-get($spacings, 14),
+) !default;

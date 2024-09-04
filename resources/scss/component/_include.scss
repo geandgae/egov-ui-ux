@@ -3,8 +3,11 @@
 /* 공통 */
 // Configuration
 @import "variables";
+@import "variables_from_token"; //new
+@import "variables_for_code"; //new
 @import "functions";
 
 //mixin
 @import "group_mixins";
+
 

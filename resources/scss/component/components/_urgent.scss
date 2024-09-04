@@ -1,0 +1,68 @@
+/* ** 긴급공지 **/
+.urgent-ban-list {
+    @include flex-layout($fd: column, $ai: normal);
+    gap: var(--#{$prefix}spacer-6);
+    width: 100%;
+    max-width: 84.6rem;
+    padding: var(--#{$prefix}spacer-6);
+    margin: 0 auto;
+    .urgent-ban {
+        @include flex-layout($ai: center);
+        gap: var(--#{$prefix}spacer-4);
+        height: 8rem;
+        padding: var(--#{$prefix}spacer-2) var(--#{$prefix}spacer-4);
+        border-radius: var(--#{$prefix}rd-6);
+        background-color: var(--#{$prefix}white);
+    }
+    .urgent-badge {
+        @include flex-layout($ai: center);
+        gap: var(--#{$prefix}spacer-1);
+        font-size: var(--#{$prefix}fz-body-sm);
+        font-weight: map-get($fws, bold);
+        color: var(--#{$prefix}white);
+        min-width: 7.8rem;
+        height: 4.8rem;
+        padding: var(--#{$prefix}spacer-2) var(--#{$prefix}spacer-3);
+        border-radius: 10rem;
+        &::before {
+        display: inline-flex;
+        content: "";
+        width: 2.4rem;
+        height: 2.4rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        }
+        &.danger {
+        background-color: var(--#{$prefix}danger);
+        &::before {
+            background-image: url(#{$url}/component/common/ico_urgent_badge_danger.svg);
+        }
+        }
+        &.ok {
+        background-color: var(--#{$prefix}success);
+        &::before {
+            background-image: url(#{$url}/component/common/ico_urgent_badge_ok.svg);
+        }
+        }
+        &.info {
+        background-color: var(--#{$prefix}primary-70);
+        &::before {
+            background-image: url(#{$url}/component/common/ico_urgent_badge_info.svg);
+        }
+        }
+    }
+    .urgent-txt {
+        flex: 1;
+        font-weight: map-get($fws, bold);
+        @include ellipsis(2);
+    }
+}
+
+//모바일 전용
+@include mobile {
+    .urgent-ban-list {
+        gap: var(--#{$prefix}spacer-2);
+        padding: var(--#{$prefix}spacer-2) 0;
+    }
+}

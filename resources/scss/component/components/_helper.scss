@@ -40,8 +40,10 @@
 					@include flex-layout($ai: center);
 					font-size: var(--#{$prefix}fz-title-md);
 					font-weight: map-get($fws, bold);
-					.btn-ico {
-						margin-left: var(--#{$prefix}spacer-1);
+					.krds-btn {
+						&.icon{
+							margin-left: var(--#{$prefix}spacer-1);
+						}
 					}
 				}
 				&.helper-conts {
@@ -100,7 +102,7 @@
 }
 
 /* 도움말 버튼 */
-.btn {
+.krds-btn {
 	&.btn-helper {
 		height: 4.4rem;
 		padding: 0 var(--#{$prefix}btn-px-sm);
@@ -108,33 +110,15 @@
 		border: 1px solid var(--#{$prefix}gray-40);
 		border-radius: var(--#{$prefix}rd-4);
 		box-shadow: $box-shadow-base;
-		font-size: var(--#{$prefix}btn-fz-md);
 		color: var(--#{$prefix}black);
-		&::before,
-		&::after {
-			@include pseudo();
-			width: 2rem;
-			height: 2rem;
-			background: url(#{$url}/component/common/ico_foldable.svg) no-repeat center;
-			background-size: contain;
+		.svg-icon{
+			background-color: var(--#{$prefix}black);
 		}
 		&:focus {
 			@include focus($color: $primary);
 		}
-		&.expand {
-			&::before {
-				margin-right: var(--#{$prefix}spacer-default2);
-			}
-			&::after {
-				display: none;
-			}
-		}
 		&.fold {
-			&::before {
-				display: none;
-			}
-			&::after {
-				margin-left: var(--#{$prefix}spacer-default2);
+			.ico-fold{
 				transform: rotate(180deg);
 			}
 		}

@@ -1,0 +1,136 @@
+.conts-area {
+    &.quick-nav-type {
+        @include flex-layout($jc: space-between, $fd: row-reverse);
+        > .conts-detail-wrap {
+            @include flex-layout($fd: column);
+            gap: var(--#{$prefix}spacer-18);
+        }
+        > .quick-nav-area {
+            @include flex-layout($fd: column);
+            gap: var(--#{$prefix}spacer-10);
+            @include position($p: sticky, $t: 24.4rem);
+            width: 29.6rem;
+            transition: $transition-base;
+        > * {
+            width: 100%;
+        }
+        .btn-wrap {
+            .btn {
+                width: 100%;
+                }
+            }
+        }
+        .quick-nav-tab {
+            width: calc(100% + 3.2rem);
+            margin: 0 -1.6rem;
+            overflow: hidden;
+            [role="tablist"] {
+                padding-left: var(--#{$prefix}spacer-4);
+                padding-right: var(--#{$prefix}spacer-4);
+            }
+        }
+    }
+}
+
+.scroll-down {
+    .conts-area {
+        &.quick-nav-type {
+        > .quick-nav-area {
+            top: 6rem;
+        }
+        }
+    }
+}
+  
+.quick-title-wrap {
+    .guide-txt {
+        padding: 0 0 var(--#{$prefix}spacer-4) 0;
+        background-color: transparent;
+        border-radius: 0;
+        font-size: var(--#{$prefix}fz-title-xsm);
+    }
+}
+
+.quick-list {
+    li {
+        > a {
+        display: block;
+        position: relative;
+        padding: 0.7rem 0 0.7rem 2.6rem;
+        transition: $transition-base;
+        &.active {
+            background-color: var(--#{$prefix}secondary-5);
+            color: var(--#{$prefix}secondary);
+            font-weight: map-get($fws, bold);
+            &::before {
+            width: 0.4rem;
+            background-color: var(--#{$prefix}secondary);
+            }
+        }
+        &::before {
+            @include position($t: 0, $l: 0);
+            @include pseudo();
+            width: 0.2rem;
+            height: 100%;
+            background-color: var(--#{$prefix}secondary-10);
+            transition: $transition-base;
+        }
+        &:focus {
+            @include focus($offset: 0.4rem);
+        }
+        }
+    }
+}
+
+
+//태블릿 전용 속성
+@include tablet {
+    .conts-area {
+        &.quick-nav-type {
+            @include flex-layout($fd: column);
+            > .conts-detail-wrap {
+                gap: var(--#{$prefix}spacer-16);
+            }
+            .quick-nav-area {
+                position: relative;
+                top: 0;
+                width: 100%;
+                transition: none;
+
+                .pc-only {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//태블릿 & 모바일 전용 속성
+@include tabletLess {
+    .conts-area {
+        &.quick-nav-type {
+            @include flex-layout($fd: column);
+            .quick-nav-area {
+                position: static;
+                width: 100%;
+                transition: none;
+        
+                .pc-only {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//모바일 전용
+@include mobile {
+    .conts-area {
+        &.quick-nav-type {
+            > .conts-detail-wrap {
+                gap: var(--#{$prefix}spacer-10);
+                width: 100%;
+            }
+        }
+    }
+}

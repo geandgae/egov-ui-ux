@@ -1,35 +1,180 @@
-
-
 :root {
+	//* PRIMITIVE *
+	--#{$prefix}font-family-base: #{$typo-family-base};
+	--#{$prefix}font-size-base: #{$typo-size-base};
+
+	//line heights
+	@each $type, $value in $typo-line-heights {
+		--#{$prefix}line-height-#{$type}: #{$value};
+	}
+
+	//letter spacings
+	@each $type, $value in $typo-letter-spacings {
+		--#{$prefix}letter-spacing-#{$type}: #{$value};
+	}
+
 	//colors
 	@each $color, $value in $colors {
 		--#{$prefix}#{$color}: #{$value};
 	}
-	@each $num, $value in $primary-colors {
+	@each $num, $value in $colors-primary {
 		--#{$prefix}primary-#{$num}: #{$value};
 	}
-	@each $num, $value in $secondary-colors {
+	@each $num, $value in $colors-secondary {
 		--#{$prefix}secondary-#{$num}: #{$value};
 	}
-	@each $num, $value in $point-colors {
+	@each $num, $value in $colors-danger {
+		--#{$prefix}danger-#{$num}: #{$value};
+	}
+	@each $num, $value in $colors-warning {
+		--#{$prefix}warning-#{$num}: #{$value};
+	}
+	@each $num, $value in $colors-success {
+		--#{$prefix}success-#{$num}: #{$value};
+	}
+	@each $num, $value in $colors-point {
 		--#{$prefix}point-#{$num}: #{$value};
 	}
-	@each $num, $value in $gray-colors {
+	@each $num, $value in $colors-gray {
 		--#{$prefix}gray-#{$num}: #{$value};
 	}
 
+	//font size
+	@each $device, $types in $typo-sizes {
+		@each $type, $sizes in $types {
+			@each $size, $value in $sizes {
+				--#{$prefix}typo-size-#{$device}-#{$type}-#{$size}: #{$value};
+			}
+		}
+	}
+	//font weight
+	@each $type, $value in $typo-weights {
+		--#{$prefix}typo-weight-#{$type}: #{$value};
+	}
 
-	//fonts
-	@include fz();
+	//추후삭제
+	@each $type, $size in map-get($font-size, 'sizes') {
+		@each $key, $value in $size {
+			--#{$prefix}fz-#{$type}-#{$key}: #{$value};
+		}
+	}
+
+	//spacings
+	@each $size, $value in $spacings {
+		--#{$prefix}spacer-#{$size}: #{$value}; //추후삭제
+		--#{$prefix}spacing-#{$size}: #{$value};
+	}
+
+	//추후삭제
+	//@include spacer;
+	@include spacer(50);
+	@each $size, $value in $spacers {
+		--#{$prefix}spacer-#{$size}: #{$value};
+	}
+
+	//icon size
+	@each $size, $value in $icon-sizes {
+		--#{$prefix}icon-size-#{$size}: #{$value};
+	}
+
+	//contents size
+	--#{$prefix}contents-size: #{$contents-size};
+	--#{$prefix}contents-padding-x: #{$contents-padding-x-pc};
+	--#{$prefix}contents-wrap-size: #{$contents-wrap-size};
+
+
+
+	//* SEMANTIC *
+	//color
+	@each $color, $types in $colors-background {
+		@each $type, $value in $types {
+			--#{$prefix}bg-#{$color}-#{$type}: #{$value};
+		}
+	}
+	@each $color, $types in $colors-border {
+		@each $type, $value in $types {
+			--#{$prefix}border-#{$color}-#{$type}: #{$value};
+		}
+	}
+	@each $color, $types in $colors-divider {
+		@each $type, $value in $types {
+			--#{$prefix}divider-#{$color}-#{$type}: #{$value};
+		}
+	}
+	@each $color, $types in $colors-icon {
+		@each $type, $value in $types {
+			@if ($value != null) {
+				--#{$prefix}icon-#{$color}-#{$type}: #{$value};
+			}
+			@else {
+				--#{$prefix}icon-#{$color}: #{$types};
+			}
+		}
+	}
+	@each $color, $types in $colors-text {
+		@each $type, $value in $types {
+			--#{$prefix}text-#{$color}-#{$type}: #{$value};
+		}
+	}
+	@each $type, $color in $colors-text-default {
+		--#{$prefix}text-#{$type}: #{$color};
+	}
+	@each $type, $value in $colors-link {
+		--#{$prefix}link-color-#{$type}: #{$value};
+	}
+	@each $color, $types in $colors-button {
+		@each $type, $statuses in $types {
+			@each $status, $value in $statuses {
+				@if ($value != null) {
+					--#{$prefix}button-color-#{$color}-#{$type}-#{$status}: #{$value};
+				}
+				@else {
+					--#{$prefix}button-color-#{$color}-#{$type}: #{$status};
+				}
+			}
+		}
+	}
+
+
+
+
 
 
 	//border radius size
+	@each $size, $value in $radius {
+		--#{$prefix}radius-#{$size}: #{$value};
+	}
+	//추후삭제
 	@each $size, $value in $border-radius {
 		--#{$prefix}rd-#{$size}: #{$value};
 	}
 
+	//heights
+	@each $size, $value in $spacings-size-height {
+		--#{$prefix}height-#{$size}: #{$value};
+	}
+
+	//gap
+	@each $size, $value in $spacings-gap {
+		--#{$prefix}gap-#{$size}: #{$value};
+	}
+
+	//padding
+	@each $size, $value in $spacings-padding {
+		--#{$prefix}padding-#{$size}: #{$value};
+	}
+
+	//text underline offset
+	--#{$prefix}text-underline-offset: #{$typo-underline-offset-defualt};
+
+	//추후삭제
 	//btn setting
-	@include btn();
+	@each $type, $size in map-get($btns, 'setting') {
+		@each $key, $value in $size {
+			--#{$prefix}btn-#{$type}-#{$key}: #{$value};
+		}
+	}
+
 	@include btn-chip(fill, lg);
 	@include btn-chip(outline, lg);
 
@@ -46,11 +191,7 @@
 	@include tabs();
 	
 
-	//@include spacer;
-	@include spacer(50);
-	@each $size, $value in $spacers {
-		--#{$prefix}spacer-#{$size}: #{$value};
-	}
+
 }
 
 //responsive tablet
@@ -62,6 +203,7 @@
 
 //responsive mobile
 @include tabletLess {
+	//추후삭제
 	//font setting
 	$font-size: (
 		sizes: (
@@ -98,13 +240,20 @@
 					),
 			),
 	) !global;
+	//추후삭제
 
 	:root {
+		//contents size
+		--#{$prefix}contents-padding-x: #{$contents-padding-x-mobile};
+
+
+		//추후삭제
 		//fonts
 		@include fz();
 
 		/* input setting */
 		@include input();
+		//추후삭제
 	}
 
 }

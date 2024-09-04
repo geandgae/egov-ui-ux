@@ -1,24 +1,59 @@
+$accordion-settings: (
+	color: (
+		background: map-get($colors-gray, 0),
+		border: map-get($colors-gray, 40),
+	),
+	padding: (
+		title-right: map-get($spacings-padding, 40),
+		title-y: map-get($spacings-padding, 20),
+		body-top: map-get($spacings-padding, 4),
+		body-bottom: map-get($spacings-padding, 40),
+	),
+	font-size: (
+		title-pc: map-get(map-get($typo-sizes-pc, heading), medium),
+		title-mobile: map-get(map-get($typo-sizes-mobile, heading), medium),
+	),
+
+) !default;
+
+
+//추후삭제
 .accordion {
-	border-top: 1px solid var(--#{$prefix}gray-40);
+	@each $target, $types in $accordion-settings {
+		@each $type, $value in $types {
+			//css variable 생성
+			--#{$prefix}accordion-#{$target}-#{$type}: #{$value};
+		}
+	}
+	border-top: 1px solid var(--#{$prefix}accordion-common-border);
+}
+//추후삭제
+
+.#{$prefix}accordion {
+	@each $target, $types in $accordion-settings {
+		@each $type, $value in $types {
+			//css variable 생성
+			--#{$prefix}accordion-#{$target}-#{$type}: #{$value};
+		}
+	}
+	border-top: 1px solid var(--#{$prefix}accordion-color-border);
 }
 .accordion-item {
-	background-color: var(--#{$prefix}white);
-	border-bottom: 1px solid var(--#{$prefix}gray-40);
+	background-color: var(--#{$prefix}accordion-color-background);
+	border-bottom: 1px solid var(--#{$prefix}accordion-color-border);
 	.btn-accordion {
 		position: relative;
 		width: 100%;
-		min-height: 6.4rem;
-		padding: var(--#{$prefix}spacer-5) var(--#{$prefix}spacer-10) var(--#{$prefix}spacer-5) 0;
-		font-size: var(--#{$prefix}fz-body-lg);
-		font-weight: map-get($fws, bold);
+		padding: var(--#{$prefix}accordion-padding-title-y) var(--#{$prefix}accordion-padding-title-right) var(--#{$prefix}accordion-padding-title-y) 0;
+		font-size: var(--#{$prefix}accordion-font-size-title-pc);
+		font-weight: var(--#{$prefix}typo-weight-bold);
 		text-align: left;
 		&::after {
 			@include position($t: 2.2rem, $r: 0);
 			@include pseudo();
-			width: 2.4rem;
-			height: 2.4rem;
-			background: url(#{$url}/component/common/ico_arr_accordion.svg) no-repeat center;
-			background-size: 2rem;
+			@include foursquare(var(--#{$prefix}height-24));
+			@include svg-icon(var(--#{$prefix}height-20));
+			@include icon-set(ico_angle);
 			transition: $transition-base;
 			transform: rotate(0deg);
 		}
@@ -29,31 +64,27 @@
 		}
 	}
 	.accordion-collapse {
-		// 기존
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height .5s cubic-bezier(0, 1, 0, 1);
-
-		// 신규
-		// display: block;
-		// overflow: hidden;
-		// opacity: 0;
-		// height: 0;
-		// transition: $transition-base
+		transition: all .5s cubic-bezier(0, 1, 0, 1);
+		visibility: hidden;
 	}
 	&.active {
 		.accordion-collapse {
-			// 기존
 			height: auto;
 			max-height: 100vh;
-			transition: max-height 1.5s ease-in-out;
-
-			// 신규
-			// opacity: 1;
+			transition: all 1.5s ease-in-out;
+			visibility: visible;
 		}
 	}
 	.accordion-body {
-		padding-top: var(--#{$prefix}spacer-1);
-		padding-bottom: var(--#{$prefix}spacer-5);
+		padding-top: var(--#{$prefix}accordion-padding-body-top);
+		padding-bottom: var(--#{$prefix}accordion-padding-body-bottom);
+	}
+}
+
+@include mobile {
+	.accordion-item {
+		font-size: var(--#{$prefix}accordion-font-size-title-mobile);
 	}
 }

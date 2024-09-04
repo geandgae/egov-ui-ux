@@ -1,0 +1,57 @@
+//PREFIX
+$prefix: krds- !default;
+
+//CONTENTS MAX WIDTH
+$contents-size: 1200px !default;
+$contents-padding-x-pc: 28px !default;
+$contents-padding-x-mobile: 16px !default;
+$contents-wrap-size: 1200px + ($contents-padding-x-pc * 2) !default;
+
+//BREAK POINTS
+$breakpoint-mobile: 600px !default;
+$breakpoint-tablet: 1024px !default;
+$breakpoint-pc: 1920px !default;
+$breakpoints: (
+	mobile: $breakpoint-mobile,
+	tablet: $breakpoint-tablet,
+	pc: $breakpoint-pc,
+) !default;
+
+//TYPO CUSTOM
+$typo-family-base: "Pretendard GOV", sans-serif !default;
+$typo-size-base: 62.5% !default; //10px 1rem으로 설정
+
+$typo-letter-spacing-none: 0 !default;
+$typo-letter-spacing-wide: 0.1rem !default;
+$typo-letter-spacings: (
+	none: $typo-letter-spacing-none,
+	wide: $typo-letter-spacing-wide,
+) !default;
+
+//font weight
+$typo-weight-regular: 400 !default;
+$typo-weight-bold: 700 !default;
+$typo-weights: (
+	regular: $typo-weight-regular,
+	bold: $typo-weight-bold,
+) !default;
+
+//line height style
+$typo-line-height-none: 1 !default;
+$typo-line-height-base: 1.5 !default;
+$typo-line-heights: (
+	none: $typo-line-height-none,
+	base: $typo-line-height-base,
+) !default;
+
+//TYPO UNDERLINE OFFESET
+$typo-underline-offset-defualt: 0.3rem !default;
+
+//SVG ICON SIZE
+$icon-sizes: (
+	xsmall: 1.6rem,
+	small: 2rem,
+	medium: 2rem,
+	large: 2.4rem,
+	xlarge: 2.4rem
+) !default;

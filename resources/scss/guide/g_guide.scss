@@ -107,13 +107,10 @@ body {
 			//@include position($p: sticky, $t: 18rem, $l: 0);
 			flex-shrink: 0;
 			width: 28rem;
-			.btn {
-				&.ico-close {
+			.#{$prefix}btn {
+				&.popup-close {
 					display: none;
 					@include position($t:2.4rem, $r: 2.4rem);
-					@include foursquare(2.4rem);
-					background: url(../../../resources/img/component/common/ico_close_24.svg) no-repeat;
-					background-size: contain;
 				}
 			}
 			.inner {
@@ -144,9 +141,8 @@ body {
 					}
 				}
 				.lnb {
-
 					a,
-					button:not(.ico-close) {
+					button:not(.popup-close) {
 						display: flex;
 						flex-wrap: wrap;
 						position: relative;
@@ -948,7 +944,7 @@ body {
 		.btn-wrap {
 			display: flex;
 			gap: var(--#{$prefix}spacer-3);
-			.btn {
+			.krds-btn {
 				font-weight: 700;
 			}
 		}

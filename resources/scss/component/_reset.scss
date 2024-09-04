@@ -2,20 +2,20 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	font-family: $font-family-base;
-	color: var(--#{$prefix}gray-90);
-	font-weight: map-get($fws, normal);
-	line-height: $line-height-base;
+	font-family: var(--#{$prefix}font-family-base);
+	color: var(--#{$prefix}text-default);
+	font-weight: var(--#{$prefix}typo-weight-regular);
+	line-height: var(--#{$prefix}line-height-base);
 	word-break: keep-all;
 	word-wrap: break-word;
 	-webkit-tap-highlight-color : transparent;
 	scroll-behavior: smooth;
 }
 html {
-	font-size: $font-size-root;
+	font-size: var(--#{$prefix}font-size-base);
 }
 body {
-	font-size: var(--#{$prefix}fz-body-md);
+	font-size: var(--#{$prefix}typo-size-pc-body-medium);
 	overflow-x: hidden;
 }
 *:focus {
@@ -26,7 +26,7 @@ body {
 	color: var(--#{$prefix}white);
 }
 ::selection {
-	background: $secondary;
+	background: var(--#{$prefix}secondary);
 	color: var(--#{$prefix}white);
 }
 
@@ -68,7 +68,7 @@ label,
 	box-sizing: border-box;
 	-webkit-text-size-adjust: none;
 	font-family: inherit;
-	line-height: $line-height-base;
+	line-height: var(--#{$prefix}line-height-base);
 	letter-spacing: inherit;
 }
 pre {
@@ -95,7 +95,7 @@ h4,
 h5,
 h6,
 strong {
-	font-weight: map-get($fws, bold);
+	font-weight: var(--#{$prefix}typo-weight-bold);
 }
 article,
 aside,
@@ -133,6 +133,10 @@ em,
 address,
 i {
 	font-style: normal;
+}
+a,
+button {
+	transition: $transition-base;
 }
 a,
 a:hover,
@@ -239,9 +243,21 @@ caption {
 .ar {
 	text-align: right !important;
 }
+.underline {
+	@include underline();
+}
+//svg icon
+.svg-icon {
+	@include svg-icon();
+}
 
 //responsive mobile
 @include mobile {
+	body {
+		font-size: var(--#{$prefix}typo-size-mobile-body-medium);
+	}
+
+
 	.pc-only {
 		display: none !important;
 	}

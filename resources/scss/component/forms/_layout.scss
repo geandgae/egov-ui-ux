@@ -32,7 +32,7 @@
 			.form-control {
 				padding-right: var(--#{$prefix}spacer-14);
 			}
-			.btn {
+			.#{$prefix}btn {
 				@include position($t:50%, $r:1.6rem);
 				transform: translateY(-50%);
 			}
@@ -212,21 +212,15 @@
 	position: relative;
 	.form-control {
 		padding: 0 var(--#{$prefix}spacer-12) 0 var(--#{$prefix}spacer-4);
-		~ .ico-sch {
-			width: 2.4rem;
-			height: 2.4rem;
-		}
 		&.xlg {
 			font-weight: map-get($fws, bold);
 			padding: 0 var(--#{$prefix}spacer-18) 0 var(--#{$prefix}spacer-6);
-			~ .ico-sch {
+			~ .ico-search {
 				right: var(--#{$prefix}spacer-6);
-				width: 4rem;
-				height: 4rem;
 			}
 		}
 	}
-	.ico-sch {
+	.ico-search {
 		position: absolute;
 		top: 50%;
 		right: var(--#{$prefix}spacer-4);
@@ -253,7 +247,7 @@
 		.form-control {
 			&.xlg {
 				padding: 0 var(--#{$prefix}spacer-12) 0 var(--#{$prefix}spacer-4);
-				~ .ico-sch {
+				~ .ico-search {
 					right: var(--#{$prefix}spacer-4);
 					width: 2.4rem;
 					height: 2.4rem;

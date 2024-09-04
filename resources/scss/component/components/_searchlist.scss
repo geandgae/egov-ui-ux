@@ -1,0 +1,270 @@
+.search-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: var(--#{$prefix}spacer-6);
+    .li {
+        position: relative;
+        @include flex-layout($fd: column, $ai: normal);
+        gap: var(--#{$prefix}spacer-6) 0;
+        padding: var(--#{$prefix}spacer-6);
+        overflow-x: auto;
+        box-sizing: border-box;
+        border-radius: var(--#{$prefix}rd-12); 
+        border: 0.1rem solid var(--#{$prefix}gray-40);
+        &.is-check {
+            border-color: transparent;
+            outline: 0.2rem solid var(--#{$prefix}primary);
+        }
+        .in {
+            @include flex-layout($fd: column, $ai: normal);
+            gap: var(--#{$prefix}spacer-6);
+            width: 100%;
+        }
+    }
+    .chk-area {
+        z-index: 0;
+        .form-check {
+            display: inline-flex;
+            input[type="checkbox"] {
+                ~ label {
+                padding-left: var(--#{$prefix}spacer-5);
+                }
+            }
+        }
+        ~ .card-btn{
+            $top: calc(var(--#{$prefix}spacer-6)*2 + var(--#{$prefix}rdo-size-md));
+            top: $top;
+        }
+    }
+    .card-top {
+        @include flex-layout($ai: center);
+        flex-wrap: wrap;
+        gap: var(--#{$prefix}spacer-2);
+        // width: calc(100% - 17.5rem);
+        .btn-area {
+            display: inline-flex;
+            gap: var(--#{$prefix}spacer-4);
+        .btn {
+            height: 2.4rem;
+            }
+        }
+    }
+    .card-body {
+        @include flex-layout($fd: column, $ai: normal);
+        gap: var(--#{$prefix}spacer-6);
+        .c-text {
+            @include flex-layout($fd: column, $ai: normal);
+            gap: var(--#{$prefix}spacer-6);
+            padding: var(--#{$prefix}spacer-4) 0;
+            word-break: break-all;
+            &:hover {
+                text-decoration: underline;
+            }
+            .c-tit {
+                @include flex-layout($ai: center);
+                gap: var(--#{$prefix}spacer-2);
+                position: relative;
+                font-size: var(--#{$prefix}fz-title-lg);
+                font-weight: map-get($fws, bold);
+                .span {
+                @include ellipsis(1);
+                }
+                &::after {
+                display: inline-flex;
+                flex-shrink: 0;
+                content: "";
+                width: var(--#{$prefix}spacer-6);
+                height: var(--#{$prefix}spacer-6);
+                background: url(#{$url}/component/common/ico_arr_20_right.svg) no-repeat;
+                background-size: contain;
+                background-position: center;
+                }
+            }
+            .c-txt {
+            @include ellipsis(3);
+            }
+            .c-date {
+            .key {
+                font-weight: map-get($fws, bold);
+            }
+            }
+        }
+        .c-btn {
+            text-align: right;
+        }
+    }
+    .card-btm {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--#{$prefix}spacer-2) var(--#{$prefix}spacer-1);
+        padding-top: var(--#{$prefix}spacer-6);
+        margin-top: auto;
+        border-top: 0.1rem solid var(--#{$prefix}gray-30);
+        .tag {
+            @include flex-layout($d: inline-flex, $ai: center);
+            font-size: var(--#{$prefix}fz-label-sm);
+            color: var(--#{$prefix}gray-80);
+            height: 3.2rem;
+            padding: 0 var(--#{$prefix}spacer-3);
+            border-radius: 10rem;
+            border: 0.1rem solid var(--#{$prefix}gray-40);
+            background-color: var(--#{$prefix}white);
+            &::before {
+                content: "#";
+            }
+        }
+    }
+    .card-btn{
+        position: absolute;
+        top: var(--#{$prefix}spacer-6);
+        right: var(--#{$prefix}spacer-6);
+        display: inline-flex;
+        gap: var(--#{$prefix}spacer-4);
+        .krds-btn {
+            height: 2.4rem;
+        }
+    }
+    &.type2 {
+        .card-body {
+            .c-tit {
+                margin-top: 0;
+            }
+            .c-txt {
+                .key {
+                margin-right: 0.6rem;
+                white-space: nowrap;
+                }
+            }
+            .c-txt-p {
+                @include flex-layout();
+                &:not(:first-child) {
+                margin-top: var(--#{$prefix}spacer-4);
+                }
+            }
+            .c-txt-ul {
+                @include flex-layout();
+                flex-wrap: wrap;
+                gap: var(--#{$prefix}spacer-4) var(--#{$prefix}spacer-2);
+                li {
+                    display: inline-flex;
+                    align-items: center;
+                    &:not(:last-child) {
+                        &::after {
+                            display: inline-flex;
+                            content: "";
+                            width: 0.1rem;
+                            height: 1.2rem;
+                            margin-left: var(--#{$prefix}spacer-2);
+                            background-color: var(--#{$prefix}gray-40);
+                        }
+                }
+                }
+            }
+        }
+    }
+}
+  
+//태블릿 & 웹 속성
+@include mobileMore {
+    .search-list {
+        &.type1 {
+            grid-template-columns: none;
+            .li {
+                flex-direction: row;
+                padding: var(--#{$prefix}spacer-8) var(--#{$prefix}spacer-10);
+				column-gap: var(--#{$prefix}spacer-6);
+            }
+            .card-body {
+                flex-direction: row;
+                align-items: center;
+                .c-text {
+                    flex: 1;
+                }
+            }
+            .card-btn{
+                top: var(--#{$prefix}spacer-8);
+                right: var(--#{$prefix}spacer-10);
+            }
+        }
+        &.type2 {
+            grid-template-columns: none;
+            .li {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: var(--#{$prefix}spacer-8) var(--#{$prefix}spacer-10) var(--#{$prefix}spacer-10);
+                column-gap: var(--#{$prefix}spacer-6);
+            }
+            .card-body {
+                flex-direction: row;
+                align-items: flex-start;
+                .c-text {
+                    flex: 1;
+                    padding: 0;
+                }
+            }
+            .card-btn{
+                top: var(--#{$prefix}spacer-8);
+                right: var(--#{$prefix}spacer-10);
+            }
+        }
+    }
+}
+
+//태블릿 전용 속성
+@include tablet {
+    .search-list {
+        grid-template-columns: 1fr 1fr;
+        .card-btn{
+            gap: var(--#{$prefix}spacer-1);
+        }
+    }
+}
+
+//모바일 전용
+@include mobile {
+    .search-list {
+        grid-template-columns: 1fr;
+        .li{
+            flex-direction: row;
+            flex-wrap: wrap;
+            .in{
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .chk-area{
+                order: -1;
+                width: 100%;
+            }
+        }
+            .card-top{
+            order: -1;
+            flex: 1;
+            flex-wrap: nowrap;
+            min-width: fit-content;
+        }
+        .card-body {
+            width: 100%;
+            .c-btn {
+                text-align: left;
+            }
+        }
+        .card-btm{
+            width: 100%;
+        }
+        .card-btn{
+            order: -1;
+            position: static;
+        }
+        &.type2 {
+        .card-body {
+            .c-text {
+                padding: 0;
+            }
+            .c-txt-ul {
+                flex-wrap: wrap;
+            }
+        }
+        }
+    }
+}
+
