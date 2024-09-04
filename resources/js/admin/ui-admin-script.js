@@ -1,90 +1,38 @@
 "use strict";
 
 const initAdminUi = () => {
-	// gnb
-	const adminGnb = () => {
-		// menuData
-    const menuData = [
-      {
-        name: "공통관리",
-        url: "#;",
-        type: "link",
-        sub: [],
-      },
-			{
-        name: "메뉴관리",
-        url: "#;",
-        type: "link",
-        sub: [],
-      },
-			{
-        name: "콘텐츠관리",
-        url: "#;",
-        type: "link",
-        sub: [],
-      },
-			{
-        name: "통계관리",
-        url: "#;",
-        type: "link",
-        sub: [],
-      },
-			{
-        name: "서브타입 : toggle-lv1",
-        url: "",
-        type: "toggle",
-        sub: [
-          {
-            name: "sub-link",
-            url: "#;",
-            type: "link",
-            sub: [],
-          },
-				]
-      },
-			{
-        name: "서브타입 : toggle-lv2",
-        url: "",
-        type: "toggle-lv2",
-        sub: [
-					{
-            name: "sub-toggle",
-            url: "#;",
-            type: "toggle-sub",
-            sub: [
-							{
-								name: "sub-link",
-								url: "#;",
-								type: "link",
-								sub: [],
-							},
-						],
-          },
-					{
-            name: "sub-description",
-            url: "#;",
-            type: "toggle-description",
-            sub: [
-							{
-								name: "sub-link",
-								url: "#;",
-								type: "desc",
-								desc: "description",
-								sub: [],
-							},
-						],
-          },
-          {
-            name: "sub-link",
-            url: "#;",
-            type: "link",
-            sub: [],
-          },
-				]
-      },
-    ];
+	// data
+	const lnbData = [
+		{ name: "권한관리", url: "#;", type: "link", sub: [] },
+		{ name: "권한관리2", url: "", type: "toggle", sub: [
+			{ name: "권한관리2-sub1", url: "#;", type: "link", sub: [] },
+			{ name: "권한관리2-sub2", url: "", type: "toggle-lv2", sub: [
+				{ name: "권한관리2-sub2-1", url: "#;", type: "link", sub: [] },
+				{ name: "권한관리2-sub2-2", url: "#;", type: "link", sub: [] },
+			] },
+		]},
+	];
+	const gnbData = [
+		{ name: "공통관리", url: "#;", type: "link", sub: [] },
+		{ name: "메뉴관리", url: "#;", type: "link", sub: [] },
+		{ name: "콘텐츠관리", url: "#;", type: "link", sub: [] },
+		{ name: "통계관리", url: "#;", type: "link", sub: [] },
+		{ name: "서브타입 : toggle-lv1", url: "", type: "toggle", sub: [
+			{ name: "sub-link", url: "#;", type: "link", sub: [] },
+		]},
+		{ name: "서브타입 : toggle-lv2", url: "", type: "toggle-lv2", sub: [
+			{ name: "sub-toggle", url: "#;", type: "toggle-sub", sub: [
+				{ name: "sub-link", url: "#;", type: "link", sub: [] },
+			]},
+			{ name: "sub-description", url: "#;", type: "toggle-description", sub: [
+				{ name: "sub-link", url: "#;", type: "desc", desc: "description", sub: [] },
+			]},
+			{ name: "sub-link", url: "#;", type: "link", sub: [] },
+		]},
+	];
 
-		// function
+	// gnb
+	const adminGnb = (menuData) => {
     const menu = document.querySelector(".krds-gnb .gnb-menu");
     if (!menu) return;
 
@@ -92,13 +40,9 @@ const initAdminUi = () => {
 
 		const createMenu = (menuData) => {
       if (menuData.type === "link") {
-        list.push(`
-					<li>
-            <a href="${menuData.url}" class="gnb-main-trigger is-link" data-trigger="gnb"><h2>${menuData.name}</h2></a>
-          </li>
-				`);
+				return `<li><a href="${menuData.url}" class="gnb-main-trigger is-link" data-trigger="gnb"><h2>${menuData.name}</h2></a></li>`;
       } else if (menuData.type === "toggle") {
-        list.push(`
+        return `
 					<li>
 						<button type="button" class="gnb-main-trigger" data-trigger="gnb"><h2>${menuData.name}</h2></button>
 						<div class="gnb-toggle-wrap">
@@ -107,7 +51,7 @@ const initAdminUi = () => {
 									<div class="gnb-sub-content">
 										<h3 class="sub-title"><span>${menuData.name}</span></h3>
 										<ul>
-											${menuData.sub.map((subItem) => createSubMenu(subItem)).join("")}
+											${menuData.sub.map(createSubMenu).join('')}
 										</ul>
 									</div>
 									<div class="gnb-sub-banner">
@@ -118,28 +62,24 @@ const initAdminUi = () => {
 							</div>
         		</div>
           </li>
-				`);
+				`;
       } else if (menuData.type === "toggle-lv2") {
-        list.push(`
+        return `
 					<li>
 						<button type="button" class="gnb-main-trigger" data-trigger="gnb"><h2>${menuData.name}</h2></button>
 						<div class="gnb-toggle-wrap">
 							<div class="gnb-main-list" data-has-submenu="true">
 								<ul>
-									${menuData.sub.map((subItem) => createSubMenuLv2(subItem)).join("")}
+									${menuData.sub.map(createSubMenuLv2).join('')}
 								</ul>
 							</div>
         		</div>
           </li>
-				`);
+				`;
       }
     };
 		const createSubMenu = (menuData) => {
-			if (menuData.type === "link") {
-        return `
-					<li><a href="${menuData.url}">${menuData.name}</a></li>
-				`;
-      }
+			return menuData.type === "link" ? `<li><a href="${menuData.url}">${menuData.name}</a></li>` : "";
     };
 		const createSubMenuLv2 = (menuData) => {
       if (menuData.type === "link") {
@@ -159,7 +99,7 @@ const initAdminUi = () => {
 						<div class="gnb-sub-content">
 							<h3 class="sub-title"><span>${menuData.name}</span></h3>
 							<ul>
-								${menuData.sub.map((subItem) => createSubMenuLv3(subItem)).join("")}
+								${menuData.sub.map(createSubMenuLv3).join('')}
 							</ul>
 						</div>
 						<div class="gnb-sub-banner">
@@ -177,7 +117,7 @@ const initAdminUi = () => {
 						<div class="gnb-sub-content">
 							<h3 class="sub-title"><span>${menuData.name}</span></h3>
 							<ul class="type-description">
-								${menuData.sub.map((subItem) => createSubMenuLv3(subItem)).join("")}
+								${menuData.sub.map(createSubMenuLv3).join('')}
 							</ul>
 						</div>
 						<div class="gnb-sub-banner">
@@ -191,9 +131,7 @@ const initAdminUi = () => {
     };
 		const createSubMenuLv3 = (menuData) => {
 			if (menuData.type === "link") {
-        return `
-					<li><a href="${menuData.url}">${menuData.name}</a></li>
-				`;
+        return `<li><a href="${menuData.url}">${menuData.name}</a></li>`;
       } else if (menuData.type === "desc") {
         return `
 					<li>
@@ -206,58 +144,12 @@ const initAdminUi = () => {
       }
     };
 
-		menuData.forEach((item) => {
-      createMenu(item);
-    });
-
-    menu.innerHTML = list.join("");
+		menuData.forEach((item) => list.push(createMenu(item)));
+		menu.innerHTML = list.join("");
 	}
 
 	// lnb
-  const adminLnb = () => {
-		// menuData
-    const menuData = [
-      {
-        name: "권한관리",
-        url: "#;",
-        type: "link",
-        sub: [],
-      },
-      {
-        name: "권한관리2",
-        url: "",
-        type: "toggle",
-        sub: [
-          {
-            name: "권한관리2-sub1",
-            url: "#;",
-            type: "link",
-            sub: [],
-          },
-          {
-            name: "권한관리2-sub2",
-            url: "",
-            type: "toggle-lv2",
-            sub: [
-              {
-                name: "권한관리2-sub2-1",
-                url: "#;",
-                type: "link",
-                sub: [],
-              },
-							{
-                name: "권한관리2-sub2-2",
-                url: "#;",
-                type: "link",
-                sub: [],
-              },
-            ],
-          },
-        ],
-      },
-    ];
-
-		// function
+  const adminLnb = (menuData) => {
     const menu = document.querySelector(".krds-lnb .lnb-list");
     if (!menu) return;
 
@@ -265,22 +157,18 @@ const initAdminUi = () => {
 
     const createMenu = (menuData) => {
       if (menuData.type === "link") {
-        list.push(`
-					<li class="lnb-item">
-						<a href="${menuData.url}" class="lnb-btn lnb-link">${menuData.name}</a>
-					</li>
-				`);
+				return `<li class="lnb-item"><a href="${menuData.url}" class="lnb-btn lnb-link">${menuData.name}</a></li>`;
       } else if (menuData.type === "toggle") {
-        list.push(`
+        return `
 					<li class="lnb-item">
 						<button type="button" class="lnb-btn lnb-toggle">${menuData.name}</button>
 						<div class="lnb-submenu">
 							<ul>
-								${menuData.sub.map((subItem) => createSubMenu(subItem)).join("")}
+								${menuData.sub.map(createSubMenu).join('')}
 							</ul>
 						</div>
 					</li>
-				`);
+				`;
       }
     };
     const createSubMenu = (menuData) => {
@@ -297,7 +185,7 @@ const initAdminUi = () => {
 						<div class="lnb-submenu-lv2">
 							<button type="button" class="lnb-btn-tit">${menuData.name}</button>
 							<ul>
-								${menuData.sub.map((subItem) => createSubMenuLv2(subItem)).join("")}
+								${menuData.sub.map(createSubMenuLv2).join('')}
 							</ul>
 						</div>
 					</li>
@@ -305,23 +193,16 @@ const initAdminUi = () => {
       }
     };
     const createSubMenuLv2 = (menuData) => {
-      return `
-			<li>
-				<a href="${menuData.url}" class="lnb-btn">${menuData.name}</a>
-			</li>
-			`;
+      return `<li><a href="${menuData.url}" class="lnb-btn">${menuData.name}</a></li>`;
     };
 
-    menuData.forEach((item) => {
-      createMenu(item);
-    });
-
-    menu.innerHTML = list.join("");
+		menuData.forEach((item) => list.push(createMenu(item)));
+		menu.innerHTML = list.join("");
   };
 
 	// run
-	adminGnb();
-  adminLnb();
+	adminGnb(gnbData);
+  adminLnb(lnbData);
 };
 
 window.addEventListener("DOMContentLoaded", () => {
