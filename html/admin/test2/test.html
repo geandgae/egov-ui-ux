@@ -1,45 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">
-    <title>KRDS - admin</title>
-    <!-- css -->
-    <link href="../../resources/css/pattern_css.css" type="text/css" rel="stylesheet" />
-    <link href="../../resources/css/output/admin.css" type="text/css" rel="stylesheet" />
-    <!-- script -->
-    <script defer src="../../resources/js/admin/ui-admin-script.js"></script>
-    <script defer src="../../resources/js/component/ui-script.js"></script>
-  </head>
+  @@include("../inc/head.html", { "title": "KRDS - admin", })
 
   <body>
     <div id="wrap">
-      @@include("./inc/layout-header.html")
+      @@include("../inc/layout-header.html")
 
       <!-- 컨테이너 영역 -->
       <div id="container">
         <!-- 컨텐츠 영역 -->
         <div class="inner in-between">
           <!-- 사이드 메뉴 -->
-          @@include("./inc/layout-lnb.html")
+          @@include("../inc/layout-lnb.html")
           <!-- //사이드 메뉴 -->
 
           <!-- contents -->
           <div class="contents">
             <!-- breadcrumb -->
-            @@include("./inc/page-breadcrumb.html")
+            @@include("../inc/page-breadcrumb.html")
             <!-- breadcrumb -->
 
             <!-- 페이지 타이틀 영역 -->
-            @@include("./inc/page-title.html")
+            @@include("../inc/page-title.html")
             <!-- //페이지 타이틀 영역 -->
 
             <!-- 검색 입력폼 -->
@@ -173,7 +155,7 @@
             <!-- //box-cnt -->
 
             <!-- pagination -->
-            @@include("./inc/page-pagination.html")
+            @@include("../inc/page-pagination.html")
             <!-- //pagination -->
 
             <!-- txt-box -->
@@ -614,7 +596,7 @@
       </div>
       <!-- //컨테이너 영역 -->
 
-      @@include("./inc/layout-footer.html")
+      @@include("../inc/layout-footer.html")
     </div>
   </body>
 </html>
