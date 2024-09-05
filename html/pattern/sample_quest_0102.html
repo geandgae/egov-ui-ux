@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 통합검색 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -41,12 +40,13 @@
 					<div class="inner">
 						<div class="sch-form-wrap vert">
 							<div class="sch-input">
-								<input type="text" class="form-control xlg" placeholder="검색어 입력" value="퇴직">
-								<button type="button" class="btn btn-ico ico-sch">
+								<input type="text" class="form-control xlg" placeholder="검색어 입력" value="퇴직" title="검색어 입력">
+								<button type="button" class="krds-btn medium icon ico-search">
 									<span class="sr-only">검색</span>
+									<i class="svg-icon ico-sch"></i>
 								</button>
 							</div>
-							<button type="button" class="btn btn-txt ico-sch1 sm ico-before">고급검색</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-sch1"></i>고급검색</button>
 						</div>
 					</div>
 				</div>
@@ -57,21 +57,17 @@
 					<!-- 왼쪽영역 -->
 					<div class="aside">
 						<dl class="filter-dl">
-							<dt class="dt">
-								<h3>검색 필터</h3>
-								<button type="button" class="btn btn-txt ico-reset sm">초기화</button>
-							</dt>
-							<dd class="dd">
-								<ul class="acco-list filter-list">
-									<li class="li active">
-										<div class="acco-head">
-											<h4 class="tit">검색대상<span class="num">4</span></h4>
-											<button type="button" class="btn btn-ico acco-btn">
-												<span class="sr-only">펼침</span>
+							<dt>검색 필터</dt>
+							<dd>
+								<ul class="filter-list krds-accordion" data-type="multiOpen">
+									<li class="li accordion-item active">
+										<h4 class="accordion-header">
+											<button type="button" class="btn-accordion">
+												<div class="tit">검색대상<span class="num">4</span></div>
 											</button>
-										</div>
-										<div class="acco-body">
-											<div class="acco-in">
+										</h4>
+										<div class="accordion-collapse collapse">
+											<div class="accordion-body">
 												<div class="chk-area chk-column">
 													<div class="form-check">
 														<input type="checkbox" id="filter-target_chk_1a">
@@ -101,40 +97,31 @@
 											</div>
 										</div>
 									</li>
-									<li class="li">
-										<div class="acco-head">
-											<h4 class="tit">검색 기간<span class="num">1</span></h4>
-											<button type="button" class="btn btn-ico acco-btn">
-												<span class="sr-only">펼침</span>
+									<li class="li accordion-item">
+										<h4 class="accordion-header">
+											<button type="button" class="btn-accordion">
+												<div class="tit">검색 기간<span class="num">1</span></div>
 											</button>
-										</div>
-										<div class="acco-body">
-											<div class="acco-in">
+										</h4>
+										<div class="accordion-collapse collapse">
+											<div class="accordion-body">
 												<div class="form-group">
 													<div class="chip-wrap">
 														<div class="form-chip sm">
-															<input type="radio" class="radio" name="rdo_chip_datea"
-																id="rdo_chip_date1aa">
-															<label class="form-chip-outline"
-																for="rdo_chip_date1aa">1개월</label>
+															<input type="radio" class="radio" name="rdo_chip_data" id="rdo_chip_date1aa">
+															<label class="form-chip-outline" for="rdo_chip_date1aa">1개월</label>
 														</div>
 														<div class="form-chip sm">
-															<input type="radio" class="radio" name="rdo_chip_datea"
-																id="rdo_chip_date1ba" checked>
-															<label class="form-chip-outline"
-																for="rdo_chip_date1ba">3개월</label>
+															<input type="radio" class="radio" name="rdo_chip_data" id="rdo_chip_date1ba" checked>
+															<label class="form-chip-outline" for="rdo_chip_date1ba">3개월</label>
 														</div>
 														<div class="form-chip sm">
-															<input type="radio" class="radio" name="rdo_chip_datea"
-																id="rdo_chip_date1ca">
-															<label class="form-chip-outline"
-																for="rdo_chip_date1ca">6개월</label>
+															<input type="radio" class="radio" name="rdo_chip_data" id="rdo_chip_date1ca">
+															<label class="form-chip-outline" for="rdo_chip_date1ca">6개월</label>
 														</div>
 														<div class="form-chip sm">
-															<input type="radio" class="radio" name="rdo_chip_datea"
-																id="rdo_chip_date1da">
-															<label class="form-chip-outline"
-																for="rdo_chip_date1da">1년</label>
+															<input type="radio" class="radio" name="rdo_chip_data" id="rdo_chip_date1da">
+															<label class="form-chip-outline" for="rdo_chip_date1da">1년</label>
 														</div>
 													</div>
 												</div>
@@ -143,14 +130,12 @@
 														<ul class="input-group range">
 															<li>
 																<label for="datepicker1a" class="form-tit">시작날짜</label>
-																<input type="number" class="form-control datepicker sm"
-																	id="datepicker1a" placeholder="" value="20231002">
+																<input type="number" class="form-control datepicker sm" id="datepicker1a" placeholder="" value="20231002">
 															</li>
 															<li class="mark sm">-</li>
 															<li>
 																<label for="datepicker2a" class="form-tit">종료날짜</label>
-																<input type="number" class="form-control datepicker sm"
-																	id="datepicker2a" placeholder="" value="20231202">
+																<input type="number" class="form-control datepicker sm" id="datepicker2a" placeholder="" value="20231202">
 															</li>
 														</ul>
 													</div>
@@ -158,15 +143,14 @@
 											</div>
 										</div>
 									</li>
-									<li class="li">
-										<div class="acco-head">
-											<h4 class="tit">자료 유형<span class="num">3</span></h4>
-											<button type="button" class="btn btn-ico acco-btn">
-												<span class="sr-only">펼침</span>
+									<li class="li accordion-item">
+										<h4 class="accordion-header">
+											<button type="button" class="btn-accordion">
+												<div class="tit">자료 유형<span class="num">3</span></div>
 											</button>
-										</div>
-										<div class="acco-body">
-											<div class="acco-in">
+										</h4>
+										<div class="accordion-collapse collapse">
+											<div class="accordion-body">
 												<div class="row chk-area chk-column">
 													<div class="form-check">
 														<input type="checkbox" id="filter-data_chk_1a">
@@ -180,15 +164,14 @@
 											</div>
 										</div>
 									</li>
-									<li class="li">
-										<div class="acco-head">
-											<h4 class="tit">자료 이용 장소</h4>
-											<button type="button" class="btn btn-ico acco-btn">
-												<span class="sr-only">펼침</span>
+									<li class="li accordion-item">
+										<h4 class="accordion-header">
+											<button type="button" class="btn-accordion">
+												<div class="tit">자료 이용 장소</div>
 											</button>
-										</div>
-										<div class="acco-body">
-											<div class="acco-in">
+										</h4>
+										<div class="accordion-collapse collapse">
+											<div class="accordion-body">
 												<div class="row chk-area chk-column">
 													<div class="form-check">
 														<input type="checkbox" id="filter-place_chk_1a">
@@ -202,15 +185,14 @@
 											</div>
 										</div>
 									</li>
-									<li class="li">
-										<div class="acco-head">
-											<h4 class="tit">자료 언어</h4>
-											<button type="button" class="btn btn-ico acco-btn">
-												<span class="sr-only">펼침</span>
+									<li class="li accordion-item">
+										<h4 class="accordion-header">
+											<button type="button" class="btn-accordion">
+												<div class="tit">자료 언어</div>
 											</button>
-										</div>
-										<div class="acco-body">
-											<div class="acco-in">
+										</h4>
+										<div class="accordion-collapse collapse">
+											<div class="accordion-body">
 												<div class="row chk-area chk-column">
 													<div class="form-check">
 														<input type="checkbox" id="filter-lang_chk_1a">
@@ -228,7 +210,10 @@
 							</dd>
 						</dl>
 						<div class="filter-btn">
-							<button type="button" class="btn">적용하기</button>
+							<button type="button" class="krds-btn large primary">적용하기</button>
+						</div>
+						<div class="filter-reset">
+							<button type="button" class="krds-btn medium text">초기화 <i class="svg-icon ico-reset"></i></button>
 						</div>
 					</div>
 					<!-- //왼쪽영역 -->
@@ -239,8 +224,9 @@
 						<dl class="filter-chip-box">
 							<dt>선택된 필터 (<span class="num">2</span>)</dt>
 							<dd>
-								<button type="button" class="btn btn-ico ico-refresh sm-l">
+								<button type="button" class="krds-btn large icon border">
 									<span class="sr-only">새로고침</span>
+									<i class="svg-icon ico-refresh"></i>
 								</button>
 								<div class="chip-wrap">
 									<span class="btn-chip-outline md">
@@ -279,29 +265,29 @@
 							</div>
 							<ul class="sch-sort">
 								<li class="li1 m-hide">
-									<strong class="sort-label">목록 표시 개수</strong>
-									<select class="sort-select">
+									<strong class="sort-label"><label for="search_result_count">목록 표시 개수</label></strong>
+									<select class="sort-select" id="search_result_count">
 										<option>10개</option>
 										<option>9개</option>
 									</select>
 								</li>
 								<li class="li2">
-									<strong class="sort-label">정렬기준</strong>
+									<strong class="sort-label"><label for="sort">정렬기준</label></strong>
 									<div class="w-sort-btn">
 										<button type="button" class="active">관련도순</button>
 										<button type="button">최신순</button>
 										<button type="button">인기순</button>
 									</div>
 									<div class="m-sort-btn">
-										<select class="sort-select">
-											<option>관련순개</option>
+										<select class="sort-select" id="sort">
+											<option>관련도순</option>
 											<option>최신순</option>
 											<option>인기순</option>
 										</select>
-										<button type="button" class="btn btn-txt ico-filter"
-											onclick="common.popupEvent('#popFilterId')">
+										<button type="button" class="krds-btn large text ico-filter open-modal" data-target="popFilterId">
 											<span class="span">필터</span>
-											<span class="num">121</span>
+											<span class="num">2</span>
+											<i class="svg-icon ico-filter"></i>
 										</button>
 									</div>
 								</li>
@@ -322,24 +308,20 @@
 										<div class="in">
 											<div class="text">
 												<p class="tit m-hide">나의 <span class="keyword">퇴직</span>금 계산해 보기</p>
-												<p class="txt"><span class="keyword">퇴직</span>급여는 근로자가 상당한 기간을 근속하고
-													<span class="keyword">퇴직</span>할 경우 지급되는 연금 또는 일시금입니다. 나의 <span
-														class="keyword">퇴직</span>금 계산해 보기로 본인의 <span
-														class="keyword">퇴직</span>급여를 미리 계산해 볼 수 있습니다.
+												<p class="txt">
+													<span class="keyword">퇴직</span>급여는 근로자가 상당한 기간을 근속하고
+													<span class="keyword">퇴직</span>할 경우 지급되는 연금 또는 일시금입니다.
+													나의 <span class="keyword">퇴직</span>금 계산해 보기로 본인의
+													<span class="keyword">퇴직</span>급여를 미리 계산해 볼 수 있습니다.
 												</p>
 											</div>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<a href="https://labor.moel.go.kr/cmmt/calRtrmnt.do" target="_blank"
-											class="url-link">https://labor.moel.go.kr/cmmt/calRtrmnt.do</a>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-go">바로가기</button>
-										</div>
+									<a href="https://labor.moel.go.kr/cmmt/calRtrmnt.do" target="_blank" title="새 창 열기" class="url-link">https://labor.moel.go.kr/cmmt/calRtrmnt.do</a>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">바로가기 <i class="svg-icon ico-go"></i></button>
 									</div>
 								</div>
 							</li>
@@ -355,25 +337,20 @@
 											<div class="text">
 												<p class="tit m-hide">건설근로자공제회</p>
 												<p class="txt">
-													건설근로자공제회의 <span class="keyword">퇴직</span>공제제도는 <span
-														class="keyword">퇴직</span>공제 가입사업주가 일용·임시직 건설근로자의 근로내역을 공제회로
-													신고하고 그에 상응하는 공제부금을 납부하면, 건설근로자가 건설업에서 <span
-														class="keyword">퇴직</span>할 때 공제회로부터 "<span
-														class="keyword">퇴직</span>공제금"을 지급받을 수 있도록 마련된 제도입니다.
+													건설근로자공제회의 <span class="keyword">퇴직</span>공제제도는
+													<span class="keyword">퇴직</span>공제 가입사업주가 일용·임시직 건설근로자의 근로내역을
+													공제회로 신고하고 그에 상응하는 공제부금을 납부하면, 건설근로자가 건설업에서
+													<span class="keyword">퇴직</span>할 때 공제회로부터 "<span class="keyword">퇴직</span>공제금"을
+													지급받을 수 있도록 마련된 제도입니다.
 												</p>
 											</div>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<a href="https://www.cw.or.kr/index.do" target="_blank"
-											class="url-link">https://www.cw.or.kr/index.do</a>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-go">바로가기</button>
-										</div>
+									<a href="https://www.cw.or.kr/index.do" target="_blank" title="새 창 열기" class="url-link">https://www.cw.or.kr/index.do</a>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">바로가기 <i class="svg-icon ico-go"></i></button>
 									</div>
 								</div>
 							</li>
@@ -388,23 +365,20 @@
 										<div class="in">
 											<div class="text">
 												<p class="tit m-hide">나의 <span class="keyword">퇴직</span>금 계산해 보기</p>
-												<p class="txt"><span class="keyword">퇴직</span>급여는 근로자가 상당한 기간을 근속하고
-													<span class="keyword">퇴직</span>할 경우 지급되는 연금 또는 일시금입니다. 나의 <span
-														class="keyword">퇴직</span>금 계산해 보기로 본인의 <span
-														class="keyword">퇴직</span>급여를 미리 계산해 볼 수 있습니다.
+												<p class="txt">
+													<span class="keyword">퇴직</span>급여는 근로자가 상당한 기간을 근속하고
+													<span class="keyword">퇴직</span>할 경우 지급되는 연금 또는 일시금입니다.
+													나의 <span class="keyword">퇴직</span>금 계산해 보기로 본인의
+													<span class="keyword">퇴직</span>급여를 미리 계산해 볼 수 있습니다.
 												</p>
 											</div>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<a href="#" class="url-link">https://labor.moel.go.kr/cmmt/calRtrmnt.do</a>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-go">바로가기</button>
-										</div>
+									<a href="https://labor.moel.go.kr/cmmt/calRtrmnt.do" target="_blank" title="새 창 열기" class="url-link">https://labor.moel.go.kr/cmmt/calRtrmnt.do</a>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">바로가기 <i class="svg-icon ico-go"></i></button>
 									</div>
 								</div>
 							</li>
@@ -415,38 +389,34 @@
 								</p>
 								<div class="info-body">
 									<a href="#">
-										<p class="tit w-hide">고용노동부, 정부혁신과 적극행정 우수사례를 확산하고, 일하는 방식 개선을 통해 정부혁신을 속도감
-											있게 추진</p>
+										<p class="tit w-hide">
+											고용노동부, 정부혁신과 적극행정 우수사례를 확산하고, 일하는 방식 개선을 통해 정부혁신을 속도감 있게 추진
+										</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide">고용노동부, 정부혁신과 적극행정 우수사례를 확산하고, 일하는 방식 개선을 통해
-													정부혁신을 속도감 있게 추진</p>
+												<p class="tit m-hide">
+													고용노동부, 정부혁신과 적극행정 우수사례를 확산하고, 일하는 방식 개선을 통해 정부혁신을 속도감 있게 추진
+												</p>
 												<p class="txt">
-													또 다른 최우수 사례로 선정된 “외국인 근로자 <span class="keyword">퇴직</span>금
-													자동환급제”는 외국인 근로자가 최초 입국 시 사전 등록한 계좌에 <span
-														class="keyword">퇴직</span>금(출국만기보험)을 자동 지급함으로써 송출국가의 열악한 금융환경
-													등으로 <span class="keyword">퇴직</span>금(출국만기보험)이 미지급되는 문제점을 개선하여
-													외국인 근로자의 권리구제에
+													또 다른 최우수 사례로 선정된 "외국인 근로자 <span class="keyword">퇴직</span>금 자동환급제"는
+													외국인 근로자가 최초 입국 시 사전 등록한 계좌에 <span class="keyword">퇴직</span>금(출국만기보험)을
+													자동 지급함으로써 송출국가의 열악한 금융환경 등으로 <span class="keyword">퇴직</span>금(출국만기보험)이
+													미지급되는 문제점을 개선하여 외국인 근로자의 권리구제에
 												</p>
 											</div>
 											<span class="thum">
-												<img src="../../resources/img/pattern/sample/sample_img_total_thum1.jpg"
-													alt="">
+												<img src="../../resources/img/pattern/sample/sample_img_total_thum1.jpg" alt="">
 											</span>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">뉴스・소식</a></li>
-											<li><a href="#" class="span">뉴스소식</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">뉴스・소식</a></li>
+										<li><a href="#" class="span">뉴스소식</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -457,12 +427,16 @@
 								</p>
 								<div class="info-body">
 									<a href="#">
-										<p class="tit w-hide"><span class="keyword">퇴직</span>연금복지과, <span
-												class="keyword">퇴직</span>연금 수수료 부과에 관한 고시제정안 행정예고</p>
+										<p class="tit w-hide">
+											<span class="keyword">퇴직</span>연금복지과, <span class="keyword">퇴직</span>연금 수수료 부과에 관한 고시제정안 행정예고
+										</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide"><span class="keyword">퇴직</span>연금복지과, <span
-														class="keyword">퇴직</span>연금 수수료 부과에 관한 고시제정안 행정예고</p>
+												<p class="tit m-hide">
+													<span class="keyword">퇴직</span>연금복지과,
+													<span class="keyword">퇴직</span>연금 수수료 부과에 관한
+													고시제정안 행정예고
+												</p>
 												<p class="txt">
 													고용노동부 공고 제2023-453호 <span class="keyword">퇴직</span>연금 수수료 부과에 관한
 													고시제정안을 행정예고 하는데 있어, 그 이유와 주요내용을 국민에게 미리 알려 이에 대한 의견을 듣기 위하여
@@ -473,17 +447,13 @@
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">정보공개</a></li>
-											<li><a href="#" class="span">법령정보</a></li>
-											<li><a href="#" class="span">입법・행정예고</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">정보공개</a></li>
+										<li><a href="#" class="span">법령정보</a></li>
+										<li><a href="#" class="span">입법・행정예고</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -497,8 +467,7 @@
 										<p class="tit w-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일
-												</p>
+												<p class="tit m-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일</p>
 												<p class="txt">
 													<span class="keyword">퇴직</span>금 산정시 산전.후 휴가기간이 포함되는지 여부?
 												</p>
@@ -507,16 +476,12 @@
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">민원</a></li>
-											<li><a href="#" class="span">자주하는 질문</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">민원</a></li>
+										<li><a href="#" class="span">자주하는 질문</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -527,42 +492,39 @@
 								</p>
 								<div class="info-body">
 									<a href="#">
-										<p class="tit w-hide"><span class="keyword">퇴직</span>연금복지과, 근로자<span
-												class="keyword">퇴직</span>급여 보장법 시행령 일부개정안 설명자료.hwp</p>
+										<p class="tit w-hide">
+											<span class="keyword">퇴직</span>연금복지과, 근로자<span class="keyword">퇴직</span>급여
+											보장법 시행령 일부개정안 설명자료.hwp
+										</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide"><span class="keyword">퇴직</span>연금복지과, 근로자<span
-														class="keyword">퇴직</span>급여 보장법 시행령 일부개정안 설명자료.hwp</p>
+												<p class="tit m-hide">
+													<span class="keyword">퇴직</span>연금복지과, 근로자<span class="keyword">퇴직</span>급여
+													보장법 시행령 일부개정안 설명자료.hwp
+												</p>
 												<p class="txt">
 													'22.4.14. 시행된 근로자<span class="keyword">퇴직</span>급여 보장법 설명자료입니다.
 													업무에 참고하시기 바랍니다. <1> 중소기업<span class="keyword">퇴직</span>연금기금제도
-														<2> 300인 이상 확정급여형(DB형) <span class="keyword">퇴직</span>연금
-															운영개편 <2> 확정급여형(DB) <span class="keyword">퇴직</span>연금
-																최소적립금 미적립시 과태료 부과 <4> <span class="keyword">퇴직</span>금
-																	IRP 지급 의무화 <5>
-																		<span class="keyword">퇴직</span>연금 가입자 교육 제도
-																		개편
+													<2> 300인 이상 확정급여형(DB형) <span class="keyword">퇴직</span>연금
+													운영개편 <2> 확정급여형(DB) <span class="keyword">퇴직</span>연금
+													최소적립금 미적립시 과태료 부과 <4> <span class="keyword">퇴직</span>금
+													IRP 지급 의무화 <5> <span class="keyword">퇴직</span>연금 가입자 교육 제도 개편
 												</p>
 											</div>
 											<span class="thum">
-												<img src="../../resources/img/pattern/sample/sample_img_total_thum2.jpg"
-													alt="">
+												<img src="../../resources/img/pattern/sample/sample_img_total_thum2.jpg" alt="">
 											</span>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">정책자료</a></li>
-											<li><a href="#" class="span">대상자별ㆍ분야별정책</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-down">HWP 다운로드</button>
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">정책자료</a></li>
+										<li><a href="#" class="span">대상자별ㆍ분야별정책</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">HWP 다운로드 <i class="svg-icon ico-link"></i></button>
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -586,17 +548,13 @@
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">정책자료</a></li>
-											<li><a href="#" class="span">대상자별ㆍ분야별정책</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-down">PDF 다운로드</button>
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">정책자료</a></li>
+										<li><a href="#" class="span">대상자별ㆍ분야별정책</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">PDF 다운로드 <i class="svg-icon ico-link"></i></button>
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -618,23 +576,18 @@
 												</p>
 											</div>
 											<span class="thum">
-												<img src="../../resources/img/pattern/sample/sample_img_total_thum2.jpg"
-													alt="">
+												<img src="../../resources/img/pattern/sample/sample_img_total_thum2.jpg" alt="">
 											</span>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">뉴스ㆍ소식</a></li>
-											<li><a href="#" class="span">뉴스소식</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">뉴스ㆍ소식</a></li>
+										<li><a href="#" class="span">뉴스소식</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -645,36 +598,37 @@
 								</p>
 								<div class="info-body">
 									<a href="#">
-										<p class="tit w-hide">퇴사하기 전 꼭 봐야 할 영상!! <span class="keyword">퇴직</span>에 대한
-											모든 것! <span class="keyword">퇴직</span>금 계산, 사직서 작성법</p>
+										<p class="tit w-hide">
+											퇴사하기 전 꼭 봐야 할 영상!!
+											<span class="keyword">퇴직</span>에 대한 모든 것!
+											<span class="keyword">퇴직</span>금 계산, 사직서 작성법
+										</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide">퇴사하기 전 꼭 봐야 할 영상!! <span
-														class="keyword">퇴직</span>에 대한 모든 것! <span
-														class="keyword">퇴직</span>금 계산, 사직서 작성법</p>
-												<p class="txt">어떤 일이든 시작도 중요하지만 마무리를 어떻게 하느냐가 진짜 중요하죠 그래서~! 오늘의
-													랜선노동법 주제는 <span class="keyword">퇴직</span>입니다! <span
-														class="keyword">퇴직</span>금 계산, 퇴사 전 알아야 할 정보, 연차수당, 사직서,
-													해고예고수당 등 <span class="keyword">퇴직</span>에 대한 모든 것~!!</p>
+												<p class="tit m-hide">
+													퇴사하기 전 꼭 봐야 할 영상!!
+													<span class="keyword">퇴직</span>에 대한 모든 것!
+													<span class="keyword">퇴직</span>금 계산, 사직서 작성법
+												</p>
+												<p class="txt">
+													어떤 일이든 시작도 중요하지만 마무리를 어떻게 하느냐가 진짜 중요하죠 그래서~! 오늘의
+													랜선노동법 주제는 <span class="keyword">퇴직</span>입니다! <span class="keyword">퇴직</span>금 계산,
+													퇴사 전 알아야 할 정보, 연차수당, 사직서, 해고예고수당 등 <span class="keyword">퇴직</span>에 대한 모든 것~!!
+												</p>
 											</div>
 											<span class="thum">
-												<img src="../../resources/img/pattern/sample/sample_img_total_thum3.jpg"
-													alt="">
+												<img src="../../resources/img/pattern/sample/sample_img_total_thum3.jpg" alt="">
 											</span>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">뉴스ㆍ소식</a></li>
-											<li><a href="#" class="span">뉴스소식</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">뉴스ㆍ소식</a></li>
+										<li><a href="#" class="span">뉴스소식</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -688,25 +642,21 @@
 										<p class="tit w-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일</p>
 										<div class="in">
 											<div class="text">
-												<p class="tit m-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일
+												<p class="tit m-hide">임금 및 <span class="keyword">퇴직</span>금 소멸시효 기산일</p>
+												<p class="txt">
+													<span class="keyword">퇴직</span>금 산정시 산전.후 휴가기간이 포함되는지 여부?
 												</p>
-												<p class="txt"><span class="keyword">퇴직</span>금 산정시 산전.후 휴가기간이 포함되는지
-													여부?</p>
 											</div>
 										</div>
 									</a>
 								</div>
 								<div class="info-btm">
-									<div>
-										<ul class="i-cate">
-											<li><a href="#" class="span">민원</a></li>
-											<li><a href="#" class="span">자주하는 질문</a></li>
-										</ul>
-									</div>
-									<div>
-										<div class="btn-area">
-											<button type="button" class="btn sm btn-txt ico-more">자세히보기</button>
-										</div>
+									<ul class="i-cate">
+										<li><a href="#" class="span">민원</a></li>
+										<li><a href="#" class="span">자주하는 질문</a></li>
+									</ul>
+									<div class="btn-area">
+										<button type="button" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-more"></i></button>
 									</div>
 								</div>
 							</li>
@@ -767,27 +717,10 @@
 
 	<!-- 레이어 : 검색필터 -->
 	@@include("./inc/popup-filter.html", {
-		"type": "type2",
+		"filtered": "false",
+		"list": "all"
 	})
 	<!-- //레이어 : 검색필터 -->
-
-	
-	<script>
-		/* layer : 검색필터 : 태그 */
-		const $tag = document.querySelector(".pop-filter-top .tag-in");
-		const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
-		if ($tagBtn) {
-			$tagBtn.addEventListener("click", (e) => {
-				if (!e.target.classList.contains("active")) {
-					$tag.classList.add("is-open");
-					e.target.classList.add("active");
-				} else {
-					$tag.classList.remove("is-open");
-					e.target.classList.remove("active");
-				}
-			});
-		}
-	</script>
 </body>
 
 </html>

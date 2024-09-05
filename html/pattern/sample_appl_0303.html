@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 신청안내 | 신청하기 | 신청 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -33,10 +32,7 @@
 			<div class="inner narrow">
 				<!-- 페이지 타이틀 영역 -->
 				<div class="page-title-wrap">
-					<h2 class="h-tit">
-						자료신청
-					</h2>
-
+					<h2 class="h-tit">자료신청</h2>
 				</div>
 				<!-- //페이지 타이틀 영역 -->
 
@@ -115,8 +111,10 @@
 										<!-- 신청 권차 -->
 										<div class="box-sec">
 											<h5 class="box-tit2">
-												신청 권차<button class="btn btn-ico ico-help sm-m btn-help-exec">
+												신청 권차
+												<button class="krds-btn medium icon btn-help-exec">
 													<span class="sr-only">도움말</span>
+													<i class="svg-icon ico-help krds-bg-primary-neutral"></i>
 												</button>
 											</h5>
 											<div class="form-group-row">
@@ -124,9 +122,7 @@
 													<div class="form-tit">권수</div>
 													<div class="form-conts">
 														<div class="input-group">
-															<input type="text" id="addr-input"
-																class="form-control text-right" placeholder="수량"
-																title="수량">
+															<input type="text" id="addr-input" class="form-control text-right" placeholder="수량" title="수량">
 															권
 														</div>
 													</div>
@@ -135,9 +131,7 @@
 													<div class="form-tit">권수</div>
 													<div class="form-conts">
 														<div class="input-group">
-															<input type="text" id="addr-input"
-																class="form-control text-right" placeholder="-" disabled
-																title="수량">
+															<input type="text" id="addr-input" class="form-control text-right" placeholder="-" disabled title="수량">
 															권
 														</div>
 													</div>
@@ -146,9 +140,7 @@
 													<div class="form-tit">권수</div>
 													<div class="form-conts">
 														<div class="input-group">
-															<input type="text" id="addr-input"
-																class="form-control text-right" placeholder="-" disabled
-																title="수량">
+															<input type="text" id="addr-input" class="form-control text-right" placeholder="-" disabled title="수량">
 															권
 														</div>
 													</div>
@@ -183,15 +175,16 @@
 
 										<!-- 신청 도서관에 남길 말 -->
 										<div class="box-sec">
-											<h5 class="box-tit2">신청 도서관에 남길 말</h5>
+											<h5 class="box-tit2">
+												<label for="textareaid">신청 도서관에 남길 말</label>
+											</h5>
 											<div class="form-group full">
 												<div class="form-conts">
 													<div class="textarea-wrap">
-														<textarea name="" id="textareaid" class="form-control"
-															placeholder="이름 또는 회사명을 입력해 주세요."></textarea>
+														<textarea name="" id="textareaid" class="form-control" placeholder="이름 또는 회사명을 입력해 주세요."></textarea>
 														<p class="textarea-count">
-															<span class="text-primary">22</span><span
-																class="text-num">/100</span>
+															<span class="text-primary">22</span>
+															<span class="text-num">/100</span>
 														</p>
 													</div>
 												</div>
@@ -220,7 +213,9 @@
 
 				<!-- 도움말 영역 -->
 				<!-- 도움말 열기 버튼 -->
-				<button type="button" class="btn btn-helper btn-help-exec expand">도움말</button>
+				<button type="button" class="krds-btn medium btn-helper expand btn-help-exec">
+					<i class="svg-icon ico-fold"></i> 도움말
+				</button>
 				<!-- //도움말 열기 버튼 -->
 				<div class="helper-area">
 					<!-- 도움말 내용 -->
@@ -234,13 +229,11 @@
 									<!-- tab list -->
 									<div class="tab line">
 										<ul role="tablist">
-											<li id="helperTab01" aria-selected="true" aria-controls="helperTabpanel01"
-												class="active">
+											<li id="helperTab01" role="tab" aria-selected="true" aria-controls="helperTabpanel01" class="active">
 												<button type="button" class="btn-tab">도움</button>
 											</li>
-											<li id="helperTab02" aria-selected="false" aria-controls="helperTabpanel02">
-												<button type="button" class="btn-tab">따라하기 <i class="sr-only created">
-														선택됨</i></button>
+											<li id="helperTab02" role="tab" aria-selected="false" aria-controls="helperTabpanel02">
+												<button type="button" class="btn-tab">따라하기 <i class="sr-only created">선택됨</i></button>
 											</li>
 										</ul>
 									</div>
@@ -257,26 +250,33 @@
 													<div class="conts-wrap">
 														<h5 class="tit">
 															전자문서지갑
-															<i class="btn btn-ico ico-help sm-m">
+															<span class="krds-btn medium icon">
 																<span class="sr-only">도움말</span>
-															</i>
+																<i class="svg-icon ico-help krds-bg-primary-neutral"></i>
+															</span>
 														</h5>
 														<div class="conts-desc">
-															<p>전자문서지갑은 각종 증명문서를 송수신하고 열람, 증명 할 수 있는 서비스로 모바일에서 애플리케이션 설치
-																후
-																이용할 수 있습니다.</p>
-															<p>전자문서지갑에서는 전자증명서 출력기능을 제공하지 않으며, 스마트폰 화면을 캡쳐하여 사용할 수 없습니다.
-																다만,
-																발급받은 전자증명서를
-																열람용으로 다운로드할 수는 있습니다.</p>
+															<p>
+																전자문서지갑은 각종 증명문서를 송수신하고 열람, 증명 할 수 있는 서비스로 모바일에서 애플리케이션 설치 후 이용할 수 있습니다.
+															</p>
+															<p>
+																전자문서지갑에서는 전자증명서 출력기능을 제공하지 않으며, 스마트폰 화면을 캡쳐하여 사용할 수 없습니다.
+																다만, 발급받은 전자증명서를 열람용으로 다운로드할 수는 있습니다.
+															</p>
 														</div>
 														<ul class="link-list">
-															<li><a href="#" class="btn sm btn-txt ico-go"
-																	target="_blank" title="새 창 열림">안드로이드 애플리케이션 다운로드</a>
+															<li>
+																<a href="#" target="_blank" title="새 창 열림" class="krds-btn medium text">
+																	안드로이드 애플리케이션 다운로드
+																	<i class="svg-icon ico-link"></i>
+																</a>
 															</li>
-															<li><a href="#" class="btn sm btn-txt ico-go"
-																	target="_blank" title="새 창 열림">iOS
-																	애플리케이션 다운로드</a></li>
+															<li>
+																<a href="#" target="_blank" title="새 창 열림" class="krds-btn medium text">
+																	iOS애플리케이션 다운로드
+																	<i class="svg-icon ico-link"></i>
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
@@ -286,21 +286,26 @@
 													<div class="conts-wrap">
 														<h5 class="tit">관련서비스/민원</h5>
 														<ul class="link-list">
-															<li><a href="#" class="btn sm btn-txt">영문 주민등록표등본</a></li>
-															<li><a href="#" class="btn sm btn-txt">영문 주민등록표초본</a></li>
-															<li><a href="#" class="btn sm btn-txt">주민등록표등본</a></li>
+															<li><a href="#" class="krds-btn medium text">영문 주민등록표등본</a></li>
+															<li><a href="#" class="krds-btn medium text">영문 주민등록표초본</a></li>
+															<li><a href="#" class="krds-btn medium text">주민등록표등본</a></li>
 														</ul>
 													</div>
 													<div class="conts-wrap">
 														<h5 class="tit">기타 문의/도움말</h5>
 														<ul class="link-list">
-															<li><a href="#"
-																	class="btn sm btn-txt ico-call ico-before">민원신청
-																	관련 문의 전화 번호
-																	찾기</a></li>
-															<li><a href="#" class="btn sm btn-txt ico-faq ico-before">자주
-																	묻는
-																	질문 확인하기</a></li>
+															<li>
+																<a href="#" class="krds-btn medium text">
+																	<i class="svg-icon ico-call"></i> 
+																	민원신청 관련 문의 전화 번호 찾기
+																</a>
+															</li>
+															<li>
+																<a href="#" class="krds-btn medium text">
+																	<i class="svg-icon ico-faq"></i> 
+																	자주 묻는 질문 확인하기
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
@@ -321,8 +326,9 @@
 							</div>
 							<!-- //도움말 내용 -->
 							<!-- 도움말 닫기 -->
-							<button type="button" class="btn btn-helper fold"><span
-									class="sr-only">도움말</span>접어두기</button>
+							<button type="button" class="krds-btn medium btn-helper fold">
+								<span class="sr-only">도움말</span> 접어두기 <i class="svg-icon ico-fold"></i>
+							</button>
 							<!-- //도움말 닫기 -->
 						</div>
 					</div>
@@ -330,12 +336,10 @@
 				</div>
 				<!-- //도움말 영역 -->
 
-
 				<!-- 페이지 버튼 영역 -->
 				<div class="page-btn-wrap both">
-					<button type="button" class="btn xlg tertiary">취소하기</button>
-
-					<button type="button" class="btn xlg">신청하기</button>
+					<button type="button" class="krds-btn xlarge tertiary">취소하기</button>
+					<button type="button" class="krds-btn xlarge primary">신청하기</button>
 				</div>
 				<!-- //페이지 버튼 영역 -->
 			</div>
@@ -350,8 +354,6 @@
 		</footer>
 		<!-- //푸터 영역 -->
 	</div>
-
-	
 </body>
 
 </html>

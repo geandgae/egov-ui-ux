@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 검색결과 | 통합검색 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -53,17 +52,17 @@
 
 	<!-- 레이어 : 검색필터 -->
 	@@include("./inc/popup-filter.html", {
-		"type": "type2",
+		"filtered": "false",
+		"list": "all"
 	})
 	<!-- //레이어 : 검색필터 -->
 
 	<script>
-		// 팝업오픈
+		// 팝업 자동오픈
 		document.addEventListener('DOMContentLoaded', () => {
-			common.popupEvent('#popFilterId');
+			krds_modal.autoOpenModal("popFilterId");
 		});
 	</script>
-	
 </body>
 
 </html>

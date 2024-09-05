@@ -2,8 +2,12 @@
 	<!-- tab list -->
 	<div class="tab line full">
 		<ul role="tablist">
-			<li id="tab_login_01" aria-selected="true" aria-controls="panel_login_01" class="active"><button type="button" class="btn-tab">일반 회원 로그인 <i class="sr-only created"> 선택됨</i></button></li>
-			<li id="tab_login_02" aria-selected="false" aria-controls="panel_login_02"><button type="button" class="btn-tab">기관 회원 로그인</button></li>
+			<li id="tab_login_01" role="tab" aria-selected="true" aria-controls="panel_login_01" class="active">
+				<button type="button" class="btn-tab">일반 회원 로그인 <i class="sr-only created"> 선택됨</i></button>
+			</li>
+			<li id="tab_login_02" role="tab" aria-selected="false" aria-controls="panel_login_02">
+				<button type="button" class="btn-tab">기관 회원 로그인</button>
+			</li>
 		</ul>
 	</div>
 	<!-- //tab list -->
@@ -37,8 +41,9 @@
 									</div>
 									<div class="form-conts btn-ico-wrap">
 										<input type="password" id="login_pw" class="form-control" placeholder="8-12자의 영문자, 숫자, 특수문자 조합">
-										<button type="button" class="btn btn-ico ico-pw-visible md">
+										<button type="button" class="krds-btn medium icon">
 											<span class="sr-only">입력한 비밀번호 보기</span>
+											<i class="svg-icon ico-pw-visible"></i>
 										</button>
 									</div>
 								</div>
@@ -49,13 +54,13 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="btn primary">로그인</button>
+									<button type="submit" class="krds-btn large primary">로그인</button>
 								</div>
 								<div class="form-group">
 									<ul class="link-group">
-										<li><a href="#" class="btn md btn-txt">아이디 찾기</a></li>
-										<li><a href="#" class="btn md btn-txt">비밀번호 찾기</a></li>
-										<li><a href="#" class="btn md btn-txt">회원가입</a></li>
+										<li><a href="#" class="krds-btn medium text">아이디 찾기</a></li>
+										<li><a href="#" class="krds-btn medium text">비밀번호 찾기</a></li>
+										<li><a href="#" class="krds-btn medium text">회원가입</a></li>
 									</ul>
 								</div>
 							</div>
@@ -67,14 +72,16 @@
 					<div class="in">
 						<p class="tit">다른 로그인 방식을 찾고 계신가요?</p>
 						<div class="btn-wrap login-method">
-							<a href="#" class="btn tertiary">금융·공동인증서로 로그인하기</a>
-							<a href="#" class="btn tertiary">간편 인증으로 로그인 하기</a>
+							<a href="#" class="krds-btn large tertiary">금융·공동인증서로 로그인하기</a>
+							<a href="#" class="krds-btn large tertiary">간편 인증으로 로그인 하기</a>
 						</div>
 						<div class="btn-wrap">
-							<button type="button"
-							        class="btn sm btn-txt ico-func ico-before">디지털원패스란?</button>
-							<a href="#" class="btn sm btn-txt ico-func ico-before">간편 인증 수단 전체
-								목록보기</a>
+							<button type="button" class="krds-btn medium text">	
+								<i class="svg-icon ico-func"></i> 디지털원패스란?
+							</button>
+							<a href="#" class="krds-btn medium text">
+								<i class="svg-icon ico-func"></i> 간편 인증 수단 전체 목록보기
+							</a>
 						</div>
 					</div>
 				</div>
@@ -86,7 +93,7 @@
 				<p class="helper-tit">로그인에 어려움이 있으신가요?</p>
 				<div class="helper-desc-wrap">
 					<ul class="info-list decimal">
-						<li>로그인 <a href="#" class="link-txt">관련 도움말</a>이나 다른 사용자가 <a href="#" class="link-txt">자주 찾는 질문</a>을 확인해보세요.</li>
+						<li>로그인 <a href="#" class="krds-btn medium text underline">관련 도움말</a>이나 다른 사용자가 <a href="#" class="krds-btn medium text underline">자주 찾는 질문</a>을 확인해보세요.</li>
 						<li>02-3703-2500 (내선번호 4번)으로 전화주세요. 서비스에 로그인할 수 있도록 도와드리겠습니다.</li>
 					</ul>
 				</div>
@@ -95,7 +102,6 @@
 		</section>
 		<section id="panel_login_02" role="tabpanel" aria-labelledby="tab_login_02" class="tab-conts">
 			<h3 class="sr-only">기관 회원 로그인</h3>
-		
 		</section>
 	</div>
 	<!-- //tab contents -->

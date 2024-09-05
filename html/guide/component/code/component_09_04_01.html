@@ -1,21 +1,25 @@
 <!-- 파일업로드 -->
 <div class="file-upload">
     <p class="txt">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을 눌러 파일을 직접 선택해주세요.</p>
-    <button type="button" class="btn primary ico-before ico-upload md">파일선택</button>
+    <div class="file-btn">
+        <input type="file" name="myFile" id="fileu-upload">
+        <label for="fileu-upload">
+            <button type="button" class="krds-btn medium"><i class="svg-icon ico-upload"></i>파일선택</button>
+        </label>
+    </div>
 </div>
 <!-- //파일업로드 -->
 <!-- 파일업로드 -->
 <div class="file-upload-result">
     <div class="upload-top">
         <div class="file-total"><span class="current">3개</span> / 10개</div>
-        <button type="button" class="btn btn-txt ico-before ico-del sm h-auto">전체 파일 삭제</button>
     </div>
     <ul class="upload-list">
         <li>
             <div class="in">
                 <div class="file-name">전입신고서 [주민등록법 시행령 : 별지서식 15, 15호의2호] [hwp, 17KB]</div>
                 <div class="file-btn">
-                    <button type="button" class="btn btn-txt ico-before ico-del sm h-auto">삭제</button>
+                    <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
                 </div>
             </div>
         </li>
@@ -26,7 +30,7 @@
                     <span class="ico-invalid error">
                         <em class="sr-only">에러</em>
                     </span>
-                    <button type="button" class="btn btn-txt ico-before ico-del sm h-auto">삭제</button>
+                    <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
                 </div>
             </div>
             <p class="file-hint">
@@ -38,7 +42,9 @@
             <div class="in">
                 <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB] </div>
                 <div class="file-btn">
-                    <span class="spinner"></span>
+                    <span class="spinner" role="status">
+						<span class="sr-only">로딩 중</span>
+					</span>
                 </div>
             </div>
         </li>
@@ -56,7 +62,7 @@
             <div class="in">
                 <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB] </div>
                 <div class="file-btn">
-                    <button type="button" class="btn btn-txt ico-before ico-del sm h-auto">삭제</button>
+                    <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
                 </div>
             </div>
         </li>
@@ -64,10 +70,45 @@
             <div class="in">
                 <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB] </div>
                 <div class="file-btn">
-                    <button type="button" class="btn btn-txt ico-before ico-del sm h-auto">삭제</button>
+                    <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
                 </div>
             </div>
         </li>
     </ul>
+	<div class="upload-delete-btn">
+		<button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 전체 파일 삭제</button>
+	</div>
 </div>
 <!-- //파일업로드 리스트 -->
+
+<script>
+    /* 파일 업로드 : 임시 작성...공통 js 이동 */
+    const fileUpload = () => {
+        const fileUploads = document.querySelectorAll('.file-upload');
+        fileUploads.forEach((fileUpload)=>{
+            const inputFile = fileUpload.querySelector('input[type="file"]');
+            const inputButton = fileUpload.querySelector('button');
+
+            inputButton.addEventListener('click', ()=>{
+                inputFile.click();		
+            });		
+            
+            fileUpload.addEventListener('dragover', (e)=>{	
+                fileUpload.classList.add('active');
+                e.preventDefault();
+            });
+
+            fileUpload.addEventListener('dragleave', (e)=>{		
+                fileUpload.classList.remove('active');
+                e.preventDefault();
+            });
+
+            fileUpload.addEventListener('drop', (e)=>{		
+                fileUpload.classList.remove('active');
+                e.preventDefault();
+                
+            });
+        });	
+    }		
+    fileUpload();
+</script>

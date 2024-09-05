@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 목록 | 신청 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -41,13 +40,14 @@
 				<div class="search-top-box">
 					<div class="sch-form-wrap">
 						<div class="input-group">
-							<select class="form-select">
+							<select class="form-select" title="선택">
 								<option value="">전체</option>
 							</select>
 							<div class="sch-input">
-								<input type="text" class="form-control" placeholder="검색어를 입력해주세요">
-								<button type="button" class="btn btn-ico ico-sch">
+								<input type="text" class="form-control" placeholder="검색어를 입력해주세요" title="검색어 입력">
+								<button type="button" class="krds-btn medium icon ico-search">
 									<span class="sr-only">검색</span>
+									<i class="svg-icon ico-sch"></i>
 								</button>
 							</div>
 						</div>
@@ -74,8 +74,9 @@
 						<dl class="filter-chip">
 							<dt>적용된 검색조건 (<span class="num">3</span>)</dt>
 							<dd>
-								<button type="button" class="btn btn-ico ico-refresh sm-l">
+								<button type="button" class="krds-btn large icon border">
 									<span class="sr-only">새로고침</span>
+									<i class="svg-icon ico-refresh"></i>
 								</button>
 								<div class="chip-wrap">
 									<span class="btn-chip-outline md">
@@ -110,20 +111,20 @@
 					</div>
 					<ul class="sch-sort">
 						<li class="li2">
-							<strong class="sort-label">정렬기준</strong>
+							<strong class="sort-label"><label for="sort">정렬기준</label></strong>
 							<div class="w-sort-btn">
 								<button type="button" class="active">가나다순</button>
 								<button type="button">인기순</button>
 							</div>
 							<div class="m-sort-btn">
-								<select class="sort-select">
+								<select class="sort-select" id="sort">
 									<option>가나다순</option>
 									<option>인기순</option>
 								</select>
-								<button type="button" class="btn btn-txt ico-filter"
-									onclick="common.popupEvent('#popFilterId')">
+								<button type="button" class="krds-btn large text ico-filter open-modal" data-target="popFilterId">
 									<span class="span">필터</span>
 									<span class="num">2</span>
+									<i class="svg-icon ico-filter"></i>
 								</button>
 							</div>
 						</li>
@@ -136,9 +137,6 @@
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -153,13 +151,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">사업주지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -174,13 +172,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -195,13 +193,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -216,13 +214,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -237,13 +235,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -258,13 +256,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -279,13 +277,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -300,13 +298,13 @@
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
 						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
+						</div>
 					</li>
 					<li class="li">
 						<div class="card-top">
 							<span class="krds-badge">취업 및 채용지원</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -320,6 +318,9 @@
 						<div class="card-btm">
 							<span class="tag">장애인</span>
 							<span class="tag">직무경홈</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 				</ul>
@@ -375,17 +376,16 @@
 
 	<!-- 레이어 : 검색필터 -->
 	@@include("./inc/popup-filter.html", {
-		"type": "type1",
-		"filtered": "quest",
+		"filtered": "true",
+		"list": "quest"
 	})
 	<!-- //레이어 : 검색필터 -->
 
-	
 	<script>
-		/* layer : 검색필터 : 태그 */
-		const $tag = document.querySelector(".pop-filter-top .tag-in");
+		/* layer : 검색필터 태그 */
 		const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
 		if ($tagBtn) {
+			const $tag = document.querySelector(".pop-filter-top .tag-in");
 			$tagBtn.addEventListener("click", (e) => {
 				if (!e.target.classList.contains("active")) {
 					$tag.classList.add("is-open");

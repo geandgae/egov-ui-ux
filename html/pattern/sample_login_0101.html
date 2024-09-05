@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 로그인하기 | 로그인방식선택(싱글타입) - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -24,7 +23,9 @@
 			<div class="inner narrow">
 				<!-- 페이지 타이틀 영역 -->
 				<div class="page-title-wrap">
-					<h2 class="h-tit"><span class="small-txt">대한민국 디지털정부 사용자 로그인</span>아이디/비밀번호 로그인</h2>
+					<h2 class="h-tit">
+						<span class="small-txt">대한민국 디지털정부 사용자 로그인</span>아이디/비밀번호 로그인
+					</h2>
 				</div>
 				<!-- //페이지 타이틀 영역 -->
 
@@ -36,8 +37,9 @@
 							<input type="checkbox" id="switch_keyboard" checked>
 							<i></i>
 							<label for="switch_keyboard">키보드 보안 프로그램 사용</label>
-							<button type="button" class="btn btn-ico ico-info sm">
+							<button type="button" class="krds-btn small icon">
 								<span class="sr-only">상세내용 확인</span>
+								<i class="svg-icon ico-tooltip"></i>
 							</button>
 						</div>
 					</div>
@@ -62,10 +64,10 @@
 											<label for="login_pw">비밀번호</label>
 										</div>
 										<div class="form-conts btn-ico-wrap">
-											<input type="password" id="login_pw" class="form-control"
-												placeholder="8-12자의 영문자, 숫자, 특수문자 조합">
-											<button type="button" class="btn btn-ico ico-pw-visible md">
+											<input type="password" id="login_pw" class="form-control" placeholder="8-12자의 영문자, 숫자, 특수문자 조합">
+											<button type="button" class="krds-btn medium icon">
 												<span class="sr-only">입력한 비밀번호 보기</span>
+												<i class="svg-icon ico-pw-visible"></i>
 											</button>
 										</div>
 									</div>
@@ -76,13 +78,13 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<button type="submit" class="btn primary">로그인</button>
+										<button type="submit" class="krds-btn large primary">로그인</button>
 									</div>
 									<div class="form-group">
 										<ul class="link-group">
-											<li><a href="#" class="btn md btn-txt">아이디 찾기</a></li>
-											<li><a href="#" class="btn md btn-txt">비밀번호 찾기</a></li>
-											<li><a href="#" class="btn md btn-txt">회원가입</a></li>
+											<li><a href="#" class="krds-btn medium text">아이디 찾기</a></li>
+											<li><a href="#" class="krds-btn medium text">비밀번호 찾기</a></li>
+											<li><a href="#" class="krds-btn medium text">회원가입</a></li>
 										</ul>
 									</div>
 								</div>
@@ -103,7 +105,7 @@
 					<div class="join-member-bn-wrap">
 						<p class="txt-desc">원하는 로그인 방법이 아니신가요?</p>
 						<div class="btn-wrap">
-							<a href="#" class="btn sm btn-txt ico-arr">다른 로그인 방법 보기</a>
+							<a href="#" class="krds-btn medium text">다른 로그인 방법 보기 <i class="svg-icon ico-angle right"></i></a>
 						</div>
 					</div>
 					<!-- //회원가입 이동 -->
@@ -113,8 +115,10 @@
 						<p class="helper-tit">로그인에 어려움이 있으신가요?</p>
 						<div class="helper-desc-wrap">
 							<ul class="info-list decimal">
-								<li>로그인 <a href="#" class="link-txt">관련 도움말</a>이나 다른 사용자가 <a href="#"
-										class="link-txt">자주 찾는 질문</a>을 확인해보세요.</li>
+								<li>
+									로그인 <a href="#" class="krds-btn medium text underline">관련 도움말</a>이나 
+									다른 사용자가 <a href="#" class="krds-btn medium text underline">자주 찾는 질문</a>을 확인해보세요.
+								</li>
 								<li>02-3703-2500 (내선번호 4번)으로 전화주세요. 서비스에 로그인할 수 있도록 도와드리겠습니다.</li>
 							</ul>
 						</div>
@@ -133,8 +137,6 @@
 		</footer>
 		<!-- //푸터 영역 -->
 	</div>
-
-	
 </body>
 
 </html>

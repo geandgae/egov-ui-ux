@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include("../inc/head.html", { "title": "KRDS - admin", })
+
+  <body>
+    <div id="wrap">
+      @@include("../inc/layout-header.html")
+
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- 컨텐츠 영역 -->
+        <div class="inner in-between">
+          <!-- 사이드 메뉴 -->
+          @@include("../inc/layout-lnb.html")
+          <!-- //사이드 메뉴 -->
+
+          <!-- contents -->
+          <div class="contents">
+            <!-- breadcrumb -->
+            @@include("../inc/page-breadcrumb.html")
+            <!-- breadcrumb -->
+
+            <!-- 페이지 타이틀 영역 -->
+            @@include("../inc/page-title.html")
+            <!-- //페이지 타이틀 영역 -->
+
+            <!-- 검색 입력폼 -->
+            <div class="search-top-box">
+              <div class="sch-form-wrap">
+                <div class="input-group">
+                  <select class="form-select" title="선택">
+                    <option value="">전체</option>
+                  </select>
+                  <div class="sch-input">
+                    <input type="text" class="form-control" placeholder="검색어를 입력해주세요" title="검색어 입력" />
+                    <button type="button" class="krds-btn medium icon ico-search">
+                      <span class="sr-only">검색</span>
+                      <i class="svg-icon ico-sch"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //검색 입력폼 -->
+
+            <!-- 검색 결과 : 게시글 수 -->
+            <div class="search-list-top">
+              <div class="sch-info">총 게시글 <span class="keyword">841</span>건</div>
+            </div>
+            <!-- //검색 결과 : 게시글 수 -->
+
+            <!-- box-cnt -->
+            <div class="box-cnt">
+              <p>3명 중 <span class="text-primary-60">3</span>명 선택됨</p>
+              <!-- table list -->
+              <div class="tbl-wrap">
+                <table class="tbl col data">
+                  <caption>
+                    신고 대상자를 선택하는 표이며, 세대주와의 관계, 성명, 생년월일, 성별로 구성되어있으며 민원 신청인인 전출지 전 세대주,새로운 세대주,전입지
+                    세대주로 구성되어 있음
+                  </caption>
+                  <colgroup>
+                    <col style="width: 10%" />
+                    <col style="width: 22%" />
+                    <col style="width: 20%" />
+                    <col style="width: 30%" />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="text-center">
+                        <div class="form-check ico-only">
+                          <input type="checkbox" name="save_id" id="chk_all" />
+                          <label for="chk_all">
+                            <span class="sr-only">선택</span>
+                          </label>
+                        </div>
+                      </th>
+                      <th scope="col">세대주와의 관계</th>
+                      <th scope="col">성명</th>
+                      <th scope="col">생년월일</th>
+                      <th scope="col" class="text-center">성별</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        <div class="form-check ico-only">
+                          <input type="checkbox" name="save_id" id="chk_1-1" />
+                          <label for="chk_1-1">
+                            <span class="sr-only">선택</span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>본인 (신청인)</td>
+                      <td>김플립</td>
+                      <td>1990년 11월 23일</td>
+                      <td class="text-center">여</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">
+                        <div class="form-check ico-only">
+                          <input type="checkbox" name="save_id" id="chk_1-2" />
+                          <label for="chk_1-2">
+                            <span class="sr-only">선택</span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>배우자</td>
+                      <td>홍길동</td>
+                      <td>1986년 05월 02일</td>
+                      <td class="text-center">남</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">
+                        <div class="form-check ico-only">
+                          <input type="checkbox" name="save_id" id="chk_1-3" />
+                          <label for="chk_1-3">
+                            <span class="sr-only">선택</span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>자녀</td>
+                      <td>홍미영</td>
+                      <td>2009년 06월 21일</td>
+                      <td class="text-center">여</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- //table list -->
+              <!-- table view -->
+              <div class="tbl-wrap">
+                <dl class="tbl def-list">
+                  <dt>등록자</dt>
+                  <dd>일반관리자 (홍길동)</dd>
+                  <dt>서비스 유형</dt>
+                  <dd>현금 지급 (매 월)</dd>
+                  <dt>선정 기준</dt>
+                  <dd>장애 · 연령 · 소득</dd>
+                  <dt>신청 방법</dt>
+                  <dd>
+                    <ul>
+                      <li>복지로 모바일 앱 온라인 신청</li>
+                      <li>복지로 모바일 앱 온라인 신청</li>
+                      <li>오프라인 신청</li>
+                    </ul>
+                  </dd>
+                  <dt>문의처</dt>
+                  <dd>국번 없이 129 (보건복지부 장애인자립기반과)</dd>
+                </dl>
+              </div>
+              <!-- //table view -->
+            </div>
+            <!-- //box-cnt -->
+
+            <!-- pagination -->
+            @@include("../inc/page-pagination.html")
+            <!-- //pagination -->
+
+            <!-- txt-box -->
+            <div class="txt-box bg-white">
+							<p>* 필수 입력 항목입니다.</p>
+              <div class="box-cnt">
+                <div class="box-sec">
+									<div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">분류 *</label>
+                    </div>
+                    <div class="form-conts">
+											<div class="input-group">
+												<input type="text" id="label_name" class="form-control" placeholder="플레이스홀더" />
+												<button type="button" class="krds-btn large secondary">상위 메뉴 선택</button>
+											</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">분류 *</label>
+                    </div>
+                    <div class="form-conts">
+                      <input type="text" id="label_name" class="form-control" placeholder="플레이스홀더" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">분류 *</label>
+                    </div>
+                    <div class="form-conts">
+                      <input type="text" id="label_name" class="form-control" placeholder="플레이스홀더" disabled />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">분류 *</label>
+                    </div>
+                    <div class="form-conts is-error">
+                      <input type="text" id="label_name" class="form-control" placeholder="플레이스홀더" />
+                    </div>
+                    <p class="form-hint-invalid">에러 메시지</p>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">분류</label>
+                    </div>
+                    <div class="form-conts is-error">
+                      <select class="form-select" title="선택" disabled>
+                        <option value="">항목1</option>
+                        <option value="">항목2</option>
+                        <option value="">항목3</option>
+                        <option value="">항목4</option>
+                      </select>
+                    </div>
+                    <p class="form-hint-invalid">에러 메시지</p>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="label_name">사용유무</label>
+                    </div>
+                    <div class="form-conts">
+                      <div class="chk-area">
+                        <div class="form-check">
+                          <input type="checkbox" name="chk_1" id="chk_1" />
+                          <label for="chk_1">기본</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" name="chk_1" id="chk_2" checked />
+                          <label for="chk_2">선택됨</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" name="chk_1" id="chk_3" disabled />
+                          <label for="chk_3">비활성화</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" name="chk_1" id="chk_4" disabled checked />
+                          <label for="chk_4">선택된 비활성화</label>
+                        </div>
+                      </div>
+                      <div class="chk-area chk-column">
+                        <div class="form-check">
+                          <input type="radio" name="rdo_building_1" id="rdo_building_1" disabled checked />
+                          <label for="rdo_building_1">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="radio" name="rdo_building_1" id="rdo_building_2" />
+                          <label for="rdo_building_2">미사용</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="textarea">내용</label>
+                    </div>
+                    <div class="form-conts">
+                      <div class="textarea-wrap">
+                        <textarea name="" id="textareaid" class="form-control" placeholder="이름 또는 회사명을 입력해 주세요."></textarea>
+                        <p class="textarea-count">
+                          <span class="text-primary">22</span>
+                          <span class="text-num">/100</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-sec">
+                  <h5 class="box-tit2">파일첨부</h5>
+                  <!-- 파일업로드 -->
+                  <div class="file-upload">
+                    <p class="txt">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을 눌러 파일을 직접 선택해주세요.</p>
+                    <div class="file-btn">
+                      <input type="file" name="myFile" id="fileu-upload" />
+                      <label for="fileu-upload">
+                        <button type="button" class="krds-btn medium"><i class="svg-icon ico-upload"></i>파일선택</button>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- //파일업로드 -->
+                  <!-- 파일업로드 리스트 -->
+                  <div class="file-upload-result">
+                    <div class="upload-top">
+                      <div class="file-total"><span class="current">3개</span> / 10개</div>
+                    </div>
+                    <ul class="upload-list">
+                      <li>
+                        <div class="in">
+                          <div class="file-name">전입신고서 [주민등록법 시행령 : 별지서식 15, 15호의2호] [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="is-error">
+                        <div class="in">
+                          <div class="file-name">전입재등록신고서 [주민등록법 시행령 : 별지서식 15, 15호의2호] [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <span class="ico-invalid error">
+                              <em class="sr-only">에러</em>
+                            </span>
+                            <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
+                          </div>
+                        </div>
+                        <p class="file-hint">
+                          등록 가능한 파일 용량을 초과하였습니다.<br />
+                          20MB 미만의 파일만 등록할 수 있습니다.
+                        </p>
+                      </li>
+                      <li>
+                        <div class="in">
+                          <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <span class="spinner" role="status">
+                              <span class="sr-only">로딩 중</span>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="in">
+                          <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <span class="ico-invalid ok">
+                              <em class="sr-only">정상</em>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="in">
+                          <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="in">
+                          <div class="file-name">위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]</div>
+                          <div class="file-btn">
+                            <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="upload-delete-btn">
+                      <button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 전체 파일 삭제</button>
+                    </div>
+                  </div>
+                  <!-- //파일업로드 리스트 -->
+                </div>
+                <!-- 달력 -->
+                <div class="box-sec">
+                  <div class="form-group">
+                    <div class="form-tit">게시기간</div>
+                    <div class="form-conts datepicker-conts">
+                      <div class="datepicker-input">
+                        <ul class="input-group range set">
+                          <li>
+                            <input type="number" class="form-control datepicker" placeholder="시작날짜" title="시작날짜 입력" />
+                          </li>
+                          <li class="mark">-</li>
+                          <li>
+                            <input type="number" class="form-control datepicker" placeholder="종료날짜" title="종료날짜 입력" />
+                          </li>
+                        </ul>
+                        <button type="button" class="form-btn-datepicker">
+                          <span class="sr-only">달력 열기</span>
+                        </button>
+                      </div>
+                      <div class="datepicker-area range">
+                        <div class="datepicker-wrap bottom" aria-hidden="true" tabindex="-1">
+                          <div class="datepicker-head">
+                            <button type="button" class="btn-cal-move prev"><span class="sr-only">이전 달</span></button>
+                            <div class="datepicker-switch-wrap">
+                              <button type="button" class="btn-cal-switch year">2023년</button>
+                              <button type="button" class="btn-cal-switch month">12월</button>
+                            </div>
+                            <button type="button" class="btn-cal-move next"><span class="sr-only">다음 달</span></button>
+                          </div>
+                          <div class="datepicker-body">
+                            <div class="datepicker-conts datepicker-tbl-wrap" aria-hidden="true" tabindex="-1">
+                              <table class="datepicker-tbl">
+                                <thead>
+                                  <tr>
+                                    <th>Su</th>
+                                    <th>Mo</th>
+                                    <th>Tu</th>
+                                    <th>We</th>
+                                    <th>Th</th>
+                                    <th>Fr</th>
+                                    <th>Sa</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="old"><button type="button" class="btn-set-date">26</button></td>
+                                    <td class="old"><button type="button" class="btn-set-date">27</button></td>
+                                    <td class="old"><button type="button" class="btn-set-date">28</button></td>
+                                    <td class="old"><button type="button" class="btn-set-date">29</button></td>
+                                    <td class="old"><button type="button" class="btn-set-date">30</button></td>
+                                    <td><button type="button" class="btn-set-date">1</button></td>
+                                    <td><button type="button" class="btn-set-date">2</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><button type="button" class="btn-set-date">3</button></td>
+                                    <td><button type="button" class="btn-set-date">4</button></td>
+                                    <td><button type="button" class="btn-set-date">5</button></td>
+                                    <td><button type="button" class="btn-set-date">6</button></td>
+                                    <td class="period start"><button type="button" class="btn-set-date">7</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">8</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">9</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="period"><button type="button" class="btn-set-date">10</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">11</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">12</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">13</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">14</button></td>
+                                    <td class="period"><button type="button" class="btn-set-date">15</button></td>
+                                    <td class="period end"><button type="button" class="btn-set-date">16</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><button type="button" class="btn-set-date">17</button></td>
+                                    <td><button type="button" class="btn-set-date">18</button></td>
+                                    <td><button type="button" class="btn-set-date">19</button></td>
+                                    <td><button type="button" class="btn-set-date">20</button></td>
+                                    <td><button type="button" class="btn-set-date">21</button></td>
+                                    <td><button type="button" class="btn-set-date">22</button></td>
+                                    <td><button type="button" class="btn-set-date">23</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><button type="button" class="btn-set-date">24</button></td>
+                                    <td><button type="button" class="btn-set-date">25</button></td>
+                                    <td><button type="button" class="btn-set-date">26</button></td>
+                                    <td><button type="button" class="btn-set-date">27</button></td>
+                                    <td><button type="button" class="btn-set-date">28</button></td>
+                                    <td><button type="button" class="btn-set-date">29</button></td>
+                                    <td><button type="button" class="btn-set-date">30</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><button type="button" class="btn-set-date">31</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">1</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">2</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">3</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">4</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">5</button></td>
+                                    <td class="new"><button type="button" class="btn-set-date">6</button></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <div class="datepicker-btn-wrap">
+                                <button type="button" class="btn tertiary sm">취소</button>
+                                <button type="button" class="btn primary sm">확인</button>
+                              </div>
+                            </div>
+                            <div class="datepicker-conts datepicker-year-wrap" aria-hidden="true" tabindex="-1">
+                              <ul class="sel year">
+                                <li>
+                                  <button type="button" class="btn sm">2001</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm active">2002</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2003</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2004</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2005</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2006</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2007</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2008</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2009</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2010</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2011</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2012</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2013</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2014</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2015</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2016</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2017</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2018</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2019</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2020</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2021</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2022</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">2023</button>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="datepicker-conts datepicker-mon-wrap" aria-hidden="true" tabindex="-1">
+                              <ul class="sel month">
+                                <li>
+                                  <button type="button" class="btn sm">01월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">02월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">03월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm active">04월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">05월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">06월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">07월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">08월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">09월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">10월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">11월</button>
+                                </li>
+                                <li>
+                                  <button type="button" class="btn sm">12월</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- //달력 -->
+              </div>
+            </div>
+            <!-- //txt-box -->
+
+            <!-- 페이지 버튼 영역 -->
+            <div class="page-btn-wrap both">
+              <div class="btn-wrap">
+                <button type="button" class="krds-btn xlarge tertiary">목록</button>
+                <button type="button" class="krds-btn xlarge tertiary">미리보기</button>
+              </div>
+							<div class="btn-wrap">
+								<button type="button" class="krds-btn xlarge tertiary">삭제</button>
+								<button type="button" class="krds-btn xlarge primary">등록</button>
+							</div>
+            </div>
+            <!-- //페이지 버튼 영역 -->
+          </div>
+          <!-- //contents -->
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      @@include("../inc/layout-footer.html")
+    </div>
+  </body>
+</html>

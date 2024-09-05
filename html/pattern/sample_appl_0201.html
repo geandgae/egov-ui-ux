@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 상세 | 신청 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -41,21 +40,43 @@
 
 				<!-- 컨텐츠 영역 -->
 				<div class="conts-area quick-nav-type">
+					<!-- quick link -->
+					<div class="quick-nav-area">
+						<div class="quick-title-wrap pc-only">
+							<p class="guide-txt">이 페이지의 구성</p>
+							<h3 class="sec-tit">장애아동수당</h3>
+						</div>
+						<nav class="quick-list">
+							<ul>
+								<li><a href="#section_01" class="active">서비스 개요</a></li>
+								<li><a href="#section_02">서비스 상세</a></li>
+								<li><a href="#section_03">신청 방법 및 절차</a></li>
+								<li><a href="#section_04">제출 서류</a></li>
+								<li><a href="#section_05">함께 신청할 수 있는 서비스</a></li>
+								<li><a href="#section_06">부가정보</a></li>
+								<li><a href="#section_07">정보 변경 내역</a></li>
+							</ul>
+						</nav>
+						<div class="btn-wrap pc-only">
+							<button type="button" class="krds-btn large primary">장애아동수당 온라인 신청하기</button>
+							<p class="guide-txt">장애아동수당 외 <strong>1건</strong></p>
+						</div>
+					</div>
+					<!-- //quick link -->
+
 					<div class="conts-detail-wrap">
 						<!-- 탭 메뉴 -->
 						<div class="tab-area quick-nav-tab">
 							<!-- tab list -->
 							<div class="tab line">
 								<ul role="tablist">
-									<li id="tabInfo01" aria-selected="true" aria-controls="tabpanelInfo01"
-										class="active">
-										<button type="button" class="btn-tab">기본정보<i
-												class="sr-only created">선택됨</i></button>
+									<li id="tabInfo01" role="tab" aria-selected="true" aria-controls="tabpanelInfo01" class="active">
+										<button type="button" class="btn-tab">기본정보<i class="sr-only created">선택됨</i></button>
 									</li>
-									<li id="tabInfo02" aria-selected="false" aria-controls="tabpanelInfo02">
+									<li id="tabInfo02" role="tab" aria-selected="false" aria-controls="tabpanelInfo02">
 										<button type="button" class="btn-tab">부가정보</button>
 									</li>
-									<li id="tabInfo03" aria-selected="false" aria-controls="tabpanelInfo03">
+									<li id="tabInfo03" role="tab" aria-selected="false" aria-controls="tabpanelInfo03">
 										<button type="button" class="btn-tab">함께 신청할 수 있는 서비스</button>
 									</li>
 								</ul>
@@ -63,23 +84,6 @@
 							<!-- //tab list -->
 						</div>
 						<!-- //탭 메뉴 -->
-
-
-						<!-- quick link for mobile -->
-						<div class="quick-nav-area mobile mob-only">
-							<nav class="quick-list">
-								<ul>
-									<li><a href="#section_01" class="active">서비스 개요</a></li>
-									<li><a href="#section_02">서비스 상세</a></li>
-									<li><a href="#section_03">신청 방법 및 절차</a></li>
-									<li><a href="#section_04">제출 서류</a></li>
-									<li><a href="#section_05">함께 신청할 수 있는 서비스</a></li>
-									<li><a href="#section_06">부가정보</a></li>
-									<li><a href="#section_07">정보 변경 내역</a></li>
-								</ul>
-							</nav>
-						</div>
-						<!-- //quick link for mobile -->
 
 						<!-- real contents -->
 						<div class="conts-wrap scroll-check">
@@ -112,12 +116,15 @@
 								<h3 class="sec-tit">서비스 상세</h3>
 								<div class="conts-wrap">
 									<h4 class="sec-tit">제공 내용</h4>
-									<div class="conts-desc">장애아동수당은 현금 지급형 서비스로 한 달에 한 번, 현금으로 지급합니다. 지급 금액은 장애 유형이나 소득
-										수준에 따라 달라질 수 있습니다.</div>
+									<div class="conts-desc">
+										장애아동수당은 현금 지급형 서비스로 한 달에 한 번, 현금으로 지급합니다. 
+										지급 금액은 장애 유형이나 소득 수준에 따라 달라질 수 있습니다.
+									</div>
 									<!-- table list -->
 									<div class="tbl-wrap">
 										<table class="tbl col data">
-											<caption>서비스 상세 제공 내용 표로 대상인 구분, 중증 장애인, 경증 장애인으로 구성되어있으며 대상인 구분은 국민기초생활보장
+											<caption>
+												서비스 상세 제공 내용 표로 대상인 구분, 중증 장애인, 경증 장애인으로 구성되어있으며 대상인 구분은 국민기초생활보장
 												생계 또는 의료급여 수급자, 국민기초생활보장 주거 또는 교육급여 수급자 및 차상위계층, 보장시설수급자(생계, 의료)로 구성되어있음
 											</caption>
 											<colgroup>
@@ -127,15 +134,9 @@
 											</colgroup>
 											<thead>
 												<tr>
-													<th scope="col">
-														대상인 구분
-													</th>
-													<th scope="col" class="ar">
-														중증 장애인
-													</th>
-													<th scope="col" class="ar">
-														경증 장애인
-													</th>
+													<th scope="col">대상인 구분</th>
+													<th scope="col" class="ar">중증 장애인</th>
+													<th scope="col" class="ar">경증 장애인</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -171,13 +172,14 @@
 													<li>중증장애인: 장애인연금법상 중증장애인에 해당</li>
 													<li>
 														경증장애인: 장애인연금법상 <strong>중증장애인에 해당하지 않음</strong>
-
 														<!-- 참고 박스 -->
 														<div class="helper-box refer">
 															<p class="helper-tit">참고</p>
 															<div class="helper-desc-wrap">
-																<p>중증장애인은 장애인연금법상 중증장애인으로 장애유형별 의학적 판정기준에 부합하거나 장애 정도를
-																	2개 이상 받은 사람으로서 그 장애 정도 중 하나가 심한 경우를 의미합니다.</p>
+																<p>
+																	중증장애인은 장애인연금법상 중증장애인으로 장애유형별 의학적 판정기준에 부합하거나 장애 정도를
+																	2개 이상 받은 사람으로서 그 장애 정도 중 하나가 심한 경우를 의미합니다.
+																</p>
 															</div>
 														</div>
 														<!-- //참고 박스 -->
@@ -190,19 +192,17 @@
 										<h5 class="sec-tit">연령</h5>
 										<ul class="info-list decimal">
 											<li>
-												신청하는 달을 기준으로 18세 미만이어야 합니다. 신청일이 속하는 월의 말일까지 18세가 되는 경우 대상에서 제외됩니다. <br
-													class="br">
-												예) 9월 15일에 신청하고 신청인이 10월 1일 이전에 18세가 되는 경우 선정에서 제외함
+												신청하는 달을 기준으로 18세 미만이어야 합니다. 신청일이 속하는 월의 말일까지 18세가 되는 경우 대상에서 제외됩니다. <br>
+												예&#41; 9월 15일에 신청하고 신청인이 10월 1일 이전에 18세가 되는 경우 선정에서 제외함
 											</li>
 											<li>
-												「초중등교육법」 제2조에 따른 학교에 재학/휴학 중인 경우 20세까지 지원 가능합니다. 이 때, 장애인연금을 받는 경우에는
-												대상에서 제외됩니다.
-
+												「초중등교육법」 제2조에 따른 학교에 재학/휴학 중인 경우 20세까지 지원 가능합니다. 이 때, 장애인연금을 받는 경우에는 대상에서 제외됩니다.
 												<!-- 참고 박스 -->
 												<div class="helper-box refer">
 													<p class="helper-tit">참고</p>
 													<div class="helper-desc-wrap">
-														<p>「초중등교육법」 제2조에 따른 학교에 특수학교의 전공과정도 포함됩니다. 자세한 내용은 법령을 참고하세요.
+														<p>
+															「초중등교육법」 제2조에 따른 학교에 특수학교의 전공과정도 포함됩니다. 자세한 내용은 법령을 참고하세요.
 														</p>
 													</div>
 												</div>
@@ -215,12 +215,10 @@
 										<ul class="info-list decimal">
 											<li>국민기초생활보장 수급자 또는 차상위계층에 해당해야 합니다.</li>
 											<li>
-												가구의 범위는 국민기초생활보장제도의 가구 범위와 동일하게 적용합니다. 가구 해체 방지를 위하여 별도의 가구 특례 적용이
-												가능합니다.
+												가구의 범위는 국민기초생활보장제도의 가구 범위와 동일하게 적용합니다. 가구 해체 방지를 위하여 별도의 가구 특례 적용이 가능합니다.
 												<ul class="info-list dash">
 													<li>
 														<strong>소득인정액 산정방식:</strong> 국민기초생활보장제도의 방식을 적용합니다.
-
 														<!-- 참고 박스 -->
 														<div class="helper-box refer">
 															<p class="helper-tit">참고: 소득인정액 산정식</p>
@@ -230,16 +228,17 @@
 																	</p>
 																	<ol class="calc-list">
 																		<li>❶ 소득평가액 = 실제소득 - 가구특성별 지출 - 근로소득공제</li>
-																		<li>❷ 재산의 소득환산액 = {(일반/금융재산의 종류별가액-기본재산액-부채)+승용차
-																			재산가액} × 재산의 종류별 소득환산액</li>
+																		<li>❷ 재산의 소득환산액 = {(일반/금융재산의 종류별가액-기본재산액-부채)+승용차 재산가액} x 재산의 종류별 소득환산액</li>
 																	</ol>
 																</div>
 															</div>
 														</div>
 														<!-- //참고 박스 -->
 													</li>
-													<li><strong>차상위계층 선정 기준:</strong> 차상위 계층 선정 기준은 소득인정액이 기준 중위소득 50%
-														이하인 경우로, 4인 가구 기준 2,700,482원 이하입니다. 부양의무자의 기준은 적용하지 않습니다.</li>
+													<li>
+														<strong>차상위계층 선정 기준:</strong> 차상위 계층 선정 기준은 소득인정액이 기준 중위소득 50%
+														이하인 경우로, 4인 가구 기준 2,700,482원 이하입니다. 부양의무자의 기준은 적용하지 않습니다.
+													</li>
 												</ul>
 											</li>
 										</ul>
@@ -316,15 +315,15 @@
 									<li>
 										<p class="tit">사회보장급여 신청(변경)서 [hwp, 328KB]</p>
 										<div class="btn-wrap">
-											<button type="button" class="btn sm btn-txt ico-down">다운로드</button>
-											<button type="button" class="btn sm btn-txt ico-go">바로보기</button>
+											<button type="button" class="krds-btn medium text">다운로드 <i class="svg-icon ico-down"></i></button>
+											<button type="button" class="krds-btn medium text">바로보기 <i class="svg-icon ico-link"></i></button>
 										</div>
 									</li>
 									<li>
 										<p class="tit">금융정보 등(금융ㆍ신용ㆍ보험정보) 제공 동의서 [hwp, 17KB]</p>
 										<div class="btn-wrap">
-											<button type="button" class="btn sm btn-txt ico-down">다운로드</button>
-											<button type="button" class="btn sm btn-txt ico-go">바로보기</button>
+											<button type="button" class="krds-btn medium text">다운로드 <i class="svg-icon ico-down"></i></button>
+											<button type="button" class="krds-btn medium text">바로보기 <i class="svg-icon ico-link"></i></button>
 										</div>
 									</li>
 								</ul>
@@ -333,7 +332,7 @@
 							<div class="conts-wrap section-link" id="section_05">
 								<h3 class="sec-tit">함께 신청할 수 있는 서비스</h3>
 								<p class="conts-desc">
-									장애아동수당과 함께 신청할 수 있는 서비스입니다. <br class="br">
+									장애아동수당과 함께 신청할 수 있는 서비스입니다. <br>
 									목록에서 원하는 서비스를 선택하여 한 번에 신청하시면 공통으로 입력해야 할 정보를 한 번만 입력하기 때문에 보다 편리하게 이용할 수 있습니다.
 								</p>
 								<fieldset>
@@ -354,14 +353,15 @@
 													<div class="form-check">
 														<input type="checkbox" name="save_id" id="chk_01" disabled>
 														<label for="chk_01">
-															<p class="tit">장애아동수당</p>
-															<p class="conts-desc">장애로 인하여 생활이 어려운 장애아동이 보다 편안한 생활을 할 수
-																있도록 지원합니다.</p>
+															<strong class="tit">장애아동수당</strong>
+															<span class="conts-desc">
+																장애로 인하여 생활이 어려운 장애아동이 보다 편안한 생활을 할 수 있도록 지원합니다.
+															</span>
 														</label>
 													</div>
 												</div>
 												<div class="btn-wrap">
-													<a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+													<span class="krds-btn medium text">자세히보기 <i class="svg-icon ico-angle right"></i></span>
 												</div>
 											</li>
 											<li>
@@ -369,14 +369,15 @@
 													<div class="form-check">
 														<input type="checkbox" name="save_id" id="chk_02" checked>
 														<label for="chk_02">
-															<p class="tit">청소년 발달장애인 방과후활동서비스</p>
-															<p class="conts-desc">만 6세 이상~만 18세 미만의 청소년이 방과후에도 돌봄을 지원받을
-																수 있도록 방과후활동 이용권을 지급합니다.</p>
+															<strong class="tit">청소년 발달장애인 방과후활동서비스</strong>
+															<span class="conts-desc">
+																만 6세 이상~만 18세 미만의 청소년이 방과후에도 돌봄을 지원받을 수 있도록 방과후활동 이용권을 지급합니다.
+															</span>
 														</label>
 													</div>
 												</div>
 												<div class="btn-wrap">
-													<a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+													<a href="#" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-angle right"></i></a>
 												</div>
 											</li>
 											<li>
@@ -384,14 +385,15 @@
 													<div class="form-check">
 														<input type="checkbox" name="save_id" id="chk_03">
 														<label for="chk_03">
-															<p class="tit">아동발달지원계좌(디딤씨앗통장)지원</p>
-															<p class="conts-desc">취약계층 아동의 사회진출 시 학자금･취업･창업･주거마련 등에 소요되는
-																초기비용 마련을 위한 자산형성을 지원합니다.</p>
+															<strong class="tit">아동발달지원계좌(디딤씨앗통장)지원</strong>
+															<span class="conts-desc">
+																취약계층 아동의 사회진출 시 학자금･취업･창업･주거마련 등에 소요되는 초기비용 마련을 위한 자산형성을 지원합니다.
+															</span>
 														</label>
 													</div>
 												</div>
 												<div class="btn-wrap">
-													<a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+													<a href="#" class="krds-btn medium text">자세히보기 <i class="svg-icon ico-angle right"></i></a>
 												</div>
 											</li>
 										</ul>
@@ -402,14 +404,13 @@
 								<h3 class="sec-tit">부가정보</h3>
 								<div class="conts-wrap">
 									<h4 class="sec-tit">참고서식</h4>
-
 									<!-- box list -->
 									<ul class="box-group-area">
 										<li>
 											<p class="tit">2023년 장애인연금 사업안내 [pdf, 1.2MB]</p>
 											<div class="btn-wrap">
-												<button type="button" class="btn sm btn-txt ico-down">다운로드</button>
-												<button type="button" class="btn sm btn-txt ico-go">바로보기</button>
+												<button type="button" class="krds-btn medium text">다운로드 <i class="svg-icon ico-down"></i></button>
+												<button type="button" class="krds-btn medium text">바로보기 <i class="svg-icon ico-link"></i></button>
 											</div>
 										</li>
 									</ul>
@@ -418,17 +419,14 @@
 								<div class="conts-wrap">
 									<h4 class="sec-tit">관련 웹사이트</h4>
 									<ul class="info-list decimal btn-txt-list">
-										<li><a href="#" class="btn sm btn-txt ico-go" target="_blank"
-												title="새 창 열림">보건복지상담센터 웹사이트</a></li>
-										<li><a href="#" class="btn sm btn-txt ico-go" target="_blank"
-												title="새 창 열림">보건복지부 대표 웹사이트</a></li>
+										<li><a href="#" class="krds-btn medium text" target="_blank" title="새 창 열림">보건복지상담센터 웹사이트 <i class="svg-icon ico-link"></i></a></li>
+										<li><a href="#" class="krds-btn medium text" target="_blank" title="새 창 열림">보건복지부 대표 웹사이트 <i class="svg-icon ico-link"></i></a></li>
 									</ul>
 								</div>
 								<div class="conts-wrap">
 									<h4 class="sec-tit">근거 법령</h4>
 									<ul class="info-list decimal btn-txt-list">
-										<li><a href="#" class="btn sm btn-txt ico-go" target="_blank"
-												title="새 창 열림">장애인복지법(국가법령통합관리시스템)</a></li>
+										<li><a href="#" class="krds-btn medium text" target="_blank" title="새 창 열림">장애인복지법(국가법령통합관리시스템) <i class="svg-icon ico-link"></i></a></li>
 									</ul>
 								</div>
 								<div class="conts-wrap">
@@ -438,18 +436,18 @@
 									<div class="conts-expand-area txt-box">
 										<div class="expand-wrap">
 											<div class="conts-desc">
-												몸이나 마음에 불편함을 갖고 사는 아이들에게 조금이나마 위로가 되어드리고 싶습니다. 장애아동들을 위해 장애아동수당으로 당신께 힘을
-												보태드립니다. <br class="br">
-												<br class="br">
-												인터넷 장애아동 학부모 카페 모임의 글. “그럼 장애아동수당 서비스를 모르고 계셨던 거에요?” 의사 선생님이 말씀해주시기 전까지
+												몸이나 마음에 불편함을 갖고 사는 아이들에게 조금이나마 위로가 되어드리고 싶습니다.
+												장애아동들을 위해 장애아동수당으로 당신께 힘을 보태드립니다. 
+												<br><br>
+												인터넷 장애아동 학부모 카페 모임의 글. "그럼 장애아동수당 서비스를 모르고 계셨던 거에요?" 의사 선생님이 말씀해주시기 전까지
 												진짜 몰랐었습니다. 몸이 불편한 아이를 키우는 엄마로서 아이를 위해 돈을 벌고 항상 신경이 곤두서있다보니 누군가 도움을 준다는 게
 												익숙치 않았죠. 그러다보니 병원비에 가끔 도우미 아주머니 비용까지 참 만만치 않았었는데 의사 선생님이 말씀해주신 ‘장애아동수당’을
 												알고 나서는 생활이 조금 편해졌습니다. 매달 나오는 지원금은 저의 경제적 상황을 보다 편안하게 해줬고 그런 도움으로 시작된 하나,
 												둘 주변의 도움은 세상에 혼자있었던 것 같은 내 마음을 조금 따뜻하고 부드럽게 만들어주었습니다.
-												몸이나 마음에 불편함을 갖고 사는 아이들에게 조금이나마 위로가 되어드리고 싶습니다. 장애아동들을 위해 장애아동수당으로 당신께 힘을
-												보태드립니다. <br class="br">
-												<br class="br">
-												인터넷 장애아동 학부모 카페 모임의 글. “그럼 장애아동수당 서비스를 모르고 계셨던 거에요?” 의사 선생님이 말씀해주시기 전까지
+												몸이나 마음에 불편함을 갖고 사는 아이들에게 조금이나마 위로가 되어드리고 싶습니다. 장애아동들을 위해 장애아동수당으로 
+												당신께 힘을 보태드립니다. 
+												<br><br>
+												인터넷 장애아동 학부모 카페 모임의 글. "그럼 장애아동수당 서비스를 모르고 계셨던 거에요?" 의사 선생님이 말씀해주시기 전까지
 												진짜 몰랐었습니다. 몸이 불편한 아이를 키우는 엄마로서 아이를 위해 돈을 벌고 항상 신경이 곤두서있다보니 누군가 도움을 준다는 게
 												익숙치 않았죠. 그러다보니 병원비에 가끔 도우미 아주머니 비용까지 참 만만치 않았었는데 의사 선생님이 말씀해주신 ‘장애아동수당’을
 												알고 나서는 생활이 조금 편해졌습니다. 매달 나오는 지원금은 저의 경제적 상황을 보다 편안하게 해줬고 그런 도움으로 시작된 하나,
@@ -494,34 +492,11 @@
 						</div>
 						<!-- //real contents -->
 					</div>
-					<!-- quick link for pc -->
-					<div class="quick-nav-area pc-only">
-						<div class="quick-title-wrap">
-							<p class="guide-txt">이 페이지의 구성</p>
-							<h3 class="sec-tit">장애아동수당</h3>
-						</div>
-						<nav class="quick-list">
-							<ul>
-								<li><a href="#section_01" class="active">서비스 개요</a></li>
-								<li><a href="#section_02">서비스 상세</a></li>
-								<li><a href="#section_03">신청 방법 및 절차</a></li>
-								<li><a href="#section_04">제출 서류</a></li>
-								<li><a href="#section_05">함께 신청할 수 있는 서비스</a></li>
-								<li><a href="#section_06">부가정보</a></li>
-								<li><a href="#section_07">정보 변경 내역</a></li>
-							</ul>
-						</nav>
-						<div class="btn-wrap">
-							<button type="button" class="btn primary">장애아동수당 온라인 신청하기</button>
-							<p class="guide-txt">장애아동수당 외 <strong>1건</strong></p>
-						</div>
-					</div>
-					<!-- //quick link for pc -->
 				</div>
 				<!-- //컨텐츠 영역 -->
 				<!-- 페이지 버튼 영역 -->
 				<div class="page-btn-wrap guide mob-only">
-					<button type="button" class="btn primary">장애아동수당 온라인 신청하기</button>
+					<button type="button" class="krds-btn large primary">장애아동수당 온라인 신청하기</button>
 					<p class="guide-txt">장애아동수당 외 <strong>1건</strong></p>
 				</div>
 				<!-- //페이지 버튼 영역 -->
@@ -536,8 +511,6 @@
 		</footer>
 		<!-- //푸터 영역 -->
 	</div>
-
-	
 </body>
 
 </html>

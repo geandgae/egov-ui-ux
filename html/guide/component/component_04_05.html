@@ -31,7 +31,9 @@
 			<div class="g-content">
 				<!-- 제목 -->
 				<div class="g-title-area">
-					<h2 class="g-heading-l"><span>컴포넌트</span><strong>모달 <span class="sub">(Modal)</span></strong></h2>
+					<h2 class="g-heading-l">
+						<span>컴포넌트</span><strong>모달 <span class="sub">(Modal)</span></strong>
+					</h2>
 					<p class="g-desc">
 						모달은 대화창의 한 종류로 기본 창에 종속된 요소이다. 기본 창과 겹쳐져 가장 상단에 표시되며, 이때 기본 창은 비활성 상태로 전환되어 상호작용이 불가능하므로 사용자는
 						모달에서의 단일한 과업 또는 메시지에 집중할 수 있다.
@@ -45,8 +47,7 @@
 						<h3 class="g-heading-m">용례</h3>
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">사용하기 적합하지 않은 경우</h4>
-							<p class="g-desc">모달을 사용하기 전에 사용자의 플로(Flow)에 최대한 방해가 되지 않는 다른 컴포넌트가 존재하지 않는지
-								다시 한 번 생각해야 한다. 모달은 최후의 수단이다.</p>
+							<p class="g-desc">모달을 사용하기 전에 사용자의 플로(Flow)에 최대한 방해가 되지 않는 다른 컴포넌트가 존재하지 않는지 다시 한 번 생각해야 한다. 모달은 최후의 수단이다.</p>
 							<div class="g-conts-wrap">
 								<ul class="info-list decimal">
 									<li>
@@ -98,10 +99,8 @@
 								사용자가 기본 창에서의 주요 플로(Flow)에서 벗어나 완전히 주의를 기울인 상태에서 의사결정을 내려야
 								하는 작업에 사용되는 모달이다. 대개 사용자의 행동을 확인하거나 취소할 수 없는 행동, 기능의 실행
 								여부를 확인하고자 할 때 사용되므로 실행되는 기능, 결과, 위험성에 대한 설명이 반드시 포함되어야 한다.
-								기본 화면에서의 사용자 행동에 의해 모달이 실행되며 행동을 확정하기 위한 버튼, 취소하기 위한 버튼이
-								제공된다. <br>
+								기본 화면에서의 사용자 행동에 의해 모달이 실행되며 행동을 확정하기 위한 버튼, 취소하기 위한 버튼이 제공된다. <br>
 								예 - 작업이 저장되지 않았습니다. 계속 진행하시겠습니까?
-
 							</p>
 						</div>
 						<div class="g-conts-area">
@@ -122,24 +121,30 @@
 						<h3 class="g-heading-m">구조</h3>
 						<div class="g-conts-area">
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_04_05_01.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_04_05_01.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
-								<li><span class="num">1. </span><strong>오버레이: </strong>모달과 하단의 기본 창을 시각적으로 구분하기 위한 그림자
-									또는 가림막</li>
-								<li><span class="num">2. </span><strong>헤더: </strong>모달의 상단 영역으로 모달에서 제공하는 콘텐츠나 요청하는 행동에
-									대한 간단한 요약 정보를
-									담은 제목, 설명을 제공함</li>
-								<li><span class="num">3. </span><strong>닫기 버튼(선택):: </strong>사용자가 모달을 닫을 수 있게 하는 버튼 요소로
-									대개 "X" 아이콘으로 표현됨.
-									모달에서 데이터를 입력하여 제출하거나 행동을 확정해야 하는 경우, 닫기 버튼은 모달을 닫는
-									동시에 취소와 동일한 기능을 제공함</li>
-								<li><span class="num">4. </span><strong>본문(선택): </strong>정보와 다른 컴포넌트 요소가 제공되는 영역</li>
-								<li><span class="num">5. </span><strong>푸터(선택): </strong>모달의 하단 영역으로 취소, 확인, 삭제, 저장 등
-									과업을 완료하거나 중단하기 위한 주요
-									액션 버튼을 제공함. 본문에 입력폼을 제공하는 경우, 입력폼과 관련된 컨트롤은 본문 영역에 배치할
-									수 있으나 행동을 확정하거나 취소하는 액션은 항상 푸터에 제공해야 함
+								<li>
+									<span class="num">1. </span><strong>오버레이: </strong>
+									모달과 하단의 기본 창을 시각적으로 구분하기 위한 그림자 또는 가림막
+								</li>
+								<li>
+									<span class="num">2. </span><strong>헤더: </strong>
+									모달의 상단 영역으로 모달에서 제공하는 콘텐츠나 요청하는 행동에 대한 간단한 요약 정보를 담은 제목, 설명을 제공함
+								</li>
+								<li>
+									<span class="num">3. </span><strong>닫기 버튼(선택):: </strong>
+									사용자가 모달을 닫을 수 있게 하는 버튼 요소로 대개 "X" 아이콘으로 표현됨. 모달에서 데이터를 입력하여 제출하거나 행동을 확정해야 하는 경우, 
+									닫기 버튼은 모달을 닫는 동시에 취소와 동일한 기능을 제공함
+								</li>
+								<li>
+									<span class="num">4. </span><strong>본문(선택): </strong>
+									정보와 다른 컴포넌트 요소가 제공되는 영역
+								</li>
+								<li>
+									<span class="num">5. </span><strong>푸터(선택): </strong>
+									모달의 하단 영역으로 취소, 확인, 삭제, 저장 등 과업을 완료하거나 중단하기 위한 주요 액션 버튼을 제공함. 본문에 입력폼을 제공하는 경우, 
+									입력폼과 관련된 컨트롤은 본문 영역에 배치할 수 있으나 행동을 확정하거나 취소하는 액션은 항상 푸터에 제공해야 함
 								</li>
 							</ol>
 						</div>
@@ -158,9 +163,7 @@
 									</p>
 								</li>
 								<li>
-									<strong>콘텐츠 영역에 스크롤이 필요한 경우 사용자가 스크롤
-										영역을 인지할 수 있도록 표현하고 푸터가 항상
-										표시되도록 한다</strong>
+									<strong>콘텐츠 영역에 스크롤이 필요한 경우 사용자가 스크롤 영역을 인지할 수 있도록 표현하고 푸터가 항상 표시되도록 한다</strong>
 									<p class="info-txt">
 										모달 콘텐츠는 간결하고 모달에서의 상호작용은 최소로 제공해야 한다. 그러나 사용자별 디바이스 화면
 										크기 차이, 모달 유형 등에 따라 불가피하게 콘텐츠 영역에 세로 스크롤이 생성되는 경우 스크롤바를
@@ -170,9 +173,7 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_05_04.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_05_04.png" alt=""></div>
 									</div>
 								</li>
 								<li>
@@ -192,9 +193,7 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_05_05.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_05_05.png" alt=""></div>
 									</div>
 								</li>
 								<li>
@@ -216,9 +215,7 @@
 						<div class="g-conts-area">
 							<ul class="info-list decimal">
 								<li>
-									<strong>모달과 내부 요소의 초점 이동 순서를 논리적으로
-										제공한다.
-									</strong>
+									<strong>모달과 내부 요소의 초점 이동 순서를 논리적으로 제공한다.</strong>
 									<p class="info-txt">
 										모달 열기 버튼을 실행하여 창이 활성화되었을 때, 키보드 초점은 모달 자체 또는 모달 내에서 상호작용이
 										가능한 첫 번째 요소로 이동해야 하며, 모달을 닫거나 취소했을 때 초점은 모달 열기 버튼으로 이동해야
@@ -233,10 +230,9 @@
 									</ul>
 								</li>
 								<li>
-									<strong>모달의 닫기 버튼은 모달의 가장 마지막 요소로
-										마크업한다.</strong>
+									<strong>모달의 닫기 버튼은 모달의 가장 마지막 요소로 마크업한다.</strong>
 									<p class="info-txt">
-										’X’ 아이콘으로 제공되는 모달의 닫기 버튼은 모달의 가장 마지막 요소로 마크업한다. 닫기 버튼이 모달의
+										'X' 아이콘으로 제공되는 모달의 닫기 버튼은 모달의 가장 마지막 요소로 마크업한다. 닫기 버튼이 모달의
 										헤더 바로 다음 또는 가장 첫 번째 요소로 제공될 경우 키보드 사용자는 본문의 콘텐츠 탐색 후 모달을 닫기
 										위해 콘텐츠를 역방향으로 탐색해야 하며 스크린 리더 사용자는 모달에 본문 콘텐츠가 있음을 인지하지
 										못할 수 있다.
@@ -257,8 +253,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 모달 열기/닫기 에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter, Space, Esc
-										로 구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 모달 열기/닫기 에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter, Space, Esc 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -298,8 +295,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 내부 콘텐츠 탐색 에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Tab, Shift + Tab, 방향키
-										↑, ↓, Scroll, Esc 로 구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 내부 콘텐츠 탐색 에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Tab, Shift + Tab, 방향키 ↑, ↓, Scroll, Esc 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -349,7 +347,6 @@
 							<!-- //table list -->
 						</div>
 					</div>
-
 				</div>
 				<!-- //설명 -->
 
@@ -362,52 +359,15 @@
 							<div class="g-example-wrap">
 								<div class="g-example ex-full">
 									<!-- example -->
-									<!-- modal -->
-									<section id="modal_sample_01" class="modal fade in shown sample" aria-hidden="false"
-										role="dialog" aria-labelledby="tit_modal_sample_01">
-										<div class="modal-dialog" tabindex="0">
-											<div class="modal-content" tabindex="0">
-												<!-- modal title -->
-												<div class="modal-header">
-													<h2 id="tit_modal_sample_01" class="modal-title">
-														모달 제목
-													</h2>
-												</div>
-												<!-- //modal title -->
-												<!-- modal contents -->
-												<div class="modal-conts">
-													<h3 class="conts-tit">내용 타이틀</h3>
-													<div class="conts-area">
-														대화 상자는 사용자에게 작업에 대해 알리고 중요한 정보를 포함하거나 결정이 필요하거나 여러 작업을 포함할 수
-														있습니다.
-													</div>
-												</div>
-												<!-- //modal contents -->
-												<!-- modal btn -->
-												<div class="modal-btn btn-wrap">
-													<button type="button"
-														class="btn tertiary md close-modal">아니요</button>
-													<button type="button" class="btn primary md close-modal">예</button>
-												</div>
-												<!-- //modal btn -->
-												<!-- close button -->
-												<button type="button" class="btn-close close-modal"><span
-														class="sr-only">닫기</span></button>
-												<!-- //close button -->
-											</div>
-										</div>
-										<div class="modal-back in"></div>
-									</section>
-									<!-- //modal -->
+									@@include("./code/component_04_05_01.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader04_05_01" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse04_05_01">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse04_05_01" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader04_05_01">
+										<h2 id="accordionHeader04_05_01" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse04_05_01">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse04_05_01" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader04_05_01">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">
@@ -426,52 +386,15 @@
 							<div class="g-example-wrap">
 								<div class="g-example ex-full">
 									<!-- example -->
-									<!-- modal -->
-									<section id="modal_sample_02" class="modal fade alert in shown sample"
-										aria-hidden="false" role="dialog" aria-labelledby="tit_modal_sample_02">
-										<div class="modal-dialog">
-											<div class="modal-content" tabindex="0">
-												<!-- modal title -->
-												<div class="modal-header">
-													<h2 id="tit_modal_sample_02" class="modal-title">
-														모달 제목 - 얼럿형
-													</h2>
-												</div>
-												<!-- //modal title -->
-												<!-- modal contents -->
-												<div class="modal-conts">
-													<h3 class="conts-tit">내용 타이틀</h3>
-													<div class="conts-area">
-														대화 상자는 사용자에게 작업에 대해 알리고 중요한 정보를 포함하거나 결정이 필요하거나 여러 작업을 포함할 수
-														있습니다.
-													</div>
-												</div>
-												<!-- //modal contents -->
-												<!-- modal btn -->
-												<div class="modal-btn btn-wrap">
-													<button type="button"
-														class="btn tertiary md close-modal">아니요</button>
-													<button type="button" class="btn primary md close-modal">예</button>
-												</div>
-												<!-- //modal btn -->
-												<!-- close button -->
-												<button type="button" class="btn-close close-modal"><span
-														class="sr-only">닫기</span></button>
-												<!-- //close button -->
-											</div>
-										</div>
-										<div class="modal-back in"></div>
-									</section>
-									<!-- //modal -->
+									@@include("./code/component_04_05_02.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader04_05_02" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse04_05_02">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse04_05_02" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader04_05_02">
+										<h2 id="accordionHeader04_05_02" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse04_05_02">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse04_05_02" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader04_05_02">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">
@@ -493,13 +416,12 @@
 									@@include("./code/component_04_05_03.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader04_05_03" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse04_05_03">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse04_05_03" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader04_05_03">
+										<h2 id="accordionHeader04_05_03" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse04_05_03">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse04_05_03" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader04_05_03">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">
@@ -512,11 +434,9 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<!-- //예시 -->
-
 			</div>
 			<!-- //컨텐츠 영역 -->
 		</div>
@@ -527,6 +447,24 @@
 			@@include("../inc/guide_footer.html")
 		</footer>
 		<!-- //푸터 영역 -->
+
+		<script>
+			// guide용 기존 스크립트 동작 막기
+			const guideExample = () => {
+				const gExampleArea = document.querySelector(".g-example-area");
+				if (!gExampleArea) return;
+				// modal
+				const modalSample = gExampleArea.querySelectorAll(".modal:not(#modal_sample_03)");
+				modalSample.forEach((modal) => {
+					modal.classList.add("sample");
+					const closeButtons = modal.querySelectorAll(".close-modal");
+					closeButtons.forEach((close) => {
+						close.classList.remove("close-modal");
+					});
+				})
+			};
+			guideExample();
+		</script>
 	</div>
 </body>
 

@@ -1,8 +1,8 @@
-<button type="button" class="btn open-modal" data-target="modal_sample_03">class 및 data-target 호출</button>
+<button type="button" class="krds-btn large open-modal" data-target="modal_sample_03">class 및 data-target 호출</button>
 <!-- modal -->
 <section id="modal_sample_03" class="modal fade" aria-hidden="true" role="dialog" aria-labelledby="tit_modal_sample_03">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content" tabindex="0">
 			<!-- modal title -->
 			<div class="modal-header">
 				<h2 id="tit_modal_sample_03" class="modal-title">
@@ -47,12 +47,15 @@
 			<!-- //modal contents -->
 			<!-- modal btn -->
 			<div class="modal-btn btn-wrap">
-				<button type="button" class="btn tertiary md close-modal">아니요</button>
-				<button type="button" class="btn primary md close-modal">예</button>
+				<button type="button" class="krds-btn medium tertiary close-modal">아니요</button>
+				<button type="button" class="krds-btn medium primary close-modal">예</button>
 			</div>
 			<!-- //modal btn -->
 			<!-- close button -->
-			<button type="button" class="btn-close close-modal"><span class="sr-only">닫기</span></button>
+			<button type="button" class="krds-btn small icon btn-close close-modal">
+				<span class="sr-only">닫기</span>
+				<i class="svg-icon ico-popup-close"></i>
+			</button>
 			<!-- //close button -->
 		</div>
 	</div>

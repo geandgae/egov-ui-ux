@@ -1,46 +1,122 @@
 "use strict";
 
 const initAdminUi = () => {
-	// data
-	const lnbData = [
-		{ name: "권한관리", url: "#;", type: "link", sub: [] },
-		{ name: "권한관리2", url: "", type: "toggle", sub: [
-			{ name: "권한관리2-sub1", url: "#;", type: "link", sub: [] },
-			{ name: "권한관리2-sub2", url: "", type: "toggle-lv2", sub: [
-				{ name: "권한관리2-sub2-1", url: "#;", type: "link", sub: [] },
-				{ name: "권한관리2-sub2-2", url: "#;", type: "link", sub: [] },
-			] },
-		]},
-	];
-	const gnbData = [
-		{ name: "공통관리", url: "#;", type: "link", sub: [] },
-		{ name: "메뉴관리", url: "#;", type: "link", sub: [] },
-		{ name: "콘텐츠관리", url: "#;", type: "link", sub: [] },
-		{ name: "통계관리", url: "#;", type: "link", sub: [] },
-		{ name: "서브타입 : toggle-lv1", url: "", type: "toggle", sub: [
-			{ name: "sub-link", url: "#;", type: "link", sub: [] },
-		]},
-		{ name: "서브타입 : toggle-lv2", url: "", type: "toggle-lv2", sub: [
-			{ name: "sub-toggle", url: "#;", type: "toggle-sub", sub: [
-				{ name: "sub-link", url: "#;", type: "link", sub: [] },
-			]},
-			{ name: "sub-description", url: "#;", type: "toggle-description", sub: [
-				{ name: "sub-link", url: "#;", type: "desc", desc: "description", sub: [] },
-			]},
-			{ name: "sub-link", url: "#;", type: "link", sub: [] },
-		]},
-	];
+  // 페이지 구하기
+  const pathParts = window.location.pathname.split("/");
+  const currentDir = pathParts.slice(-2, -1)[0];
+  const currentPage = pathParts.slice(-1)[0].replace(".html", "");
 
-	// gnb
-	const adminGnb = (menuData) => {
+  // data
+  const gnbData = [
+    { name: "공통관리", url: "/html/admin/common/test.html", type: "link", sub: [] },
+    { name: "메뉴관리", url: "/html/admin/menu/test.html", type: "link", sub: [] },
+    { name: "콘텐츠관리", url: "/html/admin/content/test.html", type: "link", sub: [] },
+    { name: "통계관리", url: "/html/admin/stats/test.html", type: "link", sub: [] },
+    { name: "서브타입 : toggle-lv1", url: "", type: "toggle", sub: [{ name: "sub-link", url: "#;", type: "link", sub: [] }] },
+    {
+      name: "서브타입 : toggle-lv2",
+      url: "",
+      type: "toggle-lv2",
+      sub: [
+        { name: "sub-toggle", url: "#;", type: "toggle", sub: [{ name: "sub-link", url: "#;", type: "link", sub: [] }] },
+        { name: "sub-description", url: "#;", type: "description", sub: [{ name: "sub-link", url: "#;", type: "desc", desc: "description", sub: [] }] },
+        { name: "sub-link", url: "#;", type: "link", sub: [] },
+      ],
+    },
+  ];
+  const lnbData = [
+    {
+      category: "test",
+      dir: "test0",
+      sub: [
+        { name: "권한관리", file: "test", type: "link" },
+        {
+          name: "권한관리2",
+          file: "#;",
+          type: "toggle",
+          sub: [
+            { name: "권한관리2-sub1", file: "#;", type: "link" },
+            {
+              name: "권한관리2-sub2",
+              file: "#;",
+              type: "toggle",
+              sub: [
+                { name: "권한관리2-sub2-1", file: "#;", type: "link" },
+                { name: "권한관리2-sub2-2", file: "#;", type: "link" },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+		{
+			// Common Management / common
+			// - auth.html        (권한 관리)
+			// - group.html       (그룹 관리)
+			// - user.html        (사용자 관리)
+			// - access.html      (접근 권한 관리)
+			// - code.html        (공통 코드 관리)
+			// - user_log.html    (사용 로그 관리)
+			// - conn_log.html    (접속 로그 관리)
+      category: "공통 관리",
+      dir: "common",
+      sub: [
+        { name: "권한 관리", file: "test", type: "link" },
+        { name: "그룹 관리", file: "test2", type: "link" },
+        { name: "사용자 관리", file: "test", type: "link" },
+        { name: "접근 권한 관리", file: "test", type: "link" },
+        { name: "공통 코드 관리", file: "test", type: "link" },
+        { name: "사용 로그 관리", file: "test", type: "link" },
+        { name: "접속 로그 관리", file: "test", type: "link" },
+      ],
+    },
+		{
+			// Menu Management / menu
+			// - admin_menu.html  (관리자 메뉴 관리)
+      category: "메뉴 관리",
+      dir: "menu",
+      sub: [
+        { name: "관리자 메뉴 관리", file: "test", type: "link" },
+      ],
+    },
+		{
+			// Content Management / content
+			// - news.html        (새소식 관리)
+			// - faq.html         (FAQ 관리)
+			// - cases.html       (적용사례 관리)
+			// - terms.html       (이용약관 관리)
+			// - popup.html       (메인 팝업 관리)
+      category: "콘텐츠 관리",
+      dir: "content",
+      sub: [
+        { name: "새소식 관리", file: "test", type: "link" },
+        { name: "FAQ 관리", file: "test", type: "link" },
+        { name: "적용사례 관리", file: "test", type: "link" },
+        { name: "이용약관 관리", file: "test", type: "link" },
+        { name: "메인 팝업 관리", file: "test", type: "link" },
+      ],
+    },
+		{
+			// Statistics Management / stats
+			// - google.html      (Google Analysis)
+      category: "통계 관리",
+      dir: "stats",
+      sub: [
+        { name: "Google Analysis", file: "test", type: "link" },
+      ],
+    },
+  ];
+
+  // gnb
+  const adminGnb = (menuData) => {
     const menu = document.querySelector(".krds-gnb .gnb-menu");
     if (!menu) return;
 
-		let list = [];
+    let list = [];
 
-		const createMenu = (menuData) => {
+    const createMenu = (menuData) => {
       if (menuData.type === "link") {
-				return `<li><a href="${menuData.url}" class="gnb-main-trigger is-link" data-trigger="gnb"><h2>${menuData.name}</h2></a></li>`;
+        return `<li><a href="${menuData.url}" class="gnb-main-trigger is-link" data-trigger="gnb"><h2>${menuData.name}</h2></a></li>`;
       } else if (menuData.type === "toggle") {
         return `
 					<li>
@@ -51,7 +127,7 @@ const initAdminUi = () => {
 									<div class="gnb-sub-content">
 										<h3 class="sub-title"><span>${menuData.name}</span></h3>
 										<ul>
-											${menuData.sub.map(createSubMenu).join('')}
+											${menuData.sub.map(createSubMenu).join("")}
 										</ul>
 									</div>
 									<div class="gnb-sub-banner">
@@ -70,7 +146,7 @@ const initAdminUi = () => {
 						<div class="gnb-toggle-wrap">
 							<div class="gnb-main-list" data-has-submenu="true">
 								<ul>
-									${menuData.sub.map(createSubMenuLv2).join('')}
+									${menuData.sub.map(createSubMenuLv2).join("")}
 								</ul>
 							</div>
         		</div>
@@ -78,10 +154,10 @@ const initAdminUi = () => {
 				`;
       }
     };
-		const createSubMenu = (menuData) => {
-			return menuData.type === "link" ? `<li><a href="${menuData.url}">${menuData.name}</a></li>` : "";
+    const createSubMenu = (menuData) => {
+      return menuData.type === "link" ? `<li><a href="${menuData.url}">${menuData.name}</a></li>` : "";
     };
-		const createSubMenuLv2 = (menuData) => {
+    const createSubMenuLv2 = (menuData) => {
       if (menuData.type === "link") {
         return `
 				<li>
@@ -91,7 +167,7 @@ const initAdminUi = () => {
 					</a>
 				</li>
 				`;
-      } else if (menuData.type === "toggle-sub") {
+      } else if (menuData.type === "toggle") {
         return `
 				<li>
 					<button type="button" class="gnb-sub-trigger" data-trigger="gnb">${menuData.name}</button>
@@ -99,7 +175,7 @@ const initAdminUi = () => {
 						<div class="gnb-sub-content">
 							<h3 class="sub-title"><span>${menuData.name}</span></h3>
 							<ul>
-								${menuData.sub.map(createSubMenuLv3).join('')}
+								${menuData.sub.map(createSubMenuLv3).join("")}
 							</ul>
 						</div>
 						<div class="gnb-sub-banner">
@@ -109,7 +185,7 @@ const initAdminUi = () => {
 					</div>
 				</li>
 				`;
-      } else if (menuData.type === "toggle-description") {
+      } else if (menuData.type === "description") {
         return `
 				<li>
 					<button type="button" class="gnb-sub-trigger" data-trigger="gnb">${menuData.name}</button>
@@ -117,7 +193,7 @@ const initAdminUi = () => {
 						<div class="gnb-sub-content">
 							<h3 class="sub-title"><span>${menuData.name}</span></h3>
 							<ul class="type-description">
-								${menuData.sub.map(createSubMenuLv3).join('')}
+								${menuData.sub.map(createSubMenuLv3).join("")}
 							</ul>
 						</div>
 						<div class="gnb-sub-banner">
@@ -129,8 +205,8 @@ const initAdminUi = () => {
 				`;
       }
     };
-		const createSubMenuLv3 = (menuData) => {
-			if (menuData.type === "link") {
+    const createSubMenuLv3 = (menuData) => {
+      if (menuData.type === "link") {
         return `<li><a href="${menuData.url}">${menuData.name}</a></li>`;
       } else if (menuData.type === "desc") {
         return `
@@ -144,27 +220,39 @@ const initAdminUi = () => {
       }
     };
 
-		menuData.forEach((item) => list.push(createMenu(item)));
-		menu.innerHTML = list.join("");
-	}
+    menuData.forEach((item) => list.push(createMenu(item)));
+    menu.innerHTML = list.join("");
+  };
 
-	// lnb
-  const adminLnb = (menuData) => {
-    const menu = document.querySelector(".krds-lnb .lnb-list");
-    if (!menu) return;
+  // lnb
+  const adminLnb = (data) => {
+    const wrap = document.querySelector(".krds-lnb");
+    if (!wrap) return;
 
-    let list = [];
+    const title = wrap.querySelector(".lnb-tit");
+    const menu = wrap.querySelector(".lnb-list");
+		let list = [];
+
+    const filterByCategory = (data, category) => {
+      const categoryItem = data.find((item) => item.dir === category);
+      if (categoryItem && categoryItem.sub) {
+				title.innerHTML = categoryItem.category;
+        return categoryItem.sub;
+      }
+      return [];
+		}
+    const menuData = filterByCategory(data, currentDir);
 
     const createMenu = (menuData) => {
       if (menuData.type === "link") {
-				return `<li class="lnb-item"><a href="${menuData.url}" class="lnb-btn lnb-link">${menuData.name}</a></li>`;
+        return `<li class="lnb-item"><a href="./${menuData.file}.html" class="lnb-btn lnb-link">${menuData.name}</a></li>`;
       } else if (menuData.type === "toggle") {
         return `
 					<li class="lnb-item">
 						<button type="button" class="lnb-btn lnb-toggle">${menuData.name}</button>
 						<div class="lnb-submenu">
 							<ul>
-								${menuData.sub.map(createSubMenu).join('')}
+								${menuData.sub.map(createSubMenu).join("")}
 							</ul>
 						</div>
 					</li>
@@ -175,17 +263,17 @@ const initAdminUi = () => {
       if (menuData.type === "link") {
         return `
 					<li class="lnb-subitem">
-						<a href="${menuData.url}" class="lnb-btn lnb-link">${menuData.name}</a>
+						<a href="${menuData.file}" class="lnb-btn lnb-link">${menuData.name}</a>
 					</li>
 				`;
-      } else if (menuData.type === "toggle-lv2") {
+      } else if (menuData.type === "toggle") {
         return `
 					<li class="lnb-subitem">
 						<button type="button" class="lnb-btn lnb-toggle-popup">${menuData.name}</button>
 						<div class="lnb-submenu-lv2">
 							<button type="button" class="lnb-btn-tit">${menuData.name}</button>
 							<ul>
-								${menuData.sub.map(createSubMenuLv2).join('')}
+								${menuData.sub.map(createSubMenuLv2).join("")}
 							</ul>
 						</div>
 					</li>
@@ -193,16 +281,37 @@ const initAdminUi = () => {
       }
     };
     const createSubMenuLv2 = (menuData) => {
-      return `<li><a href="${menuData.url}" class="lnb-btn">${menuData.name}</a></li>`;
+      return `<li><a href="${menuData.file}" class="lnb-btn">${menuData.name}</a></li>`;
     };
 
-		menuData.forEach((item) => list.push(createMenu(item)));
-		menu.innerHTML = list.join("");
+    menuData.forEach((item) => list.push(createMenu(item)));
+    menu.innerHTML = list.join("");
   };
 
-	// run
-	adminGnb(gnbData);
+	const activePage = () => {
+    const lnbLinks = document.querySelectorAll(".krds-lnb .lnb-link");
+    lnbLinks.forEach((link) => {
+      const linkPage = link.getAttribute("href").split("/").slice(-1)[0].replace(".html", "");
+      if (linkPage === currentPage) {
+        link.closest(".lnb-item").classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
+		const gnbLinks = document.querySelectorAll(".krds-gnb .gnb-main-trigger.is-link");
+		gnbLinks.forEach((link) => {
+			const linkDir = link.getAttribute("href").split("/").slice(-2, -1)[0];
+			if (linkDir === currentDir) {
+        link.classList.add("active");
+				link.setAttribute("aria-current", "page");
+      }
+		});
+  }
+
+  // run
+  adminGnb(gnbData);
   adminLnb(lnbData);
+	activePage();
 };
 
 window.addEventListener("DOMContentLoaded", () => {

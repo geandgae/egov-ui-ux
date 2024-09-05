@@ -31,7 +31,9 @@
 			<div class="g-content">
 				<!-- 제목 -->
 				<div class="g-title-area">
-					<h2 class="g-heading-l"><span>컴포넌트</span><strong>페이지네이션 <span class="sub">(Pagination)</span></strong></h2>
+					<h2 class="g-heading-l">
+						<span>컴포넌트</span><strong>페이지네이션 <span class="sub">(Pagination)</span></strong>
+					</h2>
 					<p class="g-desc">
 						페이지네이션은 많은 양의 콘텐츠를 탐색하기 쉽도록 여러 화면에
 						나누고, 분할된 화면을 탐색하는 데 사용되는 요소이다.
@@ -54,9 +56,12 @@
 											여러 화면으로 구분하면 사용자가 데이터를 더 빨리 훑어 보고 탐색할 수 있다.
 										</p>
 									</li>
-									<li><strong>한 화면에 모든 콘텐츠를 표시하면 화면 로딩 시간이 오래 걸릴 때</strong>
-										<p>데이터 집합을 한 화면에 표시하였을 때 목록의 높이가 뷰포트의 2배를 초과하거나, 전체 항목 개수가
-											20개를 초과하는 경우 페이지네이션의 사용을 검토한다.</p>
+									<li>
+										<strong>한 화면에 모든 콘텐츠를 표시하면 화면 로딩 시간이 오래 걸릴 때</strong>
+										<p class="info-txt">
+											데이터 집합을 한 화면에 표시하였을 때 목록의 높이가 뷰포트의 2배를 초과하거나, 전체 항목 개수가
+											20개를 초과하는 경우 페이지네이션의 사용을 검토한다.
+										</p>
 									</li>
 								</ul>
 							</div>
@@ -78,7 +83,6 @@
 											데이터 집합을 한 화면에 표시하였을 때 목록의 높이가 뷰포트의 2배를 초과하지 않거나 전체 항목 개수가
 											20개 이내인 경우 한 화면에서 목록을 탐색하도록 하는 방안을 고려한다. 필요한 경우 필터링/조회 패턴을
 											활용하여 한 화면에 표시된 데이터 목록의 탐색을 도울 수 있다.
-
 										</p>
 									</li>
 									<li>
@@ -88,13 +92,11 @@
 											페이지네이션을 사용하지 않는다. <br>
 											무한 스크롤은 키보드 사용자에게 문제를 야기할 수 있으므로 사용하지 않는 것이 좋으며, 항목 개수에 대한
 											추정치가 있고 사용자가 항목 목록의 끝으로 이동할 필요가 없을 때만 사용한다.
-
 										</p>
 									</li>
 								</ul>
 							</div>
 						</div>
-
 					</div>
 
 					<div class="g-conts-area">
@@ -107,8 +109,7 @@
 								표시되므로 사용자는 목록의 시작이나 끝으로 빠르게 이동할 수 있다.
 							</p>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_01.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_01.png" alt=""></div>
 							</div>
 						</div>
 						<div class="g-conts-area">
@@ -118,8 +119,7 @@
 								링크 목록으로만 탐색하기 어려운 대규모의 데이터 목록 탐색에 적합하다.
 							</p>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_02.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_02.png" alt=""></div>
 							</div>
 						</div>
 						<div class="g-conts-area">
@@ -130,8 +130,7 @@
 								원하는 정보를 탐색하는 것이 어려울 수 있다.
 							</p>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_03.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_03.png" alt=""></div>
 							</div>
 						</div>
 					</div>
@@ -141,47 +140,56 @@
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">숫자 링크 목록</h4>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_04.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_04.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
-								<li><span class="num">1. </span><strong>이전/다음 버튼: </strong>화면 목록을 앞/뒤로 탐색하는 데 사용되는 버튼.
-									아이콘과 텍스트를 조합하여
-									제공하거나, 아이콘과 텍스트를 단독으로 사용할 수 있음 </li>
-								<li><span class="num">2. </span><strong>숫자 링크 목록: </strong>표시된 숫자의 화면으로 이동할 수 있는 링크. 목록의
-									첫 번째 요소는 숫자 '1',
-									마지막 요소는 가장 마지막 화면의 숫자를 표시함 </li>
-								<li><span class="num">3. </span><strong>말줄임표: </strong> 번호 링크 사이에 생략된 숫자가 있음을 표시함 </li>
-								<li><span class="num">4. </span><strong>현재 화면 식별자: </strong>사용자가 현재 탐색하고 있는 화면을 나타냄
+								<li>
+									<span class="num">1. </span><strong>이전/다음 버튼: </strong>
+									화면 목록을 앞/뒤로 탐색하는 데 사용되는 버튼. 아이콘과 텍스트를 조합하여 제공하거나, 아이콘과 텍스트를 단독으로 사용할 수 있음
+								</li>
+								<li>
+									<span class="num">2. </span><strong>숫자 링크 목록: </strong>
+									표시된 숫자의 화면으로 이동할 수 있는 링크. 목록의 첫 번째 요소는 숫자 '1', 마지막 요소는 가장 마지막 화면의 숫자를 표시함
+								</li>
+								<li>
+									<span class="num">3. </span><strong>말줄임표: </strong>
+									번호 링크 사이에 생략된 숫자가 있음을 표시함
+								</li>
+								<li>
+									<span class="num">4. </span><strong>현재 화면 식별자: </strong>
+									사용자가 현재 탐색하고 있는 화면을 나타냄
 								</li>
 							</ol>
 						</div>
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">직접 이동</h4>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_05.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_05.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
-								<li><span class="num">1. </span><strong>숫자 입력 필드: </strong>탐색하고자 하는 화면 번호를 입력할 수 있는 입력
-									필드. 입력 전에는 사용자가 현재
-									보고 있는 화면 번호를 보여줌 </li>
-								<li><span class="num">2. </span><strong>전체 화면 수 레이블: </strong>페이지 숫자 입력 필드 오른쪽에 배치되어 전체
-									화면 수를 보여줌 </li>
-								<li><span class="num">3. </span><strong>이동 버튼: </strong>실행 시 숫자 입력 필드에 입력된 숫자에 해당하는 화면으로
-									이동함</li>
+								<li>
+									<span class="num">1. </span><strong>숫자 입력 필드: </strong>
+									탐색하고자 하는 화면 번호를 입력할 수 있는 입력 필드. 입력 전에는 사용자가 현재 보고 있는 화면 번호를 보여줌
+								</li>
+								<li>
+									<span class="num">2. </span><strong>전체 화면 수 레이블: </strong>
+									페이지 숫자 입력 필드 오른쪽에 배치되어 전체 화면 수를 보여줌
+								</li>
+								<li>
+									<span class="num">3. </span><strong>이동 버튼: </strong>
+									실행 시 숫자 입력 필드에 입력된 숫자에 해당하는 화면으로 이동함
+								</li>
 							</ol>
 						</div>
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">목록 확장</h4>
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_03_06_06.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_03_06_06.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
-								<li><span class="num">1. </span><strong>더보기 버튼: </strong>실행 시 항목을 추가적으로 표시함. "더보기"라는
-									텍스트와 표시된 항목 수, 전체 항목
-									수를 안내하는 분수가 레이블로 제공됨
+								<li>
+									<span class="num">1. </span><strong>더보기 버튼: </strong>
+									실행 시 항목을 추가적으로 표시함. "더보기"라는 텍스트와 표시된 항목 수, 전체 항목 수를 안내하는 분수가 레이블로 제공됨
 								</li>
 							</ol>
 						</div>
@@ -192,8 +200,7 @@
 						<div class="g-conts-area">
 							<ul class="info-list decimal">
 								<li>
-									<strong>페이지네이션에는 첫/마지막 화면, 이전/다음 화면으로
-										이동할 수 있는 수단을 제공한다.</strong>
+									<strong>페이지네이션에는 첫/마지막 화면, 이전/다음 화면으로 이동할 수 있는 수단을 제공한다.</strong>
 									<p class="info-txt">
 										목록 확장형 페이지네이션을 제외하고 사용자는 어떤 페이지에서든 항상 첫 화면, 마지막 화면, 이전 화면,
 										다음 화면으로 이동할 수 있어야 한다.
@@ -214,14 +221,11 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_03_06_07.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_03_06_07.png" alt=""></div>
 									</div>
 								</li>
 								<li>
-									<strong>페이지네이션은 전체 서비스에서 일관된 영역에
-										배치한다.</strong>
+									<strong>페이지네이션은 전체 서비스에서 일관된 영역에 배치한다.</strong>
 									<p class="info-txt">
 										페이지네이션은 유형에 상관없이 목록 하단에 중앙 정렬하여 사용자가 전체 사이트에 걸쳐 일관된 영역에서
 										접근할 수 있도록 한다.
@@ -235,8 +239,7 @@
 									</p>
 								</li>
 								<li>
-									<strong>숫자 링크 목록에는 말줄임표를 포함하여 10개 이내의
-										항목을 표시한다.</strong>
+									<strong>숫자 링크 목록에는 말줄임표를 포함하여 10개 이내의 항목을 표시한다.</strong>
 									<p class="info-txt">
 										필요 이상으로 많은 숫자 링크 목록을 표시하면 인지적 부담이 증가한다.
 									</p>
@@ -259,8 +262,7 @@
 						<div class="g-conts-area">
 							<ul class="info-list decimal">
 								<li>
-									<strong>화면 너비가 충분하지 않은 경우 이전/다음 버튼, 숫자
-										링크 목록을 수직으로 배치한다.</strong>
+									<strong>화면 너비가 충분하지 않은 경우 이전/다음 버튼, 숫자 링크 목록을 수직으로 배치한다.</strong>
 									<p class="info-txt">
 										화면 너비가 충분하지 않다면 데이터 목록 하단에 이전/다음 버튼을 배치하고 그 아래에 숫자 링크 목록을
 										배치한다. 선형적이고 순차적인 방식으로 탐색하는 수단을 더 쉽게 접근할 수 있는 영역에 배치하여,
@@ -270,30 +272,22 @@
 									<div class="g-img-together">
 										<div class="g-img-wrap">
 											<p class="caption">[모범 사례]</p>
-											<div><img
-													src="../../../resources/img/guide/contents/component/component_03_06_08.png"
-													alt=""></div>
+											<div><img src="../../../resources/img/guide/contents/component/component_03_06_08.png" alt=""></div>
 										</div>
 										<div class="g-img-wrap">
 											<p class="caption">[피해야 할 사례]</p>
-											<div><img
-													src="../../../resources/img/guide/contents/component/component_03_06_08_02.png"
-													alt=""></div>
+											<div><img src="../../../resources/img/guide/contents/component/component_03_06_08_02.png" alt=""></div>
 										</div>
 									</div>
 								</li>
 								<li>
-									<strong>화면 너비가 충분하지 않은 경우 숫자 링크 목록은
-										말줄임표를 포함하여 최대 7개 링크를 표시한다.</strong>
+									<strong>화면 너비가 충분하지 않은 경우 숫자 링크 목록은 말줄임표를 포함하여 최대 7개 링크를 표시한다.</strong>
 									<p class="info-txt">
 										더 많은 항목이 제공될 경우, 각 링크를 터치할 수 있는 충분한 영역을 확보하기 어렵다.
-
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_03_06_09.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_03_06_09.png" alt=""></div>
 									</div>
 								</li>
 								<li>
@@ -312,10 +306,9 @@
 						<div class="g-conts-area">
 							<ul class="info-list decimal">
 								<li>
-									<strong>페이지네이션의 컨테이너가 내비게이션 섹션임을 스크린
-										리더에서 인지할 수 있도록 한다.</strong>
+									<strong>페이지네이션의 컨테이너가 내비게이션 섹션임을 스크린 리더에서 인지할 수 있도록 한다.</strong>
 									<p class="info-txt">
-										페이지네이션의 전체 컨테이너는 &lt;nav&gt;로 감싸거나 WAI-ARIA 영역을 role="navigation”으로 지정하여
+										페이지네이션의 전체 컨테이너는 &lt;nav&gt;로 감싸거나 WAI-ARIA 영역을 role="navigation"으로 지정하여
 										스크린 리더에서 내비게이션 요소임을 인지할 수 있도록 제공해야 한다. 내비게이션 섹션에 aria-label
 										속성을 활용하여 어떤 데이터 집합에 대한 페이지네이션인지에 대한 설명을 제공하면 스크린 리더 사용자가
 										보다 명확하게 페이지네이션의 역할을 인지할 수 있다.
@@ -337,11 +330,10 @@
 									</ul>
 								</li>
 								<li>
-									<strong>스크린 리더에서 확인할 수 있는 현재 화면 정보를
-										제공한다.</strong>
+									<strong>스크린 리더에서 확인할 수 있는 현재 화면 정보를 제공한다.</strong>
 									<p class="info-txt">
 										스크린 리더 사용자가 시각적으로 표시된 현재 화면 정보를 동등하게 전달받을 수 있도록 현재 화면 링크의
-										href 속성을 삭제하고 aria-current=”true”를 부여한다.
+										href 속성을 삭제하고 aria-current="true"를 부여한다.
 									</p>
 									<ul class="info-list dash">
 										<li>WCAG 2.1 Name, Role, Value (A)</li>
@@ -359,23 +351,19 @@
 									</ul>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_03_06_10.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_03_06_10.png" alt=""></div>
 									</div>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_03_06_10_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_03_06_10_02.png" alt=""></div>
 									</div>
 								</li>
 								<li>
 									<strong>숫자 링크에 적절한 접근 가능한 이름을 제공한다.</strong>
 									<p class="info-txt">
-										스크린 리더 사용자가 숫자 링크의 용도를 보다 명확하게 인지할 수 있도록 aria-label=”페이지 1”, aria label=”페이지 2”
-										또는 title=”페이지”와 같은 방식으로 접근 가능한 이름이나 보조적 설명을 제공한다.
-										마지막 화면의 경우, aria-label=”마지막 페이지, [숫자]” 또는 title=”마지막 페이지”로 설명을 제공한다.
+										스크린 리더 사용자가 숫자 링크의 용도를 보다 명확하게 인지할 수 있도록 aria-label="페이지 1", aria label="페이지 2"
+										또는 title="페이지"와 같은 방식으로 접근 가능한 이름이나 보조적 설명을 제공한다.
+										마지막 화면의 경우, aria-label="마지막 페이지, [숫자]" 또는 title="마지막 페이지"로 설명을 제공한다.
 									</p>
 									<ul class="info-list dash">
 										<li>KWCAG 2.2 적절한 링크 텍스트</li>
@@ -383,11 +371,9 @@
 									</ul>
 								</li>
 								<li>
-									<strong>이전/다음 화면 이동 버튼을 아이콘으로만 제공하는 경우
-										이름을 제공해야 한다.</strong>
+									<strong>이전/다음 화면 이동 버튼을 아이콘으로만 제공하는 경우 이름을 제공해야 한다.</strong>
 									<p class="info-txt">
-										aria-label=”이전 페이지”, aria-label=”다음 페이지”와 같은 방식으로 버튼에 접근 가능한 이름을
-										제공해야 한다.
+										aria-label="이전 페이지", aria-label="다음 페이지"와 같은 방식으로 버튼에 접근 가능한 이름을 제공해야 한다.
 									</p>
 									<ul class="info-list dash">
 										<li>KWCAG 2.2 적절한 링크 텍스트</li>
@@ -395,8 +381,7 @@
 									</ul>
 								</li>
 								<li>
-									<strong>페이지네이션의 구성 요소를 적절한 크기로 표현하고
-										영역 간 구분을 제공한다.</strong>
+									<strong>페이지네이션의 구성 요소를 적절한 크기로 표현하고 영역 간 구분을 제공한다.</strong>
 									<p class="info-txt">
 										마우스 커서나 손가락으로 선택할 수 있도록 충분히 큰 버튼을 제공하고 실수를 방지하기 위해 버튼 간
 										충분한 간격을 확보한다. 요소의 적절한 크기는 버튼, 링크 컴포넌트 가이드라인을 참조한다.
@@ -441,7 +426,8 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 숫자 링크 목록에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter 로 구성되어있음
+									<caption>
+										상호작용 가이드라인 숫자 링크 목록에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter 로 구성되어있음
 									</caption>
 									<colgroup>
 										<col style="width: 15%">
@@ -477,8 +463,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 페이지 직접 이동에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로
-										구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 페이지 직접 이동에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -513,8 +500,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 목록 확장에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로
-										구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 목록 확장에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로 구성되어있음
+									</caption>
 									<thead>
 										<tr>
 											<th scope="col">구분</th>
@@ -533,8 +521,7 @@
 										<tr>
 											<th scope="row">Space</th>
 											<td>
-												더보기 버튼이 초점을 가진 상태에서 Space 키를 누르면 목록과 더보기 버튼 사이에 새로운 항목이
-												생성된다. <br>
+												더보기 버튼이 초점을 가진 상태에서 Space 키를 누르면 목록과 더보기 버튼 사이에 새로운 항목이 생성된다. <br>
 												화면은 새로 생성된 항목 중 첫 번째 항목으로 스크롤 되며, 해당 요소에 Focus 이벤트가 발생한다. 표시된
 												항목 수 정보가 실제 내용에 맞추어 갱신된다.
 											</td>
@@ -562,13 +549,12 @@
 									@@include("./code/component_03_06_01.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader03_06_01" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse03_06_01">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse03_06_01" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader03_06_01">
+										<h2 id="accordionHeader03_06_01" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse03_06_01">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse03_06_01" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader03_06_01">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">

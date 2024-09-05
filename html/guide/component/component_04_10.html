@@ -31,7 +31,9 @@
 			<div class="g-content">
 				<!-- 제목 -->
 				<div class="g-title-area">
-					<h2 class="g-heading-l"><span>컴포넌트</span><strong>탭 <span class="sub">(Tab)</span></strong></h2>
+					<h2 class="g-heading-l">
+						<span>컴포넌트</span><strong>탭 <span class="sub">(Tab)</span></strong>
+					</h2>
 					<p class="g-desc">
 						탭은 버튼을 눌러 상호배타적인 여러 개의 콘텐츠 섹션을 전환할 수
 						있는 컴포넌트이다. 콘텐츠 섹션은 동일한 영역 내에서 전환되기 때문에
@@ -79,7 +81,6 @@
 												각각의 콘텐츠 섹션을 이해하기 위해 모든 내용을 순서대로 읽어야 하는 경우에는 단계 마법사와 같은
 												패턴이 적합하다. 단계 마법사는 첫 번째 콘텐츠 섹션에서부터 순차적으로 작업을 완료해야 다음 단계의
 												콘텐츠 섹션을 확인할 수 있는 반면, 탭은 사용자가 임의로 콘텐츠 탐색 순서를 결정할 수 있다.
-
 											</p>
 										</li>
 									</ul>
@@ -93,7 +94,6 @@
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">수평 탭</h4>
 							<p class="info-txt">탭이 좌에서 우의 순서로 제공되며 탭과 탭 패널이 상/하로 배치된다.</p>
-
 						</div>
 						<div class="g-conts-area">
 							<h4 class="g-heading-s">수직 탭</h4>
@@ -105,18 +105,14 @@
 						<h3 class="g-heading-m">구조</h3>
 						<div class="g-conts-area">
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_04_10_01.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_04_10_01.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
-								<li><span class="num">1. </span><strong>탭: </strong>사용자와의 상호작용에 반응하는 박스 영역으로 실행 시 각 탭에
-									상응하는 콘텐츠가 탭 패널에
-									표시됨</li>
+								<li><span class="num">1. </span><strong>탭: </strong>사용자와의 상호작용에 반응하는 박스 영역으로 실행 시 각 탭에 상응하는 콘텐츠가 탭 패널에 표시됨</li>
 								<li><span class="num">2. </span><strong>탭 레이블: </strong>표시할 탭 패널의 제목</li>
 								<li><span class="num">3. </span><strong>인디케이터: </strong>탭이 선택된 상태임을 알려주는 시각적인 식별자</li>
 								<li><span class="num">4. </span><strong>탭 패널: </strong>콘텐츠가 표시되는 영역</li>
-								<li><span class="num">5. </span><strong>탭 탐색 버튼(선택): </strong>시각적으로 표시되지 않는 나머지 탭을 탐색하기
-									위한 버튼</li>
+								<li><span class="num">5. </span><strong>탭 탐색 버튼(선택): </strong>시각적으로 표시되지 않는 나머지 탭을 탐색하기 위한 버튼</li>
 							</ol>
 						</div>
 					</div>
@@ -126,28 +122,22 @@
 						<div class="g-conts-area">
 							<ul class="info-list decimal">
 								<li>
-									<strong>사용자가 탭과 탭 패널 간 관계를 명확하게 인지할 수
-										있도록 표현한다.</strong>
+									<strong>사용자가 탭과 탭 패널 간 관계를 명확하게 인지할 수 있도록 표현한다.</strong>
 									<p class="info-txt">
 										탭과 탭 패널을 인접한 영역에 배치하여 탭 패널이 선택된 탭에 관련된 콘텐츠임을 인지할 수 있도록 해야
 										한다. 탭과 탭 패널의 배경색을 동일하게 지정하면 두 요소 간 관련성을 시각적으로 보다 강조할 수 있다.
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례 1]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_02.png" alt=""></div>
 									</div>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례 2]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_02_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_02_02.png" alt=""></div>
 									</div>
 								</li>
 								<li>
-									<strong>탭 레이블은 표시할 콘텐츠 섹션의 정보를 예측할 수 있는
-										명확한 내용으로 제공한다.</strong>
+									<strong>탭 레이블은 표시할 콘텐츠 섹션의 정보를 예측할 수 있는 명확한 내용으로 제공한다.</strong>
 									<p class="info-txt">
 										탭은 선택된 탭을 제외한 나머지 탭의 콘텐츠를 숨기기 때문에 레이블이 명확하지 않으면 사용자 탭을
 										클릭해야 하는지 알 수 없어 필요한 정보가 포함된 탭을 놓칠 수 있다.
@@ -161,14 +151,11 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_03.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_03.png" alt=""></div>
 									</div>
 								</li>
 								<li>
-									<strong>여러 개의 탭을 중첩하는 경우, 서로 다른 수준의 탭이
-										명확하게 구분되도록 표현한다.</strong>
+									<strong>여러 개의 탭을 중첩하는 경우, 서로 다른 수준의 탭이 명확하게 구분되도록 표현한다.</strong>
 									<p class="info-txt">
 										탭은 콘텐츠를 숨겨둔 상태에서 사용자가 콘텐츠의 표시 여부를 선택해야 하기 때문에 사용자의 인지적
 										부담을 더욱 증가시킬 수 있어 여러 개의 탭을 중첩하는 것은 바람직하지 않다. 그러나 불가피하게 탭을
@@ -176,20 +163,15 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_04.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_04.png" alt=""></div>
 									</div>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_04_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_04_02.png" alt=""></div>
 									</div>
 								</li>
 								<li>
-									<strong>수직 탭은 탭을 수평으로 배치하기 어려운 경우에
-										사용한다.</strong>
+									<strong>수직 탭은 탭을 수평으로 배치하기 어려운 경우에 사용한다.</strong>
 									<p class="info-txt">
 										많은 수의 탭을 별도의 탐색 컨트롤을 사용하지 않고 한 번에 확인하는 것이 중요한 경우 수직 탭을 사용할
 										수 있다. 또한 수직 탭은 수평 탭의 높이만큼 공간을 절약할 수 있으므로, 콘텐츠 섹션의 높이가 고정적이고
@@ -199,8 +181,7 @@
 									</p>
 								</li>
 								<li>
-									<strong>탭의 항목 수가 많아 일렬로 배치하기 어려운 경우 별도의
-										탐색 컨트롤을 제공한다.</strong>
+									<strong>탭의 항목 수가 많아 일렬로 배치하기 어려운 경우 별도의 탐색 컨트롤을 제공한다.</strong>
 									<p class="info-txt">
 										탭이 6개를 초과하면 사용자의 인지적인 부담을 증가시키고 레이아웃에 문제가 발생할 수 있다. 모든 탭이
 										영역의 너비에서 넘치지 않고 표시될 수 없는 경우, 숨겨진 탭을 탐색할 수 있는 팝업 버튼을 제공하거나
@@ -208,15 +189,11 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_05.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_05.png" alt=""></div>
 									</div>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_05_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_05_02.png" alt=""></div>
 									</div>
 								</li>
 							</ul>
@@ -240,15 +217,11 @@
 									</ul>
 									<div class="g-img-wrap">
 										<p class="caption">[모범 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_06.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_06.png" alt=""></div>
 									</div>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_04_10_06_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_04_10_06_02.png" alt=""></div>
 									</div>
 								</li>
 								<li>
@@ -277,8 +250,8 @@
 									<strong>탭의 선택 상태를 스크린 리더로 확인할 수 있도록 한다.</strong>
 									<p class="info-txt">
 										탭 레이블과 탭의 선택 상태를 텍스트로 제공하여 스크린 리더에서 정보를 인지할 수 있도록 해야 한다. 탭
-										버튼에 role=”tab”로 역할을 부여하고 선택된 탭에 aria-selected=”true”로 상태 정보를 전달하거나
-										title=”현재 탭”, title=”선택됨”으로 선택 상태에 대한 정보를 제공할 수 있다.
+										버튼에 role="tab"로 역할을 부여하고 선택된 탭에 aria-selected="true"로 상태 정보를 전달하거나
+										title="현재 탭", title="선택됨"으로 선택 상태에 대한 정보를 제공할 수 있다.
 									</p>
 									<ul class="info-list dash">
 										<li>KWCAG 2.2 적절한 대체 텍스트 제공</li>
@@ -286,12 +259,11 @@
 									</ul>
 								</li>
 								<li>
-									<strong>탭과 패널의 역할 및 관계를 스크린 리더로 확인할 수
-										있도록 한다.</strong>
+									<strong>탭과 패널의 역할 및 관계를 스크린 리더로 확인할 수 있도록 한다.</strong>
 									<p class="info-txt">
-										탭 버튼 목록 영역은 role=”tablist”, 탭 버튼은 role=”tab”, 탭 패널은 role=”tabpanel”로 역할을
-										부여한다. 그런 다음 탭 버튼과 탭 패널에 각각 id 속성과 속성값을 부여한 다음, 탭 버튼에는 ariacontrols="[상응하는 탭 패널
-										id 속성값]”, aria-labelledby="[상응하는 탭 버튼 id 속성값]”을 설정하여
+										탭 버튼 목록 영역은 role="tablist", 탭 버튼은 role="tab", 탭 패널은 role="tabpanel"로 역할을
+										부여한다. 그런 다음 탭 버튼과 탭 패널에 각각 id 속성과 속성값을 부여한 다음, 탭 버튼에는 aria-controls="[상응하는 탭 패널
+										id 속성값]", aria-labelledby="[상응하는 탭 버튼 id 속성값]"을 설정하여
 										탭과 패널 간 연결 관계를 프로그램적으로 전달할 수 있다.
 									</p>
 									<ul class="info-list dash">
@@ -311,7 +283,8 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 탭 탐색에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Tab, Shift + Tab 로 구성되어있음
+									<caption>
+										상호작용 가이드라인 탭 탐색에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Tab, Shift + Tab 로 구성되어있음
 									</caption>
 									<colgroup>
 										<col style="width: 15%">
@@ -340,8 +313,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 탭 패널 전환에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter 로
-										구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 탭 패널 전환에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Enter 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -370,9 +344,7 @@
 							</div>
 							<!-- //table list -->
 						</div>
-
 					</div>
-
 				</div>
 				<!-- //설명 -->
 
@@ -388,13 +360,12 @@
 									@@include("./code/component_04_10_01.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader04_10_01" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse04_10_01">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse04_10_01" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader04_10_01">
+										<h2 id="accordionHeader04_10_01" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse04_10_01">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse04_10_01" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader04_10_01">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">
@@ -407,11 +378,9 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<!-- //예시 -->
-
 			</div>
 			<!-- //컨텐츠 영역 -->
 		</div>

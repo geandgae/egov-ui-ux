@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 목록 | 신청 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -41,12 +40,13 @@
 				<div class="search-top-box">
 					<div class="sch-form-wrap">
 						<div class="sch-input">
-							<input type="text" class="form-control" placeholder="검색어를 입력해주세요">
-							<button type="button" class="btn btn-ico ico-sch">
+							<input type="text" class="form-control" placeholder="검색어를 입력해주세요" title="검색어 입력">
+							<button type="button" class="krds-btn medium icon ico-search">
 								<span class="sr-only">검색</span>
+								<i class="svg-icon ico-sch"></i>
 							</button>
 						</div>
-						<button type="button" class="btn btn-txt sm ico-sch1 ico-before">고급검색</button>
+						<button type="button" class="krds-btn medium text"><i class="svg-icon ico-sch1"></i>고급검색</button>
 					</div>
 					<div class="sch-filter-box">
 						<div class="filter-form">
@@ -78,8 +78,9 @@
 						<dl class="filter-chip">
 							<dt>선택된 필터 (<span class="num">2</span>)</dt>
 							<dd>
-								<button type="button" class="btn btn-ico ico-refresh sm-l">
+								<button type="button" class="krds-btn large icon border">
 									<span class="sr-only">새로고침</span>
+									<i class="svg-icon ico-refresh"></i>
 								</button>
 								<div class="chip-wrap">
 									<span class="btn-chip-outline md">
@@ -114,29 +115,29 @@
 					</div>
 					<ul class="sch-sort">
 						<li class="li1 m-hide">
-							<strong class="sort-label">목록 표시 개수</strong>
-							<select class="sort-select">
+							<strong class="sort-label"><label for="search_result_count">목록 표시 개수</label></strong>
+							<select class="sort-select" id="search_result_count">
 								<option>10개</option>
 								<option>9개</option>
 							</select>
 						</li>
 						<li class="li2">
-							<strong class="sort-label">정렬기준</strong>
+							<strong class="sort-label"><label for="sort">정렬기준</label></strong>
 							<div class="w-sort-btn">
 								<button type="button" class="active">관련도순</button>
 								<button type="button">최신순</button>
 								<button type="button">인기순</button>
 							</div>
 							<div class="m-sort-btn">
-								<select class="sort-select">
+								<select class="sort-select" id="sort">
 									<option>관련순개</option>
 									<option>최신순</option>
 									<option>인기순</option>
 								</select>
-								<button type="button" class="btn btn-txt ico-filter"
-									onclick="common.popupEvent('#popFilterId')">
+								<button type="button" class="krds-btn large text ico-filter open-modal" data-target="popFilterId">
 									<span class="span">필터</span>
 									<span class="num">2</span>
+									<i class="svg-icon ico-filter"></i>
 								</button>
 							</div>
 						</li>
@@ -155,17 +156,13 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
 								<p class="c-tit"><span class="span">산모·신생아 건강관리 지원사업</span></p>
 								<p class="c-txt">
-									다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.다문화가정의 자녀가 건강한 사회구성원, 글로벌
-									인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
+									다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
+									다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
 								</p>
 								<p class="c-date">
 									<strong class="key">신청 기간</strong>
@@ -173,12 +170,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -190,10 +191,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -207,12 +204,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -223,11 +224,7 @@
 							</div>
 						</div>
 						<div class="card-top">
-							<span class="krds-badge bg3">방문 신청</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
+							<span class="krds-badge bg3">방문신청</span>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -241,12 +238,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -258,10 +259,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -275,12 +272,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -292,10 +293,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge bg2">신청예정</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -309,12 +306,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary" disabled>신청하기</a>
+								<span class="krds-btn medium secondary disabled">신청하기</span>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -326,10 +327,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge bg2">신청마감</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -343,12 +340,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary" disabled>신청하기</a>
+								<span class="krds-btn medium secondary disabled">신청하기</span>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -360,10 +361,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -377,12 +374,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -394,10 +395,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -411,12 +408,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -428,10 +429,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -445,12 +442,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -462,10 +463,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -479,12 +476,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -496,10 +497,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -513,12 +510,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 					<li class="li">
@@ -530,10 +531,6 @@
 						</div>
 						<div class="card-top">
 							<span class="krds-badge">신청중</span>
-							<div class="btn-area">
-								<button type="button" class="btn sm btn-txt ico-share">공유하기</button>
-								<button type="button" class="btn sm btn-txt ico-like">찜하기</button>
-							</div>
 						</div>
 						<div class="card-body">
 							<a href="#" class="c-text">
@@ -547,12 +544,16 @@
 								</p>
 							</a>
 							<div class="c-btn">
-								<a href="#" class="btn md primary">신청하기</a>
+								<a href="#" class="krds-btn medium secondary">신청하기</a>
 							</div>
 						</div>
 						<div class="card-btm">
 							<span class="tag">청소년</span>
 							<span class="tag">영유아</span>
+						</div>
+						<div class="card-btn">
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-share"></i> 공유하기</button>
+							<button type="button" class="krds-btn medium text"><i class="svg-icon ico-like"></i>찜하기</button>
 						</div>
 					</li>
 				</ul>
@@ -598,9 +599,8 @@
 				<!-- 신청 버튼 -->
 				<div class="page-btn-wrap page-appl-btn">
 					<div class="page-appl-in">
-						<button type="button" class="btn xlg secondary ico-arr-down">2개
-							선택됨</button>
-						<button type="button" class="btn xlg primary">일괄 신청하기</button>
+						<button type="button" class="krds-btn xlarge secondary">2개 선택됨 <i class="svg-icon ico-angle"></i></button>
+						<button type="button" class="krds-btn xlarge primary">일괄 신청하기</button>
 					</div>
 				</div>
 				<!-- //신청 버튼 -->
@@ -618,12 +618,11 @@
 
 	<!-- 레이어 : 검색필터 -->
 	@@include("./inc/popup-filter.html", {
-		"type": "type1",
 		"filtered": "false",
+		"list": "normal"
 	})
 	<!-- //레이어 : 검색필터 -->
 
-	
 	<script>
 		/* 리스트 선택 */
 		const $checks = document.querySelectorAll(".search-list .chk");
@@ -633,23 +632,6 @@
 				el.target.checked ? el.target.closest(".li").classList.add("is-check") : el.target.closest(".li").classList.remove("is-check");
 			});
 		});
-
-		/* layer : 검색필터 */
-		const $tag = document.querySelector(".pop-filter-top .tag-in");
-		const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
-		console.log($tag);
-		console.log($tagBtn);
-		if ($tagBtn) {
-			$tagBtn.addEventListener("click", (e) => {
-				if (!e.target.classList.contains("active")) {
-					$tag.classList.add("is-open");
-					e.target.classList.add("active");
-				} else {
-					$tag.classList.remove("is-open");
-					e.target.classList.remove("active");
-				}
-			});
-		}
 	</script>
 </body>
 

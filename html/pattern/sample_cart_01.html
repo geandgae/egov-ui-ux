@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 목록 | 바구니 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -42,12 +41,12 @@
 					<!-- tab list -->
 					<div class="tab full line">
 						<ul role="tablist">
-							<li id="tab01" aria-selected="true" aria-controls="tabpanel01" class="active">
-								<button type="button" class="btn-tab">본관(3) <i class="sr-only created">
-										선택됨</i></button>
+							<li id="tab01" role="tab" aria-selected="true" aria-controls="tabpanel01" class="active">
+								<button type="button" class="btn-tab">본관(3) <i class="sr-only created">선택됨</i></button>
 							</li>
-							<li id="tab02" aria-selected="false" aria-controls="tabpanel02"><button type="button"
-									class="btn-tab" disabled>디지털도서관(0)</button></li>
+							<li id="tab02" role="tab" aria-selected="false" aria-controls="tabpanel02">
+								<button type="button"class="btn-tab" disabled>디지털도서관(0)</button>
+							</li>
 						</ul>
 					</div>
 					<!-- //tab list -->
@@ -61,7 +60,7 @@
 								<h4 class="outline-tit">시작하기 전에</h4>
 								<ul class="check-list info">
 									<li>신청은 1회 최대 5책을 선택하여 신청할 수 있으며, 다운로드 서비스는 제한 없이 이용하실 수 있습니다.</li>
-									<li>바구니는 신청을 위해 임시보관하며, 자료는 일주일 후 자동 삭제됩니다. (자료의 영구보관은 “스크랩” 이용)</li>
+									<li>바구니는 신청을 위해 임시보관하며, 자료는 일주일 후 자동 삭제됩니다. (자료의 영구보관은 "스크랩" 이용)</li>
 									<li>
 										1983년 이전 발행 자료는 지질이 약하고 산성화가 진행되어 별도의 이용절차로 운영하고 있습니다. <br>
 										<p class="txt-refer">*국립중앙도서관의 자료는 후대에 전승되는 소중한 문화유산입니다. 여러분들의 협력을 부탁 드립니다.</p>
@@ -97,40 +96,48 @@
 										</div>
 										<ul class="side-line-ul">
 											<li>
-												<button type="button" class="btn sm btn-txt ico-email ico-before">목록
-													이메일전송</button>
+												<button type="button" class="krds-btn medium text">
+													<i class="svg-icon ico-email"></i> 
+													목록 이메일전송
+												</button>
 											</li>
 											<li>
-												<button type="button" class="btn sm btn-txt ico-print ico-before">목록
-													인쇄</button>
+												<button type="button" class="krds-btn medium text">
+													<i class="svg-icon ico-print"></i>
+													목록 인쇄
+												</button>
 											</li>
 											<li>
-												<button type="button" class="btn sm btn-txt ico-down ico-before">목록
-													다운로드</button>
+												<button type="button" class="krds-btn medium text">
+													<i class="svg-icon ico-down"></i>
+													목록 다운로드
+												</button>
 											</li>
 											<li>
-												<button type="button"
-													class="btn sm btn-txt ico-scrap ico-before">자료스크랩</button>
+												<button type="button" class="krds-btn medium text">
+													<i class="svg-icon ico-scrap"></i>
+													자료스크랩
+												</button>
 											</li>
 										</ul>
 									</div>
 									<ul class="sch-sort">
 										<li class="li1">
-											<strong class="sort-label">목록 표시 개수</strong>
-											<select class="sort-select">
+											<strong class="sort-label"><label for="search_result_count">목록 표시 개수</label></strong>
+											<select class="sort-select" id="search_result_count">
 												<option>10개</option>
 												<option>9개</option>
 											</select>
 										</li>
 										<li class="li2">
-											<strong class="sort-label">정렬기준</strong>
+											<strong class="sort-label"><label for="sort">정렬기준</label></strong>
 											<div class="w-sort-btn">
 												<button type="button" class="active">관련도순</button>
 												<button type="button">최신순</button>
 												<button type="button">인기순</button>
 											</div>
 											<div class="m-sort-btn">
-												<select class="sort-select">
+												<select class="sort-select" id="sort">
 													<option>관련순개</option>
 													<option>최신순</option>
 													<option>인기순</option>
@@ -154,27 +161,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -190,27 +201,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -226,27 +241,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -262,27 +281,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -298,27 +321,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -334,27 +361,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -370,27 +401,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -406,27 +441,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -442,27 +481,31 @@
 											<div class="card-body">
 												<a href="#" class="c-text">
 													<p><span class="krds-badge">도서</span></p>
-													<p class="c-tit"><span class="span">방구석 오페라 : 아름다운 사랑과 전율의
-															배신, 운명적
-															서사 25편</span></p>
+													<p class="c-tit">
+														<span class="span">방구석 오페라 : 아름다운 사랑과 전율의 배신, 운명적 서사 25편</span>
+													</p>
 													<div class="c-txt">
 														<ul class="c-txt-ul">
 															<li>셰종보 지음; 하은지 옮김</li>
 															<li>더페이지 다빈치하우스 미디어숲</li>
 															<li>2023</li>
-															<li><span class="key">비치일 :</span><span
-																	class="value">20231124</span></li>
-															<li><span class="key">청구기호 :</span><span
-																	class="value">320-23-45<span></span></li>
+															<li>
+																<span class="key">비치일 :</span>
+																<span class="value">20231124</span>
+															</li>
+															<li>
+																<span class="key">청구기호 :</span>
+																<span class="value">320-23-45<span></span>
+															</li>
 														</ul>
-														<p class="c-txt-p"><span class="key">자료이용장소 :</span><span
-																class="value text-primary-60">4층
-																도서자료실(자료실내비치)</span>
+														<p class="c-txt-p">
+															<span class="key">자료이용장소 :</span>
+															<span class="value text-primary-60">4층 도서자료실(자료실내비치)</span>
 														</p>
 													</div>
 												</a>
 												<div class="c-btn">
-													<a href="#" class="btn md primary">신청하기</a>
+													<a href="#" class="krds-btn medium primary">신청하기</a>
 												</div>
 											</div>
 										</div>
@@ -510,28 +553,27 @@
 								<!-- 신청 버튼 -->
 								<div class="page-btn-wrap page-appl-btn">
 									<div class="page-appl-in">
-										<button type="button" class="btn xlg secondary ico-arr-down active">2개
-											선택됨</button>
-										<button type="button" class="btn xlg primary">일괄 신청하기</button>
+										<button type="button" class="krds-btn xlarge secondary">2개 선택됨 <i class="svg-icon ico-angle"></i></button>
+										<button type="button" class="krds-btn xlarge primary">일괄 신청하기</button>
 									</div>
 									<ul class="page-appl-list">
 										<li>
 											<div class="txt">
 												<span class="krds-badge">도서</span>
-												<span class="span">밥 먹여주는 경제학 : 인생 고민,
-													경제학에
-													묻다</span>
+												<span class="span">
+													밥 먹여주는 경제학 : 인생 고민, 경제학에 묻다
+												</span>
 											</div>
-											<button type="button" class="btn btn-txt ico-del ico-before sm">삭제</button>
+											<button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
 										</li>
 										<li>
 											<div class="txt">
 												<span class="krds-badge">도서</span>
-												<span class="span">밥 먹여주는 경제학 : 인생 고민,
-													경제학에
-													묻다</span>
+												<span class="span">
+													밥 먹여주는 경제학 : 인생 고민, 경제학에 묻다
+												</span>
 											</div>
-											<button type="button" class="btn btn-txt ico-del ico-before sm">삭제</button>
+											<button type="button" class="krds-btn medium text"><i class="svg-icon ico-del"></i> 삭제</button>
 										</li>
 									</ul>
 								</div>

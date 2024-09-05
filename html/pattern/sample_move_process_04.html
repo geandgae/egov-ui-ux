@@ -4,7 +4,6 @@
 @@include("./inc/head.html", {
 	"title": "서브 - 전입신고 | 신청 - KRDS",
 })
-</head>
 
 <body>
 	<div id="wrap">
@@ -42,32 +41,32 @@
 					<li class="done">
 						<span>
 							<i class="step">1단계</i>
-							<p class="step-tit">유의사항 확인</p>
+							<span class="step-tit">유의사항 확인</span>
 						</span>
 					</li>
 					<li class="done">
 						<span>
 							<i class="step">2단계</i>
-							<p class="step-tit">신청인 정보</p>
+							<span class="step-tit">신청인 정보</span>
 						</span>
 					</li>
 					<li class="active">
 						<span>
 							<em class="sr-only">현재단계</em>
 							<i class="step">3단계</i>
-							<p class="step-tit">이사 전 살던 곳</p>
+							<span class="step-tit">이사 전 살던 곳</span>
 						</span>
 					</li>
 					<li>
 						<span>
 							<i class="step">4단계</i>
-							<p class="step-tit">이사 온 곳</p>
+							<span class="step-tit">이사 온 곳</span>
 						</span>
 					</li>
 					<li>
 						<span>
 							<i class="step">5단계</i>
-							<p class="step-tit">추가 신청(선택)</p>
+							<span class="step-tit">추가 신청(선택)</span>
 						</span>
 					</li>
 				</ol>
@@ -101,9 +100,7 @@
 															<option value="">구 선택</option>
 															<option value="">성동구</option>
 														</select>
-														<button type=" button" class="btn secondary"
-															onclick="addrSch()">주소
-															조회</button>
+														<button type="button" class="krds-btn large secondary" onclick="addrSch()">주소 조회</button>
 													</div>
 												</div>
 											</div>
@@ -144,10 +141,9 @@
 											<!-- table list -->
 											<div class="tbl-wrap">
 												<table class="tbl col data">
-													<caption>서비스 대상자를 선택하는 표이며, 세대주와의 관계, 성명, 생년월일, 성별로 구성되어있으며 민원 신청인인
-														전출지 전 세대주,새로운
-														세대주,전입지
-														세대주로 구성되어 있음</caption>
+													<caption>
+														서비스 대상자를 선택하는 표이며, 세대주와의 관계, 성명, 생년월일, 성별로 구성되어있으며 민원 신청인인 전출지 전 세대주,새로운 세대주,전입지 세대주로 구성되어 있음
+													</caption>
 													<colgroup>
 														<col style="width: 10%;">
 														<col style="width: 22%;">
@@ -230,7 +226,9 @@
 
 				<!-- 도움말 영역 -->
 				<!-- 도움말 열기 버튼 -->
-				<button type="button" class="btn btn-helper btn-help-exec expand">도움말</button>
+				<button type="button" class="krds-btn medium btn-helper expand btn-help-exec">
+					<i class="svg-icon ico-fold"></i> 도움말
+				</button>
 				<!-- //도움말 열기 버튼 -->
 				<div class="helper-area">
 					<!-- 도움말 내용 -->
@@ -244,13 +242,11 @@
 									<!-- tab list -->
 									<div class="tab line">
 										<ul role="tablist">
-											<li id="helperTab01" aria-selected="true" aria-controls="helperTabpanel01"
-												class="active">
+											<li id="helperTab01" role="tab" aria-selected="true" aria-controls="helperTabpanel01" class="active">
 												<button type="button" class="btn-tab">도움</button>
 											</li>
-											<li id="helperTab02" aria-selected="false" aria-controls="helperTabpanel02">
-												<button type="button" class="btn-tab">따라하기 <i class="sr-only created">
-														선택됨</i></button>
+											<li id="helperTab02" role="tab" aria-selected="false" aria-controls="helperTabpanel02">
+												<button type="button" class="btn-tab">따라하기 <i class="sr-only created">선택됨</i></button>
 											</li>
 										</ul>
 									</div>
@@ -267,26 +263,33 @@
 													<div class="conts-wrap">
 														<h5 class="tit">
 															전자문서지갑
-															<i class="btn btn-ico ico-help sm-m">
+															<span class="krds-btn medium icon">
 																<span class="sr-only">도움말</span>
-															</i>
+																<i class="svg-icon ico-help krds-bg-primary-neutral"></i>
+															</span>
 														</h5>
 														<div class="conts-desc">
-															<p>전자문서지갑은 각종 증명문서를 송수신하고 열람, 증명 할 수 있는 서비스로 모바일에서 애플리케이션 설치
-																후
-																이용할 수 있습니다.</p>
-															<p>전자문서지갑에서는 전자증명서 출력기능을 제공하지 않으며, 스마트폰 화면을 캡쳐하여 사용할 수 없습니다.
-																다만,
-																발급받은 전자증명서를
-																열람용으로 다운로드할 수는 있습니다.</p>
+															<p>
+																전자문서지갑은 각종 증명문서를 송수신하고 열람, 증명 할 수 있는 서비스로 모바일에서 애플리케이션 설치 후 이용할 수 있습니다.
+															</p>
+															<p>
+																전자문서지갑에서는 전자증명서 출력기능을 제공하지 않으며, 스마트폰 화면을 캡쳐하여 사용할 수 없습니다.
+																다만, 발급받은 전자증명서를 열람용으로 다운로드할 수는 있습니다.
+															</p>
 														</div>
 														<ul class="link-list">
-															<li><a href="#" class="btn sm btn-txt ico-go"
-																	target="_blank" title="새 창 열림">안드로이드 애플리케이션 다운로드</a>
+															<li>
+																<a href="#" target="_blank" title="새 창 열림" class="krds-btn medium text">
+																	안드로이드 애플리케이션 다운로드
+																	<i class="svg-icon ico-link"></i>
+																</a>
 															</li>
-															<li><a href="#" class="btn sm btn-txt ico-go"
-																	target="_blank" title="새 창 열림">iOS
-																	애플리케이션 다운로드</a></li>
+															<li>
+																<a href="#" target="_blank" title="새 창 열림" class="krds-btn medium text">
+																	iOS애플리케이션 다운로드
+																	<i class="svg-icon ico-link"></i>
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
@@ -296,21 +299,26 @@
 													<div class="conts-wrap">
 														<h5 class="tit">관련서비스/민원</h5>
 														<ul class="link-list">
-															<li><a href="#" class="btn sm btn-txt">영문 주민등록표등본</a></li>
-															<li><a href="#" class="btn sm btn-txt">영문 주민등록표초본</a></li>
-															<li><a href="#" class="btn sm btn-txt">주민등록표등본</a></li>
+															<li><a href="#" class="krds-btn medium text">영문 주민등록표등본</a></li>
+															<li><a href="#" class="krds-btn medium text">영문 주민등록표초본</a></li>
+															<li><a href="#" class="krds-btn medium text">주민등록표등본</a></li>
 														</ul>
 													</div>
 													<div class="conts-wrap">
 														<h5 class="tit">기타 문의/도움말</h5>
 														<ul class="link-list">
-															<li><a href="#"
-																	class="btn sm btn-txt ico-call ico-before">민원신청
-																	관련 문의 전화 번호
-																	찾기</a></li>
-															<li><a href="#" class="btn sm btn-txt ico-faq ico-before">자주
-																	묻는
-																	질문 확인하기</a></li>
+															<li>
+																<a href="#" class="krds-btn medium text">
+																	<i class="svg-icon ico-call"></i> 
+																	민원신청 관련 문의 전화 번호 찾기
+																</a>
+															</li>
+															<li>
+																<a href="#" class="krds-btn medium text">
+																	<i class="svg-icon ico-faq"></i> 
+																	자주 묻는 질문 확인하기
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
@@ -331,8 +339,9 @@
 							</div>
 							<!-- //도움말 내용 -->
 							<!-- 도움말 닫기 -->
-							<button type="button" class="btn btn-helper fold"><span
-									class="sr-only">도움말</span>접어두기</button>
+							<button type="button" class="krds-btn medium btn-helper fold">
+								<span class="sr-only">도움말</span> 접어두기 <i class="svg-icon ico-fold"></i>
+							</button>
 							<!-- //도움말 닫기 -->
 						</div>
 					</div>
@@ -342,13 +351,10 @@
 
 				<!-- 페이지 버튼 영역 -->
 				<div class="page-btn-wrap both">
-					<button type="button" class="btn xlg tertiary"
-						onclick="history.back(-1); return false;">이전으로</button>
-
+					<button type="button" class="krds-btn xlarge tertiary" onclick="history.back(-1); return false;">이전으로</button>
 					<div class="btn-wrap">
-						<button type="button" class="btn xlg tertiary">임시저장</button>
-						<button type="button" class="btn xlg"
-							onclick="location.href='sample_move_process_05.html'">다음으로</button>
+						<button type="button" class="krds-btn xlarge tertiary">임시저장</button>
+						<button type="button" class="krds-btn xlarge primary" onclick="location.href='sample_move_process_05.html'">다음으로</button>
 					</div>
 				</div>
 				<!-- //페이지 버튼 영역 -->
@@ -364,7 +370,6 @@
 		<!-- //푸터 영역 -->
 	</div>
 
-	
 	<script>
 		function addrSch() {
 			const $addr = document.querySelector("#sch-result-addr");

@@ -31,7 +31,9 @@
 			<div class="g-content">
 				<!-- 제목 -->
 				<div class="g-title-area">
-					<h2 class="g-heading-l"><span>컴포넌트</span><strong>태그 <span class="sub">(Tag)</span></strong></h2>
+					<h2 class="g-heading-l">
+						<span>컴포넌트</span><strong>태그 <span class="sub">(Tag)</span></strong>
+					</h2>
 					<p class="g-desc">
 						태그는 키워드 또는 레이블을 사용하여 콘텐츠를 분류하는 수단이다.
 						콘텐츠 항목에 직접 관련 분류 체계, 데이터 속성을 표시하거나, 목록에서
@@ -66,10 +68,7 @@
 								<ul class="info-list decimal">
 									<li>
 										<strong>상호작용 없이 데이터의 특성 분류, 속성을 강조하여 표현하고자 할 때</strong>
-										<p class="info-txt">
-											배지를 사용한다.
-
-										</p>
+										<p class="info-txt">배지를 사용한다.</p>
 									</li>
 								</ul>
 							</div>
@@ -106,19 +105,14 @@
 						<h3 class="g-heading-m">구조</h3>
 						<div class="g-conts-area">
 							<div class="g-img-wrap">
-								<div><img src="../../../resources/img/guide/contents/component/component_06_04_01.png"
-										alt=""></div>
+								<div><img src="../../../resources/img/guide/contents/component/component_06_04_01.png" alt=""></div>
 							</div>
 							<ol class="info-list ordered fraction">
 								<li><span class="num">1. </span><strong>레이블: </strong>태그를 통해 전달하고자 하는 메타 데이터</li>
 								<li><span class="num">2. </span><strong>컨테이너: </strong>배지를 배경과 구분하는 윤곽선 또는 배경색</li>
-								<li><span class="num">3. </span><strong>삭제 아이콘: </strong>레이블과 관련된 데이터의 필터링을 해제할 수 있음을
-									안내함</li>
-								<li><span class="num">4. </span><strong>일괄 액션 버튼: </strong>태그 그룹 우측에 배치되어 전체 그룹에 대해 한 번에
-									동일한 동작을 수행하는 데
-									사용되는 버튼</li>
-								<li><span class="num">5. </span><strong>더 보기 버튼: </strong>표와 같이 공간이 제한되어 있는 경우 그룹 내 일부
-									토큰을 숨길 수 있음</li>
+								<li><span class="num">3. </span><strong>삭제 아이콘: </strong>레이블과 관련된 데이터의 필터링을 해제할 수 있음을 안내함</li>
+								<li><span class="num">4. </span><strong>일괄 액션 버튼: </strong>태그 그룹 우측에 배치되어 전체 그룹에 대해 한 번에 동일한 동작을 수행하는 데 사용되는 버튼</li>
+								<li><span class="num">5. </span><strong>더 보기 버튼: </strong>표와 같이 공간이 제한되어 있는 경우 그룹 내 일부 토큰을 숨길 수 있음</li>
 							</ol>
 						</div>
 					</div>
@@ -149,8 +143,7 @@
 									</p>
 								</li>
 								<li>
-									<strong>대화형 태그와 비대화형 태그를 같은 그룹에 포함하지
-										않는다.</strong>
+									<strong>대화형 태그와 비대화형 태그를 같은 그룹에 포함하지 않는다.</strong>
 									<p class="info-txt">
 										대화형 태그와 비대화형 태그가 같은 그룹에 혼합되어 있으면 사용자는 어떤 태그가 대화형으로 사용되는지
 										혼동을 느낄 수 있다.
@@ -164,9 +157,7 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_06_04_02.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_06_04_02.png" alt=""></div>
 									</div>
 								</li>
 								<li>
@@ -179,9 +170,7 @@
 									</p>
 									<div class="g-img-wrap">
 										<p class="caption">[피해야 할 사례]</p>
-										<div><img
-												src="../../../resources/img/guide/contents/component/component_06_04_03.png"
-												alt=""></div>
+										<div><img src="../../../resources/img/guide/contents/component/component_06_04_03.png" alt=""></div>
 									</div>
 								</li>
 							</ul>
@@ -208,13 +197,13 @@
 									<strong>대화형 태그에 기능 또는 상태 정보를 명확하게 제공한다.</strong>
 									<p class="info-txt">
 										사용자가 태그를 실행하였을 때 어떤 동작이 발생하는지 예측할 수 있도록 용도에 적합한 접근 가능한
-										이름이나 상태 정보를 제공해야 한다. <br> <br>
+										이름이나 상태 정보를 제공해야 한다. <br><br>
 										필터링/조회 패턴의 일부로서 실행 시 해당 태그를 가진 요소에 대한 필터링 동작이 발생하는 경우: <br>
-										aria-pressed=”true”, aria-pressed=”false” 속성을 활용하여 선택 상태에 대한 정보를 제공 <br>
+										aria-pressed="true", aria-pressed="false" 속성을 활용하여 선택 상태에 대한 정보를 제공 <br>
 										필터링/조회 패턴의 일부로서 실행 시 해당 태그에 대한 필터링 옵션이 해제되는 경우: <br>
-										aria-label=”[태그 레이블] 옵션 삭제” <br>
+										aria-label="[태그 레이블] 옵션 삭제" <br>
 										관련된 항목 주변에 배치되어 실행 시 해당 태그에 대한 필터링 옵션이 설정되는 경우: <br>
-										aria-label=”[태그 레이블] 필터 옵션 추가”
+										aria-label="[태그 레이블] 필터 옵션 추가"
 									</p>
 									<ul class="info-list dash">
 										<li>WCAG 2.1 Name, Role, Value (A)</li>
@@ -231,8 +220,7 @@
 									</ul>
 								</li>
 								<li>
-									<strong>태그 레이블, 아이콘이 인접 배경과 3:1 이상의 명도
-										대비를 갖도록 표현한다.</strong>
+									<strong>태그 레이블, 아이콘이 인접 배경과 3:1 이상의 명도 대비를 갖도록 표현한다.</strong>
 									<p class="info-txt">
 										태그 레이블뿐만 아니라 태그 내부 아이콘이 인접 배경과 3:1 이상의 명도 대비를 갖도록 표현해야 한다.
 										아이콘은 태그를 통해 어떤 동작이 수행될 것인지를 예측하는 데 참고할 수 있는 중요한 정보이다.
@@ -254,8 +242,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 태그 탐색과 실행에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Tab, Space, Enter
-										로 구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 태그 탐색과 실행에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Tab, Space, Enter 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -299,8 +288,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 태그 선택에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로
-										구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 태그 선택에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -337,8 +327,9 @@
 							<!-- table list -->
 							<div class="tbl-wrap">
 								<table class="tbl col data">
-									<caption>상호작용 가이드라인 태그 삭제에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로
-										구성되어있음</caption>
+									<caption>
+										상호작용 가이드라인 태그 삭제에 대한 표로 이동에 대한 표로 구분/설명으로 구성되어있으며 구분 항목은 Click, Space 로 구성되어있음
+									</caption>
 									<colgroup>
 										<col style="width: 15%">
 										<col>
@@ -372,9 +363,7 @@
 							</div>
 							<!-- //table list -->
 						</div>
-
 					</div>
-
 				</div>
 				<!-- //설명 -->
 
@@ -390,13 +379,12 @@
 									@@include("./code/component_06_04_01.html")
 									<!-- //example -->
 								</div>
-								<div class="g-code-wrap accordion">
+								<div class="g-code-wrap krds-accordion">
 									<div class="accordion-item">
-										<h2 id="accordionHeader06_04_01" class="accordion-header"><button type="button"
-												class="btn-accordion" aria-controls="accordionCollapse06_04_01">코드
-												확인하기</button></h2>
-										<div id="accordionCollapse06_04_01" class="accordion-collapse collapse"
-											aria-expanded="false" aria-labelledby="accordionHeader06_04_01">
+										<h2 id="accordionHeader06_04_01" class="accordion-header">
+											<button type="button" class="btn-accordion" aria-controls="accordionCollapse06_04_01">코드 확인하기</button>
+										</h2>
+										<div id="accordionCollapse06_04_01" class="accordion-collapse collapse" aria-expanded="false" aria-labelledby="accordionHeader06_04_01">
 											<div class="accordion-body">
 												<!-- code -->
 												<div class="g-code-box">
@@ -409,11 +397,9 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<!-- //예시 -->
-
 			</div>
 			<!-- //컨텐츠 영역 -->
 		</div>

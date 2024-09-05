@@ -30,8 +30,9 @@
 		<dl class="filter-chip">
 			<dt>선택된 필터 (<span class="num">2</span>)</dt>
 			<dd>
-				<button type="button" class="btn btn-ico ico-refresh sm-l">
+				<button type="button" class="krds-btn large icon border">
 					<span class="sr-only">새로고침</span>
+					<i class="svg-icon ico-refresh"></i>
 				</button>
 				<div class="chip-wrap">
 					<span class="btn-chip-outline md">
@@ -61,127 +62,37 @@
 
 <!-- 검색 결과 : 리스트 상단 -->
 <div class="search-list-top type1">
-	<div class="sch-info">
+	<div class="sch-info" aria-live="assertive">
 		검색 결과 <span class="keyword">24</span>건
 	</div>
 	<ul class="sch-sort">
 		<li class="li1 m-hide">
-			<strong class="sort-label">목록 표시 개수</strong>
-			<select class="sort-select">
+			<strong class="sort-label"><label for="search_result_count">목록 표시 개수</label></strong>
+			<select class="sort-select" id="search_result_count">
 				<option>10개</option>
 				<option>9개</option>
 			</select>
 		</li>
 		<li class="li2">
-			<strong class="sort-label">정렬기준</strong>
+			<strong class="sort-label"><label for="sort">정렬기준</label></strong>
 			<div class="w-sort-btn">
 				<button type="button" class="active">관련도순</button>
 				<button type="button">최신순</button>
 				<button type="button">인기순</button>
 			</div>
 			<div class="m-sort-btn">
-				<select class="sort-select">
-					<option>관련순개</option>
+				<select class="sort-select" id="sort">
+					<option>관련도순</option>
 					<option>최신순</option>
 					<option>인기순</option>
 				</select>
-				<button type="button" class="btn btn-txt ico-filter" onclick="common.popupEvent('#popFilterId')">
+				<button type="button" class="krds-btn large text ico-filter">
 					<span class="span">필터</span>
 					<span class="num">2</span>
+					<i class="svg-icon ico-filter"></i>
 				</button>
 			</div>
 		</li>
 	</ul>
 </div>
 <!-- //검색 결과 : 리스트 상단 -->
-
-<!-- 레이어 : 검색필터 -->
-<div class="popup-wrap" data-type="bottom" id="popFilterId">
-	<div class=" popup-in">
-		<div class="popup">
-			<div class="popup-head">
-				<h1 class="pop-tit">검색필터</h1>
-				<button type="button" class="popup-close">
-					<span class="sr-only">레이어 닫기</span>
-				</button>
-			</div>
-			<div class="popup-body">
-				<div class="pop-filter-top">
-					<dl class="filter-dl">
-						<dt>적용된 필터 (0)</dt>
-						<dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
-					</dl>
-				</div>
-				<ul class="acco-list filter-list is-open">
-					<li class="li">
-						<div class="acco-head">
-							<h4 class="tit">생애 주기</h4>
-							<button type="button" class="btn btn-ico acco-btn">
-								<span class="sr-only">펼침</span>
-							</button>
-						</div>
-						<div class="acco-body">
-							<div class="acco-in">
-								<select class="form-select md">
-									<option value="">전체</option>
-								</select>
-							</div>
-						</div>
-					</li>
-					<li class="li">
-						<div class="acco-head">
-							<h4 class="tit">가구 상황</h4>
-							<button type="button" class="btn btn-ico acco-btn">
-								<span class="sr-only">펼침</span>
-							</button>
-						</div>
-						<div class="acco-body">
-							<div class="acco-in">
-								<select class="form-select md">
-									<option value="">전체</option>
-								</select>
-							</div>
-						</div>
-					</li>
-					<li class="li">
-						<div class="acco-head">
-							<h4 class="tit">관심 주제</h4>
-							<button type="button" class="btn btn-ico acco-btn">
-								<span class="sr-only">펼침</span>
-							</button>
-						</div>
-						<div class="acco-body">
-							<div class="acco-in">
-								<select class="form-select md">
-									<option value="">전체</option>
-								</select>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="popup-btm">
-				<button type="button" class="btn xlg tertiary">모든 조건 삭제</button>
-				<button type="button" class="btn xlg">적용하기</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- //레이어 : 검색필터 -->
-
-<script>
-	/* layer : 검색필터 */
-	const $tag = document.querySelector(".pop-filter-top .tag-in");
-	const $tagBtn = document.querySelector(".pop-filter-top #btn-toggle");
-	if ($tagBtn) {
-		$tagBtn.addEventListener("click", (e) => {
-			if (!e.target.classList.contains("active")) {
-				$tag.classList.add("is-open");
-				e.target.classList.add("active");
-			} else {
-				$tag.classList.remove("is-open");
-				e.target.classList.remove("active");
-			}
-		});
-	}
-</script>
