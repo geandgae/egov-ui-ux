@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include("../inc/head.html", { "title": "example - KRDS", })
+
+  <body>
+    <div id="wrap" class="g-wrap">
+      @@include("../inc/guide-header.html")
+
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- 컨텐츠 영역 -->
+        <div class="inner in-between">
+          <!-- 사이드 메뉴 -->
+          <nav class="krds-lnb sample">
+            <h2 class="lnb-tit">1Depth-title</h2>
+            <!-- lnb-list -->
+            <ul class="lnb-list">
+              <li class="lnb-item">
+                <button type="button" class="lnb-btn lnb-toggle">2Depth-menu</button>
+                <!-- lnb-submenu -->
+                <div class="lnb-submenu">
+                  <ul>
+                    <li class="lnb-subitem">
+                      <button type="button" class="lnb-btn lnb-toggle-popup">3Depth-menu</button>
+                      <!-- lnb-submenu-lv2 -->
+                      <div class="lnb-submenu-lv2">
+                        <button type="button" class="lnb-btn-tit">3Depth-title</button>
+                        <ul>
+                          <li><a href="#" class="lnb-btn">4Depth</a></li>
+                        </ul>
+                      </div>
+                      <!-- //lnb-submenu-lv2 -->
+                    </li>
+                    <li class="lnb-subitem"><a href="#;" class="lnb-btn lnb-link">3Depth-link</a></li>
+                  </ul>
+                </div>
+                <!-- //lnb-submenu -->
+              </li>
+            </ul>
+            <!-- //lnb-list -->
+          </nav> 
+          <!-- //사이드 메뉴 -->
+
+          <!-- contents -->
+          <div class="contents">
+            <!-- breadcrumb -->
+            @@include("../inc/page-breadcrumb.html")
+            <!-- breadcrumb -->
+
+            <!-- page-title -->
+            @@include("../inc/page-title.html", { "desc" : '탭은 버튼을 눌러 상호배타적인 여러 개의 콘텐츠 섹션을 전환할 수 있는 컴포넌트이다. 콘텐츠 섹션은 동일한 영역 내에서 전환되기 때문에 정보를 탐색하는 맥락을 유지할 수 있고 작은 공간에 많은 양의 콘텐츠를 효과적으로 표현할 수 있다.' })
+            <!-- //page-title -->
+
+            <!-- quick-nav-type -->
+            <div class="conts-area quick-nav-type">
+              <div class="conts-detail-wrap">
+                <!-- quick link -->
+                @@include("../inc/page-quick-nav.html")
+                <!-- //quick link -->
+
+                <!-- scroll-check -->
+                <div class="g-description-area scroll-check">
+                  <!-- section-link -->
+                  <div class="g-conts-area section-link">
+                    <h3 class="sec-tit">예시</h3>
+                    <!-- @@include("./page-example.html",{ "example": [ 
+                      { title: "유형 1", folder: "component", file: "component_04_10_01" }, 
+                    ]}) -->
+                  </div>
+                  <!-- //section-link -->
+
+                  <!-- section-link -->
+                  <div class="g-conts-area section-link">
+                    <h3 class="sec-tit">마크업 가이드</h3>
+                    <div class="g-conts-area">
+                      <h4 class="con-tit">css 선택자</h4>
+                      <!-- table list -->
+                      <div class="tbl-wrap">
+                        <table class="tbl col data">
+                          <caption>
+                            마크업 가이드 CSS 선택자에 대한 표로 필수/선택으로 구성되어있으며 구분 항목은 탭 전체영역, 레이어 탭, 탭 레이블 영역, 선택된
+                            탭, 탭 패널로 구성되어있음
+                          </caption>
+                          <colgroup>
+                            <col style="width: 20%" />
+                            <col />
+                            <col style="width: 20%" />
+                            <col />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col" colspan="2">필수</th>
+                              <th scope="col" colspan="2">선택</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">탭 전체영역</th>
+                              <td>.tab-area</td>
+                              <th scope="row">레이어 탭</th>
+                              <td>.layer</td>
+                            </tr>
+                            <tr>
+                              <th scope="row" rowspan="2">탭 레이블 영역</th>
+                              <td rowspan="2">.tab.line (라인형)<br />.tab.fill (버튼형)</td>
+                              <th scope="row">레이아웃에 꽉 차게</th>
+                              <td>.full</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">선택된 탭</th>
+                              <td>.active (.tab > ul > li)</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">탭 전체영역</th>
+                              <td colspan="3">.btn-tab</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">탭 전체영역</th>
+                              <td colspan="3">.tab-conts-wrap</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">탭 패널</th>
+                              <td>.tab-conts</td>
+                              <th scope="row">레이어 탭</th>
+                              <td>.active</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- //table list -->
+                    </div>
+                  </div>
+                  <!-- //section-link -->
+                </div>
+                <!-- //scroll-check -->
+
+              </div>
+            </div>
+            <!-- //quick-nav-type -->
+          </div>
+          <!-- //contents -->
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      <!-- 푸터 영역 -->
+      <footer id="footer">@@include("../inc/guide-footer.html")</footer>
+      <!-- //푸터 영역 -->
+    </div>
+  </body>
+</html>

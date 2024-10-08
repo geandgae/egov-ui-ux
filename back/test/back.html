@@ -1,0 +1,330 @@
+<section id="popFilterId" class="modal fade">
+  <!-- modal-dialog -->
+  <div class="modal-dialog    popup-in2">
+    <div class="modal-content    popup2">
+      <!-- modal title -->
+      <div class="modal-header    popup-head2">
+        <h2 class="modal-title">검색필터</h2>
+      </div>
+      <!-- //modal title -->
+      <!-- modal contents -->
+      <div class="modal-conts    popup-body2">
+        <div class="pop-filter-top">
+          @@if (filtered === "false") {
+          <!-- 적용된 필터가 없을 경우 노출 -->
+          <dl class="filter-dl">
+            <dt>적용된 필터 (0)</dt>
+            <dd>적용된 필터가 없습니다. 검색 필터를 통해 상세한 검색을 해보세요</dd>
+          </dl>
+          <!-- //적용된 필터가 없을 경우 노출 -->
+          } @@if (filtered === "true") {
+          <!-- 적용된 필터가 있을 경우 노출 -->
+          <div class="filter-tag-wrap">
+            <button type="button" class="btn btn-ico ico-refresh sm-l">
+              <span class="sr-only">새로고침</span>
+            </button>
+            <div class="tag-in">
+              <span class="btn-chip-outline md">
+                유아
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                임신출산
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                아동청소년
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                뉴스
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자주 묻는 질문
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                자료
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+              <span class="btn-chip-outline md">
+                정책
+                <button type="button" class="btn-del">
+                  <span class="sr-only">삭제</span>
+                </button>
+              </span>
+            </div>
+            <div class="tag-btn">
+              <button type="button" class="btn btn-ico ico-toggle-r sm-l" id="btn-toggle">
+                <span class="sr-only">열기</span>
+              </button>
+            </div>
+          </div>
+          <!-- //적용된 필터가 있을 경우 노출 -->
+          }
+        </div>
+        <ul class="filter-list is-open accordion" data-type="" ="multiOpen">
+          @@if (list === "normal") {
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit"><label for="select1">생애 주기</label></div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <select class="form-select md" id="select1">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <div class="tit"><label for="select2">가구 상황</label></div>
+                <div class="tit">가구 상황</div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <select class="form-select md" id="select2">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit"><label for="select3">관심 주제</label></div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <select class="form-select md" id="select3">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          } @@if (list === "quest") {
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit"><label for="select4">정책 분야</label></div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <select class="form-select md" id="select4">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit"><label for="select5">대상자</label></div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <select class="form-select md" id="select5">
+                  <option value="">전체</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          } @@if (list === "all") {
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit">검색대상<span class="num">4</span></div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_1" />
+                    <label for="filter-target_chk_1">메뉴 (2)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_2" />
+                    <label for="filter-target_chk_2">뉴스 (2,301)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_3" />
+                    <label for="filter-target_chk_3">자주 묻는 질문 (39)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_4" />
+                    <label for="filter-target_chk_4">자료 (18,201)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_5" />
+                    <label for="filter-target_chk_5">정책 (32)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-target_chk_6" />
+                    <label for="filter-target_chk_6">법령 (392)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit">검색 기간</div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <!-- 날짜 기간 선택 -->
+                <div class="form-group">
+                  <div class="chip-wrap">
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1a" />
+                      <label class="form-chip-outline" for="rdo_chip_date1a">1개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1b" />
+                      <label class="form-chip-outline" for="rdo_chip_date1b">3개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1c" />
+                      <label class="form-chip-outline" for="rdo_chip_date1c">6개월</label>
+                    </div>
+                    <div class="form-chip sm">
+                      <input type="radio" class="radio" name="rdo_chip_date" id="rdo_chip_date1d" />
+                      <label class="form-chip-outline" for="rdo_chip_date1d">1년</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-conts datepicker-conts">
+                    <ul class="input-group range">
+                      <li>
+                        <label for="datepicker1" class="form-tit">시작날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker1" placeholder="" />
+                      </li>
+                      <li class="mark sm">-</li>
+                      <li>
+                        <label for="datepicker2" class="form-tit">종료날짜</label>
+                        <input type="number" class="form-control datepicker sm" id="datepicker2" placeholder="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //날짜 기간 선택 -->
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit">자료 유형</div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_1" />
+                    <label for="filter-data_chk_1">PDF (234)</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-data_chk_2" />
+                    <label for="filter-data_chk_2">HWP (220)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit">자료 이용 장소</div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_1" />
+                    <label for="filter-place_chk_1">장소1</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-place_chk_2" />
+                    <label for="filter-place_chk_2">장소2</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="li accordion-item">
+            <h4 class="accordion-header">
+              <button type="button" class="btn-accordion">
+                <div class="tit">자료 언어</div>
+              </button>
+            </h4>
+            <div class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row chk-area chk-column">
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_1" />
+                    <label for="filter-lang_chk_1a">영어</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="filter-lang_chk_2" />
+                    <label for="filter-lang_chk_2">일본어</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          }
+        </ul>
+      </div>
+      <!-- //modal contents -->
+      <!-- modal btn -->
+      <div class="modal-btn btn-wrap    popup-btm2">
+        <button type="button" class="btn xlg tertiary close-modal">모든 조건 삭제</button>
+        <button type="button" class="btn xlg close-modal">적용하기</button>
+      </div>
+      <!-- //modal btn -->
+      <!-- close button -->
+      <button type="button" class="btn-close close-modal"><span class="sr-only">닫기</span></button>
+      <!-- //close button -->
+    </div>
+  </div>
+  <!-- //modal-dialog -->
+  <div class="modal-back"></div>
+</section>

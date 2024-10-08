@@ -1,0 +1,1771 @@
+sample_appl_01.html:
+
+기준 클래스 포함된 클래스 갯수: 50
+
+기준 클래스 포함되지 않은 클래스 갯수: 29
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- bg3
+- bg2
+- prev
+- next
+
+
+
+sample_appl_0103.html:
+
+기준 클래스 포함된 클래스 갯수: 59
+
+기준 클래스 포함되지 않은 클래스 갯수: 33
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- 
+- in
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- sm
+- bg3
+- bg2
+- prev
+- next
+- xlg
+
+
+
+sample_appl_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 59
+
+기준 클래스 포함되지 않은 클래스 갯수: 32
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- 
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- sm
+- bg3
+- bg2
+- prev
+- next
+- xlg
+
+
+
+sample_appl_02.html:
+
+기준 클래스 포함된 클래스 갯수: 46
+
+기준 클래스 포함되지 않은 클래스 갯수: 30
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- guide-txt
+- pc-only
+- sec-tit
+- scroll-check
+- def-list
+- col
+- data
+- ar
+- info-list
+- decimal
+- dash
+- refer
+- br
+- calc-wrap
+- total-txt
+- calc-list
+- num
+- tit-area
+- tit
+- period
+- text
+- medium
+- fieldset
+- sm
+- guide
+- mob-only
+
+
+
+sample_appl_0201.html:
+
+기준 클래스 포함된 클래스 갯수: 51
+
+기준 클래스 포함되지 않은 클래스 갯수: 32
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- guide-txt
+- pc-only
+- sec-tit
+- line
+- created
+- scroll-check
+- def-list
+- col
+- data
+- ar
+- info-list
+- decimal
+- dash
+- refer
+- br
+- calc-wrap
+- total-txt
+- calc-list
+- num
+- tit-area
+- tit
+- period
+- text
+- medium
+- fieldset
+- sm
+- guide
+- mob-only
+
+
+
+sample_appl_0302.html:
+
+기준 클래스 포함된 클래스 갯수: 51
+
+기준 클래스 포함되지 않은 클래스 갯수: 25
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- sm-m
+- outline
+- outline-tit
+- outline-txt
+- check-list
+- bg-white
+- row
+- 
+- full
+- lg
+- md
+- layer
+- line
+- created
+- tit
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_appl_0102.html:
+
+기준 클래스 포함된 클래스 갯수: 50
+
+기준 클래스 포함되지 않은 클래스 갯수: 30
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- in
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- bg3
+- bg2
+- prev
+- next
+
+
+
+sample_appl_03.html:
+
+기준 클래스 포함된 클래스 갯수: 26
+
+기준 클래스 포함되지 않은 클래스 갯수: 19
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- between
+- h-tit
+- sec-tit
+- outline
+- outline-tit
+- outline-txt
+- br
+- check-list
+- col
+- data
+- info-list
+- decimal
+- fieldset
+- both
+- xlg
+
+
+
+sample_appl_0301.html:
+
+기준 클래스 포함된 클래스 갯수: 53
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- sm-m
+- outline
+- outline-tit
+- outline-txt
+- type1
+- sec-tit
+- info-list
+- decimal
+- bg-white
+- addr-division
+- addr-number
+- row
+- 
+- lg
+- layer
+- line
+- created
+- tit
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_appl_0303.html:
+
+기준 클래스 포함된 클래스 갯수: 55
+
+기준 클래스 포함되지 않은 클래스 갯수: 33
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- outline
+- outline-tit
+- check-list
+- info
+- txt-refer
+- list-bullet
+- bg-white
+- book-info-ul
+- key
+- value
+- sm-m
+- text-right
+- 
+- row
+- lg
+- full
+- textarea-wrap
+- textarea-count
+- text-num
+- layer
+- line
+- created
+- tit
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_appl_0304.html:
+
+기준 클래스 포함된 클래스 갯수: 28
+
+기준 클래스 포함되지 않은 클래스 갯수: 13
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- between
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- w-hide
+- both
+- xlg
+
+
+
+sample_appl_0305.html:
+
+기준 클래스 포함된 클래스 갯수: 32
+
+기준 클래스 포함되지 않은 클래스 갯수: 18
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- between
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- col
+- data
+- text-center
+- both
+- xlg
+
+
+
+sample_assess_01.html:
+
+기준 클래스 포함된 클래스 갯수: 23
+
+기준 클래스 포함되지 않은 클래스 갯수: 13
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- bg-gray
+- radio
+- li
+- md
+- full
+- textarea-wrap
+- textarea-count
+- text-num
+- tit
+- txt
+
+
+
+sample_appl_04.html:
+
+기준 클래스 포함된 클래스 갯수: 9
+
+기준 클래스 포함되지 않은 클래스 갯수: 11
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- comp-msg-wrap
+- point
+- key
+- value
+- p
+- xlg
+- tit
+- sm
+
+
+
+sample_cart_01.html:
+
+기준 클래스 포함된 클래스 갯수: 55
+
+기준 클래스 포함되지 않은 클래스 갯수: 37
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- layer
+- full
+- line
+- created
+- outline
+- outline-tit
+- check-list
+- info
+- txt-refer
+- list-bullet
+- type1
+- align-top
+- 
+- side-line-ul
+- sm
+- li1
+- sort-label
+- li2
+- type2
+- li
+- in
+- c-text
+- c-tit
+- span
+- c-txt
+- c-txt-ul
+- key
+- value
+- c-txt-p
+- md
+- prev
+- next
+- xlg
+
+
+
+sample_coach_0102.html:
+
+기준 클래스 포함된 클래스 갯수: 62
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- desc
+- num
+- sm
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- tit
+- current
+- list-bullet
+- fold
+- both
+- xlg
+
+
+
+sample_coach_01.html:
+
+기준 클래스 포함된 클래스 갯수: 59
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- xsm
+- collapse
+- info-txt
+- info-list
+- decimal
+- sm
+- fold
+- both
+- xlg
+
+
+
+sample_coach_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 62
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- desc
+- num
+- sm
+- m-column
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- tit
+- current
+- list-bullet
+- fold
+- both
+- xlg
+
+
+
+sample_coach_0103.html:
+
+기준 클래스 포함된 클래스 갯수: 62
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- desc
+- num
+- sm
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- tit
+- current
+- list-bullet
+- fold
+- both
+- xlg
+
+
+
+sample_coach_0105.html:
+
+기준 클래스 포함된 클래스 갯수: 63
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- sm
+- tit
+- current
+- list-bullet
+- fold
+- both
+- xlg
+- desc
+- num
+
+
+
+sample_coach_0104.html:
+
+기준 클래스 포함된 클래스 갯수: 63
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- sm
+- tit
+- current
+- list-bullet
+- fold
+- both
+- xlg
+- desc
+- num
+
+
+
+sample_footer_link.html:
+
+기준 클래스 포함된 클래스 갯수: 2
+
+기준 클래스 포함되지 않은 클래스 갯수: 4
+포함되지 않은 클래스들:
+- scroll-no
+- home
+- txt
+- inner
+
+
+
+sample_helper_type2.html:
+
+기준 클래스 포함된 클래스 갯수: 54
+
+기준 클래스 포함되지 않은 클래스 갯수: 29
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- flexible
+- h-tit
+- sm-m
+- outline
+- outline-tit
+- outline-txt
+- type1
+- sec-tit
+- info-list
+- decimal
+- bg-white
+- addr-division
+- addr-number
+- row
+- 
+- lg
+- layer
+- line
+- created
+- tit
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_login_02.html:
+
+기준 클래스 포함된 클래스 갯수: 33
+
+기준 클래스 포함되지 않은 클래스 갯수: 20
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- small-txt
+- layer
+- line
+- full
+- created
+- text-gray-70
+- br
+- login-wrap
+- in
+- fieldset
+- md
+- login-info-wrap
+- tit
+- login-method
+- sm
+- info-list
+- decimal
+
+
+
+sample_login_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 26
+
+기준 클래스 포함되지 않은 클래스 갯수: 14
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- small-txt
+- login-opt-wrap
+- sm
+- login-wrap
+- fieldset
+- md
+- login-info-wrap
+- info-list
+- decimal
+- join-member-bn-wrap
+- txt-desc
+
+
+
+sample_login_01.html:
+
+기준 클래스 포함된 클래스 갯수: 17
+
+기준 클래스 포함되지 않은 클래스 갯수: 27
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- small-txt
+- h-txt
+- br
+- login-type
+- login-opt-wrap
+- sm
+- certify-sel-wrap
+- certify-option
+- certify-opt-tit
+- certify-type
+- mobile
+- type-tit
+- type-desc
+- pc-only
+- public
+- simplicity
+- sns
+- mob-line
+- id
+- guest
+- join-member-bn-wrap
+- txt-desc
+- info-list
+- decimal
+
+
+
+sample_login_04.html:
+
+기준 클래스 포함된 클래스 갯수: 37
+
+기준 클래스 포함되지 않은 클래스 갯수: 21
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- sec-tit
+- m-hide
+- bg-white
+- mgt0
+- xsm
+- txt
+- tit
+- border
+- xlarge
+- left
+- right
+- in
+- info-list
+- ordered
+- fraction
+- num
+- dash
+- decimal
+
+
+
+sample_login_03.html:
+
+기준 클래스 포함된 클래스 갯수: 6
+
+기준 클래스 포함되지 않은 클래스 갯수: 12
+포함되지 않은 클래스들:
+- inner
+- narrow
+- h-tit
+- small-txt
+- w-hide
+- h-txt
+- m-hide
+- login-type-ul
+- in
+- tit
+- txt
+- text-bold
+
+
+
+sample_main_01.html:
+
+기준 클래스 포함된 클래스 갯수: 37
+
+기준 클래스 포함되지 않은 클래스 갯수: 40
+포함되지 않은 클래스들:
+- main-vban-wrap
+- bg
+- inner
+- in
+- text
+- tit
+- w-hide
+- txt
+- xlg
+- im
+- text-center
+- main-sect
+- main-tit-wrap
+- sm
+- menu-list
+- type1
+- outline
+- menu-item
+- i1
+- i2
+- i3
+- i4
+- i5
+- i6
+- i7
+- i8
+- contents-wrap
+- contents-text
+- medium
+- contents-list
+- c-tit
+- c-txt
+- policy-list
+- line
+- layer
+- created
+- news-list
+- d-row
+- service-list
+- d-responsive
+
+
+
+sample_main_02.html:
+
+기준 클래스 포함된 클래스 갯수: 42
+
+기준 클래스 포함되지 않은 클래스 갯수: 40
+포함되지 않은 클래스들:
+- main-vban-wrap
+- inner
+- d-auto
+- in
+- vert
+- xlg
+- dl
+- ranking-txt
+- ranking-state
+- up
+- same
+- down
+- d-row
+- main-d-text
+- tit
+- txt
+- im
+- d-fix
+- d-login-wrap
+- md
+- main-sect
+- main-tit-wrap
+- sm
+- menu-list
+- type2
+- menu-item
+- i1
+- text
+- medium
+- policy-list
+- line
+- c-tit
+- c-txt
+- i2
+- i3
+- type-wrap
+- one-serv-wrap
+- cate
+- bgm
+- service-list
+
+
+
+sample_main_0102.html:
+
+기준 클래스 포함된 클래스 갯수: 42
+
+기준 클래스 포함되지 않은 클래스 갯수: 44
+포함되지 않은 클래스들:
+- danger
+- sm
+- m-hide
+- ok
+- info
+- main-vban-wrap
+- bg
+- inner
+- in
+- text
+- tit
+- w-hide
+- txt
+- xlg
+- im
+- text-center
+- main-sect
+- main-tit-wrap
+- menu-list
+- type1
+- outline
+- menu-item
+- i1
+- i2
+- i3
+- i4
+- i5
+- i6
+- i7
+- i8
+- contents-wrap
+- contents-text
+- medium
+- contents-list
+- c-tit
+- c-txt
+- policy-list
+- line
+- layer
+- created
+- news-list
+- d-row
+- service-list
+- d-responsive
+
+
+
+sample_main_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 39
+
+기준 클래스 포함되지 않은 클래스 갯수: 42
+포함되지 않은 클래스들:
+- main-vban-wrap
+- inner
+- in
+- main-d-text
+- tit
+- txt
+- im
+- d-row
+- main-sect
+- main-tit-wrap
+- sm
+- menu-list
+- type1
+- menu-item
+- i1
+- i2
+- i3
+- i4
+- i5
+- i6
+- i7
+- i8
+- w-hide
+- text
+- medium
+- main-noti-wrap
+- line
+- date
+- c-tit
+- c-txt
+- type-wrap
+- d-auto
+- one-serv-wrap
+- cate
+- d-fix
+- layer
+- created
+- news-list
+- bg
+- policy-list
+- bgm
+- d-responsive
+
+
+
+sample_main_0201.html:
+
+기준 클래스 포함된 클래스 갯수: 42
+
+기준 클래스 포함되지 않은 클래스 갯수: 47
+포함되지 않은 클래스들:
+- main-vban-wrap
+- inner
+- d-auto
+- in
+- vert
+- xlg
+- dl
+- ranking-txt
+- ranking-state
+- up
+- same
+- down
+- d-row
+- main-d-text
+- tit
+- txt
+- im
+- d-fix
+- main-tit-wrap
+- sm
+- main-sect
+- menu-list
+- type2
+- menu-item
+- i1
+- text
+- outline
+- xsm
+- date
+- bg
+- cate
+- medium
+- policy-list
+- line
+- c-tit
+- c-txt
+- i2
+- i3
+- type-wrap
+- one-serv-wrap
+- contents-wrap
+- contents-text
+- contents-list
+- text-center
+- w-hide
+- bgm
+- service-list
+
+
+
+sample_main_03.html:
+
+기준 클래스 포함된 클래스 갯수: 39
+
+기준 클래스 포함되지 않은 클래스 갯수: 40
+포함되지 않은 클래스들:
+- main-vban-wrap
+- inner
+- vert
+- xlg
+- bg2
+- main-sect
+- main-tit-wrap
+- tit
+- sm
+- menu-list-rel
+- li1
+- fill
+- in
+- text
+- c-tit
+- c-txt
+- medium
+- li2
+- d-auto
+- outline
+- xsm
+- date
+- d-fix
+- bg
+- cate
+- im
+- type-wrap
+- one-serv-wrap
+- main-d-text
+- txt
+- contents-wrap
+- contents-text
+- contents-list
+- i1
+- i2
+- i3
+- d-responsive
+- bgm
+- service-list
+- line
+
+
+
+sample_main_0301.html:
+
+기준 클래스 포함된 클래스 갯수: 40
+
+기준 클래스 포함되지 않은 클래스 갯수: 39
+포함되지 않은 클래스들:
+- main-vban-wrap
+- inner
+- vert
+- xlg
+- bg2
+- main-sect
+- main-tit-wrap
+- tit
+- sm
+- menu-list-rel
+- outline
+- li1
+- line
+- in
+- text
+- c-tit
+- c-txt
+- medium
+- li2
+- d-auto
+- xsm
+- date
+- d-fix
+- bg
+- cate
+- im
+- type-wrap
+- one-serv-wrap
+- main-d-text
+- txt
+- contents-wrap
+- contents-text
+- contents-list
+- i1
+- i2
+- i3
+- d-responsive
+- bgm
+- service-list
+
+
+
+sample_move_process_01.html:
+
+기준 클래스 포함된 클래스 갯수: 37
+
+기준 클래스 포함되지 않은 클래스 갯수: 23
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- guide-txt
+- pc-only
+- sec-tit
+- scroll-check
+- def-list
+- sm
+- refer
+- info-list
+- decimal
+- num
+- tit-area
+- tit
+- period
+- text
+- medium
+- col
+- data
+- guide
+- mob-only
+
+
+
+sample_move_process_03.html:
+
+기준 클래스 포함된 클래스 갯수: 46
+
+기준 클래스 포함되지 않은 클래스 갯수: 18
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- fieldset-msg
+- bg-white
+- row
+- lg
+- tit
+- sm-m
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_move_process_02.html:
+
+기준 클래스 포함된 클래스 갯수: 42
+
+기준 클래스 포함되지 않은 클래스 갯수: 23
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- sec-tit
+- outline
+- outline-tit
+- outline-txt
+- br
+- check-list
+- col
+- data
+- info-list
+- decimal
+- fieldset
+- tit
+- sm-m
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_move_process_05.html:
+
+기준 클래스 포함된 클래스 갯수: 55
+
+기준 클래스 포함되지 않은 클래스 갯수: 24
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- fieldset-msg
+- bg-white
+- addr-division
+- addr-number
+- m-column
+- row
+- lg
+- col
+- data
+- text-center
+- tit
+- sm-m
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_move_process_04.html:
+
+기준 클래스 포함된 클래스 갯수: 57
+
+기준 클래스 포함되지 않은 클래스 갯수: 26
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- m-column
+- info-ul
+- key
+- value
+- w-hide
+- col
+- data
+- text-center
+- layer
+- line
+- created
+- tit
+- sm-m
+- sm
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_move_process_06.html:
+
+기준 클래스 포함된 클래스 갯수: 55
+
+기준 클래스 포함되지 않은 클래스 갯수: 22
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- narrow
+- h-tit
+- done
+- sec-tit
+- bg-white
+- md
+- medium
+- sm
+- info-list
+- decimal
+- col
+- data
+- text-center
+- tit
+- sm-m
+- related-service
+- fold
+- both
+- xlg
+
+
+
+sample_quest_01.html:
+
+기준 클래스 포함된 클래스 갯수: 50
+
+기준 클래스 포함되지 않은 클래스 갯수: 28
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- bg2
+- prev
+- next
+
+
+
+sample_move_process_07.html:
+
+기준 클래스 포함된 클래스 갯수: 10
+
+기준 클래스 포함되지 않은 클래스 갯수: 12
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- comp-msg-wrap
+- w-hide
+- point
+- key
+- value
+- p
+- xlg
+- tit
+- sm
+
+
+
+sample_quest_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 46
+
+기준 클래스 포함되지 않은 클래스 갯수: 22
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li2
+- sort-label
+- text
+- span
+- li
+- c-text
+- c-tit
+- c-txt
+- tag
+- prev
+- next
+
+
+
+sample_search_01.html:
+
+기준 클래스 포함된 클래스 갯수: 2
+
+기준 클래스 포함되지 않은 클래스 갯수: 4
+포함되지 않은 클래스들:
+- scroll-no
+- home
+- txt
+- inner
+
+
+
+sample_quest_0102.html:
+
+기준 클래스 포함된 클래스 갯수: 69
+
+기준 클래스 포함되지 않은 클래스 갯수: 39
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- vert
+- xlg
+- sm
+- aside
+- li
+- tit
+- num
+- collapse
+- radio
+- range
+- mark
+- row
+- text
+- contents
+- border
+- large
+- md
+- type2
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- info-top
+- i-date
+- info-body
+- w-hide
+- in
+- info-btm
+- medium
+- thum
+- i-cate
+- prev
+- next
+
+
+
+sample_quest_02.html:
+
+기준 클래스 포함된 클래스 갯수: 51
+
+기준 클래스 포함되지 않은 클래스 갯수: 29
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- text
+- label
+- md
+- num
+- border
+- large
+- type1
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- span
+- li
+- c-text
+- c-tit
+- c-txt
+- c-date
+- key
+- value
+- tag
+- bg3
+- bg2
+- prev
+- next
+
+
+
+sample_search_0101.html:
+
+기준 클래스 포함된 클래스 갯수: 2
+
+기준 클래스 포함되지 않은 클래스 갯수: 4
+포함되지 않은 클래스들:
+- scroll-no
+- home
+- txt
+- inner
+
+
+
+sample_search_0201.html:
+
+기준 클래스 포함된 클래스 갯수: 3
+
+기준 클래스 포함되지 않은 클래스 갯수: 5
+포함되지 않은 클래스들:
+- scroll-no
+- home
+- txt
+- inner
+- h-tit
+
+
+
+sample_sub_01.html:
+
+기준 클래스 포함된 클래스 갯수: 0
+
+기준 클래스 포함되지 않은 클래스 갯수: 1
+포함되지 않은 클래스들:
+- inner
+
+
+
+sample_search_02.html:
+
+기준 클래스 포함된 클래스 갯수: 50
+
+기준 클래스 포함되지 않은 클래스 갯수: 33
+포함되지 않은 클래스들:
+- home
+- txt
+- inner
+- h-tit
+- vert
+- xlg
+- sm
+- layer
+- mutation
+- full
+- fill
+- type2
+- keyword
+- li1
+- m-hide
+- sort-label
+- li2
+- text
+- span
+- num
+- li
+- info-top
+- i-date
+- info-body
+- tit
+- w-hide
+- in
+- info-btm
+- medium
+- thum
+- i-cate
+- prev
+- next
+
+
+
+sample_sub_02.html:
+
+기준 클래스 포함된 클래스 갯수: 22
+
+기준 클래스 포함되지 않은 클래스 갯수: 6
+포함되지 않은 클래스들:
+- inner
+- in-between
+- contents
+- home
+- txt
+- h-tit
+
+
+
+sample_search_0202.html:
+
+기준 클래스 포함된 클래스 갯수: 3
+
+기준 클래스 포함되지 않은 클래스 갯수: 5
+포함되지 않은 클래스들:
+- scroll-no
+- home
+- txt
+- inner
+- h-tit
+
+
+

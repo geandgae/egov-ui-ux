@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include("../inc/head.html", { "title": "맥락적 도움말 (Contextual help) | 컴포넌트 - KRDS", })
+
+  <body>
+    <div id="wrap" class="g-wrap">
+      @@include("../inc/guide-header.html")
+
+      <!-- 컨테이너 영역 -->
+      <div id="container">
+        <!-- 컨텐츠 영역 -->
+        <div class="inner in-between">
+          <!-- 사이드 메뉴 -->
+          @@include("../inc/guide-lnb.html")
+          <!-- //사이드 메뉴 -->
+
+          <div class="contents">
+            <!-- breadcrumb -->
+            @@include("../inc/page-breadcrumb.html")
+            <!-- breadcrumb -->
+
+            <!-- page-title -->
+            @@include("../inc/page-title.html", { "desc" : "컴포넌트 주변에 배치되어 해당 컴포넌트의 상태나 관련된 상세 정보를 제공하는 컴포넌트이다. 맥락적 도움말은 정보 아이콘이나 도움 아이콘 버튼을 통해 사용자가 요청하는 경우에만 화면에 표시된다." })
+            <!-- //page-title -->
+
+            <!-- krds-quick-nav-type -->
+            <div class="conts-area">
+              @@include("./code/component_08_02_01.html")
+            </div>
+            <!-- //krds-quick-nav-type -->
+
+          </div>
+        </div>
+        <!-- //컨텐츠 영역 -->
+      </div>
+      <!-- //컨테이너 영역 -->
+
+      <!-- 푸터 영역 -->
+      <footer id="footer">@@include("../inc/guide-footer.html")</footer>
+      <!-- //푸터 영역 -->
+    </div>
+  </body>
+</html>
